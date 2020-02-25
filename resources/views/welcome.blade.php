@@ -11,7 +11,7 @@
         <!-- Favicon -->
         <link rel='shortcut icon' href='favicon.png' type='image/png'/>
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
         <!-- Style Sheets -->
         <link href='css/bootstrap.min.css' rel='stylesheet'>
         <link href='css/font-awesome-4.7.0/css/font-awesome.min.css' rel='stylesheet'>
@@ -96,107 +96,15 @@
         </section>
         <!-- End Top Header Section -->
 
-        <!-- Slider Section -->
+        <!-- Slider Section (Banner) -->
         <section id="slider">
             <div class="owl_slider top_slider_wrap">
                 <ul class="owl-carousel top_slider">
-                    <li class="style-1" style="background-image: url(images/slides/img_1.jpg);">
-                        <div class="contentwrap">
-                            <div class="container">
-                                <div class="content">
-                                    <h3 class="slider-tag">Style 1</h3>
-                                    <div class="slideheadingwrap">
-                                        <h2>Crisis Prevention and Recovery</h2>
-                                    </div>
-                                    <div class="description_wrap">
-                                        <div class="description hidden-xs">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                        </div>
-                                    </div>
-                                    <a class="btn1" href="#">More Details</a>
-                                    <a class="btn2" href="#" data-toggle="modal" data-target=".donate_0">Donate</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="style-2" style="background-image: url(images/slides/img_2.jpg);">
-                        <div class="contentwrap">
-                            <div class="container">
-                                <div class="content">
-                                    <h3 class="slider-tag">Style 2</h3>
-                                    <div class="slideheadingwrap">
-                                        <h2>Help For the Children</h2>
-                                    </div>
-                                    <div class="description_wrap">
-                                        <div class="description_wrap">
-                                            <div class="description hidden-xs">
-                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a class="btn1" href="#">More Details</a>
-                                    <a class="btn2" href="#" data-toggle="modal" data-target=".donate_0">Donate</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="style-3" style="background-image: url(images/slides/img_5.jpg);">
-                        <div class="contentwrap">
-                            <div class="container">
-                                <div class="content">
-                                    <h3 class="slider-tag">Style 3</h3>
-                                    <div class="slideheadingwrap">
-                                        <h2>Help Poor Urban Families</h2>
-                                    </div>
-                                    <div class="description_wrap">
-                                        <div class="description hidden-xs">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                        </div>
-                                    </div>
-                                    <a class="btn1" href="#">More Details</a>
-                                    <a class="btn2" href="#" data-toggle="modal" data-target=".donate_0">Donate</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="style-4" style="background-image: url(images/slides/img_6.jpg);">
-                        <div class="contentwrap">
-                            <div class="container">
-                                <div class="content">
-                                    <h3 class="slider-tag">Style 4</h3>
-                                    <div class="slideheadingwrap">
-                                        <h2>A Helping Hand</h2>
-                                    </div>
-                                    <div class="description hidden-xs">
-                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                    </div>
-                                    <a class="btn1" href="#">More Details</a>
-                                    <a class="btn2" href="#" data-toggle="modal" data-target=".donate_0">Donate</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="style-1" style="background-image: url(images/slides/img_4.jpg);">
-                        <div class="contentwrap">
-                            <div class="container">
-                                <div class="content">
-                                    <h3 class="slider-tag">Style 5</h3>
-                                    <div class="slideheadingwrap">
-                                        <h2>Hope for the hopeless</h2>
-                                    </div>
-                                    <div class="description hidden-xs">
-                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                                    </div>
-                                    <a class="btn1" href="#">More Details</a>
-                                    <a class="btn2" href="#" data-toggle="modal" data-target=".donate_0">Donate</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    @include('banner');
                 </ul>
             </div>
         </section>
-        <!-- End Slider Section -->
+        <!-- End Slider Section (Banner) -->
 
         <!-- About Section -->
         <section id="about">
@@ -253,7 +161,7 @@
         </section>
         <!-- End About Section -->
 
-        <!-- Meet The Team Section -->
+        <!-- Meet The Team Section (Miembros)-->
         <section id="meettheteam" class="dark bg">
             <div class="container">
                 <div class="section-title">
@@ -262,43 +170,15 @@
                 <div class="row topspace">
                     <div class="owl_slider team_slider_wrap">
                         <ul class="owl-carousel team_slider">
-                            @foreach($miembros as $i=>$m)
-                            <li>
-                                <div class="image">
-                                    <img src="images/team/{{ ($i+1) }}.png" alt="Team Member"/>
-                                </div>
-                                <div class="name">
-                                    {{ $m->nombre }}
-                                </div>
-                                <div class="title">
-                                    {{ $m->puesto }}
-                                </div>
-                                <div class="social-icons">
-                                    <div class="col-xs-10 centered">
-                                        @if(!empty($m->link_facebook))
-                                            <a href="{{ $m->link_facebook }}" target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-                                        @endif
-                                        @if(!empty($m->link_twitter))
-                                            <a href="{{ $m->link_twitter }}" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
-                                        @endif
-                                        @if(!empty($m->link_linkedin))
-                                            <a href="{{ $m->link_linkedin }}" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
-                                        @endif
-                                        @if(!empty($m->correo))
-                                            <a href="mailto:{{ $m->correo }}" target="_blank"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
-                                        @endif
-                                    </div>
-                                </div>
-                            </li>
-                            @endforeach
+                            @include('miembros')
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- End Meet The Team Section -->
+        <!-- End Meet The Team Section (Miembros) -->
 
-        <!-- Projects Section -->
+        <!-- Projects Section (Proyectos)-->
         <section id="projects">
             <div class="container">
                 <div class="section-title">
@@ -429,9 +309,9 @@
             <!-- Modal -->
 
         </section>
-        <!-- End Projects Section -->
+        <!-- End Projects Section (Proyectos)-->
 
-        <!-- Causes Section -->
+        <!-- Causes Section (Causas)-->
         <section id="causes" class="dark bg">
             <div class="container">
                 <div class="section-title">
@@ -614,7 +494,7 @@
 
             <!-- End Modals -->
         </section>
-        <!-- End Causes Section -->
+        <!-- End Causes Section (Causas)-->
 
         <!-- News & Events Section -->
         <section id="newsandevents">
@@ -623,7 +503,7 @@
                     <h2 class="dark-bg">News & Events</h2>
                 </div>
                 <div class="row">
-                    <!-- Start News -->
+                    <!-- Start News (Noticias)-->
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="latestnews">
                         <h3 class="black-text">Latest News</h3>
 
@@ -713,9 +593,9 @@
                         </div>
                         <!-- End News item 2 modal -->
                     </div>
-                    <!-- End News -->
+                    <!-- End News (Noticias)-->
 
-                    <!-- Starts Events -->
+                    <!-- Starts Events (Eventos)-->
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="events-wrap">
                             <h3 class="black-text">Upcoming Events</h3>
@@ -751,7 +631,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End Events -->
+                    <!-- End Events (Eventos)-->
 
                     <!-- Start Event 1 modal popup -->
                     <div class="modal fade event_1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -779,7 +659,7 @@
         </section>
         <!-- End News & Events Section -->
 
-        <!-- Our Sponsors Section -->
+        <!-- Our Sponsors Section (Sponsors xd)-->
         <section id="sponsors">
             <div class="container">
                 <div class="section-title">
@@ -798,7 +678,7 @@
                 </div>
             </div>
         </section>
-        <!-- End Our Sponsors Section -->
+        <!-- End Our Sponsors Section (Sponsors xd)-->
 
         <!-- Our Contacts Section -->
         <section id="contacts" class="colored">
@@ -833,8 +713,8 @@
                             <p>Leave us a message and we will get back to you asap</p>
                             <!-- Start contact form -->
                             <form class="cmxform" id="ContactForm">
-                                <input 
-                                    id="fname" 
+                                <input
+                                    id="fname"
                                     placeholder="Full Name"
                                     type="text"
                                     minlength="2"
@@ -849,7 +729,7 @@
                                     id="fphone"
                                     placeholder="Phone Number"
                                     type="text">
-                                <textarea 
+                                <textarea
                                     id="fmsg"
                                     placeholder="Message"
                                     data-validation="required"
@@ -983,7 +863,7 @@
         <!-- End Page Preloading -->
 
         <!-- BEGIN SCRIPTS -->
-        <script src="js/jquery-1.12.4.min.js"></script>  
+        <script src="js/jquery-1.12.4.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.bxslider.min.js"></script>
         <script src="js/owl.carousel.min.js"></script>
@@ -999,4 +879,3 @@
     </body>
 
 </html>
-
