@@ -170,7 +170,7 @@
                 <div class="row topspace">
                     <div class="owl_slider team_slider_wrap">
                         <ul class="owl-carousel team_slider">
-                            @include('miembros')
+                            @include('miembro')
                         </ul>
                     </div>
                 </div>
@@ -195,34 +195,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="owl_slider projects_slider_wrap">
                             <ul class="owl-carousel projects_slider">
-                                <li>
-                                    <div class="project_img" style="background-image: url(images/project_1.jpg)"></div>
-                                    <h5>Help Poor Urban Families</h5>
-                                    <h6>Nairobi, Kenya</h6>
-                                    <p>Dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat suscipit lobortis suscipi commodo</p>
-                                    <a href="#" data-toggle="modal" data-target="#volunteerformModal" class="btn btn-primary">Volunteer for this project</a><a href="#" class="btn btn-secondary">Learn More</a>
-                                </li>
-                                <li>
-                                    <div class="project_img" style="background-image: url(images/project_2.jpg)"></div>
-                                    <h5>Crisis Prevention and Recovery</h5>
-                                    <h6>Sydney, Australia</h6>
-                                    <p>Dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat suscipit lobortis suscipi commodo</p>
-                                    <a href="#" data-toggle="modal" data-target="#volunteerformModal" class="btn btn-primary">Volunteer for this project</a><a href="#" class="btn btn-secondary">Learn More</a>
-                                </li>
-                                <li>
-                                    <div class="project_img" style="background-image: url(images/project_3.jpg)"></div>
-                                    <h5>Support Children in India</h5>
-                                    <h6>New Dheli, India</h6>
-                                    <p>Dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat suscipit lobortis suscipi commodo</p>
-                                    <a href="#" data-toggle="modal" data-target="#volunteerformModal" class="btn btn-primary">Volunteer for this project</a><a href="#" class="btn btn-secondary">Learn More</a>
-                                </li>
-                                <li>
-                                    <div class="project_img" style="background-image: url(images/project_4.jpg)"></div>
-                                    <h5>Inclusive & Sustainable Growth</h5>
-                                    <h6>City, Country</h6>
-                                    <p>Dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat suscipit lobortis suscipi commodo</p>
-                                    <a href="#" data-toggle="modal" data-target="#volunteerformModal" class="btn btn-primary">Volunteer for this project</a><a href="#" class="btn btn-secondary">Learn More</a>
-                                </li>
+                                @include('proyecto')
                             </ul>
                         </div>
                     </div>
