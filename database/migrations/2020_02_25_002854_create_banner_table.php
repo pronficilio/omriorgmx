@@ -15,8 +15,8 @@ class CreateBannerTable extends Migration{
             $table->bigIncrements('id');
             $table->string('titulo');
             $table->text('texto');
-            $table->string('link1');
-            $table->string('link2');
+            $table->string('link1')->nullable();
+            $table->string('link2')->nullable();
         });
     }
 

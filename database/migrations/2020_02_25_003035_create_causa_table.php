@@ -4,21 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProyectosTable extends Migration{
+class CreateCausaTable extends Migration{
     /**
      * Run the migrations.
      *
      * @return void
      */
     public function up(){
-        Schema::create('proyectos', function (Blueprint $table) {
+        Schema::create('causa', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('titulo');
-            $table->date('fecha');
-            $table->text('texto');
-            $table->string('link1');
-            $table->string('link2');
-
+            $table->integer('acumulado');
+            $table->integer('cant_donaciones');
+            $table->integer('meta');
+            $table->string('link1')->nullable();
+            $table->string('link2')->nullable();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateProyectosTable extends Migration{
      * @return void
      */
     public function down(){
-        Schema::dropIfExists('proyectos');
+        Schema::dropIfExists('causa');
     }
 }

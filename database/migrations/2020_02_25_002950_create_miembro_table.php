@@ -4,17 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSponsorsTable extends Migration{
+class CreateMiembroTable extends Migration{
     /**
      * Run the migrations.
      *
      * @return void
      */
     public function up(){
-        Schema::create('sponsors', function (Blueprint $table) {
+        Schema::create('miembro', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
-            $table->string('link');
+            $table->string('puesto');
+            $table->string('link_facebook')->nullable();
+            $table->string('link_twitter')->nullable();
+            $table->string('link_linkedin')->nullable();
+            $table->string('correo');
         });
     }
 
@@ -24,6 +28,6 @@ class CreateSponsorsTable extends Migration{
      * @return void
      */
     public function down(){
-        Schema::dropIfExists('sponsors');
+        Schema::dropIfExists('miembro');
     }
 }
