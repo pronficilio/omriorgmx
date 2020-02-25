@@ -262,152 +262,35 @@
                 <div class="row topspace">
                     <div class="owl_slider team_slider_wrap">
                         <ul class="owl-carousel team_slider">
+                            @foreach($miembros as $i=>$m)
                             <li>
                                 <div class="image">
-                                    <img src="images/team/1.png" alt="Team Member"/>
+                                    <img src="images/team/{{ ($i+1) }}.png" alt="Team Member"/>
                                 </div>
                                 <div class="name">
-                                    Particia Sidle
+                                    {{ $m->nombre }}
                                 </div>
                                 <div class="title">
-                                    Founder & CEO
+                                    {{ $m->puesto }}
                                 </div>
                                 <div class="social-icons">
                                     <div class="col-xs-10 centered">
-                                        <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="mailto:someone@example.com" target="_blank"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
+                                        @if(!empty($m->link_facebook))
+                                            <a href="{{ $m->link_facebook }}" target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+                                        @endif
+                                        @if(!empty($m->link_twitter))
+                                            <a href="{{ $m->link_twitter }}" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
+                                        @endif
+                                        @if(!empty($m->link_linkedin))
+                                            <a href="{{ $m->link_linkedin }}" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+                                        @endif
+                                        @if(!empty($m->correo))
+                                            <a href="mailto:{{ $m->correo }}" target="_blank"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
+                                        @endif
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="image">
-                                    <img src="images/team/2.png" alt="Team Member" />
-                                </div>
-                                <div class="name">
-                                    Regina Cassandra
-                                </div>
-                                <div class="title">
-                                    E-Learning Manager
-                                </div>
-                                <div class="social-icons">
-                                    <div class="col-xs-10 centered">
-                                        <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image">
-                                    <img src="images/team/3.png" alt="Team Member"/>
-                                </div>
-                                <div class="name">
-                                    Rhett Stocking
-                                </div>
-                                <div class="title">
-                                    Advertising Director
-                                </div>
-                                <div class="social-icons">
-                                    <div class="col-xs-10 centered">
-                                        <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="mailto:someone@example.com" target="_blank"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image">
-                                    <img src="images/team/4.png" alt="Team Member"/>
-                                </div>
-                                <div class="name">
-                                    Daryl Walk
-                                </div>
-                                <div class="title">
-                                    E-Commerce Director
-                                </div>
-                                <div class="social-icons">
-                                    <div class="col-xs-10 centered">
-                                        <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image">
-                                    <img src="images/team/5.png" alt="Team Member"/>
-                                </div>
-                                <div class="name">
-                                    Thurman Deck
-                                </div>
-                                <div class="title">
-                                    Hatchery Manager
-                                </div>
-                                <div class="social-icons">
-                                    <div class="col-xs-10 centered">
-                                        <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image">
-                                    <img src="images/team/6.png" alt="Team Member"/>
-                                </div>
-                                <div class="name">
-                                    Julia Rolfe
-                                </div>
-                                <div class="title">
-                                    VP Marketing
-                                </div>
-                                <div class="social-icons">
-                                    <div class="col-xs-10 centered">
-                                        <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image">
-                                    <img src="images/team/7.png" alt="Team Member"/>
-                                </div>
-                                <div class="name">
-                                    Noel Toombs
-                                </div>
-                                <div class="title">
-                                    Marketing Director
-                                </div>
-                                <div class="social-icons">
-                                    <div class="col-xs-10 centered">
-                                        <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image">
-                                    <img src="images/team/8.png" alt="Team Member"/>
-                                </div>
-                                <div class="name">
-                                    Reginald Peyton
-                                </div>
-                                <div class="title">
-                                    Compensation Director
-                                </div>
-                                <div class="social-icons">
-                                    <div class="col-xs-10 centered">
-                                        <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
-                                        <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

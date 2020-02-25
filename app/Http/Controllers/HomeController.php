@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Miembro;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $miembros = Miembro::all();
+        return view('welcome', [
+            "miembros" => $miembros
+        ]);
     }
 }
