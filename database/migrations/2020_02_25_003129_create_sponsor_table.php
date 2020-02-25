@@ -15,6 +15,7 @@ class CreateSponsorTable extends Migration{
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('link')->nullable();
+            $table->timestamps();
         });
     }
 

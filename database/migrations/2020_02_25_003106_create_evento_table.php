@@ -17,6 +17,7 @@ class CreateEventoTable extends Migration{
             $table->date('fecha');
             $table->text('texto');
             $table->string('link')->nullable();
+            $table->timestamps();
         });
     }
 

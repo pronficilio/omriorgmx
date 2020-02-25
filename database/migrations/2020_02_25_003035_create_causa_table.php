@@ -19,6 +19,7 @@ class CreateCausaTable extends Migration{
             $table->integer('meta');
             $table->string('link1')->nullable();
             $table->string('link2')->nullable();
+            $table->timestamps();
         });
     }
 

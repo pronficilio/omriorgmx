@@ -19,6 +19,7 @@ class CreateMiembroTable extends Migration{
             $table->string('link_twitter')->nullable();
             $table->string('link_linkedin')->nullable();
             $table->string('correo');
+            $table->timestamps();
         });
     }
 

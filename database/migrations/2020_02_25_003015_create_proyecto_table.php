@@ -18,6 +18,7 @@ class CreateProyectoTable extends Migration{
             $table->text('texto');
             $table->string('link1')->nullable();
             $table->string('link2')->nullable();
+            $table->timestamps();
 
         });
     }
