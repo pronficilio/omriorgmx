@@ -97,6 +97,7 @@
 <!--Fin Banner -->
 
 <!-- Miembros -->
+<!--Este codigo es de Isai, el antiguo se perdio xd -->
 @foreach($miembros as $i=>$m)
 <li>
     <div class="image">
@@ -306,4 +307,74 @@
         </div>
     </div>
 </li>
+
+<!-- Start Modals -->
+<!-- Start Cause 1 modal -->
+<div class="modal fade cause_1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Education for the less fortunate</h4>
+            </div>
+            <div class="modal-body">
+                <img src="images/education_big.jpg" alt="">
+                <hr>
+                <p>Lorem psum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".donate_0">Make Donation</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Cause 1 modal -->
+
+<!-- End Modals -->
 <!-- Fin Causas -->
+
+<!-- Noticias -->
+<!-- Start news item 1 -->
+<div class="newsitem">
+    <div class="row">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
+            <img src="images/news_1.png" alt="">
+        </div>
+        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-6">
+            <div class="news-text-wrap">
+                <div class="news-title">Latest news title
+                </div>
+                <div class="news-date">13 December 2016
+                </div>
+                <div class="news-text">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
+                    <p><a href="#" class="dark light-text" data-toggle="modal" data-target=".news_1">More Details</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End news item 1 -->
+
+<!-- Start News Item 1 modal -->
+<div class="modal fade news_1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Education for the less fortunate</h4>
+            </div>
+            <div class="modal-body">
+                <img src="images/education_big.jpg" alt="">
+                <hr>
+                <p>Lorem psum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".donate_0">Make Donation</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- End News Item 1 modal -->
+
+<!-- Fin Noticias -->

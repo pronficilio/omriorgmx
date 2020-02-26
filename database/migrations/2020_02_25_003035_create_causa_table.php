@@ -17,8 +17,10 @@ class CreateCausaTable extends Migration{
             $table->integer('acumulado');
             $table->integer('cant_donaciones');
             $table->integer('meta');
-            $table->string('link1')->nullable();
-            $table->string('link2')->nullable();
+            //$table->string('link1')->nullable();
+            //$table->string('link2')->nullable();
+            $table->string('detalle_titulo');
+            $table->text('detalle_texto');
             $table->timestamps();
         });
     }

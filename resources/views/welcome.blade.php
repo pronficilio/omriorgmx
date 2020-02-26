@@ -298,8 +298,10 @@
                     </div>
                 </div>
             </div>
+
+            @include('detalle_causa')
             <!-- Start Modals -->
-            <!-- Start Cause 1 modal -->
+            <!-- Start Cause 1 modal
             <div class="modal fade cause_1" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">

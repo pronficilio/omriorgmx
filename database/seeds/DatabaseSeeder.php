@@ -93,8 +93,10 @@ class CausaTableSeeder extends Seeder {
 			'acumulado' => 3000,
 			'cant_donaciones' => 5,
 			'meta' => 50000,
-      'link1' => "https://github.com/",
-      'link2' => "https://github.com/pronficilio"
+      //'link1' => "https://github.com/",
+      //'link2' => "https://github.com/pronficilio",
+      'detalle_titulo' => "Ayuda a que un vagabundo pueda comer",
+      'detalle_texto' => "Los vagabundos son personas muy interesantes en la vida."
 		]);
 
     Causa::create([
@@ -102,8 +104,10 @@ class CausaTableSeeder extends Seeder {
 			'acumulado' => 0,
 			'cant_donaciones' => 0,
 			'meta' => 1000000,
-      'link1' => "https://github.com/GandyA23",
-      'link2' => "https://www.omri.org.mx/index.php"
+      //'link1' => "https://github.com/",
+      //'link2' => "https://github.com/pronficilio",
+      'detalle_titulo' => "Ayuda a la OMRI con plumones",
+      'detalle_texto' => "La herramienta indispensable de la olimpiada"
 		]);
 
     Causa::create([
@@ -111,8 +115,10 @@ class CausaTableSeeder extends Seeder {
 			'acumulado' => 5000,
 			'cant_donaciones' => 9,
 			'meta' => 2000000,
-      'link1' => "https://www.omri.org.mx",
-			'link2' => "https://www.omri.org.mx/omibot.html"
+      //'link1' => "https://github.com/",
+      //'link2' => "https://github.com/pronficilio",
+      'detalle_titulo' => "Ayuda a la OMRI con el boleto de sus participantes",
+      'detalle_texto' => "AYUDAAAAAAAAAAAAAAAAAAAAAAAA!!!!!!!!"
 		]);
 	}
 }

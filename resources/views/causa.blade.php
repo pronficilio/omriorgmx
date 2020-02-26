@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="cause-bottom">
-            <a href="{{$c->link1}}" class="light-text" data-toggle="modal" data-target=".cause_2">View Details</a> | <span class="donate-link"><a href="{{$c->link2}}" data-toggle="modal" data-target=".donate_0">Donate</a></span>
+            <a href="#" class="light-text" data-toggle="modal" data-target=".cause_{{ ($i+1) }}">View Details</a> | <span class="donate-link"><a href="#" data-toggle="modal" data-target=".donate_0">Donate</a></span>
         </div>
     </div>
 </li>
