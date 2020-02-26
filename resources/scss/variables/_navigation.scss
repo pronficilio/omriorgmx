@@ -1,0 +1,23 @@
+// Color variables for the sidenav
+
+// -- Override Base Sidenav Dark
+$sidenav-dark-footer-bg: fade-out($black, 0.75);
+
+// -- Override Base Sidenav Light
+$sidenav-light-bg: $white;
+$sidenav-light-color: $gray-900;
+$sidenav-light-heading-color: $gray-500;
+$sidenav-light-link-color: $sidenav-light-color;
+$sidenav-light-link-active-color: $primary;
+$sidenav-light-icon-color: $gray-500;
+$sidenav-light-footer-bg: fade-out($gray-900, 0.95);
+
+// -- Override Base Sidenav Dark
+$sidenav-dark-bg: lighten($gray-900, 3%);
+
+// -- Sidenav Border Offset
+$sidenav-nested-border-offest: 0.5625rem;
+
+// Color variables for the topnav
+$topnav-dark-toggler-color: fade-out($white, 0.5);
+$topnav-light-toggler-color: $gray-900;

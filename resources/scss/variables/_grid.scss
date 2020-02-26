@@ -1,0 +1,6 @@
+// Override Bootstrap grid column variables
+//
+// Override the spacing between columns to add symmetry to the layout
+
+$spacer: 1rem;
+$grid-gutter-width: $spacer * 3;

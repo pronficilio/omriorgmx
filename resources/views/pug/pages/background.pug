@@ -1,0 +1,106 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'sb-nav-fixed'
+    - var pageTitle = 'Background'
+    - var pageIcon = 'droplet'
+    - var pageSummary = 'Add color and modify element backgrounds with built in, and extended background utilities'
+    - var sidenavStyle = 'sb-sidenav-light'
+    - var topnavStyle = 'navbar-light bg-white'
+    - var pageHeaderStyle = 'sb-page-header-dark'
+    - var pageHeaderBackground = 'bg-gradient-primary-to-secondary'
+    - var footerStyle = 'sb-footer-light'
+
+block content
+    include includes/page-header
+    .container-fluid.mt-n10
+        .row
+            .col-lg-9
+
+                //- Bootstrap Default Background Utilities
+                #default
+                    .card.mb-4
+                        .card-header Bootstrap Defaults
+                        .card-body
+                            .border.sb-border-lg.rounded
+                                .p-4.border-bottom
+                                    .bg-primary.text-white.p-3 .bg-primary
+                                    .bg-secondary.text-white.p-3 .bg-secondary
+                                    .bg-success.text-white.p-3 .bg-success
+                                    .bg-danger.text-white.p-3 .bg-danger
+                                    .bg-warning.text-white.p-3 .bg-warning
+                                    .bg-info.text-white.p-3 .bg-info
+                                    .bg-light.p-3 .bg-light
+                                    .bg-dark.text-white.p-3 .bg-dark
+                                    .bg-white.p-3 .bg-white
+                                    .bg-transparent.p-3 .bg-transparent
+                                .bg-light.p-4.small.
+                                    The default Bootstrap background utilities are contextual by nature, and pull from the color palette defined in the <code>../variables/_colors.scss</code> file.
+
+                //- Expanded Color System Background Utilities
+                #expanded
+                    .card.mb-4
+                        .card-header Expanded Color System
+                        .card-body
+                            .border.sb-border-lg.rounded
+                                .p-4.border-bottom
+                                    .bg-red.text-white.p-3 .bg-red
+                                    .bg-orange.text-white.p-3 .bg-orange
+                                    .bg-yellow.text-white.p-3 .bg-yellow
+                                    .bg-green.text-white.p-3 .bg-green
+                                    .bg-teal.text-white.p-3 .bg-teal
+                                    .bg-cyan.text-white.p-3 .bg-cyan
+                                    .bg-blue.text-white.p-3 .bg-blue
+                                    .bg-indigo.text-white.p-3 .bg-indigo
+                                    .bg-purple.text-white.p-3 .bg-purple
+                                    .bg-pink.text-white.p-3 .bg-pink
+                                .bg-light.p-4.small.
+                                    SB Admin Pro adds non-contextual colors to the color map so they can be used in the same way you would use Bootstrap colors. These colors are also defined in the color <code>../variables/_colors.scss</code> file.
+
+                //- Custom Gradient Background Utilities
+                #gradient
+                    .card.mb-4
+                        .card-header Custom Gradient Background
+                        .card-body
+                            .border.sb-border-lg.rounded
+                                .p-4.border-bottom
+                                    .bg-gradient-primary-to-secondary.text-white.p-3.py-10 .bg-gradient-primary-to-secondary
+                                .bg-light.p-4.small
+                                    | The custom gradient background is being used in the page headers, and can be applied anywhere you would use a normal background color utility.
+
+                //- Adaptive Grayscale Background Utilities
+                #grayscale
+                    .card.mb-4
+                        .card-header Adaptive Grayscale
+                        .card-body
+                            .border.sb-border-lg.rounded
+                                .p-4.border-bottom
+                                    .bg-white.p-3 .bg-white
+                                    .bg-gray-100.p-3 .bg-gray-100
+                                    .bg-gray-200.p-3 .bg-gray-200
+                                    .bg-gray-300.p-3 .bg-gray-300
+                                    .bg-gray-400.p-3 .bg-gray-400
+                                    .bg-gray-500.text-white.p-3 .bg-gray-500
+                                    .bg-gray-600.text-white.p-3 .bg-gray-600
+                                    .bg-gray-700.text-white.p-3 .bg-gray-700
+                                    .bg-gray-800.text-white.p-3 .bg-gray-800
+                                    .bg-gray-900.text-white.p-3 .bg-gray-900
+                                    .bg-black.text-white.p-3 .bg-black
+                                .bg-light.p-4.small.
+                                    <p>The adaptive grayscale is a custom feature in SB Admin Pro. The grayscale is formed by setting a value to the <code>$grayscale-base-hue</code> variable in the <code>../variables/_colors.scss</code> file. The base hue, set to blue by default, is then blended with a true black and white grayscale to make a slightly tinted grayscale that is used throughout the theme.</p>
+                                    <p class='mb-0'>You can use the above utilty classes as background colors for your elements, and you can modify the adaptive grayscale within the <code>../variables/_colors.scss</code> file.</p>
+
+            //- Sticky Navigation
+            .col-lg-3
+                .sb-nav-sticky
+                    .card
+                        .card-body
+                            ul.nav.flex-column#stickyNav
+                                li.nav-item
+                                    a.nav-link(href='#default') Default
+                                li.nav-item
+                                    a.nav-link(href='#expanded') Expanded
+                                li.nav-item
+                                    a.nav-link(href='#gradient') Gradient
+                                li.nav-item
+                                    a.nav-link(href='#grayscale') Grayscale

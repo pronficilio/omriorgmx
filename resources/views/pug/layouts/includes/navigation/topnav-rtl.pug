@@ -1,0 +1,114 @@
+nav.pr-3.pr-sm-0.pl-3(class=['sb-topnav', 'navbar', 'navbar-expand', 'shadow'] class=topnavStyle)#sidenavAccordion
+
+    //- Navbar Items
+    ul.navbar-nav.align-items-center
+        //- User Dropdown
+        li.nav-item.dropdown.no-caret.mr-3.sb-dropdown-user
+            a#navbarDropdownUserImage.btn.sb-btn-icon.sb-btn-transparent-dark.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                img.img-fluid(src='https://source.unsplash.com/QAB-WJcbgJk/60x60')
+            .dropdown-menu.border-0.shadow.animated--fade-in-up(aria-labelledby='navbarDropdownUserImage')
+                h6.dropdown-header.d-flex.align-items-center
+                    img.sb-dropdown-user-img(src='https://source.unsplash.com/QAB-WJcbgJk/60x60')
+                    .sb-dropdown-user-details
+                        .sb-dropdown-user-details-name Valerie Luna
+                        .sb-dropdown-user-details-email vluna@aol.com
+                .dropdown-divider
+                a.dropdown-item(href='javascript:void(0);')
+                    .sb-dropdown-item-icon
+                        i(data-feather='settings')
+                    | Account
+                a.dropdown-item(href='javascript:void(0);')
+                    .sb-dropdown-item-icon
+                        i(data-feather='log-out')
+                    | Logout
+        //- Messages Dropdown
+        li.nav-item.dropdown.no-caret.mr-3.sb-dropdown-notifications
+            a#navbarDropdownMessages.btn.sb-btn-icon.sb-btn-transparent-dark.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                i(data-feather='mail')
+            .dropdown-menu.border-0.shadow.animated--fade-in-up(aria-labelledby='navbarDropdownMessages')
+                h6.dropdown-header.sb-dropdown-notifications-header
+                    i.mr-2(data-feather='mail')
+                    | Message Center
+                //- Example Message 1  
+                a.dropdown-item.sb-dropdown-notifications-item(href='javascript:void(0);')
+                    img.sb-dropdown-notifications-item-img(src='https://source.unsplash.com/vTL_qy03D1I/60x60')
+                    .sb-dropdown-notifications-item-content
+                        .sb-dropdown-notifications-item-content-text
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        .sb-dropdown-notifications-item-content-details
+                            | Emily Fowler · 58m
+                //- Example Message 2
+                a.dropdown-item.sb-dropdown-notifications-item(href='javascript:void(0);')
+                    img.sb-dropdown-notifications-item-img(src='https://source.unsplash.com/4ytMf8MgJlY/60x60')
+                    .sb-dropdown-notifications-item-content
+                        .sb-dropdown-notifications-item-content-text
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        .sb-dropdown-notifications-item-content-details
+                            | Diane Chambers · 2d
+                a.dropdown-item.sb-dropdown-notifications-footer(href='javascript:void(0);') Read All Messages
+        //- Alerts Dropdown
+        li.nav-item.dropdown.no-caret.mr-3.sb-dropdown-notifications
+            a#navbarDropdownAlerts.btn.sb-btn-icon.sb-btn-transparent-dark.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                i(data-feather='bell')
+            .dropdown-menu.border-0.shadow.animated--fade-in-up(aria-labelledby='navbarDropdownAlerts')
+                h6.dropdown-header.sb-dropdown-notifications-header
+                    i.mr-2(data-feather='bell')
+                    | Alerts Center
+                //- Example Alert 1
+                a.dropdown-item.sb-dropdown-notifications-item(href='javascript:void(0);')
+                    .sb-dropdown-notifications-item-icon.bg-warning
+                        i(data-feather='activity')
+                    .sb-dropdown-notifications-item-content
+                        .sb-dropdown-notifications-item-content-details
+                            | December 29, 2019
+                        .sb-dropdown-notifications-item-content-text
+                            | This is an alert message. It's nothing serious, but it requires your attention.
+                //- Example Alert 2
+                a.dropdown-item.sb-dropdown-notifications-item(href='javascript:void(0);')
+                    .sb-dropdown-notifications-item-icon.bg-info
+                        i(data-feather='bar-chart')
+                    .sb-dropdown-notifications-item-content
+                        .sb-dropdown-notifications-item-content-details
+                            | December 22, 2019
+                        .sb-dropdown-notifications-item-content-text
+                            | A new monthly report is ready. Click here to view!
+                //- Example Alert 3
+                a.dropdown-item.sb-dropdown-notifications-item(href='javascript:void(0);')
+                    .sb-dropdown-notifications-item-icon.bg-danger
+                        i.fas.fa-exclamation-triangle
+                    .sb-dropdown-notifications-item-content
+                        .sb-dropdown-notifications-item-content-details
+                            | December 8, 2019
+                        .sb-dropdown-notifications-item-content-text
+                            | Critical system failure, systems shutting down.
+                //- Example Alert 4
+                a.dropdown-item.sb-dropdown-notifications-item(href='javascript:void(0);')
+                    div.sb-dropdown-notifications-item-icon.bg-success
+                        i(data-feather='user-plus')
+                    div.sb-dropdown-notifications-item-content
+                        div.sb-dropdown-notifications-item-content-details
+                            | December 2, 2019
+                        div.sb-dropdown-notifications-item-content-text
+                            | New user request. Woody has requested access to the organization.
+                a.dropdown-item.sb-dropdown-notifications-footer(href='javascript:void(0);') View All Alerts
+
+    //- Documentation Link
+    form.form-inline.mr-auto
+        a.btn.btn-outline-primary.btn-sm(href='https://docs.startbootstrap.com/sb-admin-pro', target='_blank')
+            .d-none.d-sm-inline-flex.align-items-center
+                i.mr-1(data-feather='book')
+                | Documentation
+            .d-inline.d-sm-none
+                | Docs
+
+    //- Navbar Search
+    form.form-inline.ml-auto.d-none.d-lg-block
+        input.form-control.sb-form-control-solid.ml-sm-2(type='search', placeholder='Search', aria-label='Search')
+
+    //- Sidenav Toggle Button
+    button#sidebarToggle.btn.sb-btn-icon.sb-btn-transparent-dark.order-1.order-lg-0.ml-2(href='#')
+        i(data-feather='menu')
+
+    //- Navbar Brand Image or Text
+    a.navbar-brand.text-right.d-none.d-sm-block(href='index.html')
+        img(src='assets/img/sbpro-logo.svg')
