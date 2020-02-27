@@ -16,4 +16,7 @@ Route::get('/', 'HomeController@index')->name('index');
 Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
+
+//Ruta creada para probar el nuevo panel  
+Route::get('/admin/dashboard', 'DashboardController@indexDashboard');
 //Route::get('/home', 'HomeController@index')->name('home');
