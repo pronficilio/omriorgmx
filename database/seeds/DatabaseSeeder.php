@@ -128,21 +128,27 @@ class EventoTableSeeder extends Seeder {
 			'titulo' => "Examen Estatal",
 			'fecha' => "2020/02/24",
 			'texto' => "Se aproxima un nuevo examen",
-			'link' => "https://www.omri.org.mx"
+			'link' => "https://www.omri.org.mx",
+      'detalle_titulo' => "Este sabado, el examen estatal",
+      'detalle_texto' => "Veremos quien seran los 4 que nos representaran en el nacional"
 		]);
 
     Evento::create([
 			'titulo' => "Examen Nacional",
 			'fecha' => "2020/05/26",
 			'texto' => "Se aproxima un nuevo examen Nacional",
-			'link' => "https://www.omri.org.mx"
+			'link' => "https://www.omri.org.mx",
+      'detalle_titulo' => "OMI 2020",
+      'detalle_texto' => "Revisa nuestros resultados en la OMI 2020"
 		]);
 
     Evento::create([
 			'titulo' => "Premios",
 			'fecha' => "2020/02/25",
 			'texto' => "Premiaciones",
-			'link' => "https://www.omri.org.mx"
+			'link' => "https://www.omri.org.mx",
+      'detalle_titulo' => "Este sabado es la premiacion",
+      'detalle_texto' => "Todos estan invitados"
 		]);
 	}
 }
