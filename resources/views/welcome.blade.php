@@ -326,60 +326,14 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="events-wrap">
                             <h3 class="black-text">Upcoming Events</h3>
-                            <div class="event-item">
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 event-date">23<br/><span class="month">Jun</span></div>
-                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 event-info">
-                                    <div class="event-title">Lorem ipsum dolor sit amet, consectetuer adipiscing</div>
-                                    <div class="event-text">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
-                                    </div>
-                                    <p><a href="#" class="dark light-text" data-toggle="modal" data-target=".event_1">More Details</a></p>
-                                </div>
-                            </div>
-                            <div class="event-item">
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 event-date">23<br/><span class="month">Jun</span></div>
-                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 event-info">
-                                    <div class="event-title">Lorem ipsum dolor sit amet, consectetuer adipiscing</div>
-                                    <div class="event-text">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
-                                    </div>
-                                    <p><a href="#" class="dark light-text" data-toggle="modal" data-target=".event_1">More Details</a></p>
-                                </div>
-                            </div>
-                            <div class="event-item">
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 event-date">23<br/><span class="month">Jun</span></div>
-                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 event-info">
-                                    <div class="event-title">Lorem ipsum dolor sit amet, consectetuer adipiscing</div>
-                                    <div class="event-text">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
-                                    </div>
-                                    <p><a href="#" class="dark light-text" data-toggle="modal" data-target=".news_1">More Details</a></p>
-                                </div>
-                            </div>
+                            @include('evento')
                         </div>
                     </div>
                     <!-- End Events (Eventos)-->
 
-                    <!-- Start Event 1 modal popup -->
-                    <div class="modal fade event_1" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">Event Title</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <img src="images/education_big.jpg" alt="">
-                                    <hr>
-                                    <p>Lorem psum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <!-- <button type="button" class="btn btn-primary">Make Donation</button> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Start Event 1 modal popup -->
+                    <!-- Start Event modal popup -->
+                    @include('detalles.evento')
+                    <!-- Start Event modal popup -->
 
                 </div>
             </div>
