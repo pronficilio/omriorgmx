@@ -349,11 +349,7 @@
                 <div class="section-body">
                     <div class="bx_slider sponsor_slider_wrap">
                         <ul class="sponsor_slider">
-                            <li><img src="images/sponsors/1.png" alt="" /></li>
-                            <li><img src="images/sponsors/2.png" alt="" /></li>
-                            <li><img src="images/sponsors/3.png" alt="" /></li>
-                            <li><img src="images/sponsors/4.png" alt="" /></li>
-                            <li><img src="images/sponsors/5.png" alt="" /></li>
+                            @include('sponsor')
                         </ul>
                     </div>
                 </div>

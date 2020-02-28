@@ -438,6 +438,27 @@
         </div>
     </div>
 </div>
-<!-- Start Event 1 modal popup -->
+<!-- End Event 1 modal popup -->
 
 <!-- Fin Eventos -->
+
+<!-- Our Sponsors Section (Sponsors xd)-->
+<section id="sponsors">
+    <div class="container">
+        <div class="section-title">
+            <h2 class="dark-bg">Our Sponsors</h2>
+        </div>
+        <div class="section-body">
+            <div class="bx_slider sponsor_slider_wrap">
+                <ul class="sponsor_slider">
+                    <li><img src="images/sponsors/1.png" alt="" /></li>
+                    <li><img src="images/sponsors/2.png" alt="" /></li>
+                    <li><img src="images/sponsors/3.png" alt="" /></li>
+                    <li><img src="images/sponsors/4.png" alt="" /></li>
+                    <li><img src="images/sponsors/5.png" alt="" /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Our Sponsors Section (Sponsors xd)-->
