@@ -153,21 +153,27 @@ class NoticiaTableSeeder extends Seeder {
       'titulo' => "Nuevos maestros en la olimpiada",
       'fecha' => "2020/02/24",
       'texto' => "Tenemos nuevos integrantes en la olimpiada",
-      'link' => "https://www.omri.org.mx"
+      'link' => "https://www.omri.org.mx",
+      'detalle_titulo' => "Nuevos integrantes en el equipo",
+      'detalle_texto' => "Ya estan aqui los nuevos integrantes."
     ]);
 
     Noticia::create([
       'titulo' => "Nuevo sistema de enseñanza",
       'fecha' => "2020/02/24",
       'texto' => "Hemos estudiado un nuevo sistema, ven, descubrelo",
-      'link' => "https://www.omri.org.mx"
+      'link' => "https://www.omri.org.mx",
+      'detalle_titulo' => "Nuevo sistema de enseñanza se aproxima",
+      'detalle_texto' => "El nuevo sistema de enseñanza se ve muy prometedor y funcionara para todo el publico"
     ]);
 
     Noticia::create([
       'titulo' => "El perro de Isai ya no tiene bolas",
       'fecha' => "2020/02/14",
       'texto' => "Pobre Perro :(",
-      'link' => "https://www.omri.org.mx"
+      'link' => "https://www.omri.org.mx",
+      'detalle_titulo' => "El perro de Isai ya no tiene bolas",
+      'detalle_texto' => "El perro ya desperto :)"
     ]);
   }
 }

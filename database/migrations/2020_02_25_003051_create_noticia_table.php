@@ -17,6 +17,8 @@ class CreateNoticiaTable extends Migration{
             $table->date('fecha');
             $table->text('texto');
             $table->string('link')->nullable();
+            $table->string('detalle_titulo');
+            $table->text('detalle_texto');
             $table->timestamps();
         });
     }
