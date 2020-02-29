@@ -100,7 +100,7 @@
         <section id="slider">
             <div class="owl_slider top_slider_wrap">
                 <ul class="owl-carousel top_slider">
-                    @include('banner');
+                    @include('complementos.banner');
                 </ul>
             </div>
         </section>
@@ -170,7 +170,7 @@
                 <div class="row topspace">
                     <div class="owl_slider team_slider_wrap">
                         <ul class="owl-carousel team_slider">
-                            @include('miembro')
+                            @include('complementos.miembro')
                         </ul>
                     </div>
                 </div>
@@ -195,7 +195,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="owl_slider projects_slider_wrap">
                             <ul class="owl-carousel projects_slider">
-                                @include('proyecto')
+                                @include('complementos.proyecto')
                             </ul>
                         </div>
                     </div>
@@ -293,7 +293,7 @@
                 <div class="row topspace">
                     <div class="owl_slider causes_slider_wrap">
                         <ul class="owl-carousel causes_slider">
-                            @include('causa')
+                            @include('complementos.causa')
                         </ul>
                     </div>
                 </div>
@@ -316,7 +316,7 @@
                         <h3 class="black-text">Latest News</h3>
 
                         <!-- Start news -->
-                        @include('noticia')
+                        @include('complementos.noticia')
                         <!-- End news -->
 
                     </div>
@@ -326,7 +326,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="events-wrap">
                             <h3 class="black-text">Upcoming Events</h3>
-                            @include('evento')
+                            @include('complementos.evento')
                         </div>
                     </div>
                     <!-- End Events (Eventos)-->
@@ -349,12 +349,12 @@
                 <div class="section-body">
                     <div class="bx_slider sponsor_slider_wrap">
                         <ul class="sponsor_slider">
-                            @include('sponsor')
+                            @include('complementos.sponsor')
                         </ul>
                     </div>
                 </div>
             </div>
-        </section>
+        </section>https://www.xvideos.com/video53448281/estaba_un_poco_ebria..._que_rica_estaba_gracias_a_sus_padres
         <!-- End Our Sponsors Section (Sponsors xd)-->
 
         <!-- Our Contacts Section -->
