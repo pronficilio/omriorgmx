@@ -9,6 +9,6 @@ class AdminController extends Controller
     //
     public function index()
     {
-        return view('pug.pages.login-basic');
+        return view('pug.login');
     }
 }
