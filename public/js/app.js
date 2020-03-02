@@ -49672,9 +49672,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\omrinew\omri\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\omrinew\omri\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\omrinew\omri\resources\scss\styles.scss */"./resources/scss/styles.scss");
+__webpack_require__(/*! /opt/lampp/htdocs/Laravel/omriorgmx/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /opt/lampp/htdocs/Laravel/omriorgmx/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /opt/lampp/htdocs/Laravel/omriorgmx/resources/scss/styles.scss */"./resources/scss/styles.scss");
 
 
 /***/ })
