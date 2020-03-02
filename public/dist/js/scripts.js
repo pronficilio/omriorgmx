@@ -152,7 +152,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /opt/lampp/htdocs/Laravel/omriorgmx/resources/js/scripts.js */"./resources/js/scripts.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\omrinew\omri\resources\js\scripts.js */"./resources/js/scripts.js");
 
 
 /***/ })
