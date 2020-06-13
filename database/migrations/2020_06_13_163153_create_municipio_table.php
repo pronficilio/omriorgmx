@@ -4,17 +4,18 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMiembroTable extends Migration{
+class CreateMunicipioTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up(){
-        Schema::create('miembro', function (Blueprint $table) {
+    public function up()
+    {
+        Schema::create('municipio', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
-            $table->string('puesto');
             $table->timestamps();
         });
     }
@@ -24,7 +25,8 @@ class CreateMiembroTable extends Migration{
      *
      * @return void
      */
-    public function down(){
-        Schema::dropIfExists('miembro');
+    public function down()
+    {
+        Schema::dropIfExists('municipio');
     }
 }

@@ -43,22 +43,22 @@ class MiembroTableSeeder extends Seeder {
 		Miembro::create([
 			'nombre' => "Isaí Landa",
 			'puesto' => "Desarrollador de Software",
-			'link_facebook' => "https://facebook.com/pronficilio",
-			'correo' => "info@omri.org.mx"
+			/*'link_facebook' => "https://facebook.com/pronficilio",
+			'correo' => "info@omri.org.mx"*/
 		]);
 
     Miembro::create([
 			'nombre' => "Isaí Landa 2",
 			'puesto' => "Programador",
-			'link_facebook' => "https://facebook.com/pronficilio",
-			'correo' => "info@omri.org.mx"
+			/*'link_facebook' => "https://facebook.com/pronficilio",
+			'correo' => "info@omri.org.mx"*/
 		]);
 
     Miembro::create([
 			'nombre' => "Isaí Landa 3",
 			'puesto' => "Presidente",
-			'link_facebook' => "https://www.facebook.com/groups/178940566004635/",
-			'correo' => "info@omri.org.mx"
+			/*'link_facebook' => "https://www.facebook.com/groups/178940566004635/",
+			'correo' => "info@omri.org.mx"*/
 		]);
 	}
 }
@@ -223,17 +223,17 @@ class SponsorTableSeeder extends Seeder {
 	public function run(){
     Sponsor::create([
       'nombre' => "MC Cornick",
-      'link' => "https://www.google.com"
+      //'link' => "https://www.google.com"
     ]);
 
     Sponsor::create([
       'nombre' => "AMD",
-      'link' => "https://www.google.com"
+      //'link' => "https://www.google.com"
     ]);
 
     Sponsor::create([
       'nombre' => "Doppio",
-      'link' => "https://www.google.com"
+      //'link' => "https://www.google.com"
     ]);
   }
 }
