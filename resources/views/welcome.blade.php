@@ -3,13 +3,13 @@
     <head>
         <meta charset='utf-8'>
         <!-- Title -->
-        <title>Hope Charity</title>
+        <title>OMRI</title>
         <!-- Meta content -->
         <meta content='Project' name='description'>
-        <meta content='Hope Charity' name='keywords'>
+        <meta content='Olimpiada Morelense de Informática, Olimpiada Morelense de Robótica e Informática, OMI, OMRI' name='keywords'>
         <meta content='width=device-width, initial-scale=1' name='viewport'>
         <!-- Favicon -->
-        <link rel='shortcut icon' href='favicon.png' type='image/png'/>
+        <link rel='shortcut icon' href='public/favicon.ico'/>
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
         <!-- Style Sheets -->
@@ -18,17 +18,17 @@
         <link href='css/animate.css' rel='stylesheet'>
         <link href='css/jquery.bxslider.css' rel='stylesheet'>
         <link href='css/owl.carousel.min.css' rel='stylesheet'>
-        <link href='css/template.css' rel='stylesheet'>
+        <link href='css/template.css?v=4' rel='stylesheet'>
 
     </head>
     <body>
         <!-- Top Header Section -->
         <section id="header">
             <div class="container">
-                <div id="logo" class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
-                    <a href="index.html"><img src="images/logo.png" alt="Logo"/></a>
+                <div id="logo" class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <a href="index.html"><img src="images/logo.png" alt="Logo" height="50px" /></a>
                 </div>
-                <div class="col-lg-9 col-md-8 col-sm-8 col-xs-6 top-navigation">
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-6 top-navigation">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mobilemenu">
                             <span class="sr-only">Toggle navigation</span>
@@ -40,25 +40,25 @@
                     <div class="collapse navbar-collapse yamm">
                         <ul class="nav navbar-nav">
                             <li>
-                                <a href="#about">About</a>
+                                <a href="#acercade">Acerca de</a>
                             </li>
                             <li>
-                                <a href="#meettheteam">Our Team</a>
+                                <a href="#conocealequipo">Nuestro equipo</a>
                             </li>
                             <li>
-                                <a href="#projects">Projects</a>
+                                <a href="#proyectos">Proyectos</a>
                             </li>
                             <li>
-                                <a href="#causes">Causes</a>
+                                <a href="#donaciones">Donaciones</a>
                             </li>
                             <li>
-                                <a href="#newsandevents">News & Events</a>
+                                <a href="#noticias">Noticias</a>
                             </li>
                             <li>
-                                <a href="#contacts">Contacts</a>
+                                <a href="#contacto">Contacto</a>
                             </li>
                             <li class="highlighted">
-                                <a href="#" data-toggle="modal" data-target=".donate_0">Donate</a>
+                                <a href="#" data-toggle="modal" data-target=".donate_0">Ayúdanos</a>
                             </li>
                         </ul>
                     </div>
@@ -69,25 +69,25 @@
                     <div class="collapse" id="mobilemenu">
                         <ul class="nav mobile-nav">
                             <li>
-                                <a href="#about">About</a>
+                                <a href="#acercade">Acerca de</a>
                             </li>
                             <li>
-                                <a href="#meettheteam">Our Team</a>
+                                <a href="#conocealequipo">Nuestro equipo</a>
                             </li>
                             <li>
-                                <a href="#projects">Projects</a>
+                                <a href="#proyectos">Proyectos</a>
                             </li>
                             <li>
-                                <a href="#causes">Causes</a>
+                                <a href="#donaciones">Donaciones</a>
                             </li>
                             <li>
-                                <a href="#newsandevents">News & Events</a>
+                                <a href="#noticias">Noticias</a>
                             </li>
                             <li>
-                                <a href="#contacts">Contacts</a>
+                                <a href="#contacto">Contacto</a>
                             </li>
                             <li class="highlighted">
-                                <a href="#" data-toggle="modal" data-target=".donate_0">Donate</a>
+                                <a href="#" data-toggle="modal" data-target=".donate_0">Ayúdanos</a>
                             </li>
                         </ul>
                     </div>
@@ -106,28 +106,37 @@
         </section>
         <!-- End Slider Section (Banner) -->
 
-        <!-- About Section -->
-        <section id="about">
+        <!-- Acerca de Section -->
+        <section id="acercade">
             <div class="container">
                 <div class="section-title">
-                    <h2 class="dark-bg">About</h2>
+                    <h2 class="dark-bg">Acerca de</h2>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <h3>About Hope Charity</h3>
-                        <h4>Founded in 1988<br/>We give hope to the hopeless and helpless</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat suscipit lobortis suscipit lobortis suscipit lobortis suscipit.</p>
-                        <p>Dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat suscipit lobortis suscipi commodo</p>
+                        <h3>Acerca de OMRI</h3>
+                        <h4>Iniciado en 2009<br/>La OMRI es un concurso dirigido a jovenes creativos, que gusten de resolver problemas y los retos</h4>
+                        <p>
+                            ¿Sabes <strong>cómo se hacen esos juegos o aplicaciones</strong> que tanto te gustan?
+                            Se hacen dándole instrucciones a la computadora: <strong>Programando</strong><br>
+                            En la OMRI <strong>aprenderás a programar</strong> y a resolver problemas <strong>utilizando la computadora</strong>.
+                            ¡<strong>Nosotros te enseñamos</strong> desde el principio!
+                        </p>
+                        <p>
+                            <big>¡La Olimpiada Morelense de Robótica e Informática es para todos!</big>
+                            <br>
+                            Cualquiera puede aprender a programar, no importa tu edad ni conocimientos previos
+                        </p>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <h3>Our Mission</h3>
+                        <h3>Nuestra misión</h3>
                         <div class="ourpoints">
                             <div class="row point">
                                 <div class="icon-space">
                                     <i class="fa fa-dot-circle-o fa-3x"></i>
                                 </div>
                                 <div class="text-space text">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+                                    <p>Llevar a Morelos al top 3 de Estados en programación</p>
                                 </div>
                             </div>
                             <div class="row point">
@@ -135,7 +144,7 @@
                                     <i class="fa fa-dot-circle-o fa-3x"></i>
                                 </div>
                                 <div class="text-space text">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+                                    <p>Difundir el arte de la programación</p>
                                 </div>
                             </div>
                             <div class="row point">
@@ -159,13 +168,13 @@
                 </div>
             </div>
         </section>
-        <!-- End About Section -->
+        <!-- End Acerca de Section -->
 
         <!-- Meet The Team Section (Miembros)-->
-        <section id="meettheteam" class="dark bg">
+        <section id="conocealequipo" class="dark bg">
             <div class="container">
                 <div class="section-title">
-                    <h2 class="color-bg">Meet the Team</h2>
+                    <h2 class="color-bg">Conoce al equipo</h2>
                 </div>
                 <div class="row topspace">
                     <div class="owl_slider team_slider_wrap">
@@ -178,23 +187,23 @@
         </section>
         <!-- End Meet The Team Section (Miembros) -->
 
-        <!-- Projects Section (Proyectos)-->
-        <section id="projects">
+        <!-- Proyectos Section (Proyectos)-->
+        <section id="proyectos">
             <div class="container">
                 <div class="section-title">
-                    <h2 class="dark-bg">Projects</h2>
+                    <h2 class="dark-bg">Proyectos</h2>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-bottom: 40px">
-                        <h3>Our Projects</h3>
-                        <h4>Volunteer With Us</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat suscipit lobortis suscipit lobortis suscipit lobortis suscipit.</p>
-                        <p>Dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat suscipit lobortis suscipi commodo</p>
-                        <p><a class="dark" href="#" data-toggle="modal" data-target="#volunteerformModal">Register as a volunteer</a></p>
+                        <h3>Nuestros Proyectos</h3>
+                        <h4>Sé un voluntario con nosotros</h4>
+                        <p>La OMRI es una organización sin fines de lucro. Los miembros de la organización son ex-olímpicos que voluntariamente nos ayudan en los diferentes proyectos enfocados en difundir la programación.</p>
+                        <p>Si estás interesado en ser voluntario en la OMRI, por favor haz clic en el siguiente enlace y déjanos tus datos</p>
+                        <p><a class="dark" href="#" data-toggle="modal" data-target="#volunteerformModal">Registrarse como voluntario</a></p>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="owl_slider projects_slider_wrap">
-                            <ul class="owl-carousel projects_slider">
+                        <div class="owl_slider proyectos_slider_wrap">
+                            <ul class="owl-carousel proyectos_slider">
                                 @include('complementos.proyecto')
                             </ul>
                         </div>
@@ -213,7 +222,7 @@
                             <h4 class="modal-title">Volunteer Application</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="VolunteerForm" action="volunteer_form_submit.php" method="post">
+                            <form id="VolunteerForm" action="volunteer_form_submit" method="post">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="surname" placeholder="Surname" data-validation="length" data-validation-length="min3">
@@ -282,17 +291,17 @@
             <!-- Modal -->
 
         </section>
-        <!-- End Projects Section (Proyectos)-->
+        <!-- End Proyectos Section (Proyectos)-->
 
-        <!-- Causes Section (Causas)-->
-        <section id="causes" class="dark bg">
+        <!-- Donaciones Section (Causas)-->
+        <section id="donaciones" class="dark bg">
             <div class="container">
                 <div class="section-title">
-                    <h2 class="color-bg">Causes</h2>
+                    <h2 class="color-bg">Donaciones</h2>
                 </div>
                 <div class="row topspace">
-                    <div class="owl_slider causes_slider_wrap">
-                        <ul class="owl-carousel causes_slider">
+                    <div class="owl_slider donaciones_slider_wrap">
+                        <ul class="owl-carousel donaciones_slider">
                             @include('complementos.causa')
                         </ul>
                     </div>
@@ -302,13 +311,13 @@
             @include('detalles.causa')
 
         </section>
-        <!-- End Causes Section (Causas)-->
+        <!-- End Donaciones Section (Causas)-->
 
-        <!-- News & Events Section -->
-        <section id="newsandevents">
+        <!-- Noticias Section -->
+        <section id="noticias">
             <div class="container">
                 <div class="section-title">
-                    <h2 class="dark-bg">News & Events</h2>
+                    <h2 class="dark-bg">Noticias</h2>
                 </div>
                 <div class="row">
                     <!-- Start News (Noticias)-->
@@ -338,7 +347,7 @@
                 </div>
             </div>
         </section>
-        <!-- End News & Events Section -->
+        <!-- End Noticias Section -->
 
         <!-- Our Sponsors Section (Sponsors xd)-->
         <section id="sponsors">
@@ -357,35 +366,35 @@
         </section>
         <!-- End Our Sponsors Section (Sponsors xd)-->
 
-        <!-- Our Contacts Section -->
-        <section id="contacts" class="colored">
+        <!-- Our Contacto Section -->
+        <section id="contacto" class="colored">
             <div class="container">
                 <div class="section-title">
-                    <h2 class="dark-bg">Our Contacts</h2>
+                    <h2 class="dark-bg">Contacto</h2>
                 </div>
                 <div class="section-body">
                     <div class="col-lg-3 col-md-3 col-sm-5 col-xs-10 centered contact-details">
                         <div class="social-icons">
                             <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
                             <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
-                            <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>
+                            <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-github-square fa-3x" aria-hidden="true"></i></a>
                             <a href="mailto:someone@example.com" target="_blank"><i class="fa fa-envelope fa-3x" aria-hidden="true"></i></a>
                         </div>
-                        <div class="contacts">
-                            <span class="details">Tel: +1 234 234 1234</span>
+                        <div class="contacto">
+                            <span class="details">Tel: +521 777 534 4338</span>
                             <hr>
-                            <span class="details">Email: info@hopecharity.com</span>
+                            <span class="details">Email: info@omri.org.mx</span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 hidden">
                             <h3 class="black-text">Our Location</h3>
                             <p>132 Lorem Ipsum, Dolor sit, City, Country</p>
                             <!-- Google Maps -->
                             <div id="map"></div>
                             <!-- End Google Map -->
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 sendmessage">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sendmessage">
                             <h3 class="black-text">Send us a message</h3>
                             <p>Leave us a message and we will get back to you asap</p>
                             <!-- Start contact form -->
@@ -420,7 +429,7 @@
                 </div>
             </div>
         </section>
-        <!-- End Our Contacts Section -->
+        <!-- End Our Contacto Section -->
 
         <!-- Footer Section -->
         <section id="footer" class="dark">
@@ -430,13 +439,13 @@
                     <li><a href="#">Link 2</a></li>
                     <li><a href="#">Link 3</a></li>
                 </ul>
-                <p>&#64; 2016 Hope Charity</p>
+                <p>&#64; 2020 Olimpiada Morelense de Informática</p>
             </div>
             <a href="#" class="scrollToTop"><i class="fa fa-chevron-up fa-2x" aria-hidden="true"></i></a>
         </section>
         <!-- End Footer Section -->
 
-        <!-- Start Donate Modal  -->
+        <!-- Start Ayúdanos Modal  -->
         <div class="modal fade donate_0" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -546,7 +555,7 @@
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/jquery.form-validator.min.js"></script>
         <script src="js/scrollreveal.min.js"></script>
-        <script src="js/script.js"></script>
+        <script src="js/script.js?v=2"></script>
 
         <script async defer
             src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=[YOUR-KEY]&callback=initMap">

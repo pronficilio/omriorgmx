@@ -65,34 +65,41 @@ class MiembroTableSeeder extends Seeder {
 class BannerTableSeeder extends Seeder {
 	public function run(){
 		Banner::create([
-			'titulo' => "OMI 2017",
-			'texto' => "Descubre como nos fue este año en la OMI",
-			'link1' => "https://www.omri.org.mx",
-			'link2' => "https://www.omri.org.mx/estadisticas.html#medallas_nacionales"
+			'titulo' => "Olimpiada Morelense de Informática",
+			'texto' => "Inserte aquí alguna frase motivadora",
+			'link1' => null,
+			'link2' => null
 		]);
 
     Banner::create([
-			'titulo' => "OMI 2020",
-			'texto' => "Proximamente",
-			'link1' => "https://www.omri.org.mx",
-			'link2' => "https://www.paypal.me/omrimorelos"
+			'titulo' => "Curso de profesores 2020",
+			'texto' => "¿Estás interesado en enseñar programación en tu escuela?",
+			'link1' => "#",
+			'link2' => null
 		]);
 
     Banner::create([
-			'titulo' => "OMI 2010",
-			'texto' => "Hace ya varios años",
-			'link1' => "https://www.omri.org.mx",
-			'link2' => "https://www.omri.org.mx/omibot.html"
+      'titulo' => "Torneo universitario de programación",
+      'texto' => "Inscribe a tu equipo!",
+      'link1' => "#",
+      'link2' => null
+    ]);
+
+    Banner::create([
+			'titulo' => "XIII Olimpiada Morelense de Informática",
+			'texto' => "Las inscripciones abren en agosto!",
+			'link1' => null,
+			'link2' => null
 		]);
 	}
 }
 class CausaTableSeeder extends Seeder {
 	public function run(){
 		Causa::create([
-			'titulo' => "Ayuda a que un vagabundo pueda comer",
-			'acumulado' => 3000,
-			'cant_donaciones' => 5,
-			'meta' => 50000,
+			'titulo' => "Inscripción al nacional",
+			'acumulado' => 0,
+			'cant_donaciones' => 0,
+			'meta' => 34000,
       //'link1' => "https://github.com/",
       //'link2' => "https://github.com/pronficilio",
       'detalle_titulo' => "Ayuda a que un vagabundo pueda comer",

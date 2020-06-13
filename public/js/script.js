@@ -47,7 +47,7 @@ $(document).ready(function(){
     });
 
     // Causes Section BX Slider Settings
-    $("ul.owl-carousel.causes_slider").owlCarousel({
+    $("ul.owl-carousel.donaciones_slider").owlCarousel({
         margin: 70,
         nav: true,
         dots: false,
@@ -66,7 +66,7 @@ $(document).ready(function(){
     });
 
     // Projects Section BX Slider Settings
-    $("ul.owl-carousel.projects_slider").owlCarousel({
+    $("ul.owl-carousel.proyectos_slider").owlCarousel({
         items: 1,
         loop: true,
         nav: false,
@@ -124,7 +124,7 @@ $(document).ready(function(){
 
     //Form Validation
     $.validate({
-        lang: 'en',
+        lang: 'es',
         onSuccess : function($form) {
             if($form.attr('id') === 'ContactForm'){
                  contactformsubmitdetailsjax();
@@ -144,7 +144,7 @@ $(document).ready(function(){
         scale: 1.0 // 'Change in size of the section; 1.0 means original size is maintained'
     });
 
-    sr.reveal('#about .row.point, #newsandevents .event-item, #ContactForm'); // comma separated sections for scroll reveal
+    sr.reveal('#acercade .row.point, #noticias .event-item, #ContactForm'); // comma separated sections for scroll reveal
     sr.reveal('#latestnews .newsitem', {origin:'left'}); // scroll reveal with left origin
 
     //Top header with menu changes on scroll
@@ -197,7 +197,7 @@ $(document).ready(function(){
     // Submit contact form details
     function contactformsubmitdetailsjax() {
         $.ajax({
-            url: 'php/contact_form_submit.php',
+            url: 'php/contact_form_submit',
             type: 'post',
             data: {
                 name: $('#ContactForm input#fname').val(),
@@ -215,7 +215,7 @@ $(document).ready(function(){
     // Submit volunteer form details
     function volunteerformsubmitdetailsjax() {
         $.ajax({
-            url: 'php/volunteer_form_submit.php',
+            url: 'php/volunteer_form_submit',
             type: 'post',
             data: {
                 surname: $('#VolunteerForm input[name="surname"]').val(),

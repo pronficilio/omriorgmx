@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'HomeController@index')->name('index');
+Route::post('/php/contact_form_submit', 'HomeController@contact');
+Route::post('/php/volunteer_form_submit', 'HomeController@volunteer');
 
 Auth::routes();
 
