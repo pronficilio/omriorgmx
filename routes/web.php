@@ -22,3 +22,6 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 //Ruta creada para probar el nuevo panel  
 Route::get('/admin/dashboard', 'DashboardController@indexDashboard');
 //Route::get('/home', 'HomeController@index')->name('home');
+
+//Nuevo Registro
+Route::get('/registro/nuevo-registro', 'RegistroController@ingresarNuevoRegistro');
