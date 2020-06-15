@@ -6,6 +6,7 @@ use App\Miembro;
 use App\Banner;
 use App\Causa;
 use App\Evento;
+use App\Escuela;
 use App\Noticia;
 use App\Proyecto;
 use App\Sponsor;
@@ -28,6 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProyectoTableSeeder::class);
         $this->call(SponsorTableSeeder::class);
         $this->call(MunicipioTableSeeder::class);
+        $this->call(EscuelaTableSeeder::class);
         $this->command->info("Semilla plantada");
     }
 }
@@ -349,5 +351,67 @@ class SponsorTableSeeder extends Seeder {
       'nombre' => "Doppio",
       //'link' => "https://www.google.com"
     ]);
+  }
+}
+
+class EscuelaTableSeeder extends Seeder {
+  public function run(){
+    Escuela::create(['nombre' => 'Centro de Bachillerato Tecnológico Agropecuario 39']);
+    Escuela::create(['nombre' => 'Centro de Bachillerato Tecnológico Agropecuario 8']);
+    Escuela::create(['nombre' => 'Centro de Bachillerato Tecnológico Industrial y de Servicios 76']);
+    Escuela::create(['nombre' => 'Centro de Estudios Científicos y Tecnológicos 03']);
+    Escuela::create(['nombre' => 'Centro de Estudios Tecnológico Industrial y de y Servicios 12']);
+    Escuela::create(['nombre' => 'Centro de Estudios Tecnológicos Industrial y de Servicios 44']);
+    Escuela::create(['nombre' => 'Centro Educativo Montes de Oca']);
+    Escuela::create(['nombre' => 'Centro Universitario Americano del Estado de Morelos']);
+    Escuela::create(['nombre' => 'Centro Universitario Morelos']);
+    Escuela::create(['nombre' => 'Colegio Andersen']);
+    Escuela::create(['nombre' => 'Colegio Boston']);
+    Escuela::create(['nombre' => 'Colegio Cristóbal Colón']);
+    Escuela::create(['nombre' => 'Colegio Cuernavaca']);
+    Escuela::create(['nombre' => 'Colegio de Bachilleres del Estado de Morelos 02']);
+    Escuela::create(['nombre' => 'Colegio de Bachilleres del Estado de Morelos 08']);
+    Escuela::create(['nombre' => 'Colegio de Estudios Científicos y Tecnológicos 01']);
+    Escuela::create(['nombre' => 'Colegio Hamilton']);
+    Escuela::create(['nombre' => 'Colegio Lowry']);
+    Escuela::create(['nombre' => 'Colegio Marton']);
+    Escuela::create(['nombre' => 'Colegio Marymount']);
+    Escuela::create(['nombre' => 'Colegio Moderno de Cuernavaca']);
+    Escuela::create(['nombre' => 'Colegio Montefalco']);
+    Escuela::create(['nombre' => 'Colegio Nacional de Educación Profesional Técnica 03']);
+    Escuela::create(['nombre' => 'Colegio Nacional de Educación Profesional Técnica 173']);
+    Escuela::create(['nombre' => 'Colegio Nacional de Educación Profesional Técnica 241']);
+    Escuela::create(['nombre' => 'Colegio Potzanani']);
+    Escuela::create(['nombre' => 'Colegio Quetzalcóatl']);
+    Escuela::create(['nombre' => 'Colegio Quetzalli']);
+    Escuela::create(['nombre' => 'Colegio Wallaby']);
+    Escuela::create(['nombre' => 'Escuela de la Ciudad de Curnavaca']);
+    Escuela::create(['nombre' => 'Escuela de Técnicos Laboratoristas']);
+    Escuela::create(['nombre' => 'Escuela en casa']);
+    Escuela::create(['nombre' => 'Fundación El Peñón']);
+    Escuela::create(['nombre' => 'Instituto Educativo las Fuentes']);
+    Escuela::create(['nombre' => 'Instituto Nacional para la Educación de los Adultos']);
+    Escuela::create(['nombre' => 'Instituto Tecnológico y de Estudios Superiores de Monterrey Campus Cuernavaca']);
+    Escuela::create(['nombre' => 'Marymount']);
+    Escuela::create(['nombre' => 'Preparatoria Diurna N#1 Bernabé L. de Elías']);
+    Escuela::create(['nombre' => 'Preparatoria Federal por Cooperación Andrés Quintana Roo']);
+    Escuela::create(['nombre' => 'Primaria 5 de mayo de 1862']);
+    Escuela::create(['nombre' => 'Primaria Emiliano Zapata']);
+    Escuela::create(['nombre' => 'Primaria Guadalupe Victoria']);
+    Escuela::create(['nombre' => 'Primaria Ing. César Uscanga Uscanga']);
+    Escuela::create(['nombre' => 'Primaria Presidente Miguel Alemán']);
+    Escuela::create(['nombre' => 'Secundaria 17 de Marzo']);
+    Escuela::create(['nombre' => 'Secundaria Benito Juarez']);
+    Escuela::create(['nombre' => 'Secundaria Carmen Sallés']);
+    Escuela::create(['nombre' => 'Secundaria Ing. César Uscanga Uscanga']);
+    Escuela::create(['nombre' => 'Secundaria Mercedes Martínez del Campo']);
+    Escuela::create(['nombre' => 'Secundaria N#1 Froylan Parroquín García']);
+    Escuela::create(['nombre' => 'Secundaria N#13 Rosario Castellanos']);
+    Escuela::create(['nombre' => 'Secundaria N#4 Valentín Gómez Farias']);
+    Escuela::create(['nombre' => 'Secundaria Nezahualcóyotl']);
+    Escuela::create(['nombre' => 'Secundaria Técnica N#39']);
+    Escuela::create(['nombre' => 'Secundaria Tlahuilli']);
+    Escuela::create(['nombre' => 'Universidad La Salle']);
+    Escuela::create(['nombre' => 'Universidad Tecmilenio']);
   }
 }

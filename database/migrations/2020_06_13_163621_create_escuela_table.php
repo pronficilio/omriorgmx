@@ -16,10 +16,10 @@ class CreateEscuelaTable extends Migration
         Schema::create('escuela', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
-            $table->string('direccion');
-            $table->string('telefono');
-            $table->unsignedBigInteger('id_municipio');
-            $table->string('nivel_escolar');
+            $table->string('direccion')->nullable();
+            $table->string('telefono')->nullable();
+            $table->unsignedBigInteger('id_municipio')->nullable();
+            $table->string('nivel_escolar')->nullable();
             $table->timestamps();
 
             $table->foreign('id_municipio')->references('id')->on('municipio')->onUpdate('cascade');
