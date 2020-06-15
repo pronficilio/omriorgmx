@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Registro ;
 use App\Escuela ;
+use App\Mail\SendMail;
+
+use Carbon\Carbon;
 
 class RegistroController extends Controller
 {
@@ -43,6 +47,14 @@ class RegistroController extends Controller
     	$aspirante->email_tutor = $datos->input('email_tutor');
     	$aspirante->id_municipio = $datos->input('id_municipio');
     	$aspirante->enterado = $datos->input('enterado');
+
+        $data = array(
+            'nombre'      =>  $datos->input("nombre"),
+            'email'      =>  $datos->input("email"),
+            
+            'now' => Carbon::now()->isoFormat("LLL")
+        );
+        Mail::to($datos->input("email"))->send(new SendMail($data));
 
     	$aspirante->save();
 

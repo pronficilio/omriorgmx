@@ -120,6 +120,8 @@
             </div>
         </section>
 
+        @include('complementos.miembro')
+
         <!-- Acerca de Section -->
         <section id="acercade">
             <div class="container">
@@ -184,11 +186,7 @@
         </section>
         <!-- End Acerca de Section -->
         
-        @include('complementos.miembro')
         
-        @include('complementos.proyecto')
-        
-
         <!-- Donaciones Section (Causas)-->
         <section id="donaciones" class="dark bg">
             <div class="container">
@@ -208,9 +206,13 @@
 
         </section>
         <!-- End Donaciones Section (Causas)-->
+        
+        @include('complementos.proyecto')
+        
+
 
         <!-- Noticias Section -->
-        <section id="noticias">
+        <section id="noticias" class="dark bg">
             <div class="container">
                 <div class="section-title">
                     <h2 class="dark-bg">Noticias</h2>

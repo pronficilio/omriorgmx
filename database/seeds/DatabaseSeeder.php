@@ -158,24 +158,34 @@ class MiembroTableSeeder extends Seeder {
 	public function run(){
 		Miembro::create([
 			'nombre' => "Isaí Landa",
-			'puesto' => "Desarrollador de Software",
-			/*'link_facebook' => "https://facebook.com/pronficilio",
-			'correo' => "info@omri.org.mx"*/
+			'puesto' => "Delegado"
 		]);
 
     Miembro::create([
-			'nombre' => "Isaí Landa 2",
-			'puesto' => "Programador",
-			/*'link_facebook' => "https://facebook.com/pronficilio",
-			'correo' => "info@omri.org.mx"*/
+			'nombre' => "Alexis España",
+			'puesto' => "Secretario"
 		]);
 
     Miembro::create([
-			'nombre' => "Isaí Landa 3",
-			'puesto' => "Presidente",
-			/*'link_facebook' => "https://www.facebook.com/groups/178940566004635/",
-			'correo' => "info@omri.org.mx"*/
+			'nombre' => "Jorge Romero",
+			'puesto' => "Miembro fundador"
 		]);
+    Miembro::create([
+      'nombre' => "Fernando Solano",
+      'puesto' => "Tesorero"
+    ]);
+    Miembro::create([
+      'nombre' => "André",
+      'puesto' => "Entrenador"
+    ]);
+    Miembro::create([
+      'nombre' => "Gandy",
+      'puesto' => "Asesor"
+    ]);
+    Miembro::create([
+      'nombre' => "Mariana de la Rosa",
+      'puesto' => "Asesora"
+    ]);
 	}
 }
 class BannerTableSeeder extends Seeder {
