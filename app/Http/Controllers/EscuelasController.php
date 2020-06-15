@@ -12,14 +12,14 @@ class EscuelasController extends Controller
         $search = $request->input('p')
         $page = $request->input('page')
         if($search == ''){
-            $escuelas = Escuelas::orderby('nombre', 'asc')
+            $escuelas = Escuela::orderby('nombre', 'asc')
                 ->select('nombre')
                 ->offset(5*($page-1))
                 ->limit(5)
                 ->get()
         } 
         else{
-            $escuelas = Escuelas::orderby('nombre', 'asc')
+            $escuelas = Escuela::orderby('nombre', 'asc')
                 ->select('nombre')
                 ->where('nombre', 'like', '%', .$search. '%')
                 ->offset(5*($page-1))
