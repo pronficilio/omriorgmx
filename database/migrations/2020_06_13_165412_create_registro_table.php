@@ -21,11 +21,11 @@ class CreateRegistroTable extends Migration
             $table->string('email');
             $table->unsignedBigInteger('id_escuela');
             $table->string('grado');
-            $table->string('tutor');
-            $table->string('email_tutor');
+            $table->string('tutor')->nullable();
+            $table->string('email_tutor')->nullable();
             $table->unsignedBigInteger('id_municipio');
-            $table->string('enterado');
-            $table->string('anio');
+            $table->string('enterado')->nullable();
+            $table->string('anio')->default("2020");
             $table->timestamps();
 
             $table->foreign('id_escuela')->references('id')->on('escuela')->onUpdate('cascade');

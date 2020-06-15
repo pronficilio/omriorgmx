@@ -122,6 +122,7 @@ $(document).ready(function(){
         return false;
     });
     //$.fn.select2.defaults.set('theme','bootstrap');
+    $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
     $(".select2generico").select2();
     $(".select2escuela").select2({
         'ajax': {
@@ -284,7 +285,7 @@ $(document).ready(function(){
             enterado: $('#RegistroForm select[name="enterado"]').val()
         }, function(result){
             $("#RegistroForm").trigger('reset');
-            $("#contactemailsendresponse").html(result);
+            $("#contactemailsendresponse").html("aaaa sale, mucha gracia ^^");
         });
     }
 

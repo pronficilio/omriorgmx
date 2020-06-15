@@ -25,4 +25,4 @@ Route::post('/api/select/materia', 'EscuelasController@select2');
 //Route::get('/home', 'HomeController@index')->name('home');
 
 //Nuevo Registro
-Route::get('/registro/nuevo-registro', 'RegistroController@ingresarNuevoRegistro');
+Route::post('/registro/nuevo-registro', 'RegistroController@ingresarNuevoRegistro');
