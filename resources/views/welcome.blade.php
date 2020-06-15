@@ -8,6 +8,7 @@
         <meta content='Project' name='description'>
         <meta content='Olimpiada Morelense de Informática, Olimpiada Morelense de Robótica e Informática, OMI, OMRI' name='keywords'>
         <meta content='width=device-width, initial-scale=1' name='viewport'>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Favicon -->
         <link rel='shortcut icon' href='public/favicon.ico'/>
         <!-- Google Fonts -->
@@ -19,92 +20,105 @@
         <link href='css/jquery.bxslider.css' rel='stylesheet'>
         <link href='css/owl.carousel.min.css' rel='stylesheet'>
         <link href='css/template.css?v=4' rel='stylesheet'>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
     </head>
     <body>
-        <!-- Top Header Section -->
-        <section id="header">
-            <div class="container">
-                <div id="logo" class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <a href="index.html"><img src="images/logo.png" alt="Logo" height="50px" /></a>
-                </div>
-                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-6 top-navigation">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mobilemenu">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <div class="collapse navbar-collapse yamm">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a href="#acercade">Acerca de</a>
-                            </li>
-                            <li>
-                                <a href="#conocealequipo">Nuestro equipo</a>
-                            </li>
-                            <li>
-                                <a href="#proyectos">Proyectos</a>
-                            </li>
-                            <li>
-                                <a href="#donaciones">Donaciones</a>
-                            </li>
-                            <li>
-                                <a href="#noticias">Noticias</a>
-                            </li>
-                            <li>
-                                <a href="#contacto">Contacto</a>
-                            </li>
-                            <li class="highlighted">
-                                <a href="#" data-toggle="modal" data-target=".donate_0">Ayúdanos</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="collapse" id="mobilemenu">
-                        <ul class="nav mobile-nav">
-                            <li>
-                                <a href="#acercade">Acerca de</a>
-                            </li>
-                            <li>
-                                <a href="#conocealequipo">Nuestro equipo</a>
-                            </li>
-                            <li>
-                                <a href="#proyectos">Proyectos</a>
-                            </li>
-                            <li>
-                                <a href="#donaciones">Donaciones</a>
-                            </li>
-                            <li>
-                                <a href="#noticias">Noticias</a>
-                            </li>
-                            <li>
-                                <a href="#contacto">Contacto</a>
-                            </li>
-                            <li class="highlighted">
-                                <a href="#" data-toggle="modal" data-target=".donate_0">Ayúdanos</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Top Header Section -->
+        
+        @include('complementos.header')
+    
+        @include('complementos.banner')
+               
 
-        <!-- Slider Section (Banner) -->
-        <section id="slider">
-            <div class="owl_slider top_slider_wrap">
-                <ul class="owl-carousel top_slider">
-                    @include('complementos.banner');
-                </ul>
+        <!-- Meet The Team Section (Miembros)-->
+        <section id="" class=" bg">
+            <div>
+                <div class="section-title">
+                    <h2 class="color-bg">Inscripciones abiertas</h2>
+                </div>
+                <div class="container topspace">
+                    <form id="RegistroForm" action="registro/nuevo-registro" method="post">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div>
+                                    <input type="text" name="nombre" placeholder="Nombre (s)" data-validation="length" data-validation-length="min3">
+                                </div>
+                                <div>
+                                    <input type="text" name="apellido" placeholder="Apellidos" data-validation="length" data-validation-length="min3">
+                                </div>
+                                <div>
+                                    <input type="email" name="email" placeholder="Email" data-validation="email">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div>
+                                            <select class="select2generico" name="municipio" data-placeholder="Municipio" data-validation="required" data-width="100%">
+                                                <option value="">Municipio</option>
+                                                @foreach($municipios as $m)
+                                                    <option value="{{ $m->id }}">{{ $m->nombre }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <input type="number" min="3" max="20" name="edad" placeholder="Edad" data-validation="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <select name="grado" class="select2generico" data-placeholder="Grado escolar" data-validation="required" data-width="100%">
+                                        <option value="">Grado escolar</option>
+                                        <optgroup label="Primaria">
+                                            <option value="1ro Primaria">Primer año de primaria</option>
+                                            <option value="2do Primaria">Segundo año de primaria</option>
+                                            <option value="3ro Primaria">Tercer año de primaria</option>
+                                            <option value="4to Primaria">Cuarto año de primaria</option>
+                                            <option value="5to Primaria">Quinto año de primaria</option>
+                                            <option value="6to Primaria">Sexto año de primaria</option>
+                                        </optgroup>
+                                        <optgroup label="Secundaria">
+                                            <option value="1ro Secundaria">Primer año de secundaria</option>
+                                            <option value="2do Secundaria">Segundo año de secundaria</option>
+                                            <option value="3ro Secundaria">Tercer año de secundaria</option>
+                                        </optgroup>
+                                        <optgroup label="Preparatoria">
+                                            <option value="1ro Preparatoria">Primer año de preparatoria</option>
+                                            <option value="2do Preparatoria">Segundo año de preparatoria</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div>
+                                    <select name="escuela_id" class="select2escuela" data-ajax--dataType="json" data-ajax--method="post" data-ajax--url="api/select/materia" data-validation="required" data-placeholder="Selecciona escuela" data-width="100%"></select>
+                                </div>
+                                <div>
+                                    <input type="text" name="tutor" placeholder="Nombre de tu maestro o tutor (opcional)" data-validation="length" data-validation-length="min3" data-validation-optional="true">
+                                </div>
+                                <div>
+                                    <input type="email" name="email_tutor" placeholder="Email de tu maestro o tutor (opcional)" data-validation="email" data-validation-optional="true">
+                                </div>
+                                <div>
+                                    <select name="enterado" class="select2generico" data-tags="true" data-placeholder="¿Cómo te enteraste de este concurso?" data-validation-optional="true" data-width="100%">
+                                        <option value="">¿Cómo te enteraste de este concurso?</option>
+                                        <option value="Facebook">Por facebook</option>
+                                        <option value="Poster">Vi un poster pegado</option>
+                                        <option value="Maestro">Me invitaron en la escuela</option>
+                                        <option value="amigo">Un amigo me dijo</option>
+                                    </select>
+                                </div>
+                                <div class="g-recaptcha" data-sitekey="6Lel25YUAAAAAMIcBRLyRRJT9d7qbolpqvutz_VP"></div>
+                                <button class="btn btn-secondary submit">Confirmar</button>
+                                <button type="reset" class="btn btn-secondary reset">Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="volunteeremailsendresponse" class="emailsendresponse"></div>
+                </div>
             </div>
         </section>
-        <!-- End Slider Section (Banner) -->
 
         <!-- Acerca de Section -->
         <section id="acercade">
@@ -169,129 +183,11 @@
             </div>
         </section>
         <!-- End Acerca de Section -->
-
-        <!-- Meet The Team Section (Miembros)-->
-        <section id="conocealequipo" class="dark bg">
-            <div class="container">
-                <div class="section-title">
-                    <h2 class="color-bg">Conoce al equipo</h2>
-                </div>
-                <div class="row topspace">
-                    <div class="owl_slider team_slider_wrap">
-                        <ul class="owl-carousel team_slider">
-                            @include('complementos.miembro')
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Meet The Team Section (Miembros) -->
-
-        <!-- Proyectos Section (Proyectos)-->
-        <section id="proyectos">
-            <div class="container">
-                <div class="section-title">
-                    <h2 class="dark-bg">Proyectos</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-bottom: 40px">
-                        <h3>Nuestros Proyectos</h3>
-                        <h4>Sé un voluntario con nosotros</h4>
-                        <p>La OMRI es una organización sin fines de lucro. Los miembros de la organización son ex-olímpicos que voluntariamente nos ayudan en los diferentes proyectos enfocados en difundir la programación.</p>
-                        <p>Si estás interesado en ser voluntario en la OMRI, por favor haz clic en el siguiente enlace y déjanos tus datos</p>
-                        <p><a class="dark" href="#" data-toggle="modal" data-target="#volunteerformModal">Registrarse como voluntario</a></p>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="owl_slider proyectos_slider_wrap">
-                            <ul class="owl-carousel proyectos_slider">
-                                @include('complementos.proyecto')
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Volunteer Form -->
-            <!-- Modal -->
-            <div id="volunteerformModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Volunteer Application</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form id="VolunteerForm" action="volunteer_form_submit" method="post">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="surname" placeholder="Surname" data-validation="length" data-validation-length="min3">
-                                        <input type="text" name="firstname" placeholder="First Name" data-validation="length" data-validation-length="min3">
-                                        <input type="text" name="phone" placeholder="Phone Number">
-                                        <input type="text" name="email" placeholder="Email" data-validation="email">
-                                        <textarea name="address" placeholder="Address" style="height:140px;" data-validation="length" data-validation-length="min3"></textarea>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="formlabel">Gender:</div>
-                                        <div class="fieldcollection">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                    <input id="male" type="radio" name="gender" value="male">
-                                                    <label for="male"><span><span></span></span> Male</label>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                    <input id="female" type="radio" name="gender" value="female">
-                                                    <label for="female"><span><span></span></span> Female</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="formlabel">Age Group:</div>
-                                        <div class="fieldcollection">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                    <input id="under18" type="radio" name="age" value="under18">
-                                                    <label for="under18"><span><span></span></span> Under 18</label>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                    <input id="18-15" type="radio" name="age" value="18-25">
-                                                    <label for="18-25"><span><span></span></span> 18-25</label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                    <input id="26-40" type="radio" name="age" value="26-40">
-                                                    <label for="26-40"><span><span></span></span> 26-40</label>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                    <input id="41-55" type="radio" name="age" value="41-55">
-                                                    <label for="41-55"><span><span></span></span> 41-55</label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                    <input id="over55" type="radio" name="age" value="55+">
-                                                    <label for="over55"><span><span></span></span> 55+</label>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="formlabel">Please tell us why you want to volunteer with our organization?</div>
-                                        <textarea name="why" style="height:110px;"></textarea>
-                                    </div>
-                                </div>
-                                <button class="btn btn-secondary submit">Submit</button>
-                            </form>
-                            <div id="volunteeremailsendresponse" class="emailsendresponse"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Modal -->
-
-        </section>
-        <!-- End Proyectos Section (Proyectos)-->
+        
+        @include('complementos.miembro')
+        
+        @include('complementos.proyecto')
+        
 
         <!-- Donaciones Section (Causas)-->
         <section id="donaciones" class="dark bg">
@@ -555,12 +451,22 @@
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/jquery.form-validator.min.js"></script>
         <script src="js/scrollreveal.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
         <script src="js/script.js?v=2"></script>
 
         <script async defer
             src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=[YOUR-KEY]&callback=initMap">
         </script>
-
+        <script>
+            $(function(){
+                $(".select2generico").select2({
+                    dropdownPArent: $("#RegistroForm")
+                });
+$(".select2generico").select2({
+    dropdownPArent: $("#RegistroForm")
+});
+});
+        </script>
         <!-- END SCRIPTS -->
     </body>
 

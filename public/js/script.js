@@ -121,10 +121,34 @@ $(document).ready(function(){
         $('html, body').animate({scrollTop : 0},800);
         return false;
     });
+    //$.fn.select2.defaults.set('theme','bootstrap');
+    $(".select2generico").select2();
+    $(".select2escuela").select2({
+        'ajax': {
+            'headers': {
+                'X-CSRF-TOKEN': $("meta[name='csrf-token']").attr('content')
+            }
+        }
+    });
+    
 
     //Form Validation
+      var myLanguage = {
+        errorTitle: 'No se recibieron los datos!',
+        requiredField: 'Este campo es obligatorio',
+        requiredFields: 'No has llenado todos los camposss',
+        badInt: 'Esa no parece tu edad',
+        badEmail: 'Formato de email incorrecto',
+        badTelephone: 'No has escrito un teléfono correcto',
+        lengthBadStart: 'La entrada debe tener entre ',
+        lengthBadEnd: ' letras',
+        lengthTooShortStart: 'El campo tiene menos de ',
+        notConfirmed: 'El valor de entrada no está confirmado',
+        min : 'min',
+        max : 'max'
+    };
     $.validate({
-        lang: 'es',
+        language: myLanguage,
         onSuccess : function($form) {
             if($form.attr('id') === 'ContactForm'){
                  contactformsubmitdetailsjax();
@@ -132,6 +156,9 @@ $(document).ready(function(){
             }else if($form.attr('id') === 'VolunteerForm'){
                  volunteerformsubmitdetailsjax();
                  return false;
+            }else if($form.attr('id') == 'RegistroForm'){
+                registroformsubmitdetailsjax();
+                return false;
             }
         },
     });
@@ -242,7 +269,24 @@ $(document).ready(function(){
         });
     }
 
-    
+    // Submit contact form details
+    function registroformsubmitdetailsjax(donde) {
+        $.post($("#RegistroForm").attr("action"), {
+            nombre: $('#RegistroForm input[name="nombre"]').val(),
+            apellido: $('#RegistroForm input[name="apellido"]').val(),
+            edad: $('#RegistroForm input[name="edad"]').val(),
+            email: $('#RegistroForm input[name="email"]').val(),
+            id_escuela: $('#RegistroForm select[name="escuela_id"]').val(),
+            grado: $('#RegistroForm select[name="grado"]').val(),
+            tutor: $('#RegistroForm input[name="tutor"]').val(),
+            email_tutor: $('#RegistroForm input[name="email_tutor"]').val(),
+            id_municipio: $('#RegistroForm select[name="municipio"]').val(),
+            enterado: $('#RegistroForm select[name="enterado"]').val()
+        }, function(result){
+            $("#RegistroForm").trigger('reset');
+            $("#contactemailsendresponse").html(result);
+        });
+    }
 
 });
 

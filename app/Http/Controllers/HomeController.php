@@ -6,6 +6,7 @@ use App\Banner;
 use App\Causa;
 use App\Evento;
 use App\Noticia;
+use App\Municipio;
 use App\Proyecto;
 use App\Sponsor;
 use Illuminate\Http\Request;
@@ -29,6 +30,7 @@ class HomeController extends Controller
     public function index()
     {
         $miembros = Miembro::all();
+        $municipios = Municipio::all();
         $banners = Banner::all();
         $causas = Causa::all();
         $eventos = Evento::all();
@@ -38,6 +40,7 @@ class HomeController extends Controller
 
         return view('welcome', [
             "miembros" => $miembros,
+            "municipios" => $municipios,
             "banners" => $banners,
             "causas" => $causas,
             "eventos" => $eventos,

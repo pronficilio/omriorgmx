@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Municipio;
 use App\Miembro;
 use App\Banner;
 use App\Causa;
@@ -26,8 +27,121 @@ class DatabaseSeeder extends Seeder
         $this->call(NoticiaTableSeeder::class);
         $this->call(ProyectoTableSeeder::class);
         $this->call(SponsorTableSeeder::class);
+        $this->call(MunicipioTableSeeder::class);
         $this->command->info("Semilla plantada");
     }
+}
+class MunicipioTableSeeder extends Seeder {
+  public function run(){
+    Municipio::create([
+        'nombre' => 'Amacuzac'
+    ]);
+    Municipio::create([
+        'nombre' => 'Atlatlahucan'
+    ]);
+    Municipio::create([
+        'nombre' => 'Axochiapan'
+    ]);
+    Municipio::create([
+        'nombre' => 'Ayala'
+    ]);
+    Municipio::create([
+        'nombre' => 'Coatetelco'
+    ]);
+    Municipio::create([
+        'nombre' => 'Coatlán del Río'
+    ]);
+    Municipio::create([
+        'nombre' => 'Cuautla'
+    ]);
+    Municipio::create([
+        'nombre' => 'Cuernavaca'
+    ]);
+    Municipio::create([
+        'nombre' => 'Emiliano Zapata'
+    ]);
+    Municipio::create([
+        'nombre' => 'Hueyapan'
+    ]);
+    Municipio::create([
+        'nombre' => 'Huitzilac'
+    ]);
+    Municipio::create([
+        'nombre' => 'Jantetelco'
+    ]);
+    Municipio::create([
+        'nombre' => 'Jiutepec'
+    ]);
+    Municipio::create([
+        'nombre' => 'Jojutla'
+    ]);
+    Municipio::create([
+        'nombre' => 'Jonacatepec'
+    ]);
+    Municipio::create([
+        'nombre' => 'Mazatepec'
+    ]);
+    Municipio::create([
+        'nombre' => 'Miacatlán'
+    ]);
+    Municipio::create([
+        'nombre' => 'Ocuituco'
+    ]);
+    Municipio::create([
+        'nombre' => 'Puente de Ixtla'
+    ]);
+    Municipio::create([
+        'nombre' => 'Temixco'
+    ]);
+    Municipio::create([
+        'nombre' => 'Temoac'
+    ]);
+    Municipio::create([
+        'nombre' => 'Tepalcingo'
+    ]);
+    Municipio::create([
+        'nombre' => 'Tepoztlán'
+    ]);
+    Municipio::create([
+        'nombre' => 'Tetecala'
+    ]);
+    Municipio::create([
+        'nombre' => 'Tetela del Volcán'
+    ]);
+    Municipio::create([
+        'nombre' => 'Tlalnepantla'
+    ]);
+    Municipio::create([
+        'nombre' => 'Tlaltizapán de Zapata'
+    ]);
+    Municipio::create([
+        'nombre' => 'Tlaquiltenango'
+    ]);
+    Municipio::create([
+        'nombre' => 'Tlayacapan'
+    ]);
+    Municipio::create([
+        'nombre' => 'Totolapan'
+    ]);
+    Municipio::create([
+        'nombre' => 'Xochitepec'
+    ]);
+    Municipio::create([
+        'nombre' => 'Xoxocotla'
+    ]);
+    Municipio::create([
+        'nombre' => 'Yautepec'
+    ]);
+    Municipio::create([
+        'nombre' => 'Yecapixtla'
+    ]);
+    Municipio::create([
+        'nombre' => 'Zacatepec'
+    ]);
+    Municipio::create([
+        'nombre' => 'Zacualpan de Amilpas'
+    ]);
+  }
 }
 class UserTableSeeder extends Seeder {
 	public function run(){

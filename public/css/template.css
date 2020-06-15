@@ -1155,12 +1155,17 @@ ul.proyectos_slider {
 13. FORMS
 -----------------------------------
 */
-form input {
+form input, form .select2 {
 	width: 100%;
+    height: 45px;
 	line-height: 30px;
 	margin-bottom: 20px;
 	padding: 6px 15px;
 	border: 1px solid #a9a9a9;
+}
+
+.select2-container--default .select2-selection--single{
+    border: 0px !important;
 }
 
 input:active, input:focus {
@@ -1182,18 +1187,21 @@ form button {
 	padding: 5px 20px;
 	text-transform: uppercase;
 }
-
-input.error, textarea.error {
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+    top: 10px!important;
+}
+input.error, textarea.error, .has-error .select2-container {
  	border: 2px solid red !important;
 }
 
-input.valid, textarea.valid {
+input.valid, textarea.valid, .has-success .select2-container {
  	border: 1px solid green !important;
 }
 
  .help-block.form-error {
  	color: red;
  	font-weight: 700;
+    margin-top: -10px;
  }
 
 /* Radio / Checkbox Design */
