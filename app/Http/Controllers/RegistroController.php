@@ -48,8 +48,12 @@ class RegistroController extends Controller
     	$aspirante->id_municipio = $datos->input('id_municipio');
     	$aspirante->enterado = $datos->input('enterado');
 
+        $link_codeorg = "https://code.org" ;
+
         $data = array(
-            'nombre'      =>  $datos->input("nombre"),
+            'folio'      => $aspirante->id;
+
+            'nombre'     =>  $datos->input("nombre"),
             'email'      =>  $datos->input("email"),
             
             'now' => Carbon::now()->isoFormat("LLL")

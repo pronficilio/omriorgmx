@@ -10,7 +10,7 @@
                     @foreach($miembros as $i=>$m)
                         <li>
                             <div class="image">
-                                <img src="images/team/{{ ($i+1) }}.png" alt="Team Member"/>
+                                <img style="height: 250px;" src="Miembros/{{ ($i+1) }}.jpeg" alt="Team Member"/>
                             </div>
                             <div class="name">
                                 {{ $m->nombre }}
