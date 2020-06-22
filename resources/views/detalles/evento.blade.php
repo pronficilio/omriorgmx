@@ -1,3 +1,4 @@
+<!-- Start Event modal popup -->
 @foreach($eventos as $i => $e)
   <!-- Start Event $i modal popup -->
   <div class="modal fade event_{{++$i}}" tabindex="-1" role="dialog" aria-hidden="true">
@@ -20,3 +21,4 @@
   </div>
   <!-- End Event 1 modal popup -->
 @endforeach
+<!-- Start Event modal popup -->

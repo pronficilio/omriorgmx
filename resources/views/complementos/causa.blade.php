@@ -1,3 +1,4 @@
+<!-- Donaciones Section (Causas)-->
 <section id="donaciones" class="dark bg">
     <div class="container">
         <div class="section-title">
@@ -39,6 +40,7 @@
 
     @include('detalles.causa')
 </section>
+<!-- End Donaciones Section (Causas)-->
 
 
 

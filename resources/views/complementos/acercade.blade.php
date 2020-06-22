@@ -1,3 +1,4 @@
+<!-- Acerca de Section -->
 <section id="acercade">
     <div class="container">
         <div class="section-title">
@@ -104,9 +105,7 @@
                     </ul>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </section>
+<!-- End Acerca de Section -->

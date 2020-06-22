@@ -1,14 +1,3 @@
-<!--
-<h1>Confirmo confirmo!</h1>
-<ul>
-	<li>Nombre: {{ $data['nombre'] }}</li>
-	<li>E-mail: {{ $data['email'] }}</li>
-</ul>
-<p>
-	<i>Recibido {{ $data['now'] }}</i>
-</p>
--->
-
 <!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="es-wrapper-color">
@@ -54,7 +43,7 @@
                     <table class="es-header" cellspacing="0" cellpadding="0" align="center">
                         <tbody>
                             <tr>
-                                <td class="esd-stripe esd-checked" style="background-image:url(circuits2.png);background-position: center top; background-repeat: no-repeat; background-size: cover;" bgcolor="#3d4c6b" align="center">
+                                <td class="esd-stripe esd-checked" style="background-image:url({{ asset('storage/app/public/email/') }}/circuits2.png);background-position: center top; background-repeat: no-repeat; background-size: cover;" bgcolor="#3d4c6b" align="center">
                                     <!-- Background table -->
                                     <table class="es-header-body" style="background-color: transparent;" width="640" cellspacing="0" cellpadding="0" align="center">
                                         <tbody>
@@ -70,7 +59,7 @@
 
 							                                            <tr align="center">
 							                                            	<td align="center" style="background-color: white;">
-						                                                        <img src="logochico.png" alt="logo OMI" style="border-radius: 5px 5px 5px 5px; display: block;" title="logo OMI" width="200"></a></td>
+						                                                        <img src="{{ asset('storage/app/public/email/') }}/logochico.png" alt="logo OMI" style="border-radius: 5px 5px 5px 5px; display: block;" title="logo OMI" width="200"></a></td>
 						                                                    </td>
 							                                            </tr>
 							                                            <!-- Content -->
@@ -89,7 +78,7 @@
 																				</p-->
 																				
 																				<p>
-																					Los temas que vendrán en el examen serán relacionados a programación básica. Si estás interesado en prepararte en programación con bloques, puedes inscribirte a un curso de preparación adecuado a tu nivel escolar en <strong><a style="color: #038dd0;" href="{{ $data['link-codeorg'] }}"">code.org</a></strong>. 
+																					Los temas que vendrán en el examen serán relacionados a programación básica. Si estás interesado en prepararte en programación con bloques, puedes inscribirte a un curso de preparación adecuado a tu nivel escolar en <strong><a style="color: #038dd0;" href="{{ $data['linkcodeorg'] }}">code.org</a></strong>. 
 																				</p>
 																				<p>
 																					A cambio de una cuota voluntaria de <strong>$50</strong> para apoyar para cubrir gastos de la OMI, podemos ofrecerte asesoría personalizada durante el curso de preparación.

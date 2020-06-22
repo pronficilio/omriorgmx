@@ -1,4 +1,4 @@
-
+<!-- Our Sponsors Section (Sponsors xd)-->
 <section id="sponsors">
     <div class="container">
         <div class="section-title">
@@ -15,4 +15,5 @@
         </div>
     </div>
 </section>
+<!-- End Our Sponsors Section (Sponsors xd)-->
 

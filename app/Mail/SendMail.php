@@ -28,7 +28,7 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_FROM_ADDRESS'))->subject('Confirmo registro')->view('email.test')->with('data', $this->data);
+        return $this->from(env('MAIL_FROM_ADDRESS'))->subject('Confirmación de registro')->view('email.test')->with('data', $this->data);
 
         //return $this->view('view.name');
     }

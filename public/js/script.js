@@ -123,18 +123,22 @@ $(document).ready(function(){
     });
     //$.fn.select2.defaults.set('theme','bootstrap');
     $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
-    $(".select2generico").select2();
+    $(".select2generico").select2({
+        language: "es"
+    });
     $(".select2escuela").select2({
         'ajax': {
             'headers': {
                 'X-CSRF-TOKEN': $("meta[name='csrf-token']").attr('content')
             }
-        }
+        },
+        minimumInputLength: 2,
+        language: "es"
     });
     
 
     //Form Validation
-      var myLanguage = {
+    var myLanguage = {
         errorTitle: 'No se recibieron los datos!',
         requiredField: 'Este campo es obligatorio',
         requiredFields: 'No has llenado todos los camposss',
@@ -272,6 +276,7 @@ $(document).ready(function(){
 
     // Submit contact form details
     function registroformsubmitdetailsjax(donde) {
+        var e = $('#RegistroForm input[name="email"]').val();
         $.post($("#RegistroForm").attr("action"), {
             nombre: $('#RegistroForm input[name="nombre"]').val(),
             apellido: $('#RegistroForm input[name="apellido"]').val(),
@@ -285,7 +290,10 @@ $(document).ready(function(){
             enterado: $('#RegistroForm select[name="enterado"]').val()
         }, function(result){
             $("#RegistroForm").trigger('reset');
-            $("#contactemailsendresponse").html("aaaa sale, mucha gracia ^^");
+            $('#RegistroForm select').val("").trigger("change");
+            swal("Todo bien", "Confirma tu correo "+e+" para continuar, revisa tu bandeja de correo no deseado!", "success", {
+              button: "Oh, ok!",
+            });
         });
     }
 

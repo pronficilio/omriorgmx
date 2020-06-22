@@ -50,12 +50,16 @@ class RegistroController extends Controller
 
         $link_codeorg = "https://code.org" ;
 
-        $data = array(
-            'folio'      => $aspirante->id;
+        $link = "https://studio.code.org/join/LGDNBF";
 
-            'nombre'     =>  $datos->input("nombre"),
+        if($aspirante->grado == "1ro Preparatoria" || $aspirante->grado == "2do Preparatoria" || $aspirante->grado == "1ro Secundaria" || $aspirante->grado == "2do Secundaria" || $aspirante->grado == "3ro Secundaria")
+            $link = "https://studio.code.org/join/FRFHBV";
+
+        $data = array(
+            'folio'      => $aspirante->id,
+            'nombre'     =>  $aspirante->nombre,
             'email'      =>  $datos->input("email"),
-            
+            'linkcodeorg' => $link,
             'now' => Carbon::now()->isoFormat("LLL")
         );
         Mail::to($datos->input("email"))->send(new SendMail($data));

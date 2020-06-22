@@ -1,3 +1,4 @@
+<!-- Starts Events (Eventos)-->
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
     <div class="events-wrap">
         <h3 class="black-text">Upcoming Events</h3>
@@ -70,4 +71,5 @@
         @endforeach
     </div>
 </div>
-        
+<!-- End Events (Eventos)-->
+@include('detalles.evento')
