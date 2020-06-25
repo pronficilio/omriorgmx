@@ -14,11 +14,13 @@ class CreateCodeorgTable extends Migration
     public function up()
     {
         Schema::create('codeorg', function (Blueprint $table) {
+            $table->integer('leccion');
             $table->unsignedBigInteger('id_registro');
-            $table->bigIncrements('leccion');
             $table->timestamps();
 
             $table->foreign('id_registro')->references('id')->on('registro');
+            
+            $table->primary(['leccion', 'id_registro']);
         });
     }
 
