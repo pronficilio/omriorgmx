@@ -27,3 +27,18 @@ Route::post('/api/select/materia', 'EscuelasController@select2');
 
 //Nuevo Registro
 Route::post('/registro/nuevo-registro', 'RegistroController@ingresarNuevoRegistro');
+
+//Retorna id buscando por un email y login
+Route::post('/olimpico/login', 'RegistroController@olimpicoLogin');
+
+//logout
+Route::post('/olimpico/logout', 'RegistroController@olimpicoLogout');
+
+//Retorna categoria
+Route::post('olimpico/categoria', 'RegistroController@getCategoria');
+
+//Muestra el ultimo nivel
+Route::post('olimpico/ultimoNivel', 'RegistroController@ultimoNivel');
+
+//Avanza una leccion
+Route::post('olimpico/siguienteNivel', 'RegistroController@siguienteNivel');
