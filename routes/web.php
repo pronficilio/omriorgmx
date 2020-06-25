@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('index');
+Route::get('/olimpico', 'HomeController@olimpico')->name('olimpico');
 Route::post('/php/contact_form_submit', 'HomeController@contact');
 Route::post('/php/volunteer_form_submit', 'HomeController@volunteer');
 

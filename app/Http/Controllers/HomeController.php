@@ -50,6 +50,11 @@ class HomeController extends Controller
         ]);
     }
 
+    public function olimpico()
+    {
+        return view('olimpico');
+    }
+
     public function contact(Request $request){
         if (isset($_POST['email']) && isset($_POST['name']) && isset($_POST['msg']))  {
             $headers = "From: " . strip_tags($_POST['email']) . "\r\n";
