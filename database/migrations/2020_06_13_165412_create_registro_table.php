@@ -28,9 +28,9 @@ class CreateRegistroTable extends Migration
             $table->string('anio')->default("2020");
             $table->timestamps();
 
-            $table->foreign('id_escuela')->references('id')->on('escuela')->onUpdate('cascade');
+            $table->foreign('id_escuela')->references('id')->on('escuela')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->foreign('id_municipio')->references('id')->on('municipio')->onUpdate('cascade');
+            $table->foreign('id_municipio')->references('id')->on('municipio')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

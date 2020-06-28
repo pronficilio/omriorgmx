@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 use App\Registro ;
 use App\Escuela ;
 use App\Mail\SendMail;
@@ -47,6 +48,7 @@ class RegistroController extends Controller
     	$aspirante->email_tutor = $datos->input('email_tutor');
     	$aspirante->id_municipio = $datos->input('id_municipio');
     	$aspirante->enterado = $datos->input('enterado');
+        $aspirante->categoria = $datos->input('categoria');
 
         $link_codeorg = "https://code.org" ;
 
@@ -67,5 +69,70 @@ class RegistroController extends Controller
     	$aspirante->save();
 
     	return 1 ;
+    }
+
+    public function olimpicoLogin(Request $datos){
+         $id = DB::table('registro')->where('email', $datos->input('email'))->value('id') ;
+
+        if($id > 0){
+            session(['olimpico' => $id]);
+            return  $id;
+        }
+
+        return 0 ;
+    }
+
+    public function olimpicoLogout(Request $request){
+        $request->session()->forget('olimpico');
+    }
+
+    public function getCategoria(){
+        $id = session('olimpico');
+
+        $categoria = DB::table('registro')->where('id', $id)->value('categoria') ;
+
+        if($categoria != NULL){
+            return $categoria ;
+        }
+
+        return 0 ;
+    }
+
+    public function ultimoNivel(){
+        $id = session('olimpico');
+
+        //Retorna la ultima leccion terminada por fecha ->latest() 
+        $nivel = DB::table('codeorg')->where('id_registro', $id)->latest()->value('leccion');
+
+        if($nivel > 0){
+            return $nivel ;
+        }
+
+        return 0 ;
+    }
+
+    public function siguienteNivel(){
+        $id = session('olimpico');
+
+        if($id > 0){
+            $ultimo = $this->ultimoNivel() ;
+
+            //Actualizo la fecha del que ya acabo
+            DB::table('codeorg')
+                ->where('leccion', $ultimo)
+                ->where('id_registro', $id)
+                ->update(['updated_at' => Carbon::now()]);
+
+            //Ingreso una nueva leccion que va a empezar
+            DB::table('codeorg')->insert([
+                'id_registro' => $id,
+                'leccion' => $ultimo+1,
+                'created_at' => Carbon::now()
+            ]);
+
+            return $this->ultimoNivel();
+        }
+
+        return 0 ;
     }
 }

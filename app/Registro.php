@@ -15,4 +15,9 @@ class Registro extends Model
     public function escuela(){
     	return $this->belongsTo('App\Escuela');
     }
+
+    public function codeorg(){
+    	return $this->hasMany('App\Codeorg');
+    }
+
 }

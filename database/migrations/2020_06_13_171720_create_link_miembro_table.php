@@ -21,6 +21,8 @@ class CreateLinkMiembroTable extends Migration
             $table->foreign('id_pagina')->references('id')->on('pagina')->onUpdate('cascade');
 
             $table->foreign('id_miembro')->references('id')->on('miembro')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->primary(['id_pagina', 'id_miembro']);
         });
     }
 

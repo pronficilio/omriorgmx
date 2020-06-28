@@ -21,6 +21,8 @@ class CreateLinkEscuelaTable extends Migration
             $table->foreign('id_escuela')->references('id')->on('escuela')->onUpdate('cascade')->onDelete('cascade');
 
             $table->foreign('id_pagina')->references('id')->on('pagina')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->primary(['id_pagina', 'id_escuela']);
         });
     }
 

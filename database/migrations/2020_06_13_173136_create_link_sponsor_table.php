@@ -21,6 +21,8 @@ class CreateLinkSponsorTable extends Migration
             $table->foreign('id_pagina')->references('id')->on('pagina')->onUpdate('cascade')->onDelete('cascade');
 
             $table->foreign('id_sponsor')->references('id')->on('sponsor')->onUpdate('cascade');
+
+            $table->primary(['id_pagina', 'id_sponsor']);
         });
     }
 
