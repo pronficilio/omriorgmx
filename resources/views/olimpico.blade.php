@@ -26,24 +26,28 @@
     <body>
         
         @include('complementos.header')
+
+        <br><br><br>
     
         <!-- Meet The Team Section (Miembros)-->
-        <section id="conocealequipo" class="dark bg">
+        <section id="zonaexclusiva" class="dark bg">
             <div class="container">
                 <div class="section-title">
-                    <h2 class="color-bg">Zona exclusiva</h2>
+                    <h2 class="color-bg sesioncerrada">Zona exclusiva</h2>
+                    <h2 class="color-bg sesioniniciada hidden">Bienvenido olímpico</h2>
                 </div>
-                <div class="row topspace">
+                <div class="row topspace sesioncerrada">
                     <div class="col-md-8 col-md-offset-2">
                         <p>Para continuar, escribe el email <strong>con el que te registraste</strong></p>
                         <br>
                         <form id="formlimpico">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-8">
-                                    <input type="email" class="form-control" name="email">
+                                    <input type="email" class="form-control" name="email" required>
                                 </div>
                                 <div class="col-md-4">
-                                    <button class="btn" type="submit">Entrar a la zona exclusiva</button>
+                                    <button class="btn btn-primary" type="submit">Entrar a la zona exclusiva</button>
                                 </div>
                             </div>
                         </form>
@@ -51,6 +55,10 @@
                 </div>
             </div>
         </section>
+
+        @include('complementos.contacto')
+
+        @include('complementos.footer')
 
         <!-- Page Preloading -->
         <div id="preloadpage">
@@ -78,10 +86,36 @@
         <script src="js/script.js?v=2"></script>
         <!-- END SCRIPTS -->
         <script>
+            function categoria(){
+                $.post("olimpico/categoria", function(r){
+                    $(".solo"+r).removeClass("hidden");
+                });
+            }
+            function checaSI(){
+                $.post("olimpico/iniciado", function(r){
+                    if(r == 1){
+                        $(".sesioniniciada").removeClass("hidden");
+                        $(".sesioncerrada").addClass("hidden");
+                    }else{
+                        $(".sesioniniciada").addClass("hidden");
+                        $(".sesioncerrada").removeClass("hidden");
+                    }
+                });
+            }
+
             $(function(){
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                checaSI();
                 $("#formlimpico").submit(function(e){
                     e.preventDefault();
                     alert("hasta aqui hemos llegado");
+                    $.post("olimpico/login", $(this).serialize(), function(r){
+                        checaSI();
+                    });
                 });
             });
         </script>

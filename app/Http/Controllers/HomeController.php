@@ -54,6 +54,12 @@ class HomeController extends Controller
     {
         return view('olimpico');
     }
+    public function olimpicoIniciado(){
+        $v = session('olimpico');
+        if($v > 0)
+            return 1;
+        return 0;
+    }
 
     public function contact(Request $request){
         if (isset($_POST['email']) && isset($_POST['name']) && isset($_POST['msg']))  {

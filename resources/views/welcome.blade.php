@@ -74,6 +74,26 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="js/script.js?v=2"></script>
         <!-- END SCRIPTS -->
+        <script>
+            $(function(){
+                $("select[name='grado']").change(function(){
+                    $("select[name='categoria'] option[value='Primaria']").removeAttr("disabled");
+                    $("select[name='categoria'] option[value='Secundaria']").removeAttr("disabled");
+                    $("select[name='categoria'] option[value='Abierta']").removeAttr("disabled");
+                    if($(this).val() != ""){
+                        $("select[name='categoria']").val("Primaria").trigger("change");
+                        if($(this).val() == "1ro Secundaria" || $(this).val() == "2do Secundaria" || $(this).val() == "3ro Secundaria" || $(this).val() == "1ro Preparatoria" || $(this).val() == "2do Preparatoria"){
+                            $("select[name='categoria'] option[value='Primaria']").attr("disabled", "disabled");
+                            $("select[name='categoria']").val("Secundaria").trigger("change");
+                        }
+                        if($(this).val() == "1ro Preparatoria" || $(this).val() == "2do Preparatoria"){
+                            $("select[name='categoria'] option[value='Secundaria']").attr("disabled", "disabled");
+                            $("select[name='categoria']").val("Abierta").trigger("change");
+                        }
+                    }
+                });
+            });
+        </script>
     </body>
 
 </html>

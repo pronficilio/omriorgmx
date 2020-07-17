@@ -77,9 +77,22 @@
                                 <option value="amigo">Un amigo me dijo</option>
                             </select>
                         </div>
-                        <div class="g-recaptcha" data-sitekey="6Lel25YUAAAAAMIcBRLyRRJT9d7qbolpqvutz_VP"></div>
-                        <button class="btn btn-secondary submit">Confirmar</button>
-                        <button type="reset" class="btn btn-secondary reset">Cancelar</button>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div>
+                                    <select name="categoria" class="select2generico" data-tags="true" data-placeholder="Categoría" data-width="100%" data-validation="required">
+                                        <option value="">Categoría</option>
+                                        <option value="Primaria">Primaria [Karel]</option>
+                                        <option value="Secundaria">Secundaria [Karel]</option>
+                                        <option value="Abierta">Abierta [C/C++]</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-secondary submit">Confirmar</button>
+                                <button type="reset" class="btn btn-secondary reset">Cancelar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
