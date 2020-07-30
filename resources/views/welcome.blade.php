@@ -49,6 +49,8 @@
 
         @include('detalles.donacion')
 
+        @include('detalles.humanorepetido')
+
         <!-- Page Preloading -->
         <div id="preloadpage">
             <div class="loadingwrap">

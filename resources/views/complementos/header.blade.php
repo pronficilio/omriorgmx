@@ -2,7 +2,10 @@
 <section id="header">
     <div class="container">
         <div id="logo" class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-            <a href="index.html"><img src="images/logo.png" alt="Logo" height="50px" /></a>
+            <table style="width: 200px"><tr>
+                <td><a href="index.html"><img src="images/icons/omri_logo.png" alt="Logo" height="50px" /></a></td>
+                <td><a href="index.html"><img src="images/icons/nivel1.png" alt="Logo" height="50px" /></a></td>
+            </tr></table>
         </div>
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-6 top-navigation">
             <div class="navbar-header">
@@ -15,6 +18,9 @@
             </div>
             <div class="collapse navbar-collapse yamm">
                 <ul class="nav navbar-nav">
+                    <li class="framework">
+                        <a href="#inscripcion">Inscríbete</a>
+                    </li>
                     <li>
                         <a href="#acercade">Acerca de</a>
                     </li>
@@ -44,6 +50,9 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="collapse" id="mobilemenu">
                 <ul class="nav mobile-nav">
+                    <li class="framework">
+                        <a href="#inscripcion">Inscríbete</a>
+                    </li>
                     <li>
                         <a href="#acercade">Acerca de</a>
                     </li>
