@@ -19,15 +19,16 @@ class RegistroController extends Controller
     	$aspirante = new Registro();
 
     	//En caso de que registre una nueva escuela
-    	if( isset( $_GET['nombre_escuela'] ) ){
-    		$escuela = new Escuela() ;
+    	//if( isset( $_GET['nombre_escuela'] ) ){
+    	if(gettype($datos->input('id_escuela'))!="integer"){
+        	$escuela = new Escuela() ;
 
-    		$escuela->nombre = $datos->input('nombre_escuela');
-    		$escuela->direccion = $datos->input('direccion');
+    		$escuela->nombre = $datos->input('id_escuela');
+    		/*$escuela->direccion = $datos->input('direccion');
     		$escuela->telefono = $datos->input('telefono');
     		$escuela->id_municipio = $datos->input('id_municipio');
     		$escuela->nivel_escolar = $datos->input('nivel_escolar');
-
+            */
     		$escuela->save();
 
     		//Saco el nuevo id de la escuela
@@ -50,7 +51,15 @@ class RegistroController extends Controller
     	$aspirante->enterado = $datos->input('enterado');
         $aspirante->categoria = $datos->input('categoria');
 
-        $link_codeorg = "https://code.org" ;
+        /* Evitar humanos duplicados */
+        //$raw_query = "SELECT COUNT(email) FROM registro WHERE email = $aspirante->email";
+        //$apariciones = DB::select( DB::raw($raw_query) );
+        $apariciones = Registro::where("email", $aspirante->email)->count();
+
+        if($apariciones){
+            return 2;
+        }
+        /*---*/
 
         $link = "https://studio.code.org/join/LGDNBF";
 

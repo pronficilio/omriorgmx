@@ -146,8 +146,8 @@ $(document).ready(function(){
         badEmail: 'Formato de email incorrecto',
         badTelephone: 'No has escrito un teléfono correcto',
         lengthBadStart: 'La entrada debe tener entre ',
-        lengthBadEnd: ' letras',
-        lengthTooShortStart: 'El campo tiene menos de ',
+        lengthBadEnd: ' dígitos :c',
+        lengthTooShortStart: 'Este campo tiene menos de ',
         notConfirmed: 'El valor de entrada no está confirmado',
         min : 'min',
         max : 'max'
@@ -282,6 +282,7 @@ $(document).ready(function(){
             apellido: $('#RegistroForm input[name="apellido"]').val(),
             edad: $('#RegistroForm input[name="edad"]').val(),
             email: $('#RegistroForm input[name="email"]').val(),
+            phone: $('#RegistroForm input[name="phone"]').val(),
             id_escuela: $('#RegistroForm select[name="escuela_id"]').val(),
             grado: $('#RegistroForm select[name="grado"]').val(),
             tutor: $('#RegistroForm input[name="tutor"]').val(),
@@ -291,9 +292,14 @@ $(document).ready(function(){
         }, function(result){
             $("#RegistroForm").trigger('reset');
             $('#RegistroForm select').val("").trigger("change");
-            swal("Todo bien", "Confirma tu correo "+e+" para continuar, revisa tu bandeja de correo no deseado!", "success", {
-              button: "Oh, ok!",
-            });
+            if(result==2){
+                $(".humanorepetido").modal("show");
+            }
+            else{
+                swal("Todo bien", "Confirma tu correo "+e+" para continuar, revisa tu bandeja de correo no deseado!", "success", {
+                    button: "Oh, ok!",
+                });
+            }
         });
     }
 
