@@ -29,12 +29,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $miembros = Miembro::all();
+        $miembros = Miembro::orderBy('orden')->get();
         $municipios = Municipio::all();
         $banners = Banner::all();
         $causas = Causa::all();
-        $eventos = Evento::all();
-        $noticias = Noticia::all();
+        $eventos = Evento::orderBy('fecha')->get();
+        $noticias = Noticia::orderBy('fecha', 'desc')->get();
         $proyectos = Proyecto::all();
         $sponsors = Sponsor::all();
 

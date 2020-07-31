@@ -10,25 +10,25 @@
                     @foreach($causas as $i=>$c)
                     <li>
                         <div class="cause-wrap">
-                            <img src="images/cause/{{ ($i+1) }}.png" alt="Cause Image"/>
-                            <div class="cause-title">
-                                {{$c->titulo}}
+                            <img src="{{ asset('storage/app/public/donaciones').'/'.($c->id) }}.jpg" alt="{{$c->titulo}}"/>
+                            <div class="cause-title color-bg">
+                                <strong>{{$c->titulo}}</strong>
                             </div>
                             <div class="cause-progress">
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ $now = (($c->acumulado)*(100)/($c->meta)) }}" aria-valuemin="0" aria-valuemax="100" style="width:{{$now}}%">{{$now}}%</div>
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ $now = (($c->acumulado)*(100)/($c->meta)) }}" aria-valuemin="0" aria-valuemax="100" style="width:{{number_format($now,0)}}%">{{number_format($now,0)}}%</div>
                                 </div>
                                 <div class="figure">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                        <div class="donations">{{$c->cant_donaciones}} Donaciones</div>
+                                        <div class="donations">{{$c->cant_donaciones}} donaci{{$c->cant_donaciones==1?"ón":"ones"}}</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                        <div class="donate-goal">Meta ${{$c->meta}}</div>
+                                        <div class="donate-goal">Meta ${{number_format($c->meta,2)}}</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="cause-bottom">
-                                <a href="#" class="light-text" data-toggle="modal" data-target=".cause_{{ ($i+1) }}">View Details</a> | <span class="donate-link"><a href="#" data-toggle="modal" data-target=".donate_0">Donate</a></span>
+                                <a href="#" class="light-text" data-toggle="modal" data-target=".cause_{{ ($i+1) }}">Ver Detalles</a> | <span class="donate-link"><a href="#" data-toggle="modal" data-target=".donate_0">Apoyar</a></span>
                             </div>
                         </div>
                     </li>

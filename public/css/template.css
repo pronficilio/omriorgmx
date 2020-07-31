@@ -817,10 +817,12 @@ div.owl-next {
 }
 
 .top_slider_wrap li {
-    background-size: cover;
+    background-size: auto;
+    background-repeat: no-repeat;
     height: 530px;
     min-height: 300px !important;
     margin-bottom: 0px;
+    background-position: center;
 }
 
 ul.top_slider li .content .slider-tag.fadeIn,
@@ -1718,3 +1720,12 @@ a.btn-secondary:hover, a.btn-secondary:focus {
         /*width: 300px !important;*/
     }
 }
+.ttptooltip {
+    background: #333;
+    color: white;
+    font-weight: bold;
+    padding: 4px 8px;
+    font-size: 13px;
+    border-radius: 4px;
+}
+

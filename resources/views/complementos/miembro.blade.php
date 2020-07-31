@@ -8,9 +8,9 @@
             <div class="owl_slider team_slider_wrap">
                 <ul class="owl-carousel team_slider">
                     @foreach($miembros as $i=>$m)
-                        <li>
-                            <div class="image">
-                                <img style="height: 250px;" src="Miembros/{{ ($i+1) }}.jpg" alt="Team Member"/>
+                        <li class="miembro_owl">
+                            <div class="image" id="tooltip_destino_{{$i}}">
+                                <img src="Miembros/{{ $m->id }}-d.png" data-src-hover="Miembros/{{ $m->id }}-hover.png" alt="Foto de {{ $m->nombre }}" aria-describedby="tooltip_origen_{{$i}}"/>
                             </div>
                             <div class="name">
                                 {{ $m->nombre }}
@@ -33,6 +33,9 @@
                                         <a href="mailto:{{ $m->correo }}" target="_blank"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
                                     @endif
                                 </div>
+                            </div>
+                            <div id="tooltip_origen_{{$i}}" class="ttptooltip" role="tooltip">
+                                {{$m->pensamiento}}
                             </div>
                         </li>
                     @endforeach

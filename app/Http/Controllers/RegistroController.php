@@ -43,6 +43,7 @@ class RegistroController extends Controller
     	$aspirante->apellido = $datos->input('apellido');
     	$aspirante->edad = $datos->input('edad');
     	$aspirante->email = $datos->input('email');
+        $aspirante->telefono = $datos->input('phone');
     	$aspirante->id_escuela = $aux_id;
     	$aspirante->grado = $datos->input('grado');
     	$aspirante->tutor = $datos->input('tutor');

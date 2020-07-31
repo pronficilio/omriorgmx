@@ -15,6 +15,8 @@ class CreateMiembroTable extends Migration{
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('puesto');
+            $table->string('pensamiento');
+            $table->integer('orden');
             $table->timestamps();
         });
     }

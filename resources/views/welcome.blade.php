@@ -19,9 +19,8 @@
         <link href='css/animate.css' rel='stylesheet'>
         <link href='css/jquery.bxslider.css' rel='stylesheet'>
         <link href='css/owl.carousel.min.css' rel='stylesheet'>
-        <link href='css/template.css?v=4' rel='stylesheet'>
+        <link href='css/template.css?v=5' rel='stylesheet'>
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-
     </head>
     <body>
         
@@ -37,7 +36,7 @@
 
         @include('complementos.causa')
         
-        @include('complementos.proyecto')
+        {{-- @include('complementos.proyecto') --}}
 
         @include('complementos.noticia')
         
@@ -75,6 +74,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/i18n/es.min.js" integrity="sha256-3rDVEasLjZL5m8j0M0VHX8YqfrjT/JHZtNWgdUO4uXM=" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="js/script.js?v=2"></script>
+
         <!-- END SCRIPTS -->
         <script>
             $(function(){

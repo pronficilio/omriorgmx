@@ -22,13 +22,10 @@
                         <a href="#inscripcion">Inscríbete</a>
                     </li>
                     <li>
-                        <a href="#acercade">Acerca de</a>
-                    </li>
-                    <li>
                         <a href="#conocealequipo">Nuestro equipo</a>
                     </li>
                     <li>
-                        <a href="#proyectos">Proyectos</a>
+                        <a href="#acercade">Acerca de</a>
                     </li>
                     <li>
                         <a href="#donaciones">Donaciones</a>
@@ -39,9 +36,9 @@
                     <li>
                         <a href="#contacto">Contacto</a>
                     </li>
-                    <li class="highlighted">
+                    <!--li class="highlighted">
                         <a href="#" data-toggle="modal" data-target=".donate_0">Ayúdanos</a>
-                    </li>
+                    </li-->
                 </ul>
             </div>
         </div>

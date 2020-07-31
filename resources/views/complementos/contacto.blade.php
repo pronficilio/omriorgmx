@@ -7,10 +7,9 @@
         <div class="section-body">
             <div class="col-lg-3 col-md-3 col-sm-5 col-xs-10 centered contact-details">
                 <div class="social-icons">
-                    <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
-                    <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
-                    <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-github-square fa-3x" aria-hidden="true"></i></a>
-                    <a href="mailto:someone@example.com" target="_blank"><i class="fa fa-envelope fa-3x" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/omrioficial/" target="_blank"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
+                    <a href="https://twitter.com/omri_oficial" target="_blank"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
+                    <a href="mailto:info@omri.org.mx" target="_blank"><i class="fa fa-envelope fa-3x" aria-hidden="true"></i></a>
                 </div>
                 <div class="contacto">
                     <span class="details">Tel: +521 777 534 4338</span>
@@ -34,7 +33,7 @@
                     <form class="cmxform" id="ContactForm">
                         <input
                             id="fname"
-                            placeholder="Nonmbre completo"
+                            placeholder="Nombre completo"
                             type="text"
                             minlength="2"
                             data-validation="length"

@@ -4,7 +4,6 @@
 jQuery(window).on('load', function () {
     $('#preloadpage').addClass('animated slideOutDown');
 });
-
 $(document).ready(function(){
     //Various Sliders options and configurations
     //More Options -> https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html
@@ -30,6 +29,8 @@ $(document).ready(function(){
     // Team Section BX Slider Settings
     $("ul.owl-carousel.team_slider").owlCarousel({
         margin: 30,
+        autoplay:true,
+        autoplayTimeout: 9000,
         nav: true,
         dots: false,
         loop: true,
@@ -44,6 +45,15 @@ $(document).ready(function(){
             items: 4
           }
         }
+    }).on('changed.owl.carousel initialize.owl.carousel', function(event){
+        var i=(event.item.index - 4);
+        console.log("mostrando"+i);
+    });
+    $(".team_slider .image img").hover(function(){
+        $(this).attr("tmp", $(this).attr("src"));
+        $(this).attr("src", $(this).attr("data-src-hover"));
+    }, function(){
+        $(this).attr("src", $(this).attr("tmp"));
     });
 
     // Causes Section BX Slider Settings
@@ -133,7 +143,8 @@ $(document).ready(function(){
             }
         },
         minimumInputLength: 2,
-        language: "es"
+        language: "es",
+        allowClear: true
     });
     
 
@@ -146,7 +157,7 @@ $(document).ready(function(){
         badEmail: 'Formato de email incorrecto',
         badTelephone: 'No has escrito un teléfono correcto',
         lengthBadStart: 'La entrada debe tener entre ',
-        lengthBadEnd: ' dígitos :c',
+        lengthBadEnd: ' caracteres :c',
         lengthTooShortStart: 'Este campo tiene menos de ',
         notConfirmed: 'El valor de entrada no está confirmado',
         min : 'min',

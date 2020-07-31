@@ -9,7 +9,7 @@
                   <h4 class="modal-title">{{$e -> detalle_titulo}}</h4>
               </div>
               <div class="modal-body">
-                  <img src="images/event/detalles/{{($i+1)}}.png" alt="">
+                  <img src="{{ asset('storage/app/public/eventos').'/'.($e->id==3?$e->id.'.png':$e->id.'.jpg') }}" alt="">
                   <hr>
                   <p>{{$e -> detalle_texto}}</p>
               </div>

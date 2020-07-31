@@ -19,6 +19,7 @@ class CreateRegistroTable extends Migration
             $table->string('apellido');
             $table->integer('edad');
             $table->string('email');
+            $table->string('telefono')->nullable();
             $table->unsignedBigInteger('id_escuela');
             $table->string('grado');
             $table->string('tutor')->nullable();

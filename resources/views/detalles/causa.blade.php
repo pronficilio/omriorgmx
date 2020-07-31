@@ -10,12 +10,12 @@
                 <h4 class="modal-title">{{$c->detalle_titulo}}</h4>
             </div>
             <div class="modal-body">
-                <img src="images/cause/detalles/{{($i+1)}}.png" alt="">
+                <img src="{{ asset('storage/app/public/donaciones').'/'.($c->id) }}.jpg" alt="{{$c->titulo}}">
                 <hr>
                 <p>{{$c->detalle_texto}}</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".donate_0">Make Donation</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".donate_0">Apoyar</button>
             </div>
         </div>
     </div>
