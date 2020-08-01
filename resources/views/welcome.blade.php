@@ -3,10 +3,11 @@
     <head>
         <meta charset='utf-8'>
         <!-- Title -->
-        <title>OMRI</title>
+        <title>OMRI - Olimpiada Morelense de Informática</title>
         <!-- Meta content -->
-        <meta content='Project' name='description'>
-        <meta content='Olimpiada Morelense de Informática, Olimpiada Morelense de Robótica e Informática, OMI, OMRI' name='keywords'>
+        <meta content='La Olimpiada Morelense de Informática es un concurso que busca a los mejores talentos de Morelos' name='description'>
+        <meta content="Pronficilio" name="author" />
+        <meta content='Olimpiada Morelense de Informática, Olimpiada Morelense de Robótica e Informática, OMI, OMRI, programación, programacion, curso de programación, karel, C, c++' name='keywords'>
         <meta content='width=device-width, initial-scale=1' name='viewport'>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Favicon -->
@@ -28,7 +29,7 @@
     
         @include('complementos.banner')
 
-        @include('complementos.inscripcion')
+        {{-- @include('complementos.inscripcion') --}}
 
         @include('complementos.miembro')
 
