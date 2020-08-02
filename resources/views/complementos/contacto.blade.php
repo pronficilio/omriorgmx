@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sendmessage">
                     <h3 class="black-text">ENVIAR UN MENSAJE A OMRI</h3>
-                    <p>Escribe tu mesaje y trataremos de ayudarte enseguida</p>
+                    <p>Escribe tu mensaje y trataremos de ayudarte enseguida</p>
                     <!-- Start contact form -->
                     <form class="cmxform" id="ContactForm">
                         <input

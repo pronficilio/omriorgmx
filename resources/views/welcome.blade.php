@@ -22,6 +22,7 @@
         <link href='css/owl.carousel.min.css' rel='stylesheet'>
         <link href='css/template.css?v=5' rel='stylesheet'>
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     </head>
     <body>
         
@@ -29,7 +30,7 @@
     
         @include('complementos.banner')
 
-        {{-- @include('complementos.inscripcion') --}}
+        @include('complementos.inscripcion')
 
         @include('complementos.miembro')
 
@@ -74,7 +75,9 @@
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/i18n/es.min.js" integrity="sha256-3rDVEasLjZL5m8j0M0VHX8YqfrjT/JHZtNWgdUO4uXM=" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script src="js/script.js?v=2"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/script.js?v=3"></script>
 
         <!-- END SCRIPTS -->
         <script>

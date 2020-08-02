@@ -22,6 +22,7 @@ class EscuelasController extends Controller
             $escuelas = Escuela::orderby('nombre', 'asc')
                 ->select('nombre', 'id')
                 ->where('nombre', 'like', '%'.$search.'%')
+                ->orWhere('corto', 'like', '%'.$search.'%')
                 ->offset(5*($page-1))
                 ->limit(5)
                 ->get();

@@ -22,7 +22,7 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 
 //Ruta creada para probar el nuevo panel  
 Route::get('/admin/dashboard', 'DashboardController@indexDashboard');
-Route::post('/api/select/materia', 'EscuelasController@select2');
+Route::any('/api/select/materia', 'EscuelasController@select2');
 //Route::get('/home', 'HomeController@index')->name('home');
 
 //Nuevo Registro

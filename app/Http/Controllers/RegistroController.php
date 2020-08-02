@@ -20,7 +20,7 @@ class RegistroController extends Controller
 
     	//En caso de que registre una nueva escuela
     	//if( isset( $_GET['nombre_escuela'] ) ){
-    	if(gettype($datos->input('id_escuela'))!="integer"){
+    	if(!is_numeric($datos->input('id_escuela'))){
         	$escuela = new Escuela() ;
 
     		$escuela->nombre = $datos->input('id_escuela');
@@ -66,7 +66,8 @@ class RegistroController extends Controller
 
         if($aspirante->grado == "1ro Preparatoria" || $aspirante->grado == "2do Preparatoria" || $aspirante->grado == "1ro Secundaria" || $aspirante->grado == "2do Secundaria" || $aspirante->grado == "3ro Secundaria")
             $link = "https://studio.code.org/join/FRFHBV";
-
+        
+        $aspirante->save();
         $data = array(
             'folio'      => $aspirante->id,
             'nombre'     =>  $aspirante->nombre,
@@ -75,9 +76,6 @@ class RegistroController extends Controller
             'now' => Carbon::now()->isoFormat("LLL")
         );
         Mail::to($datos->input("email"))->send(new SendMail($data));
-
-    	$aspirante->save();
-
     	return 1 ;
     }
 

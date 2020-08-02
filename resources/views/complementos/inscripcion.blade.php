@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div>
-                            <select data-tags="true" name="escuela_id" class="select2escuela" data-ajax--dataType="json" data-ajax--method="post" data-ajax--url="api/select/materia" data-validation="required" data-placeholder="Selecciona escuela" data-width="100%"></select>
+                            <select data-tags="true" name="escuela_id" class="select2escuela" data-ajax--dataType="json" data-ajax--url="api/select/materia" data-validation="required" data-placeholder="Busca y selecciona tu escuela" data-width="100%"></select>
                         </div>
                         <div>
                             <input type="text" name="tutor" placeholder="Nombre de tu maestro o tutor (opcional)" data-validation="length" data-validation-length="min3" data-validation-optional="true">

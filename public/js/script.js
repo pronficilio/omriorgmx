@@ -8,93 +8,101 @@ $(document).ready(function(){
     //Various Sliders options and configurations
     //More Options -> https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html
     // Slider Section BX Slider Settings
-    $("ul.owl-carousel.top_slider").owlCarousel({
-        items: 1,
-        loop: true,
-        nav: true,
-        dots: false,
-        autoplay:true,
-        autoplayTimeout:9000,
-        smartSpeed:1000,
-        onChange: function(){
-            beforeslide();
-        },
-        onChanged: function(){
-            setTimeout(function(){
-                afterslide();
-            }, 500);
-        }
-    });
+    if($("ul.owl-carousel.top_slider").length){
+        $("ul.owl-carousel.top_slider").owlCarousel({
+            items: 1,
+            loop: true,
+            nav: true,
+            dots: false,
+            autoplay:true,
+            autoplayTimeout:9000,
+            smartSpeed:1000,
+            onChange: function(){
+                beforeslide();
+            },
+            onChanged: function(){
+                setTimeout(function(){
+                    afterslide();
+                }, 500);
+            }
+        });
+    }
 
     // Team Section BX Slider Settings
-    $("ul.owl-carousel.team_slider").owlCarousel({
-        margin: 30,
-        autoplay:true,
-        autoplayTimeout: 9000,
-        nav: true,
-        dots: false,
-        loop: true,
-        responsive: {
-          0: {
-            items: 1
-          },
-          600: {
-            items: 3
-          },
-          1000: {
-            items: 4
-          }
-        }
-    }).on('changed.owl.carousel initialize.owl.carousel', function(event){
-        var i=(event.item.index - 4);
-        console.log("mostrando"+i);
-    });
-    $(".team_slider .image img").hover(function(){
-        $(this).attr("tmp", $(this).attr("src"));
-        $(this).attr("src", $(this).attr("data-src-hover"));
-    }, function(){
-        $(this).attr("src", $(this).attr("tmp"));
-    });
+    if($("ul.owl-carousel.team_slider").length){
+        $("ul.owl-carousel.team_slider").owlCarousel({
+            margin: 30,
+            autoplay:true,
+            autoplayTimeout: 6000,
+            nav: true,
+            dots: false,
+            loop: true,
+            responsive: {
+              0: {
+                items: 1
+              },
+              600: {
+                items: 3
+              },
+              1000: {
+                items: 4
+              }
+            }
+        });
+    }
+    if($(".team_slider .image img").length){
+        $(".team_slider .image img").hover(function(){
+            $(this).attr("tmp", $(this).attr("src"));
+            $(this).attr("src", $(this).attr("data-src-hover"));
+        }, function(){
+            $(this).attr("src", $(this).attr("tmp"));
+        });
+    }
 
     // Causes Section BX Slider Settings
-    $("ul.owl-carousel.donaciones_slider").owlCarousel({
-        margin: 70,
-        nav: true,
-        dots: false,
-        loop: true,
-        responsive: {
-          0: {
-            items: 1
-          },
-          600: {
-            items: 2
-          },
-          1000: {
-            items: 3
-          }
-        }
-    });
+    if($("ul.owl-carousel.donaciones_slider").length){
+        $("ul.owl-carousel.donaciones_slider").owlCarousel({
+            margin: 70,
+            nav: true,
+            dots: false,
+            loop: true,
+            responsive: {
+              0: {
+                items: 1
+              },
+              600: {
+                items: 2
+              },
+              1000: {
+                items: 3
+              }
+            }
+        });
+    }
 
     // Projects Section BX Slider Settings
-    $("ul.owl-carousel.proyectos_slider").owlCarousel({
-        items: 1,
-        loop: true,
-        nav: false,
-        dots: true,
-        smartSpeed: 1000,
-        autoplay:true,
-        autoplayTimeout: 9000
-    });
-    
+    if($("ul.owl-carousel.proyectos_slider").length){
+        $("ul.owl-carousel.proyectos_slider").owlCarousel({
+            items: 1,
+            loop: true,
+            nav: false,
+            dots: true,
+            smartSpeed: 1000,
+            autoplay:true,
+            autoplayTimeout: 9000
+        });
+    }
     // Sponsors Section BX Slider Settings
-    $('ul.sponsor_slider').bxSlider({
-        minSlides: 2,
-        maxSlides: 5,
-        slideWidth: 170,
-        slideMargin: 40,
-        ticker: true,
-        speed: 30000
-    });
+    if($('ul.sponsor_slider').length){
+        $('ul.sponsor_slider').bxSlider({
+            minSlides: 2,
+            maxSlides: 5,
+            slideWidth: 170,
+            slideMargin: 40,
+            ticker: true,
+            speed: 30000
+        });
+    }
 
     //Hide mobile menu when you click link 
     $("ul.mobile-nav li a").on('click', function() {
@@ -133,21 +141,23 @@ $(document).ready(function(){
     });
     //$.fn.select2.defaults.set('theme','bootstrap');
     $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
-    $(".select2generico").select2({
-        language: "es"
-    });
-    $(".select2escuela").select2({
-        'ajax': {
-            'headers': {
-                'X-CSRF-TOKEN': $("meta[name='csrf-token']").attr('content')
-            }
-        },
-        minimumInputLength: 2,
-        language: "es",
-        allowClear: true
-    });
-    
-
+    if($(".select2generico").length){
+        $(".select2generico").select2({
+            language: "es"
+        });
+    }
+    if($(".select2escuela").length){
+        $(".select2escuela").select2({
+            'ajax': {
+                'headers': {
+                    'X-CSRF-TOKEN': $("meta[name='csrf-token']").attr('content')
+                }
+            },
+            minimumInputLength: 1,
+            language: "es",
+            allowClear: true
+        });
+    }
     //Form Validation
     var myLanguage = {
         errorTitle: 'No se recibieron los datos!',
@@ -196,12 +206,12 @@ $(document).ready(function(){
         if(x > 200){
             $('section#header').css({"padding-bottom":"8px","padding-top":"8px","border-top":"4px solid #000000"});
             $('.scrollToTop').fadeIn();
-        };
+        }
         if(x < 200){
             $('section#header').css({"padding-bottom":"20px","padding-top":"20px","border-top":"15px solid #000000"});
             $('section#header img').css({"height":"","width":""});
             $('.scrollToTop').fadeOut();
-        };
+        }
     });
 
     //Check if monthly donation checkbox is checked or not
@@ -250,7 +260,9 @@ $(document).ready(function(){
             },
             success: function(result){
                 $("#ContactForm").trigger('reset');
-                $("#contactemailsendresponse").html(result);
+                $("#contactemailsendresponse").html("<p style='color:"+(result == 0?"red":"green")+"; font-weight:bold'>"+
+                    (result == 0?"Error al enviar el mensaje :c":"¡Gracias por contactarnos! Te responderemos con prontitud.")+
+                    "</p>");
             }
         });
     }
@@ -353,7 +365,11 @@ $(function() {
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '567484727095780');
     fbq('track', "PageView");
-                        $("body").append("<img height='1' width='1' style='display:none' src='https://www.facebook.com/tr?id=567484727095780&ev=PageView&noscript=1'/>");
+    $("body").append("<img height='1' width='1' style='display:none' src='https://www.facebook.com/tr?id=567484727095780&ev=PageView&noscript=1'/>");
+    AOS.init({
+        mirror: true
+    });
+    new WOW().init();
 });
 
 //Google Map

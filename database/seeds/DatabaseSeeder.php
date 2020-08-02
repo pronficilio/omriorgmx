@@ -166,7 +166,7 @@ class MiembroTableSeeder extends Seeder {
     Miembro::create([
 			'nombre' => "Alexis España",
 			'puesto' => "Secretario",
-      'pensamiento' => 'Programar es decirle a la computadora que haga realiad todo aquello que imaginas',
+      'pensamiento' => 'Programar es decirle a la computadora que haga realidad todo aquello que imaginas',
       'orden' => 2
 		]);
 

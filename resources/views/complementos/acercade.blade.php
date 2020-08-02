@@ -64,41 +64,30 @@
 
             <h3>Etapas del concurso</h3>
             <div class="ourpoints">
-                <div class="point">
+                <div class="" data-aos="flip-right">
                     <div class="icon-space">
-                        <i class="fa  fa-arrow-right fa-3x"></i>
-                    </div>
-                    <div class="text-space text">
-                        <p>Convocatoria - (Agosto)</p>
+                        <i class="fa  fa-arrow-right fa-2x"></i>
+                        Convocatoria - 1 de Agosto al 13 de Septiembre
                     </div>
                 </div>
-                <div class="point">
+                <div class="" data-aos="flip-right">
                     <div class="icon-space">
-                        <i class="fa  fa-arrow-right fa-3x"></i>
-                    </div>
-                    <div class="text-space text">
-                        <p>Curso de programación abierto a todo el público - (Agosto)</p>
+                        <i class="fa  fa-arrow-right fa-2x"></i>
+                        Curso de programación - 14 de Septiembre al 27 de noviembre
                     </div>
                 </div>
-                <div class="point">
+                <div class="" data-aos="flip-right">
                     <div class="icon-space">
-                        <i class="fa  fa-arrow-right fa-3x"></i>
-                    </div>
-                    <div class="text-space text">
-                        <strong><p>Olimpiada</p></strong>
-                        <ul>
-                            <li> Capacitación con cupo limitado (solo los mejores de la primera etapa)</li>
-                            <li> Competencia</li>
-                            <li> Premiación</li>
-                        </ul>
+                        <i class="fa  fa-arrow-right fa-2x"></i>
+                        <strong class="text-space text">Concurso estatal de informática - 28 de noviembre</strong>
                     </div>
                 </div>
-                <div class="point">
+                <div class="" data-aos="flip-right">
                     <div class="icon-space">
-                        <i class="fa  fa-arrow-right fa-3x"></i>
+                        <i class="fa  fa-arrow-right fa-2x"></i>
+                        Participación en la Olimpiada Mexicana de Informática
                     </div>
                     <div class="text-space text">
-                        <strong><p> Participación en la Olimpiada Mexicana de Informática</p></strong>
                         <ul>
                             <li> Los mejores programadores del Estado asisten a la competencia nacional, para luchar por una medalla que los distinga entre los mejores del país.</li>
                             <li> Viajan con todos los gastos pagados a la competencia, que dura alrededor de 6 días y es cada año en un estado sede diferente</li>

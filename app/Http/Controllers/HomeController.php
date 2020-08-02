@@ -69,25 +69,24 @@ class HomeController extends Controller
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
           
             //Email information
-            $admin_email = "youremailaddress@yahoo.com";
-            $subject = "Email from website";
+            $admin_email = env('MAIL_USERNAME');
+            $subject = "Contacto";
             $email = $_POST['email'];
             $name = $_POST['name'];
             $phone = $_POST['phone'];
             $msg = $_POST['msg'];
-            $message = "<p>Name: ".$name."</p> <p>Email: ".$email."</p> <p>Phone: ".$phone."</p> <p>Message: ".$msg."</p>";
+            $message = "<p>Nombre: ".$name."</p> <p>Email: ".$email."</p> <p>Telefono: ".$phone."</p> <p>Mensaje: ".$msg."</p>";
 
             //send email
             $send = mail($admin_email, "$subject", $message, $headers);
 
             if(!$send) {   
-                echo "<p style='color:red font-weight:bold'>Error sending email!</p>";   
+                return 0;   
             } else {
-                echo "<p style='color:green; font-weight:bold'>Message sent successfully. Thank you for contacting us!</p>";
+                return 1;
             }
-        } else {
-            echo 'nothisng';
         }
+        return 0;
     }
 
     public function volunteer(Request $request){
