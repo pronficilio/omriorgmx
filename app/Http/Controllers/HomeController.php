@@ -50,6 +50,23 @@ class HomeController extends Controller
         ]);
     }
 
+    public function terminos()
+    {
+        return view('terminos');
+    }
+    public function reglamento()
+    {
+        return view('reglamento');
+    }
+    public function aviso()
+    {
+        return view('aviso');
+    }
+    public function calendario(){
+        return view('calendario');
+    }
+
+
     public function olimpico()
     {
         return view('olimpico');
