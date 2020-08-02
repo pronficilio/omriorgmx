@@ -16,6 +16,12 @@ Route::get('/olimpico', 'HomeController@olimpico')->name('olimpico');
 Route::post('/php/contact_form_submit', 'HomeController@contact');
 Route::post('/php/volunteer_form_submit', 'HomeController@volunteer');
 
+Route::get('terminos', 'HomeController@terminos')->name('terminos');
+Route::get('reglamento', 'HomeController@reglamento')->name('reglamento');
+Route::get('aviso', 'HomeController@aviso')->name('aviso');
+
+Route::get('calendario', 'HomeController@calendario')->name('calendario');
+
 Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
@@ -42,3 +48,4 @@ Route::post('olimpico/ultimoNivel', 'RegistroController@ultimoNivel');
 
 //Avanza una leccion
 Route::post('olimpico/siguienteNivel', 'RegistroController@siguienteNivel');
+ 

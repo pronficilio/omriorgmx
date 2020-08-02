@@ -2,9 +2,9 @@
 <section id="footer" class="dark">
     <div class="container">
         <ul>
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
+            <li><a href="{{ asset('terminos') }}">Términos y condiciones</a></li>
+            <li><a href="{{ asset('aviso') }}">Aviso de privacidad</a></li>
+            <li><a href="{{ asset('reglamento') }}">Reglamento OMRI</a></li>
         </ul>
         <p>&#64; 2020 Olimpiada Morelense de Informática</p>
     </div>
