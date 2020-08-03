@@ -9,6 +9,8 @@
                 <div class="social-icons">
                     <a href="https://www.facebook.com/omrioficial/" target="_blank"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
                     <a href="https://twitter.com/omri_oficial" target="_blank"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=527775344338&text=Informaci%C3%B3n%20sobre%20la%20Olimpiada%20de%20informatica" target="_blank"><i class="fa fa-whatsapp fa-3x" aria-hidden="true"></i></a>
+                    <a href="https://instagram.com/omrioficial" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
                     <a href="mailto:info@omri.org.mx" target="_blank"><i class="fa fa-envelope fa-3x" aria-hidden="true"></i></a>
                 </div>
                 <div class="contacto">

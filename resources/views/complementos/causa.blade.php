@@ -11,7 +11,11 @@
                     <li>
                         <div class="cause-wrap">
                             <a href="#" data-toggle="modal" data-target=".cause_{{ ($i+1) }}">
-                                <img src="{{ asset('storage/app/public/donaciones/'.($c->id).'.webp') }}" alt="{{$c->titulo}}" data-aos="zoom-out-up"/>
+                                <picture data-aos="zoom-out-up">
+                                    <source srcset="{{ asset('storage/app/public/donaciones/'.($c->id).'.webp') }}" type="image/webp">
+                                    <source srcset="{{ asset('storage/app/public/donaciones/'.($c->id).'.jpg') }}" type="image/jpeg"> 
+                                    <img src="{{ asset('storage/app/public/donaciones/'.($c->id).'.jpg') }}" alt="{{$c->titulo}}"/>
+                                </picture>
                             </a>
                             <div class="cause-title color-bg">
                                 <strong data-aos="slide-right">{{$c->titulo}}</strong>

@@ -50,14 +50,6 @@ $(document).ready(function(){
             }
         });
     }
-    if($(".team_slider .image img").length){
-        $(".team_slider .image img").hover(function(){
-            $(this).attr("tmp", $(this).attr("src"));
-            $(this).attr("src", $(this).attr("data-src-hover"));
-        }, function(){
-            $(this).attr("src", $(this).attr("tmp"));
-        });
-    }
 
     // Causes Section BX Slider Settings
     if($("ul.owl-carousel.donaciones_slider").length){

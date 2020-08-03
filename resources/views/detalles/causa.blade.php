@@ -10,7 +10,11 @@
                 <h4 class="modal-title">{{$c->detalle_titulo}}</h4>
             </div>
             <div class="modal-body">
-                <img src="{{ asset('storage/app/public/donaciones/'.($c->id).'.webp') }}" alt="{{$c->titulo}}">
+                <picture>
+                    <source srcset="{{ asset('storage/app/public/donaciones/'.($c->id).'.webp') }}" type="image/webp">
+                    <source srcset="{{ asset('storage/app/public/donaciones/'.($c->id).'.jpg') }}" type="image/jpeg"> 
+                    <img src="{{ asset('storage/app/public/donaciones/'.($c->id).'.jpg') }}" alt="{{$c->titulo}}">
+                </picture>
                 <hr>
                 <p>{{$c->detalle_texto}}</p>
             </div>

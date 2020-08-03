@@ -1,14 +1,21 @@
 
 <style>
     @foreach($banners as $i=>$b)
-        .banner-{{$i}} {
+        .webp .banner-{{$i}} {
             background-image: url({{ asset('storage/app/public/banner/'.($i+1).'.webp') }});
+        }
+        .no-webp .banner-{{$i}} {
+            background-image: url({{ asset('storage/app/public/banner/'.($i+1).'.jpg') }});
         }
     @endforeach
     @media (max-width: 768px) {
         @foreach($banners as $i=>$b)
-            .banner-{{$i}} {
+            .webp .banner-{{$i}} {
                 background-image: url({{ asset('storage/app/public/banner/'.($i+1).'-c.webp') }});
+                background-size: 100% auto !important;
+            }
+            .no-webp .banner-{{$i}} {
+                background-image: url({{ asset('storage/app/public/banner/'.($i+1).'-c.jpg') }});
                 background-size: 100% auto !important;
             }
         @endforeach

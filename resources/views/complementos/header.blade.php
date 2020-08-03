@@ -3,8 +3,24 @@
     <div class="container">
         <div id="logo" class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
             <table style="width: 200px"><tr>
-                <td><a href="{{ $e }}#"><img src="images/icons/omri_logo.webp" alt="Logo" height="50px"/></a></td>
-                <td><a href="{{ $e }}#"><img src="images/icons/nivel1.webp" alt="Logo" height="50px" class="wow rotateIn" data-wow-duration="0.5s" /></a></td>
+                <td>
+                    <a href="{{ $e }}#">
+                        <picture data-aos="zoom-out-up">
+                            <source srcset="images/icons/omri_logo.webp" type="image/webp">
+                            <source srcset="images/icons/omri_logo.png" type="image/png"> 
+                            <img src="images/icons/omri_logo.png" alt="Logo" height="50px"/>
+                        </picture>
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ $e }}#">
+                        <picture>
+                            <source srcset="images/icons/nivel1.webp" type="image/webp">
+                            <source srcset="images/icons/nivel1.png" type="image/png"> 
+                            <img src="images/icons/nivel1.png" alt="Logo" height="50px" class="wow rotateIn" data-wow-duration="0.5s" />
+                        </picture>
+                    </a>
+                </td>
             </tr></table>
         </div>
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-6 top-navigation">

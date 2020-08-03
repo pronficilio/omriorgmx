@@ -9,7 +9,11 @@
                   <h4 class="modal-title">{{$e -> detalle_titulo}}</h4>
               </div>
               <div class="modal-body">
-                  <img src="{{ asset('storage/app/public/eventos/'.($e->id).'.webp') }}" alt="">
+                  <picture>
+                      <source srcset="{{ asset('storage/app/public/eventos/'.($e->id).'.webp') }}" type="image/webp">
+                      <source srcset="{{ asset('storage/app/public/eventos/'.($e->id).'.jpg') }}" type="image/jpeg"> 
+                      <img src="{{ asset('storage/app/public/eventos/'.($e->id).'.jpg') }}" alt="">
+                  </picture>
                   <hr>
                   <p>{{$e -> detalle_texto}}</p>
               </div>

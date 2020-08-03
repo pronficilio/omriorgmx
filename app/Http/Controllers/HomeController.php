@@ -66,10 +66,24 @@ class HomeController extends Controller
         return view('calendario');
     }
     public function registro(){
-        return view('registro');
+        $miembros = Miembro::orderBy('orden')->get();
+        $causas = Causa::all();
+        $municipios = Municipio::all();
+        return view('registro', [
+            "miembros" => $miembros,
+            "municipios" => $municipios,
+            "causas" => $causas
+        ]);
     }
     public function nosotros(){
-        return view('nosotros');
+        $miembros = Miembro::orderBy('orden')->get();
+        $causas = Causa::all();
+        $noticias = Noticia::orderBy('fecha', 'desc')->get();
+        return view('nosotros', [
+            "miembros" => $miembros,
+            "causas" => $causas,
+            "noticias" => $noticias
+        ]);
     }
     public function contacto(){
         return view('contacto');
@@ -78,7 +92,10 @@ class HomeController extends Controller
         return view('fama');
     }
     public function escuelas(){
-        return view('escuelas');
+        $causas = Causa::all();
+        return view('escuelas', [
+            "causas" => $causas
+        ]);
     }
 
 

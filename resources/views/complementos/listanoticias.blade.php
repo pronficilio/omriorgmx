@@ -8,7 +8,11 @@
       <div class="newsitem">
           <div class="row">
               <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                  <img src="{{ asset('storage/app/public/noticias/'.($n->id).'.webp') }}" alt="{{$n -> titulo}}">
+                  <picture>
+                      <source srcset="{{ asset('storage/app/public/noticias/'.($n->id).'.webp') }}" type="image/webp">
+                      <source srcset="{{ asset('storage/app/public/noticias/'.($n->id).'.jpg') }}" type="image/jpeg"> 
+                      <img src="{{ asset('storage/app/public/noticias/'.($n->id).'.jpg') }}" alt="{{$n -> titulo}}">
+                  </picture>
               </div>
               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-6">
                   <div class="news-text-wrap">

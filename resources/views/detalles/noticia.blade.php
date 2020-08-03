@@ -8,7 +8,11 @@
                 <h4 class="modal-title">{{$n -> detalle_titulo}}</h4>
             </div>
             <div class="modal-body">
-                <img src="{{ asset('storage/app/public/noticias/'.($n->id).'.webp') }}" alt="{{$n -> titulo}}">
+                <picture>
+                    <source srcset="{{ asset('storage/app/public/noticias/'.($n->id).'.webp') }}" type="image/webp">
+                    <source srcset="{{ asset('storage/app/public/noticias/'.($n->id).'.jpg') }}" type="image/jpeg"> 
+                    <img src="{{ asset('storage/app/public/noticias/'.($n->id).'.webp') }}" alt="{{$n -> titulo}}">
+                </picture>
                 <hr>
                 <p>{{$n -> detalle_texto}}</p>
             </div>

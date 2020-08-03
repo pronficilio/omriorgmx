@@ -54,9 +54,14 @@
 
 /* LOADER */
 
+.webp .bx-wrapper .bx-loading {
+	background: url(images/bx_loader.webp) center center no-repeat #fff;
+}
+.no-webp .bx-wrapper .bx-loading {
+	background: url(images/bx_loader.gif) center center no-repeat #fff;
+}
 .bx-wrapper .bx-loading {
 	min-height: 50px;
-	background: url(images/bx_loader.webp) center center no-repeat #fff;
 	height: 100%;
 	width: 100%;
 	position: absolute;

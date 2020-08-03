@@ -147,10 +147,15 @@ h2.color-bg {
 
 .section-title {
     text-align: center;
-    background-image: url('images/line.webp');
     background-repeat: repeat-x;
     background-position: center;
     margin-bottom: 40px;
+}
+.webp .section-title {
+    background-image: url('images/line.webp');
+}
+.no-webp .section-title {
+    background-image: url('images/line.png');
 }
 
 section {
@@ -163,8 +168,11 @@ section.dark {
     background-color: #0b0b0b;
 }
 
-.dark.bg {
+.webp .dark.bg {
     background-image: url('images/background.webp');
+}
+.no-webp .dark.bg {
+    background-image: url('images/background.png');
 }
 
 h2.dark-bg {
@@ -180,8 +188,11 @@ h2.dark-bg {
     margin: 0px;
 }
 
-.dark .section-title {
+.webp .dark .section-title {
     background-image: url('images/line_1.webp');
+}
+.no-webp .dark .section-title {
+    background-image: url('images/line_1.png');
 }
 
 /* Colored Section CSS*/
@@ -208,8 +219,11 @@ h2.colored-bg {
     margin: 0px;
 }
 
-.colored .section-title {
+.webp .colored .section-title {
     background-image: url('images/line.webp');
+}
+.no-webp .colored .section-title {
+    background-image: url('images/line.png');
 }
 
 .colored hr {
@@ -748,33 +762,53 @@ div.owl-next {
     overflow: hidden;
 }
 
+.webp .top_slider_wrap .owl-prev {
+    background-image: url('images/prev_arrow_yellow.webp');
+}
+.no-webp .top_slider_wrap .owl-prev {
+    background-image: url('images/prev_arrow_yellow.png');
+}
 .top_slider_wrap .owl-prev {
 	background-color: #000000;
-	background-image: url('images/prev_arrow_yellow.webp');
 	background-repeat: no-repeat;
 	background-position: center;
 	transition: all 0.3s;
 }
 
+.webp .top_slider_wrap .owl-prev:hover {
+    background-image: url('images/prev_arrow_black.webp');
+}
+.no-webp .top_slider_wrap .owl-prev:hover {
+    background-image: url('images/prev_arrow_black.png');
+}
 .top_slider_wrap .owl-prev:hover {
 	background-color: #84C229;
-	background-image: url('images/prev_arrow_black.webp');
 	background-repeat: no-repeat;
 	background-position: center;
 	transition: all 0.3s;
 }
 
+.webp .top_slider_wrap .owl-next {
+    background-image: url('images/next_arrow_yellow.webp');
+}
+.no-webp .top_slider_wrap .owl-next {
+    background-image: url('images/next_arrow_yellow.png');
+}
 .top_slider_wrap .owl-next {
 	background-color: #000000;
-	background-image: url('images/next_arrow_yellow.webp');
 	background-repeat: no-repeat;
 	background-position: center;
 	transition: all 0.3s;
 }
 
+.webp .top_slider_wrap .owl-next:hover {
+    background-image: url('images/next_arrow_black.webp');
+}
+.no-webp .top_slider_wrap .owl-next:hover {
+    background-image: url('images/next_arrow_black.png');
+}
 .top_slider_wrap .owl-next:hover {
 	background-color: #84C229;
-	background-image: url('images/next_arrow_black.webp');
 	background-repeat: no-repeat;
 	background-position: center;
 	transition: all 0.3s;
@@ -1086,72 +1120,112 @@ ul.top_slider li .content .btn2.fadeInRight{
 }
 
 /* Team Slider */
+.webp .team_slider_wrap .owl-prev {
+    background-image: url('images/small_arrow_left.webp');
+}
+.no-webp .team_slider_wrap .owl-prev {
+    background-image: url('images/small_arrow_left.png');
+}
 .team_slider_wrap .owl-prev {
     width: 45px !important;
     height: 45px !important;
     background-color: #84C229;
     margin-left: -40px;
     margin-top: -40px;
-    background-image: url('images/small_arrow_left.webp');
     background-repeat: no-repeat;
     background-position: center;
 }
 
+.webp .team_slider_wrap .owl-prev:hover {
+    background-image: url('images/small_arrow_left.webp');
+}
+.no-webp .team_slider_wrap .owl-prev:hover {
+    background-image: url('images/small_arrow_left.png');
+}
 .team_slider_wrap .owl-prev:hover {
     background-color: #84C229;
-    background-image: url('images/small_arrow_left.webp');
     background-position: center;
 }
 
+.webp .team_slider_wrap .owl-next {
+    background-image: url('images/small_arrow_right.webp');
+}
+.no-webp .team_slider_wrap .owl-next {
+    background-image: url('images/small_arrow_right.png');
+}
 .team_slider_wrap .owl-next {
     width: 45px !important;
     height: 45px !important;
     background-color: #84C229;
     margin-right: -40px;
     margin-top: -40px;
-    background-image: url('images/small_arrow_right.webp');
     background-repeat: no-repeat;
     background-position: center;
 }
 
+.webp .team_slider_wrap .owl-next:hover {
+    background-image: url('images/small_arrow_right.webp');
+}
+.no-webp .team_slider_wrap .owl-next:hover {
+    background-image: url('images/small_arrow_right.png');
+}
 .team_slider_wrap .owl-next:hover {
     background-color: #84C229;
-    background-image: url('images/small_arrow_right.webp');
     background-position: center;
 }
 
 /* Causes Slider */
+.webp .donaciones_slider_wrap .owl-prev {
+    background-image: url('images/small_arrow_left.webp');
+}
+.no-webp .donaciones_slider_wrap .owl-prev {
+    background-image: url('images/small_arrow_left.png');
+}
 .donaciones_slider_wrap .owl-prev {
     width: 45px !important;
     height: 45px !important;
     background-color: #84C229;
     margin-left: -40px;
     margin-top: -70px;
-    background-image: url('images/small_arrow_left.webp');
     background-repeat: no-repeat;
     background-position: center;
 }
 
+.webp .donaciones_slider_wrap .owl-prev:hover {
+    background-image: url('images/small_arrow_left.webp');
+}
+.no-webp .donaciones_slider_wrap .owl-prev:hover {
+    background-image: url('images/small_arrow_left.png');
+}
 .donaciones_slider_wrap .owl-prev:hover {
     background-color: #84C229;
-    background-image: url('images/small_arrow_left.webp');
     background-position: center;
 }
 
+.webp .donaciones_slider_wrap .owl-next {
+    background-image: url('images/small_arrow_right.webp');
+}
+.no-webp .donaciones_slider_wrap .owl-next {
+    background-image: url('images/small_arrow_right.png');
+}
 .donaciones_slider_wrap .owl-next {
     width: 45px !important;
     height: 45px !important;
     background-color: #84C229;
     margin-right: -40px;
     margin-top: -70px;
-    background-image: url('images/small_arrow_right.webp');
     background-repeat: no-repeat;
     background-position: center;
 }
 
+.webp .donaciones_slider_wrap .owl-next:hover {
+    background-image: url('images/small_arrow_right.webp');
+}
+.no-webp .donaciones_slider_wrap .owl-next:hover {
+    background-image: url('images/small_arrow_right.png');
+}
 .donaciones_slider_wrap .owl-next:hover {
     background-color: #84C229;
-    background-image: url('images/small_arrow_right.webp');
     background-position: center;
 }
 
