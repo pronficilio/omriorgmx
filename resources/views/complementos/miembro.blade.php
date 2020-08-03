@@ -10,7 +10,7 @@
                     @foreach($miembros as $i=>$m)
                         <li class="miembro_owl">
                             <div class="image" id="tooltip_destino_{{$i}}" data-aos="zoom-in-up" data-aos-delay="{{$i*75}}">
-                                <img src="{{ asset('storage/app/public/miembros/') . $m->id }}-d.webp" data-src-hover="{{ asset('storage/app/public/miembros/') . $m->id }}-hover.webp" alt="Foto de {{ $m->nombre }}" aria-describedby="tooltip_origen_{{$i}}"/>
+                                <img src="{{ asset('storage/app/public/miembros/'.$m->id.'-d.webp') }}" data-src-hover="{{ asset('storage/app/public/miembros/'.$m->id .'-hover.webp') }}" alt="Foto de {{ $m->nombre }}" aria-describedby="tooltip_origen_{{$i}}"/>
                             </div>
                             <div class="name">
                                 {{ $m->nombre }}

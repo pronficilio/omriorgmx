@@ -9,12 +9,13 @@
                   <h4 class="modal-title">{{$e -> detalle_titulo}}</h4>
               </div>
               <div class="modal-body">
-                  <img src="{{ asset('storage/app/public/eventos').'/'.($e->id==3?$e->id.'.png':$e->id.'.jpg') }}" alt="">
+                  <img src="{{ asset('storage/app/public/eventos/'.($e->id).'.webp') }}" alt="">
                   <hr>
                   <p>{{$e -> detalle_texto}}</p>
               </div>
               <div class="modal-footer">
                   <!-- <button type="button" class="btn btn-primary">Make Donation</button> -->
+                  <button type="button" data-dismiss="modal" class="btn btn-primary">Cerrar</button>
               </div>
           </div>
       </div>

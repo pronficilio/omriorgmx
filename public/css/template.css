@@ -147,7 +147,7 @@ h2.color-bg {
 
 .section-title {
     text-align: center;
-    background-image: url('images/line.png');
+    background-image: url('images/line.webp');
     background-repeat: repeat-x;
     background-position: center;
     margin-bottom: 40px;
@@ -164,7 +164,7 @@ section.dark {
 }
 
 .dark.bg {
-    background-image: url('images/background.png');
+    background-image: url('images/background.webp');
 }
 
 h2.dark-bg {
@@ -181,7 +181,7 @@ h2.dark-bg {
 }
 
 .dark .section-title {
-    background-image: url('images/line_1.png');
+    background-image: url('images/line_1.webp');
 }
 
 /* Colored Section CSS*/
@@ -209,7 +209,7 @@ h2.colored-bg {
 }
 
 .colored .section-title {
-    background-image: url('images/line.png');
+    background-image: url('images/line.webp');
 }
 
 .colored hr {
@@ -750,7 +750,7 @@ div.owl-next {
 
 .top_slider_wrap .owl-prev {
 	background-color: #000000;
-	background-image: url('images/prev_arrow_yellow.png');
+	background-image: url('images/prev_arrow_yellow.webp');
 	background-repeat: no-repeat;
 	background-position: center;
 	transition: all 0.3s;
@@ -758,7 +758,7 @@ div.owl-next {
 
 .top_slider_wrap .owl-prev:hover {
 	background-color: #84C229;
-	background-image: url('images/prev_arrow_black.png');
+	background-image: url('images/prev_arrow_black.webp');
 	background-repeat: no-repeat;
 	background-position: center;
 	transition: all 0.3s;
@@ -766,7 +766,7 @@ div.owl-next {
 
 .top_slider_wrap .owl-next {
 	background-color: #000000;
-	background-image: url('images/next_arrow_yellow.png');
+	background-image: url('images/next_arrow_yellow.webp');
 	background-repeat: no-repeat;
 	background-position: center;
 	transition: all 0.3s;
@@ -774,7 +774,7 @@ div.owl-next {
 
 .top_slider_wrap .owl-next:hover {
 	background-color: #84C229;
-	background-image: url('images/next_arrow_black.png');
+	background-image: url('images/next_arrow_black.webp');
 	background-repeat: no-repeat;
 	background-position: center;
 	transition: all 0.3s;
@@ -1092,14 +1092,14 @@ ul.top_slider li .content .btn2.fadeInRight{
     background-color: #84C229;
     margin-left: -40px;
     margin-top: -40px;
-    background-image: url('images/small_arrow_left.png');
+    background-image: url('images/small_arrow_left.webp');
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .team_slider_wrap .owl-prev:hover {
     background-color: #84C229;
-    background-image: url('images/small_arrow_left.png');
+    background-image: url('images/small_arrow_left.webp');
     background-position: center;
 }
 
@@ -1109,14 +1109,14 @@ ul.top_slider li .content .btn2.fadeInRight{
     background-color: #84C229;
     margin-right: -40px;
     margin-top: -40px;
-    background-image: url('images/small_arrow_right.png');
+    background-image: url('images/small_arrow_right.webp');
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .team_slider_wrap .owl-next:hover {
     background-color: #84C229;
-    background-image: url('images/small_arrow_right.png');
+    background-image: url('images/small_arrow_right.webp');
     background-position: center;
 }
 
@@ -1127,14 +1127,14 @@ ul.top_slider li .content .btn2.fadeInRight{
     background-color: #84C229;
     margin-left: -40px;
     margin-top: -70px;
-    background-image: url('images/small_arrow_left.png');
+    background-image: url('images/small_arrow_left.webp');
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .donaciones_slider_wrap .owl-prev:hover {
     background-color: #84C229;
-    background-image: url('images/small_arrow_left.png');
+    background-image: url('images/small_arrow_left.webp');
     background-position: center;
 }
 
@@ -1144,14 +1144,14 @@ ul.top_slider li .content .btn2.fadeInRight{
     background-color: #84C229;
     margin-right: -40px;
     margin-top: -70px;
-    background-image: url('images/small_arrow_right.png');
+    background-image: url('images/small_arrow_right.webp');
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .donaciones_slider_wrap .owl-next:hover {
     background-color: #84C229;
-    background-image: url('images/small_arrow_right.png');
+    background-image: url('images/small_arrow_right.webp');
     background-position: center;
 }
 
@@ -1551,7 +1551,7 @@ a.btn-secondary:hover, a.btn-secondary:focus {
     bottom:25px;
     right:40px;
     display:none;
-    z-index: 9999;
+    z-index: 999;
 }
 
 .scrollToTop:hover{

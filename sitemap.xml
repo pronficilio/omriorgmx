@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://omri.org.mx/</loc>
+  <lastmod>2020-08-01T00:19:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://omri.org.mx/registro</loc>
+  <lastmod>2020-08-01T00:19:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://omri.org.mx/calendario</loc>
+  <lastmod>2020-08-01T00:19:30+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://omri.org.mx/nosotros</loc>
+  <lastmod>2020-08-01T00:19:30+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://omri.org.mx/muro-de-fama</loc>
+  <lastmod>2020-08-01T00:19:30+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.89</priority>
+</url>
+<url>
+  <loc>https://omri.org.mx/escuelas</loc>
+  <lastmod>2020-08-01T00:19:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://omri.org.mx/reglamento</loc>
+  <lastmod>2020-08-01T00:19:30+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://omri.org.mx/contacto</loc>
+  <lastmod>2020-08-01T00:19:30+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://omri.org.mx/terminos-y-condiciones</loc>
+  <lastmod>2020-08-01T00:19:30+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://omri.org.mx/aviso-de-privacidad</loc>
+  <lastmod>2020-08-01T00:19:30+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.60</priority>
+</url>
+</urlset>

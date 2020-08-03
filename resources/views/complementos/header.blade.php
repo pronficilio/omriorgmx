@@ -3,8 +3,8 @@
     <div class="container">
         <div id="logo" class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
             <table style="width: 200px"><tr>
-                <td><a href="index.html"><img src="images/icons/omri_logo.png" alt="Logo" height="50px" /></a></td>
-                <td><a href="index.html"><img src="images/icons/nivel1.png" alt="Logo" height="50px" /></a></td>
+                <td><a href="{{ $e }}#"><img src="images/icons/omri_logo.webp" alt="Logo" height="50px"/></a></td>
+                <td><a href="{{ $e }}#"><img src="images/icons/nivel1.webp" alt="Logo" height="50px" class="wow rotateIn" data-wow-duration="0.5s" /></a></td>
             </tr></table>
         </div>
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-6 top-navigation">
@@ -18,27 +18,27 @@
             </div>
             <div class="collapse navbar-collapse yamm">
                 <ul class="nav navbar-nav">
-                    <li class="framework">
-                        <a href="#inscripcion">Inscríbete</a>
+                    <li class="framework wow pulse" data-wow-iteration="40" data-wow-duration="3">
+                        <a href="{{ $e }}#inscripcion">Inscríbete</a>
                     </li>
-                    <li>
-                        <a href="#conocealequipo">Nuestro equipo</a>
+                    <li data-aos="fade-right">
+                        <a href="{{ $e }}#conocealequipo">Nuestro equipo</a>
                     </li>
-                    <li>
-                        <a href="#acercade">Acerca de</a>
+                    <li data-aos="fade-right">
+                        <a href="{{ $e }}#acercade">Acerca de</a>
                     </li>
-                    <li>
-                        <a href="#donaciones">Donaciones</a>
+                    <li data-aos="fade-right">
+                        <a href="{{ $e }}#donaciones">Donaciones</a>
                     </li>
-                    <li>
-                        <a href="#noticias">Noticias</a>
+                    <li data-aos="fade-right">
+                        <a href="{{ $e }}#noticias">Noticias</a>
                     </li>
-                    <li>
-                        <a href="#contacto">Contacto</a>
+                    <li data-aos="fade-right">
+                        <a href="{{ $e }}#contacto">Contacto</a>
                     </li>
-                    <!--li class="highlighted">
+                    <li class="highlighted">
                         <a href="#" data-toggle="modal" data-target=".donate_0">Ayúdanos</a>
-                    </li-->
+                    </li>
                 </ul>
             </div>
         </div>

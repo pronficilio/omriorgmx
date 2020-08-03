@@ -1,69 +1,71 @@
 <!-- Registro section -->
-<section id="inscripcion" class=" bg">
+<section id="inscripcion" class=" bg" data-aos="fade-up">
     <div>
         <div class="section-title">
-            <h2 class="color-bg">Inscripciones abiertas</h2>
+            <h2 class="color-bg" data-aos="fade-up">Inscripciones abiertas</h2>
         </div>
         <div class="container topspace">
             <form id="RegistroForm" action="registro/nuevo-registro" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div>
+                        <div data-aos="flip-up">
                             <input type="text" name="nombre" placeholder="Nombre (s)" data-validation="length" data-validation-length="min3">
                         </div>
-                        <div>
+                        <div data-aos="flip-up">
                             <input type="text" name="apellido" placeholder="Apellidos" data-validation="length" data-validation-length="min3">
                         </div>
-                        <div>
+                        <div data-aos="flip-up">
                             <input type="email" name="email" placeholder="Email" data-validation="email">
                         </div>
-                        <div>
+                        <div data-aos="flip-up">
                             <input type="phone" name="phone" placeholder="Teléfono de contacto" data-validation="length" data-validation-length="min10">
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div>
+                                <div data-aos="flip-up">
                                     <input type="number" min="3" max="20" name="edad" placeholder="Edad" data-validation="number">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <select name="grado" class="select2generico" data-placeholder="Grado escolar" data-validation="required" data-width="100%">
-                                    <option value="">Grado escolar</option>
-                                    <optgroup label="Primaria">
-                                        <option value="1ro Primaria">Primer año de primaria</option>
-                                        <option value="2do Primaria">Segundo año de primaria</option>
-                                        <option value="3ro Primaria">Tercer año de primaria</option>
-                                        <option value="4to Primaria">Cuarto año de primaria</option>
-                                        <option value="5to Primaria">Quinto año de primaria</option>
-                                        <option value="6to Primaria">Sexto año de primaria</option>
-                                    </optgroup>
-                                    <optgroup label="Secundaria">
-                                        <option value="1ro Secundaria">Primer año de secundaria</option>
-                                        <option value="2do Secundaria">Segundo año de secundaria</option>
-                                        <option value="3ro Secundaria">Tercer año de secundaria</option>
-                                    </optgroup>
-                                    <optgroup label="Preparatoria">
-                                        <option value="1ro Preparatoria">Primer año de preparatoria</option>
-                                        <option value="2do Preparatoria">Segundo año de preparatoria</option>
-                                    </optgroup>
-                                </select>
+                                <div data-aos="flip-up">
+                                    <select name="grado" class="select2generico" data-placeholder="Grado escolar" data-validation="required" data-width="100%">
+                                        <option value="">Grado escolar</option>
+                                        <optgroup label="Primaria">
+                                            <option value="1ro Primaria">Primer año de primaria</option>
+                                            <option value="2do Primaria">Segundo año de primaria</option>
+                                            <option value="3ro Primaria">Tercer año de primaria</option>
+                                            <option value="4to Primaria">Cuarto año de primaria</option>
+                                            <option value="5to Primaria">Quinto año de primaria</option>
+                                            <option value="6to Primaria">Sexto año de primaria</option>
+                                        </optgroup>
+                                        <optgroup label="Secundaria">
+                                            <option value="1ro Secundaria">Primer año de secundaria</option>
+                                            <option value="2do Secundaria">Segundo año de secundaria</option>
+                                            <option value="3ro Secundaria">Tercer año de secundaria</option>
+                                        </optgroup>
+                                        <optgroup label="Preparatoria">
+                                            <option value="1ro Preparatoria">Primer año de preparatoria</option>
+                                            <option value="2do Preparatoria">Segundo año de preparatoria</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div>
+                        <div data-aos="flip-down">
                             <select data-tags="true" name="escuela_id" class="select2escuela" data-ajax--dataType="json" data-ajax--url="api/select/materia" data-validation="required" data-placeholder="Busca y selecciona tu escuela" data-width="100%"></select>
                         </div>
-                        <div>
+                        <div data-aos="flip-down">
                             <input type="text" name="tutor" placeholder="Nombre de tu maestro o tutor (opcional)" data-validation="length" data-validation-length="min3" data-validation-optional="true">
                         </div>
-                        <div>
+                        <div data-aos="flip-down">
                             <input type="email" name="email_tutor" placeholder="Email de tu maestro o tutor (opcional)" data-validation="email" data-validation-optional="true">
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div>
+                                <div data-aos="flip-down">
                                     <select class="select2generico" name="municipio" data-placeholder="Municipio" data-validation="required" data-width="100%">
                                         <option value="">Municipio</option>
                                         @foreach($municipios as $m)
@@ -73,7 +75,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div>
+                                <div data-aos="flip-down">
                                     <select name="categoria" class="select2generico" data-tags="true" data-placeholder="Categoría" data-width="100%" data-validation="required">
                                         <option value="">Categoría</option>
                                         <option value="Primaria">Primaria [Karel]</option>
@@ -83,7 +85,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div data-aos="flip-down">
                             <select name="enterado" class="select2generico" data-tags="true" data-placeholder="¿Cómo te enteraste de este concurso?" data-validation-optional="true" data-width="100%">
                                 <option value="">¿Cómo te enteraste de este concurso?</option>
                                 <option value="Facebook">Por facebook</option>
@@ -95,8 +97,8 @@
                         </div>
                     </div>
                     <div style="text-align: center;">
-                        <button class="btn btn-secondary submit">Confirmar</button>
-                        <button type="reset" class="btn btn-secondary reset">Borrar todo</button>
+                        <button class="btn btn-secondary submit" data-aos="fade-up">Confirmar</button>
+                        <button type="reset" class="btn btn-secondary reset" data-aos="fade-up">Borrar todo</button>
                     </div>
                 </div>
             </form>
@@ -104,4 +106,5 @@
         </div>
     </div>
 </section>
+@include('detalles.humanorepetido')
 <!-- Registro section -->

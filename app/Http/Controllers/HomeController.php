@@ -65,6 +65,21 @@ class HomeController extends Controller
     public function calendario(){
         return view('calendario');
     }
+    public function registro(){
+        return view('registro');
+    }
+    public function nosotros(){
+        return view('nosotros');
+    }
+    public function contacto(){
+        return view('contacto');
+    }
+    public function fama(){
+        return view('fama');
+    }
+    public function escuelas(){
+        return view('escuelas');
+    }
 
 
     public function olimpico()

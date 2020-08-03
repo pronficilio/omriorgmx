@@ -158,11 +158,29 @@ $(document).ready(function(){
             allowClear: true
         });
     }
+    if($("select[name='grado']").length){
+        $("select[name='grado']").change(function(){
+            $("select[name='categoria'] option[value='Primaria']").removeAttr("disabled");
+            $("select[name='categoria'] option[value='Secundaria']").removeAttr("disabled");
+            $("select[name='categoria'] option[value='Abierta']").removeAttr("disabled");
+            if($(this).val() != ""){
+                $("select[name='categoria']").val("Primaria").trigger("change");
+                if($(this).val() == "1ro Secundaria" || $(this).val() == "2do Secundaria" || $(this).val() == "3ro Secundaria" || $(this).val() == "1ro Preparatoria" || $(this).val() == "2do Preparatoria"){
+                    $("select[name='categoria'] option[value='Primaria']").attr("disabled", "disabled");
+                    $("select[name='categoria']").val("Secundaria").trigger("change");
+                }
+                if($(this).val() == "1ro Preparatoria" || $(this).val() == "2do Preparatoria"){
+                    $("select[name='categoria'] option[value='Secundaria']").attr("disabled", "disabled");
+                    $("select[name='categoria']").val("Abierta").trigger("change");
+                }
+            }
+        });
+    }
     //Form Validation
     var myLanguage = {
-        errorTitle: 'No se recibieron los datos!',
+        errorTitle: '¡No se recibieron los datos!',
         requiredField: 'Este campo es obligatorio',
-        requiredFields: 'No has llenado todos los camposss',
+        requiredFields: 'No has llenado todos los campossss',
         badInt: 'Esa no parece tu edad',
         badEmail: 'Formato de email incorrecto',
         badTelephone: 'No has escrito un teléfono correcto',
@@ -263,6 +281,8 @@ $(document).ready(function(){
                 $("#contactemailsendresponse").html("<p style='color:"+(result == 0?"red":"green")+"; font-weight:bold'>"+
                     (result == 0?"Error al enviar el mensaje :c":"¡Gracias por contactarnos! Te responderemos con prontitud.")+
                     "</p>");
+                gtag('event', 'screen_view', {'screen_name': 'Contacto'});
+                fbq('track', 'Contact');
             }
         });
     }
@@ -308,6 +328,7 @@ $(document).ready(function(){
             phone: $('#RegistroForm input[name="phone"]').val(),
             id_escuela: $('#RegistroForm select[name="escuela_id"]').val(),
             grado: $('#RegistroForm select[name="grado"]').val(),
+            categoria: $('#RegistroForm select[name="categoria"]').val(),
             tutor: $('#RegistroForm input[name="tutor"]').val(),
             email_tutor: $('#RegistroForm input[name="email_tutor"]').val(),
             id_municipio: $('#RegistroForm select[name="municipio"]').val(),
@@ -317,11 +338,12 @@ $(document).ready(function(){
             $('#RegistroForm select').val("").trigger("change");
             if(result==2){
                 $(".humanorepetido").modal("show");
-            }
-            else{
-                swal("Todo bien", "Confirma tu correo "+e+" para continuar, revisa tu bandeja de correo no deseado!", "success", {
+            }else{
+                swal("Todo bien", "¡Te mandamos un saludo por mail! Confirma tu correo "+e+" para continuar, revisa tu bandeja de correo no deseado!", "success", {
                     button: "Oh, ok!",
                 });
+                gtag('event', 'sign_up', { 'method': 'Email' });
+                fbq('track', 'CompleteRegistration');
             }
         });
     }
@@ -342,12 +364,11 @@ $(function() {
 	        }
 	    }
     });
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-66853888-1', 'auto');
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-66853888-1');
+    gtag('send', 'pageview');
     (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -362,7 +383,7 @@ $(function() {
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    'https://connect.facebook.net/es_LA/fbevents.js');
     fbq('init', '567484727095780');
     fbq('track', "PageView");
     $("body").append("<img height='1' width='1' style='display:none' src='https://www.facebook.com/tr?id=567484727095780&ev=PageView&noscript=1'/>");
