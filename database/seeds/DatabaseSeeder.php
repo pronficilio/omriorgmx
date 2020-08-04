@@ -7,6 +7,7 @@ use App\Banner;
 use App\Causa;
 use App\Evento;
 use App\Escuela;
+use App\Famosoy;
 use App\Noticia;
 use App\Proyecto;
 use App\Sponsor;
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SponsorTableSeeder::class);
         $this->call(MunicipioTableSeeder::class);
         $this->call(EscuelaTableSeeder::class);
+        $this->call(FamaTableSeeder::class);
         $this->command->info("Semilla plantada");
     }
 }
@@ -146,202 +148,179 @@ class MunicipioTableSeeder extends Seeder {
   }
 }
 class UserTableSeeder extends Seeder {
-	public function run(){
-		User::create([
-			'name' => "admin",
-			'email' => "info@omri.org.mx",
-			'password' => Hash::make('ikb4n45')
-		]); // 12345678
-	}
+  public function run(){
+    User::create([
+      'name' => "admin",
+      'email' => "info@omri.org.mx",
+      'password' => Hash::make('ikb4n45')
+    ]); // 12345678
+  }
 }
 class MiembroTableSeeder extends Seeder {
-	public function run(){
-		Miembro::create([
-			'nombre' => "Isaí Landa",
-			'puesto' => "Presidente",
-      'pensamiento' => 'El secreto de la felicidad: encuentra algo más grande que tú y dedica tu vida a ello',
-      'orden' => 1
-		]);
+  public function run(){
+    Miembro::create([
+      'nombre' => "Isaí Landa",
+      'puesto' => "Delegado"
+    ]);
 
     Miembro::create([
-			'nombre' => "Alexis España",
-			'puesto' => "Secretario",
-      'pensamiento' => 'Programar es decirle a la computadora que haga realidad todo aquello que imaginas',
-      'orden' => 2
-		]);
+      'nombre' => "Alexis España",
+      'puesto' => "Secretario"
+    ]);
 
     Miembro::create([
-			'nombre' => "Jorge Romero",
-			'puesto' => "Miembro fundador",
-      'pensamiento' => 'Saber programar te abre un lienzo infinito de posibilidades',
-      'orden' => 5
-		]);
+      'nombre' => "Jorge Romero",
+      'puesto' => "Miembro fundador"
+    ]);
     Miembro::create([
       'nombre' => "Fernando Solano",
-      'puesto' => "Tesorero",
-      'pensamiento' => '¿Sabes cual es el problema? Imaginar el algoritmo y no programarlo',
-      'orden' => 8
+      'puesto' => "Tesorero"
     ]);
     Miembro::create([
       'nombre' => "André",
-      'puesto' => "Entrenador C/C++",
-      'pensamiento' => 'La programación cambió mi vida para bien, y espero cambiar la de los demás a través de ella',
-      'orden' => 3
+      'puesto' => "Entrenador"
     ]);
     Miembro::create([
       'nombre' => "Gandy",
-      'puesto' => "Desarrollador / Asesor",
-      'pensamiento' => 'Dominar el arte de la programación tiene muy buenos resultados, pero requiere esfuerzo. ¡Esfuérzate!',
-      'orden' => 6
+      'puesto' => "Asesor"
     ]);
     Miembro::create([
       'nombre' => "Mariana de la Rosa",
-      'puesto' => "Vinculación",
-      'pensamiento' => 'En un futuro cercano, programar será igual de importante que saber hablar inglés',
-      'orden' => 7
+      'puesto' => "Asesora"
     ]);
-    Miembro::create([
-      'nombre' => "Diego Tableros",
-      'puesto' => "Entrenador Karel/C",
-      'pensamiento' => 'Yo solo C que C C',
-      'orden' => 4
-    ]);
-	}
+  }
 }
 class BannerTableSeeder extends Seeder {
-	public function run(){
-		Banner::create([
-			'titulo' => "",
-			'texto' => "",
-			'link1' => "#inscripcion",
-			'link2' => null
-		]);
+  public function run(){
     Banner::create([
-			'titulo' => "",
-			'texto' => "",
-			'link1' => "",
-			'link2' => ""
-		]);
-	}
+      'titulo' => "Olimpiada Morelense de Informática",
+      'texto' => "Inserte aquí alguna frase motivadora",
+      'link1' => null,
+      'link2' => null
+    ]);
+
+    Banner::create([
+      'titulo' => "Curso de profesores 2020",
+      'texto' => "¿Estás interesado en enseñar programación en tu escuela?",
+      'link1' => "#",
+      'link2' => null
+    ]);
+
+    Banner::create([
+      'titulo' => "Torneo universitario de programación",
+      'texto' => "Inscribe a tu equipo!",
+      'link1' => "#",
+      'link2' => null
+    ]);
+
+    Banner::create([
+      'titulo' => "XIII Olimpiada Morelense de Informática",
+      'texto' => "Las inscripciones abren en agosto!",
+      'link1' => null,
+      'link2' => null
+    ]);
+  }
 }
 class CausaTableSeeder extends Seeder {
-	public function run(){
-		Causa::create([
-			'titulo' => "Inscripción al nacional",
-			'acumulado' => 0,
-			'cant_donaciones' => 0,
-			'meta' => 52400,
-      //'link1' => "https://github.com/",
-      //'link2' => "https://github.com/pronficilio",
-      'detalle_titulo' => "Pago del concurso nacional",
-      'detalle_texto' => "Morelos se ha posicionado en el top 15 a nivel nacional y hemos participado de forma ininterrumpida desde 2009. Creemos que el costo de la representación morelense <strong>NO</strong> debe caer en los competidores ni en sus padres."
-		]);
-
+  public function run(){
     Causa::create([
-			'titulo' => "Boletos de avión",
-			'acumulado' => 2000,
-			'cant_donaciones' => 1,
-			'meta' => 10000,
-      //'link1' => "https://github.com/",
-      //'link2' => "https://github.com/pronficilio",
-      'detalle_titulo' => "Transporte a Zacatecas para la competencia Nacional",
-      'detalle_texto' => "Los competidores morelenses tendrán que tomar un avión en CDMX para la competencia. El boleto por cada uno será aproximadamente 1000 pesos, 2 entrenadores, 8 competidores."
-		]);
-
-    Causa::create([
-      'titulo' => "Premios",
+      'titulo' => "Inscripción al nacional",
       'acumulado' => 0,
       'cant_donaciones' => 0,
-      'meta' => 20000,
+      'meta' => 34000,
       //'link1' => "https://github.com/",
       //'link2' => "https://github.com/pronficilio",
-      'detalle_titulo' => "Premios para los mejores participantes del concurso Estatal",
-      'detalle_texto' => "Laptops, tablets, smartphone para los primeros lugares de cada categoría. Si puedes ayudarnos con equipo por favor escribenos, estamos premiando a los mejores y nuestros resultados indican que los podemos identificar y potenciar"
+      'detalle_titulo' => "Ayuda a que un vagabundo pueda comer",
+      'detalle_texto' => "Los vagabundos son personas muy interesantes en la vida."
     ]);
 
     Causa::create([
-			'titulo' => "Gastos administrativos",
-			'acumulado' => 10000,
-			'cant_donaciones' => 3,
-			'meta' => 27000,
+      'titulo' => "Apoyo para plumones",
+      'acumulado' => 0,
+      'cant_donaciones' => 0,
+      'meta' => 1000000,
       //'link1' => "https://github.com/",
       //'link2' => "https://github.com/pronficilio",
-      'detalle_titulo' => "Pago de servicios",
-      'detalle_texto' => "Contadores, diseñadores, programadores, maestros, publicidad, servicios en la nube... La OMRI no recibe ayuda gubernamental y mantenemos este proyecto por amor al arte. Cualquier ayuda sería una carga menos para nosotros"
-		]);
-	}
+      'detalle_titulo' => "Ayuda a la OMRI con plumones",
+      'detalle_texto' => "La herramienta indispensable de la olimpiada"
+    ]);
+
+    Causa::create([
+      'titulo' => "Apoyo para un viaje",
+      'acumulado' => 5000,
+      'cant_donaciones' => 9,
+      'meta' => 2000000,
+      //'link1' => "https://github.com/",
+      //'link2' => "https://github.com/pronficilio",
+      'detalle_titulo' => "Ayuda a la OMRI con el boleto de sus participantes",
+      'detalle_texto' => "AYUDAAAAAAAAAAAAAAAAAAAAAAAA!!!!!!!!"
+    ]);
+  }
 }
 class EventoTableSeeder extends Seeder {
-	public function run(){
-		Evento::create([
-			'titulo' => "Pregúntale a André",
-			'fecha' => "2020/08/08",
-			'texto' => "André y Jorge resolverán tus dudas acerca de la OMRI",
-			'link' => "",
-      'detalle_titulo' => "André y Jorge resolverán tus dudas acerca de la OMRI",
-      'detalle_texto' => "André Curiel será tu asesor durante esta olimpiada online. El día 8 de agosto en punto de las 11 de la mañana, André acompañado de Jorge Quiroz (ganador de 2 medallas en la última olimpiada), te resolverán tus dudas acerca de todo lo que necesites saber sobre esta olimpiada a través de un 'en vivo' desde la plataforma de Facebook. ¡Tienes una cita con ellos!"
-		]);
+  public function run(){
+    Evento::create([
+      'titulo' => "Examen Estatal",
+      'fecha' => "2020/02/24",
+      'texto' => "Se aproxima un nuevo examen",
+      'link' => "https://www.omri.org.mx",
+      'detalle_titulo' => "Este sabado, el examen estatal",
+      'detalle_texto' => "Veremos quien seran los 4 que nos representaran en el nacional"
+    ]);
 
     Evento::create([
-			'titulo' => "¿Te gustaría recibir la playera OMRI oficial? ",
-			'fecha' => "2020/09/10",
-			'texto' => "En Septiembre se regalarán playeras",
-			'link' => "",
-      'detalle_titulo' => "¿Te gustaría recibir la playera OMRI oficial?",
-      'detalle_texto' => "Como incentivo a nuestros olímpicos más destacados durante el proceso de aprendizaje, estaremos regalando playeras y algunos souvenirs. Y como sabemos que no puedes salir de casa, los llevaremos a la puerta de tu hogar. ¡Estate muy pendiente de nuestras redes sociales!"
-		]);
-    Evento::create([
-      'titulo' => "Último día para registrarse",
-      'fecha' => "2020/09/13",
-      'texto' => "Y la competencia arranca",
-      'link' => "",
-      'detalle_titulo' => "Último día para registrarse",
-      'detalle_texto' => "A partir de este momento, caminaremos todos juntos en un terreno desconocido pero divertido, ¡todo el mundo debería aprender a programar!"
+      'titulo' => "Examen Nacional",
+      'fecha' => "2020/05/26",
+      'texto' => "Se aproxima un nuevo examen Nacional",
+      'link' => "https://www.omri.org.mx",
+      'detalle_titulo' => "OMI 2020",
+      'detalle_texto' => "Revisa nuestros resultados en la OMI 2020"
     ]);
-	}
+
+    Evento::create([
+      'titulo' => "Premios",
+      'fecha' => "2020/02/25",
+      'texto' => "Premiaciones",
+      'link' => "https://www.omri.org.mx",
+      'detalle_titulo' => "Este sabado es la premiacion",
+      'detalle_texto' => "Todos estan invitados"
+    ]);
+  }
 }
 
 class NoticiaTableSeeder extends Seeder {
-	public function run(){
+  public function run(){
     Noticia::create([
-      'titulo' => "¡Invítanos a tu escuela!",
-      'fecha' => "2019/11/01",
-      'texto' => "¿Te gustaría llevar al equipo OMRI a tu escuela?",
-      'link' => "#contacto",
-      'detalle_titulo' => "¿Te gustaría llevar al equipo OMRI a tu escuela?",
-      'detalle_texto' => "Durante 11 años hemos ido en búsqueda de los mejores talentos en Morelos. En las escuelas de gobierno, colegios particulares, planteles e instituciones hemos encontrado y capacitado a quienes nos han representado a nivel Nacional, y que hoy posiciona a Morelos en el lugar 12. Todo esto, ha sido un triunfo colectivo, la voluntad de los alumnos es solo proporcional al apoyo de sus grandes maestros."
+      'titulo' => "Nuevos maestros en la olimpiada",
+      'fecha' => "2020/02/24",
+      'texto' => "Tenemos nuevos integrantes en la olimpiada",
+      'link' => "https://www.omri.org.mx",
+      'detalle_titulo' => "Nuevos integrantes en el equipo",
+      'detalle_texto' => "Ya estan aqui los nuevos integrantes."
     ]);
 
     Noticia::create([
-      'titulo' => "Libros interactivos con Realidad Aumentada",
-      'fecha' => "2019/10/12",
-      'texto' => "Olímpicos recibiendo donativos.",
-      'link' => "",
-      'detalle_titulo' => "Olímpicos recibiendo libros interactivos con Realidad Aumentada",
-      'detalle_texto' => "Gracias a un donativo, los olímpicos interactuaron con la Realidad Aumentada. La RA, aprovecha la tecnología para fomentar la lectura. En ella, los personajes y los escenarios de los libros cobran vida, lo que permitió a los olímpicos interactuar y vivir las historias que se relatan de una forma más atractiva. Desde la cámara de un celular, se apreciaban animaciones que daban diversión a las historias relatadas."
+      'titulo' => "Nuevo sistema de enseñanza",
+      'fecha' => "2020/02/24",
+      'texto' => "Hemos estudiado un nuevo sistema, ven, descubrelo",
+      'link' => "https://www.omri.org.mx",
+      'detalle_titulo' => "Nuevo sistema de enseñanza se aproxima",
+      'detalle_texto' => "El nuevo sistema de enseñanza se ve muy prometedor y funcionara para todo el publico"
     ]);
 
     Noticia::create([
-      'titulo' => "Queremos acercar a nuestros hijos al mundo de la programación y darles herramientas para su futuro",
-      'fecha' => "2019/09/14",
-      'texto' => "Más de 200 padres de familia reunidos",
-      'link' => "",
-      'detalle_titulo' => "Más de 200 padres de familia reunidos",
-      'detalle_texto' => "En el Tec de Monterrey campus Cuernavaca, un grupo de alrededor de 200 padres de familia, se reunieron con el propósito de impulsar a sus hijos a superarse mediante la tecnología. La Olimpiada de Informática, abre las puertas a todo aquel joven y niño que desee aprender a programar, sin embargo, es muy importante contar con el fiel apoyo de un tutor, maestro o padre de familia que lo impulse a seguir sus sueños, perseguir ilusiones y lograr sus metas. La más valiosa herencia es el conocimiento"
-    ]);
-    Noticia::create([
-      'titulo' => "Cambio de fecha del concurso nacional",
-      'fecha' => "2020/03/23",
-      'texto' => "Aviso de nuevas fechas para la Olimpiada Mexicana de Informática 2020",
-      'link' => "https://www.olimpiadadeinformatica.org.mx",
-      'detalle_titulo' => "Más de 200 padres de familia reunidos",
-      'detalle_texto' => "El COMI ha venido siguiendo la evolución de la Pantemia del COVID-19, en México y en el Mundo y en consideración a esta y su impacto en la salud de nuestra sociedad, hemos decidido postponer la OMI 2020 para que sea realizada en la misma ciudad de Zacatecas, Zacatecas, del día 8 al 13 de octubre de 2020. "
+      'titulo' => "El perro de Isai ya no tiene bolas",
+      'fecha' => "2020/02/14",
+      'texto' => "Pobre Perro :(",
+      'link' => "https://www.omri.org.mx",
+      'detalle_titulo' => "El perro de Isai ya no tiene bolas",
+      'detalle_texto' => "El perro ya desperto :)"
     ]);
   }
 }
 
 class ProyectoTableSeeder extends Seeder {
-	public function run(){
+  public function run(){
     Proyecto::create([
       'titulo' => "Torneo Universidades",
       'fecha' => "2020/02/14",
@@ -369,7 +348,7 @@ class ProyectoTableSeeder extends Seeder {
 }
 
 class SponsorTableSeeder extends Seeder {
-	public function run(){
+  public function run(){
     Sponsor::create([
       'nombre' => "MC Cornick",
       //'link' => "https://www.google.com"
@@ -389,267 +368,398 @@ class SponsorTableSeeder extends Seeder {
 
 class EscuelaTableSeeder extends Seeder {
   public function run(){
-    //Escuela::create(['nombre' => '232', 'corto' => '']);
-    Escuela::create(['nombre' => '12 de Octubre', 'corto' => '']);
-    Escuela::create(['nombre' => '2 de Abril', 'corto' => '']);
-    Escuela::create(['nombre' => '5 de Mayo de 1862', 'corto' => '']);
-    Escuela::create(['nombre' => 'Abraham Lincoln', 'corto' => '']);
-    Escuela::create(['nombre' => 'Alvaro Obregon', 'corto' => '']);
-    Escuela::create(['nombre' => 'Bachillerato Internacional Uninter', 'corto' => 'BIU']);
-    Escuela::create(['nombre' => 'Benemérita Escuela Secundaria No. 1 Profr. Froylán Parroquín García', 'corto' => '']);
-    Escuela::create(['nombre' => 'Benito Juárez', 'corto' => '']);
-    Escuela::create(['nombre' => 'Centro De Bachillerato Tecnologico Agropecuario No. 154', 'corto' => 'CBTa 154']);
-    Escuela::create(['nombre' => 'Centro De Bachillerato Tecnologico Agropecuario No. 155', 'corto' => 'CBTa 155']);
-    Escuela::create(['nombre' => 'Centro De Bachillerato Tecnologico Agropecuario No. 190', 'corto' => 'CBTa 190']);
-    Escuela::create(['nombre' => 'Centro De Bachillerato Tecnologico Agropecuario No. 39', 'corto' => 'CBTa 39']);
-    Escuela::create(['nombre' => 'Centro De Bachillerato Tecnologico Agropecuario No. 8', 'corto' => 'CBTa 08']);
-    Escuela::create(['nombre' => 'Centro de Bachillerato Tecnológico Industrial y de Servicios No. 12', 'corto' => 'CBTis 12']);
-    Escuela::create(['nombre' => 'Centro de Bachillerato Tecnológico Industrial y de Servicios No. 136', 'corto' => 'CBTis 136']);
-    Escuela::create(['nombre' => 'Centro de Bachillerato Tecnológico Industrial y de Servicios No. 166', 'corto' => 'CBTis 166']);
-    Escuela::create(['nombre' => 'Centro de Bachillerato Tecnológico Industrial y de Servicios No. 194', 'corto' => 'CBTis 194']);
-    Escuela::create(['nombre' => 'Centro de Bachillerato Tecnológico Industrial y de Servicios No. 232', 'corto' => 'CBTis 232']);
-    Escuela::create(['nombre' => 'Centro de Bachillerato Tecnológico Industrial y de Servicios No. 76', 'corto' => 'CBTis 76']);
-    Escuela::create(['nombre' => 'Centro de Bachillerato Tecnológico Industrial y de Servicios No.128', 'corto' => 'CBTis 128']);
-    Escuela::create(['nombre' => 'Centro de Estudios Técnicos en Computación', 'corto' => 'CETEC']);
-    Escuela::create(['nombre' => 'Centro de Estudios Tecnológicos, Industriales y de Servicios No. 12', 'corto' => 'CETis 12']);
-    Escuela::create(['nombre' => 'Centro de Estudios Tecnológicos, Industriales y de Servicios No. 43', 'corto' => 'CETis 43']);
-    Escuela::create(['nombre' => 'Centro de Estudios Tecnológicos, Industriales y de Servicios No. 44', 'corto' => 'CETis 44']);
-    Escuela::create(['nombre' => 'Centro de Estudios Tecnológicos, Industriales y de Servicios No. 99', 'corto' => 'CETis 99']);
-    Escuela::create(['nombre' => 'Centro Educativo Americano', 'corto' => '']);
-    Escuela::create(['nombre' => 'Centro Educativo de Clase Mundial', 'corto' => 'CECM']);
-    Escuela::create(['nombre' => 'Centro Educativo Lizardi', 'corto' => 'Lizardi']);
-    Escuela::create(['nombre' => 'Centro Educativo Montes de Oca', 'corto' => 'Montes de Oca']);
-    Escuela::create(['nombre' => 'Centro Educativo Sofista', 'corto' => '']);
-    Escuela::create(['nombre' => 'Centro Empresarial de Estudio Superior', 'corto' => '']);
-    Escuela::create(['nombre' => 'Centro Morelense de las Artes', 'corto' => 'CMA']);
-    Escuela::create(['nombre' => 'Centro Universitario Americano Del Estado De Morelos', 'corto' => 'CUADEM']);
-    Escuela::create(['nombre' => 'Centro Universitario de Morelos', 'corto' => 'CUM']);
-    Escuela::create(['nombre' => 'Centro Universitario Morelos de Jantetelco', 'corto' => '']);
-    Escuela::create(['nombre' => 'Cingenieros', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio ABC', 'corto' => 'ABC']);
-    Escuela::create(['nombre' => 'Colegio Andersen', 'corto' => 'Andersen']);
-    Escuela::create(['nombre' => 'Colegio Boston', 'corto' => 'Boston']);
-    Escuela::create(['nombre' => 'Colegio Carmen Salles', 'corto' => 'Carmen Sallés']);
-    Escuela::create(['nombre' => 'Colegio Cencalli', 'corto' => 'Cencalli']);
-    Escuela::create(['nombre' => 'Colegio Círculo Infantil Valle', 'corto' => 'CIV ']);
-    Escuela::create(['nombre' => 'Colegio Compton', 'corto' => 'Compton']);
-    Escuela::create(['nombre' => 'Colegio Cristóbal Colón', 'corto' => 'Cristóbal Colón']);
-    Escuela::create(['nombre' => 'Colegio Cuernavaca', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio de Bachilleres del Estado de Morelos EMSAD 06', 'corto' => 'COBAEM EMSAD 06']);
-    Escuela::create(['nombre' => 'Colegio de Bachilleres del Estado de Morelos plantel 01', 'corto' => 'COBAEM 01']);
-    Escuela::create(['nombre' => 'Colegio de Bachilleres del Estado de Morelos plantel 02', 'corto' => 'COBAEM 02']);
-    Escuela::create(['nombre' => 'Colegio de Bachilleres del Estado de Morelos plantel 03', 'corto' => 'COBAEM 03']);
-    Escuela::create(['nombre' => 'Colegio de Bachilleres del Estado de Morelos plantel 04', 'corto' => 'COBAEM 04']);
-    Escuela::create(['nombre' => 'Colegio de Bachilleres del Estado de Morelos plantel 07', 'corto' => 'COBAEM 07']);
-    Escuela::create(['nombre' => 'Colegio de Bachilleres del Estado de Morelos plantel 08', 'corto' => 'COBAEM 08']);
-    Escuela::create(['nombre' => 'Colegio de Bachilleres del Estado de Morelos plantel 11', 'corto' => 'COBAEM 11']);
-    Escuela::create(['nombre' => 'Colegio de Bachilleres del Estado de Morelos plantel 13', 'corto' => 'COBAEM 13']);
-    Escuela::create(['nombre' => 'Colegio de Estudios Científicos y Tecnológicos del Estado Plantel 01', 'corto' => 'CECyTE 01']);
-    Escuela::create(['nombre' => 'Colegio de Estudios Científicos y Tecnológicos del Estado Plantel 02', 'corto' => 'CECyTE 02']);
-    Escuela::create(['nombre' => 'Colegio de Estudios Científicos y Tecnológicos del Estado Plantel 03', 'corto' => 'CECyTE 03']);
-    Escuela::create(['nombre' => 'Colegio de Estudios Científicos y Tecnológicos del Estado Plantel 04', 'corto' => 'CECyTE 04']);
-    Escuela::create(['nombre' => 'Colegio de Estudios Científicos y Tecnológicos del Estado Plantel 05', 'corto' => 'CECyTE 05']);
-    Escuela::create(['nombre' => 'Colegio de Estudios Científicos y Tecnológicos del Estado Plantel 09', 'corto' => 'CECyTE 09']);
-    Escuela::create(['nombre' => 'Colegio de Estudios Científicos y Tecnológicos del Estado Plantel 10', 'corto' => 'CECyTE 10']);
-    Escuela::create(['nombre' => 'Colegio Don Bosco', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Español de Morelos', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Florencia', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Francés Motolinia', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Hellen Keller', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Howard Gardner', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Huitzilin', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Imperial', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio La Paz', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Lowry', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Liceo Agazzi Bombelli', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Ludere Victum', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Marton', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Marymount', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio México', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Moderno de Cuernavaca', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Moliere Liceo Franco Mexicano A.C.', 'corto' => 'Moliere']);
-    Escuela::create(['nombre' => 'Colegio Monte Albán', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Montefalco', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Montes de Oca Cuernavaca', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Morelos', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Morelos de Cuernavaca', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Morelos de Jantetelco', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Nacional de Educación Profesional', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Nacional de Educación Profesional Técnica No. 036', 'corto' => 'CONALEP 036']);
-    Escuela::create(['nombre' => 'Colegio Nacional de Educación Profesional Técnica No. 173', 'corto' => 'CONALEP 173']);
-    Escuela::create(['nombre' => 'Colegio Nacional de Educación Profesional Técnica No. 241', 'corto' => 'CONALEP 241']);
-    Escuela::create(['nombre' => 'Colegio Nacional de Educación Profesional Técnica No. 283', 'corto' => 'CONALEP 283']);
-    Escuela::create(['nombre' => 'Colegio Nacional de Educación Profesional Técnica No. 294', 'corto' => 'CONALEP 294']);
-    Escuela::create(['nombre' => 'Colegio Oquetza', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Potzanani', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Quebec', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Quetzalli', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Quetzalcóatl', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Robet Kennedy', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Rosario Castellanos', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Soleil', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Stratford', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Tehatsi', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Telpochcalli', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Tepoztecatl', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Wallaby', 'corto' => '']);
-    Escuela::create(['nombre' => 'Colegio Williams de Cuernavaca', 'corto' => 'Williams']);
-    Escuela::create(['nombre' => 'Comunidad Educativa Ollincalli', 'corto' => '']);
-    Escuela::create(['nombre' => 'Discovery School', 'corto' => '']);
-    Escuela::create(['nombre' => 'Enrique Rodríguez Cano', 'corto' => '']);
-    Escuela::create(['nombre' => 'Ermilo Abreu Gómez', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Alianza', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela de Enfermería y Radiología Florencia Nigthingale', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela de la Ciudad de Cuernavaca', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela de Técnicos Laboratoristas', 'corto' => '']);
-    Escuela::create(['nombre' => 'ESCUELA EN CASA', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Libertad', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Militarizada Cristóbal Colón', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Preparatoria Diurna No. 1', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Preparatoria No. 4 de Jojutla', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Preparatoria Vespertina No. 1', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Primaria "Emiliano Zapata"', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Primaria Guadalupe Victoria', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Primaria Mariano Matamoros', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Primaria Prof. Manuel M. Cerna', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Secundaria Federal Enrique González Aparicio', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Secundaria Federal Mariano Matamoros', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Secundaria General Juan N. Alvarez', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Secundaria General No. 13 Rosario Castellanos', 'corto' => 'Sec. 13 Rosario Castellanos']);
-    Escuela::create(['nombre' => 'Escuela Secundaria General No. 2 Cuitlahuac', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Secundaria General No. 3 "Eulalia Guzmán"', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Secundaria General Tlahuilli', 'corto' => 'Secundaria Tlahuilli']);
-    Escuela::create(['nombre' => 'Escuela Secundaria No. 4 Valentín Gómez Farías', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Secundaria No.14 Jose Vizcaíno Perez', 'corto' => '']);
-    Escuela::create(['nombre' => 'Escuela Secundaria Técnica No. 02', 'corto' => 'E.S.T. No. 02']);
-    Escuela::create(['nombre' => 'Escuela Secundaria Técnica No. 04', 'corto' => 'E.S.T. No. 04']);
-    Escuela::create(['nombre' => 'Escuela Secundaria Técnica No. 06', 'corto' => 'E.S.T. No. 06']);
-    Escuela::create(['nombre' => 'Escuela Secundaria Técnica No. 14', 'corto' => 'E.S.T. No. 14']);
-    Escuela::create(['nombre' => 'Escuela Secundaria Técnica No. 18', 'corto' => 'E.S.T. No. 18']);
-    Escuela::create(['nombre' => 'Escuela Secundaria Técnica No. 22', 'corto' => 'E.S.T. No. 22']);
-    Escuela::create(['nombre' => 'Escuela Secundaria Técnica No. 23', 'corto' => 'E.S.T. No. 23']);
-    Escuela::create(['nombre' => 'Escuela Secundaria Técnica No. 34', 'corto' => 'E.S.T. No. 34']);
-    Escuela::create(['nombre' => 'Escuela Secundaria Técnica No. 36', 'corto' => 'E.S.T. No. 23']);
-    Escuela::create(['nombre' => 'Escuela Secundaria Técnica No. 39', 'corto' => 'E.S.T. No. 39']);
-    Escuela::create(['nombre' => 'Escuela Secundaria Técnica No. 45', 'corto' => 'E.S.T. No. 45']);
-    Escuela::create(['nombre' => 'Francisco González Bocanegra', 'corto' => '']);
-    Escuela::create(['nombre' => 'Francisco Villa', 'corto' => '']);
-    Escuela::create(['nombre' => 'Francisco Zarco', 'corto' => '']);
-    Escuela::create(['nombre' => 'Freinet de Cuernavaca', 'corto' => '']);
-    Escuela::create(['nombre' => 'Fundación Don Bosco', 'corto' => '']);
-    Escuela::create(['nombre' => 'Fundación El Peñón', 'corto' => '']);
-    Escuela::create(['nombre' => 'Gavino Barreda', 'corto' => '']);
-    Escuela::create(['nombre' => 'Global Lerning Community', 'corto' => '']);
-    Escuela::create(['nombre' => 'Global School', 'corto' => '']);
-    Escuela::create(['nombre' => 'Gral. Alvaro Obregón', 'corto' => '']);
-    Escuela::create(['nombre' => 'Gral. Hermenegildo Galeana', 'corto' => '']);
-    Escuela::create(['nombre' => 'Gregorio Torres Quintero', 'corto' => '']);
-    Escuela::create(['nombre' => 'Grupo de Atención Educativa', 'corto' => '']);
-    Escuela::create(['nombre' => 'Grupo Educativo Cristobal Colon', 'corto' => '']);
-    Escuela::create(['nombre' => 'Grupo Educativo Loyola', 'corto' => '']);
-    Escuela::create(['nombre' => 'Guadalupe Victoria', 'corto' => '']);
-    Escuela::create(['nombre' => 'Hamilton Junior High School', 'corto' => '']);
-    Escuela::create(['nombre' => 'Ignacio Allende', 'corto' => '']);
-    Escuela::create(['nombre' => 'Ignacio Zaragoza', 'corto' => '']);
-    Escuela::create(['nombre' => 'Instituto Educativo las Fuentes', 'corto' => 'Las Fuentes']);
-    Escuela::create(['nombre' => 'Instituto Latino Americano', 'corto' => '']);
-    Escuela::create(['nombre' => 'Instituto Mexicano de Profesionalización Educativa', 'corto' => 'IMPE']);
-    Escuela::create(['nombre' => 'Instituto Nacional para la Educación de los Adultos', 'corto' => 'INEA']);
-    Escuela::create(['nombre' => 'Instituto Oxford', 'corto' => '']);
-    Escuela::create(['nombre' => 'Instituto Tecnológico de Cuautla', 'corto' => 'IT Cuautla']);
-    Escuela::create(['nombre' => 'Jesus Conde Rodriguez', 'corto' => '']);
-    Escuela::create(['nombre' => 'José María Morelos y Pavón', 'corto' => '']);
-    Escuela::create(['nombre' => 'Jose Urban Aguirre', 'corto' => '']);
-    Escuela::create(['nombre' => 'Jose Vasconcelos', 'corto' => '']);
-    Escuela::create(['nombre' => 'José Vizcaíno Pérez', 'corto' => '']);
-    Escuela::create(['nombre' => 'Josefa Ortiz de Domínguez', 'corto' => '']);
-    Escuela::create(['nombre' => 'Juan Escutia', 'corto' => '']);
-    Escuela::create(['nombre' => 'Juan Morales', 'corto' => '']);
-    Escuela::create(['nombre' => 'Justo Sierra', 'corto' => '']);
-    Escuela::create(['nombre' => 'La Paz', 'corto' => '']);
-    Escuela::create(['nombre' => 'La Salle', 'corto' => '']);
-    Escuela::create(['nombre' => 'Lancaster', 'corto' => '']);
-    Escuela::create(['nombre' => 'Lázaro Cárdenas', 'corto' => '']);
-    Escuela::create(['nombre' => 'Lázaro Cárdenas del Río Internado Palmira', 'corto' => '']);
-    Escuela::create(['nombre' => 'Leona Vicario Fernandez', 'corto' => '']);
-    Escuela::create(['nombre' => 'Limbo', 'corto' => '']);
-    Escuela::create(['nombre' => 'Lobos Morelos', 'corto' => '']);
-    Escuela::create(['nombre' => 'Luis Donaldo Colosio Murrieta', 'corto' => '']);
-    Escuela::create(['nombre' => 'Luis Pasteur', 'corto' => '']);
-    Escuela::create(['nombre' => 'Maestro Jose Vasconselos Calderon', 'corto' => '']);
-    Escuela::create(['nombre' => 'Manuel Noceda Barrios', 'corto' => '']);
-    Escuela::create(['nombre' => 'Maria Mondragon', 'corto' => '']);
-    Escuela::create(['nombre' => 'Mariano Rivapalacio San Vicente', 'corto' => '']);
-    Escuela::create(['nombre' => 'Marymount Cuernavaca', 'corto' => '']);
-    Escuela::create(['nombre' => 'Mercedes Martínez del Campo', 'corto' => '']);
-    Escuela::create(['nombre' => 'Miguel Hidalgo y Costilla', 'corto' => '']);
-    Escuela::create(['nombre' => 'Montessori', 'corto' => '']);
-    Escuela::create(['nombre' => 'Niños Héroes de Chapultepec', 'corto' => '']);
-    Escuela::create(['nombre' => 'Numero 21', 'corto' => '']);
-    Escuela::create(['nombre' => 'Octavio Paz', 'corto' => '']);
-    Escuela::create(['nombre' => 'Olmeca Cluster Universitario', 'corto' => '']);
-    Escuela::create(['nombre' => 'Otilio Edmundo Montaño', 'corto' => '']);
-    Escuela::create(['nombre' => 'Pablo Torres Burgos', 'corto' => '']);
-    Escuela::create(['nombre' => 'Pillicao', 'corto' => '']);
-    Escuela::create(['nombre' => 'Prepa 1', 'corto' => '']);
-    Escuela::create(['nombre' => 'Prepa 19', 'corto' => '']);
-    Escuela::create(['nombre' => 'Prepa 3 Cuautla', 'corto' => '']);
-    Escuela::create(['nombre' => 'Prepa 6 de Tlaltizapan', 'corto' => '']);
-    Escuela::create(['nombre' => 'Prepa Cuautla', 'corto' => '']);
-    Escuela::create(['nombre' => 'Prepa en linea SEP', 'corto' => '']);
-    Escuela::create(['nombre' => 'Preparatoria Federal por Cooperación "Valentín Gómez Farías"', 'corto' => 'PREFECO Valentín Gómez Farías']);
-    Escuela::create(['nombre' => 'Preparatoria Federal Por Cooperación Andrés Quintana Roo', 'corto' => 'PREFECO Andrés Quintana Roo']);
-    Escuela::create(['nombre' => 'Preparatoria Federal Por Cooperación Jose María Morelos y Pavón', 'corto' => 'PREFECO José María Morelos y Pavón']);
-    Escuela::create(['nombre' => 'Preparatoria Guízar y Valencia', 'corto' => '']);
-    Escuela::create(['nombre' => 'Preparatoria La Paz', 'corto' => '']);
-    Escuela::create(['nombre' => 'Preparatoria No 24', 'corto' => '']);
-    Escuela::create(['nombre' => 'Preparatoria no. 2', 'corto' => '']);
-    Escuela::create(['nombre' => 'Preparatoria No. 6 Tlaltizapan', 'corto' => '']);
-    Escuela::create(['nombre' => 'Preparatoria No. 6 UAEM', 'corto' => 'Prepa 6 UAEM']);
-    Escuela::create(['nombre' => 'Presidente Miguel Aleman', 'corto' => '']);
-    Escuela::create(['nombre' => 'Primaria 16 de Septiembre', 'corto' => '16 de Septiembre']);
-    Escuela::create(['nombre' => 'Primaria 5 de Febrero', 'corto' => '']);
-    Escuela::create(['nombre' => 'Primaria 5 de mayo de 1862', 'corto' => '']);
-    Escuela::create(['nombre' => 'Primaria Alfonso N. Urueta Carrillo', 'corto' => '']);
-    Escuela::create(['nombre' => 'Primaria Ing. César Uscanga Uscanga', 'corto' => '']);
-    Escuela::create(['nombre' => 'Primaria Ejército Mexicano / MCAJ', 'corto' => '']);
-    Escuela::create(['nombre' => 'Primaria Ignacio Manuel Altamirano', 'corto' => '']);
-    Escuela::create(['nombre' => 'Primaria Justo Sierra', 'corto' => '']);
-    Escuela::create(['nombre' => 'Primaria Odilón Sedeño Martínez', 'corto' => '']);
-    Escuela::create(['nombre' => 'Primaria Quetzalcoatl Acolapa', 'corto' => '']);
-    Escuela::create(['nombre' => 'Primaria Vicente Guerrero', 'corto' => '']);
-    Escuela::create(['nombre' => 'Prof. Carlos Pérez guerrero', 'corto' => '']);
-    Escuela::create(['nombre' => 'Prof. Otilo Montaño', 'corto' => '']);
-    Escuela::create(['nombre' => 'Profesor Justo Sierra', 'corto' => '']);
-    Escuela::create(['nombre' => 'Profesor Vinh Flores Laureano', 'corto' => '']);
-    Escuela::create(['nombre' => 'Quebec', 'corto' => '']);
-    Escuela::create(['nombre' => 'Quetzalcoatl', 'corto' => '']);
-    Escuela::create(['nombre' => 'Quetzalli', 'corto' => '']);
-    Escuela::create(['nombre' => 'Rosa Quevedo Ochoa', 'corto' => '']);
-    Escuela::create(['nombre' => 'Sead', 'corto' => '']);
-    Escuela::create(['nombre' => 'Secundaria 17 de Marzo', 'corto' => '17 de marzo']);
-    Escuela::create(['nombre' => 'Secundaria Latina', 'corto' => '']);
-    Escuela::create(['nombre' => 'Secundaria Mariano Matamoros', 'corto' => '']);
-    Escuela::create(['nombre' => 'Secundaria Pablo Torres Burgos No. 8', 'corto' => '']);
-    Escuela::create(['nombre' => 'Secundaria Teodoro Rivera Bobadilla', 'corto' => '']);
-    Escuela::create(['nombre' => 'Servicio Nacional de Bachillerato en Línea Prepa en Línea SEP', 'corto' => '']);
-    Escuela::create(['nombre' => 'Siu', 'corto' => '']);
-    Escuela::create(['nombre' => 'Sunny Hill', 'corto' => '']);
-    Escuela::create(['nombre' => 'Técnicos Laboratoristas', 'corto' => '']);
-    Escuela::create(['nombre' => 'Tecnológico de Monterrey Campus Cuernavaca', 'corto' => 'ITESM']);
-    Escuela::create(['nombre' => 'Tecnológico de Monterrey Campus Cuernavaca', 'corto' => 'ITESM Cuernavaca']);
-    Escuela::create(['nombre' => 'Telesecundaria Ignacio Ramirez', 'corto' => '']);
-    Escuela::create(['nombre' => 'Telesecundaria Plan de Ayala', 'corto' => '']);
-    Escuela::create(['nombre' => 'Telesecundaria Rafael Ramírez', 'corto' => '']);
-    Escuela::create(['nombre' => 'Tierra y libertad', 'corto' => '']);
-    Escuela::create(['nombre' => 'Universidad del Valle de Cuernavaca', 'corto' => 'UNIVAC']);
-    Escuela::create(['nombre' => 'Universidad del Valle de México', 'corto' => 'UVM']);
-    Escuela::create(['nombre' => 'Universidad Fray Luca Paccioli', 'corto' => 'Fray Luca']);
-    Escuela::create(['nombre' => 'Universidad Guizar y Valencia', 'corto' => '']);
-    Escuela::create(['nombre' => 'Universidad Internacional UNINTER', 'corto' => 'UNINTER']);
-    Escuela::create(['nombre' => 'Universidad Latina', 'corto' => 'UNILA']);
-    Escuela::create(['nombre' => 'Universidad Tecmilenio', 'corto' => '']);
-    Escuela::create(['nombre' => 'Valentín Gómez Farías', 'corto' => '']);
-    Escuela::create(['nombre' => 'Villa Rosario 2', 'corto' => '']);
+    Escuela::create(['nombre' => 'Centro de Bachillerato Tecnológico Agropecuario 39']);
+    Escuela::create(['nombre' => 'Centro de Bachillerato Tecnológico Agropecuario 8']);
+    Escuela::create(['nombre' => 'Centro de Bachillerato Tecnológico Industrial y de Servicios 76']);
+    Escuela::create(['nombre' => 'Centro de Estudios Científicos y Tecnológicos 03']);
+    Escuela::create(['nombre' => 'Centro de Estudios Tecnológico Industrial y de y Servicios 12']);
+    Escuela::create(['nombre' => 'Centro de Estudios Tecnológicos Industrial y de Servicios 44']);
+    Escuela::create(['nombre' => 'Centro Educativo Montes de Oca']);
+    Escuela::create(['nombre' => 'Centro Universitario Americano del Estado de Morelos']);
+    Escuela::create(['nombre' => 'Centro Universitario Morelos']);
+    Escuela::create(['nombre' => 'Colegio Andersen']);
+    Escuela::create(['nombre' => 'Colegio Boston']);
+    Escuela::create(['nombre' => 'Colegio Cristóbal Colón']);
+    Escuela::create(['nombre' => 'Colegio Cuernavaca']);
+    Escuela::create(['nombre' => 'Colegio de Bachilleres del Estado de Morelos 02']);
+    Escuela::create(['nombre' => 'Colegio de Bachilleres del Estado de Morelos 08']);
+    Escuela::create(['nombre' => 'Colegio de Estudios Científicos y Tecnológicos 01']);
+    Escuela::create(['nombre' => 'Colegio Hamilton']);
+    Escuela::create(['nombre' => 'Colegio Lowry']);
+    Escuela::create(['nombre' => 'Colegio Marton']);
+    Escuela::create(['nombre' => 'Colegio Marymount']);
+    Escuela::create(['nombre' => 'Colegio Moderno de Cuernavaca']);
+    Escuela::create(['nombre' => 'Colegio Montefalco']);
+    Escuela::create(['nombre' => 'Colegio Nacional de Educación Profesional Técnica 03']);
+    Escuela::create(['nombre' => 'Colegio Nacional de Educación Profesional Técnica 173']);
+    Escuela::create(['nombre' => 'Colegio Nacional de Educación Profesional Técnica 241']);
+    Escuela::create(['nombre' => 'Colegio Potzanani']);
+    Escuela::create(['nombre' => 'Colegio Quetzalcóatl']);
+    Escuela::create(['nombre' => 'Colegio Quetzalli']);
+    Escuela::create(['nombre' => 'Colegio Wallaby']);
+    Escuela::create(['nombre' => 'Escuela de la Ciudad de Curnavaca']);
+    Escuela::create(['nombre' => 'Escuela de Técnicos Laboratoristas']);
+    Escuela::create(['nombre' => 'Escuela en casa']);
+    Escuela::create(['nombre' => 'Fundación El Peñón']);
+    Escuela::create(['nombre' => 'Instituto Educativo las Fuentes']);
+    Escuela::create(['nombre' => 'Instituto Nacional para la Educación de los Adultos']);
+    Escuela::create(['nombre' => 'Instituto Tecnológico y de Estudios Superiores de Monterrey Campus Cuernavaca']);
+    Escuela::create(['nombre' => 'Marymount']);
+    Escuela::create(['nombre' => 'Preparatoria Diurna N#1 Bernabé L. de Elías']);
+    Escuela::create(['nombre' => 'Preparatoria Federal por Cooperación Andrés Quintana Roo']);
+    Escuela::create(['nombre' => 'Primaria 5 de mayo de 1862']);
+    Escuela::create(['nombre' => 'Primaria Emiliano Zapata']);
+    Escuela::create(['nombre' => 'Primaria Guadalupe Victoria']);
+    Escuela::create(['nombre' => 'Primaria Ing. César Uscanga Uscanga']);
+    Escuela::create(['nombre' => 'Primaria Presidente Miguel Alemán']);
+    Escuela::create(['nombre' => 'Secundaria 17 de Marzo']);
+    Escuela::create(['nombre' => 'Secundaria Benito Juarez']);
+    Escuela::create(['nombre' => 'Secundaria Carmen Sallés']);
+    Escuela::create(['nombre' => 'Secundaria Ing. César Uscanga Uscanga']);
+    Escuela::create(['nombre' => 'Secundaria Mercedes Martínez del Campo']);
+    Escuela::create(['nombre' => 'Secundaria N#1 Froylan Parroquín García']);
+    Escuela::create(['nombre' => 'Secundaria N#13 Rosario Castellanos']);
+    Escuela::create(['nombre' => 'Secundaria N#4 Valentín Gómez Farias']);
+    Escuela::create(['nombre' => 'Secundaria Nezahualcóyotl']);
+    Escuela::create(['nombre' => 'Secundaria Técnica N#39']);
+    Escuela::create(['nombre' => 'Secundaria Tlahuilli']);
+    Escuela::create(['nombre' => 'Universidad La Salle']);
+    Escuela::create(['nombre' => 'Universidad Tecmilenio']);
+  }
+}
+
+
+class FamaTableSeeder extends Seeder {
+  public function run(){
+    Famoso::create([ 'id' => '1', 'nombre' => 'Jorge Isaí Landa Ortega', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Nacional de Educación Profesional Técnica 241', 'anio' => '2008', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '2', 'nombre' => 'César Oscar Bustamante', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Nacional de Educación Profesional Técnica 173', 'anio' => '2008', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '3', 'nombre' => 'Erick Iván Montes Chávez', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Nacional de Educación Profesional Técnica 173', 'anio' => '2008', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '4', 'nombre' => 'José Ángel Rivera Avilés', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Nacional de Educación Profesional Técnica 173', 'anio' => '2008', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '5', 'nombre' => 'Victor Manuel Sotelo', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Nacional de Educación Profesional Técnica 173', 'anio' => '2008', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '6', 'nombre' => 'Gilberto Trejo', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2008', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '7', 'nombre' => 'Cinthia Samantha', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2008', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '8', 'nombre' => 'David Alfonso Hernández', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2008', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '9', 'nombre' => 'Blanca Azucena Hernández Sotelo', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2008', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '10', 'nombre' => 'Rodrigo Alfonsín de la Vega', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Marymount', 'anio' => '2009', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '11', 'nombre' => 'Maria Fernanda Pineda Bonnin', 'grado' => '2do Preparatoria', 'escuela' => 'Centro Educativo Montes de Oca', 'anio' => '2009', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '12', 'nombre' => 'Jose Refugio Sandoval Dominguez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2009', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '13', 'nombre' => 'Andrés Galindo Ortiz', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2009', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '14', 'nombre' => 'Cesar Alfredo Ramirez Mosso', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio de Estudios Científicos y Tecnológicos 01', 'anio' => '2009', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '15', 'nombre' => 'Aldo Adrián Castillo Valdepeña', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2009', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '16', 'nombre' => 'Susana Paola Jiménez Flores', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 8', 'anio' => '2009', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '17', 'nombre' => 'Ana Karen Garcia Avila', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 8', 'anio' => '2009', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '18', 'nombre' => 'Jessica Maritza Sánches Vilchis', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Nacional de Educación Profesional Técnica 173', 'anio' => '2009', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '19', 'nombre' => 'Yaratzed Aragón Torres', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2009', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '20', 'nombre' => 'Luis Antonio Sandoval Barreto', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2009', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '21', 'nombre' => 'Crisneli Dominguez Carrillo', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2009', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '22', 'nombre' => 'Sindy Osorio Juárez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2009', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '23', 'nombre' => 'René Patiño Morales', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2009', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '24', 'nombre' => 'Daniel Dominguez Carrillo', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2010', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '25', 'nombre' => 'Jose Alberto Villafan Tapia', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2010', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '26', 'nombre' => 'Israel Serrano Rodriguez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2010', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '27', 'nombre' => 'Fabian Noe Cabrera Flores', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2010', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '28', 'nombre' => 'Leopoldo Ernesto Palestino Martinez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Tecnológicos Industrial y de Servicios 44', 'anio' => '2010', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '29', 'nombre' => 'Alvaro Gutierrez Flores', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2010', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '30', 'nombre' => 'Ana Karen Garcia Avila', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 8', 'anio' => '2010', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '31', 'nombre' => 'Jose Antonio Garcia Valdes', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Nacional de Educación Profesional Técnica 03', 'anio' => '2010', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '32', 'nombre' => 'Miguel Angel Flores Galvan', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2010', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '33', 'nombre' => 'Luis Fernando Gonzalez Torres', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2010', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '34', 'nombre' => 'Juan Daniel Tadeo Sanchez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2010', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '35', 'nombre' => 'Erick Alejandro Bautista Gutierrez', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Nacional de Educación Profesional Técnica 241', 'anio' => '2010', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '36', 'nombre' => 'Luis Fernando Gonzalez Torres', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2011', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '37', 'nombre' => 'Daniel Dominguez Carrillo', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2011', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '38', 'nombre' => 'Luis Daniel Medina Cazarez', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria Tlahuilli', 'anio' => '2011', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '39', 'nombre' => 'Omar Otoniel Gómez González', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Nacional de Educación Profesional Técnica 03', 'anio' => '2011', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '40', 'nombre' => 'Ignacio Castillo Espitia', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2011', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '41', 'nombre' => 'Victor Hugo Morales Mendoza', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio de Bachilleres del Estado de Morelos 02', 'anio' => '2011', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '42', 'nombre' => 'Salvador Salazar Saenz', 'grado' => '2do Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2011', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '43', 'nombre' => 'Francisco Javier Turiján Vázquez', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2011', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '44', 'nombre' => 'Alexis España Rodríguez', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria Tlahuilli', 'anio' => '2011', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '45', 'nombre' => 'Jazmín Sanchez García', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2011', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '46', 'nombre' => 'Kevin Francisco Flores Gomez', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2011', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '47', 'nombre' => 'Felix Ortiz López', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2011', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '48', 'nombre' => 'Jair Ramirez Acevedo', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 8', 'anio' => '2011', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '49', 'nombre' => 'Raúl Alonso Santivañez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2011', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '50', 'nombre' => 'Juan Carlos Galindo Barrera', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio de Estudios Científicos y Tecnológicos 01', 'anio' => '2011', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '51', 'nombre' => 'Ignacio Castillo Espitia', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2012', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '52', 'nombre' => 'Luis Daniel Medina Cazarez', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Industrial y de Servicios 76', 'anio' => '2012', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '53', 'nombre' => 'Francisco Javier Turiján Vázquez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2012', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '54', 'nombre' => 'Kevin Francisco Flores Gomez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2012', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '55', 'nombre' => 'Salvador Salazar Saenz', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2012', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '56', 'nombre' => 'Alexis España Rodríguez', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2012', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '57', 'nombre' => 'Miriam Ortiz Hernández', 'grado' => '1ro Preparatoria', 'escuela' => 'Colegio Montefalco', 'anio' => '2012', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '58', 'nombre' => 'Fernando Solano Flores', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Nacional de Educación Profesional Técnica 03', 'anio' => '2012', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '59', 'nombre' => 'Lilia Margarita Hernández Sotelo', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2012', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '60', 'nombre' => 'Juan Enrique Beltrán Díaz', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Nacional de Educación Profesional Técnica 03', 'anio' => '2012', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '61', 'nombre' => 'Karen Hernández Montes', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio de Bachilleres del Estado de Morelos 02', 'anio' => '2012', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '62', 'nombre' => 'Edgar Emmanuel López González', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio de Bachilleres del Estado de Morelos 02', 'anio' => '2012', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '63', 'nombre' => 'Luis Daniel Medina Cazarez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Industrial y de Servicios 76', 'anio' => '2013', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '64', 'nombre' => 'José Antonio Aguilar Téllez', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2013', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '65', 'nombre' => 'Jorge Romero Romanis', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2013', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '66', 'nombre' => 'Salvador Salazar Saenz', 'grado' => '1ro Preparatoria', 'escuela' => 'Instituto Tecnológico y de Estudios Superiores de Monterrey Campus Cuernavaca', 'anio' => '2013', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '67', 'nombre' => 'Iran Cacique Espinoza', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2013', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '68', 'nombre' => 'Mauricio Urdaneta Uribe', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2013', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '69', 'nombre' => 'Nuvia Aidana Alonso Ortega', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2013', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '70', 'nombre' => 'Azahel Abraham Barreto Martinez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2013', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '71', 'nombre' => 'Miriam Ortiz Hernández', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Montefalco', 'anio' => '2013', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '72', 'nombre' => 'Lilia Margarita Hernández Sotelo', 'grado' => '1ro Preparatoria', 'escuela' => 'Instituto Tecnológico y de Estudios Superiores de Monterrey Campus Cuernavaca', 'anio' => '2013', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '73', 'nombre' => 'Roni Daniel España Vazquez', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria Nezahualcóyotl', 'anio' => '2013', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '74', 'nombre' => 'Diego Israel Alcántara Salvitano', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2014', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '75', 'nombre' => 'Luis Alfredo Villalva Rodriguez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2014', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '76', 'nombre' => 'Jorge Romero Romanis', 'grado' => '1ro Preparatoria', 'escuela' => 'Universidad La Salle', 'anio' => '2014', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '77', 'nombre' => 'Luis Fernando Fuentes Sauza', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2014', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '78', 'nombre' => 'Carlos Emiliano Cortés Quiñones', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2014', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '79', 'nombre' => 'Alejandro Lara Soto', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2014', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '80', 'nombre' => 'Roni Daniel España Vazquez', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2014', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '81', 'nombre' => 'Kevin Yassir Fuentes García', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria Tlahuilli', 'anio' => '2014', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '82', 'nombre' => 'Diego Emilio Dominguez Tableros', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria Benito Juarez', 'anio' => '2014', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '83', 'nombre' => 'Omar Alejandro Pérez García', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2014', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '84', 'nombre' => 'Fernando Lango Baltazar', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria Carmen Sallés', 'anio' => '2014', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '85', 'nombre' => 'Sabine Yadira Aragón Herrera', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2014', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '86', 'nombre' => 'Alexis España Rodríguez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2013', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '88', 'nombre' => 'Diego Emilio Domínguez Tableros', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio de Bachilleres del Estado de Morelos 08', 'anio' => '2015', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '89', 'nombre' => 'Roni Daniel España', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2015', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '90', 'nombre' => 'Luis Fernando Fuentes Sauza', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2015', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '91', 'nombre' => 'Adrián Aragón', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2015', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '92', 'nombre' => 'Jorge Romero Romanis', 'grado' => '2do Preparatoria', 'escuela' => 'Universidad La Salle', 'anio' => '2015', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '93', 'nombre' => 'Luis Kevin Johedan Ramírez Fuentes', 'grado' => '1ro Preparatoria', 'escuela' => 'Colegio de Bachilleres del Estado de Morelos 02', 'anio' => '2015', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '94', 'nombre' => 'Fernando Piedra Mendez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Tecnológico Industrial y de y Servicios 12', 'anio' => '2015', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '95', 'nombre' => 'Miguel Angel Muñoz Vázquez', 'grado' => '1ro Preparatoria', 'escuela' => 'Escuela de Técnicos Laboratoristas', 'anio' => '2015', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '96', 'nombre' => 'Omar Alejandro Pérez García', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2015', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '97', 'nombre' => 'Uriel Vázquez Durán', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2015', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '98', 'nombre' => 'Víctor Vargas Flores', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2015', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '99', 'nombre' => 'Jorge Luis Nava', 'grado' => '1ro Preparatoria', 'escuela' => 'Fundación El Peñon ', 'anio' => '2015', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '100', 'nombre' => 'Kevin Yassir Fuentes García', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria Tlahuilli', 'anio' => '2015', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '101', 'nombre' => 'Renata Tyché Estrada Narváez', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Boston', 'anio' => '2015', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '102', 'nombre' => 'Bruno Angel Lomelirubi', 'grado' => '2do Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2015', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '103', 'nombre' => 'Brenda Paola Vidaña Cerda', 'grado' => '3er Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2015', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '104', 'nombre' => 'Alfredo Medina', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2015', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '105', 'nombre' => 'Marlene Pérez Espinosa', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Boston', 'anio' => '2015', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '106', 'nombre' => 'Ernesto Cervantes Olivares', 'grado' => '6to Primaria', 'escuela' => 'Colegio Marymount', 'anio' => '2015', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '107', 'nombre' => 'Alberto Navarrete', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2015', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '108', 'nombre' => 'Sebastián Galindo Rodríguez', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Boston', 'anio' => '2015', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '109', 'nombre' => 'Daniel Alejandro Ocampo Bustos', 'grado' => '2do Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2015', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '110', 'nombre' => 'Miguel Angel Muñoz Vázquez', 'grado' => '2do Preparatoria', 'escuela' => 'Escuela de Técnicos Laboratoristas', 'anio' => '2016', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '111', 'nombre' => 'Adrián Aragón Juárez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2016', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '112', 'nombre' => 'Diego Emilio Domínguez Tableros', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio de Bachilleres del Estado de Morelos 08', 'anio' => '2016', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '159', 'nombre' => 'Valente Castillo Espitia', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2017', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '115', 'nombre' => 'Luis Kevin Johedan Ramírez Fuentes', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio de Bachilleres del Estado de Morelos 02', 'anio' => '2016', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '116', 'nombre' => 'Kevin Yassir Fuentes García', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '117', 'nombre' => 'Fernando Lango Baltazar', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '118', 'nombre' => 'Luis Fernando Ramírez Romero', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '119', 'nombre' => 'Renata Tyché Estrada Narváez', 'grado' => '1ro Preparatoria', 'escuela' => 'Universidad Tecmilenio', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '120', 'nombre' => 'Daniel Victorio López', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '121', 'nombre' => 'André Curiel Fuentes', 'grado' => '1ro Preparatoria', 'escuela' => 'Preparatoria Federal por Cooperación Andrés Quintana Roo', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '122', 'nombre' => 'Jorge Luis Nava Soriano', 'grado' => '2do Preparatoria', 'escuela' => 'Fundación El Peñon', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '123', 'nombre' => 'Juan Luis Santillán Villa', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '124', 'nombre' => 'Zuriel Martínez Sandoval', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '125', 'nombre' => 'Kevin Omar Celis Flores', 'grado' => '1ro Preparatoria', 'escuela' => 'Escuela de Técnicos Laboratoristas', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '126', 'nombre' => 'Brenda Paola Vidaña Cerda', 'grado' => '1ro Preparatoria', 'escuela' => 'Instituto Tecnológico y de Estudios Superiores de Monterrey Campus Cuernavaca', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '127', 'nombre' => 'José Morales Medina', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria N#4 Valentín Gómez Farias', 'anio' => '2016', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '128', 'nombre' => 'Bruno Angel Lomelirubi Vargas', 'grado' => '3ro Secundaia', 'escuela' => 'Colegio Hamilton', 'anio' => '2016', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '129', 'nombre' => 'Engels Emiliano Miranda Palacios', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria N#1 Froylan Parroquín García', 'anio' => '2016', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '130', 'nombre' => 'Emilio Manzanares', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2016', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '131', 'nombre' => 'Isabella Danahe García Aragón', 'grado' => '2do Secundaria', 'escuela' => 'Colegio Quetzalli', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '132', 'nombre' => 'Valeria Alexandra Jaime Ramírez', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '133', 'nombre' => 'Alvar García', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Cuernavaca', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '134', 'nombre' => 'Valente Castillo Espitia', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria Mercedes Martínez del Campo', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '135', 'nombre' => 'Pamela Porcayo', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '136', 'nombre' => 'Miguel Ángel Ballastra', 'grado' => '3ro Secundaria', 'escuela' => 'Centro Universitario Americano del Estado de Morelos', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '137', 'nombre' => 'Rayhan Raziel Fuentes García', 'grado' => '1ro Secundaria', 'escuela' => 'Secundaria Tlahuilli', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '138', 'nombre' => 'Fernando Dimas González', 'grado' => '1ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '139', 'nombre' => 'Abraham Ruiz', 'grado' => '1ro Secundaria', 'escuela' => 'Secundaria Técnica N#39', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '140', 'nombre' => 'Emilio Alejandro Rivera', 'grado' => '1ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '141', 'nombre' => 'Sara Sofía Romero Romero', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria N#13 Rosario Castellanos', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '142', 'nombre' => 'Carlos Jesús Carriola Benítez', 'grado' => '6to Primaria', 'escuela' => 'Colegio Cristóbal Colón', 'anio' => '2016', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '143', 'nombre' => 'Diego López Chávez', 'grado' => '6to Primaria', 'escuela' => 'Colegio Cristóbal Colón', 'anio' => '2016', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '144', 'nombre' => 'Yoztin Zait Ramirez Ortiz', 'grado' => '2do Primaria', 'escuela' => 'Colegio Quetzalcóatl', 'anio' => '2016', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '145', 'nombre' => 'Angel Yoel Ramirez Ortiz', 'grado' => '4to Primaria', 'escuela' => 'Primaria 5 de mayo de 1862', 'anio' => '2016', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '146', 'nombre' => 'Kengy Manuel Díaz Rosales', 'grado' => '6to Primaria', 'escuela' => 'Primaria Guadalupe Victoria', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '147', 'nombre' => 'Emmanuel Huesca Pérez', 'grado' => '6to Primaria', 'escuela' => 'Colegio Potzanani', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '148', 'nombre' => 'Julián Victorio López', 'grado' => '6to Primaria', 'escuela' => 'Colegio Andersen', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '149', 'nombre' => 'Karla Valle Romero', 'grado' => '6to Primaria', 'escuela' => 'Primaria Ing. César Uscanga Uscanga', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '150', 'nombre' => 'Josías Valladares Landa', 'grado' => '3ro Primaria', 'escuela' => 'Primaria Presidente Miguel Alemán', 'anio' => '2016', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '151', 'nombre' => 'Adrián Davos Maldonado González', 'grado' => '5to Primaria', 'escuela' => 'Colegio Cristóbal Colón', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '152', 'nombre' => 'Ari García Zarate', 'grado' => '3ro Primaria', 'escuela' => 'Primaria Presidente Miguel Alemán', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '153', 'nombre' => 'Carolina Kuehne', 'grado' => '6to Primaria', 'escuela' => 'Instituto Nacional para la Educación de los Adultos', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '154', 'nombre' => 'Carmen Kuehne', 'grado' => '4to Primaria', 'escuela' => 'Escuela en casa', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '155', 'nombre' => 'Dante Díaz Gómez', 'grado' => '6to Primaria', 'escuela' => 'Colegio Cristóbal Colón', 'anio' => '2016', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '156', 'nombre' => 'André Curiel Fuentes', 'grado' => '2do Preparatoria', 'escuela' => 'Preparatoria Federal por Cooperación Andrés Quintana Roo', 'anio' => '2017', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '157', 'nombre' => 'Tyché Estrada Narváez', 'grado' => '2do Preparatoria', 'escuela' => 'Universidad Tecmilenio', 'anio' => '2017', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '158', 'nombre' => 'Kevin Yassir Fuentes García', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2017', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '161', 'nombre' => 'Kevin Omar Celis Flores', 'grado' => '2do Preparatoria', 'escuela' => 'Escuela de Técnicos Laboratoristas', 'anio' => '2017', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '162', 'nombre' => 'Engels Emiliano Miranda Palacios', 'grado' => '1ro Preparatoria', 'escuela' => 'Instituto Tecnológico y de Estudios Superiores de Monterrey Campus Cuernavaca', 'anio' => '2017', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '163', 'nombre' => 'Denisse Regina García Rivera', 'grado' => '2do Preparatoria', 'escuela' => 'Preparatoria Diurna N#1 Bernabé L. de Elías', 'anio' => '2017', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '164', 'nombre' => 'Ricardo Barreto Gil', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2017', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '165', 'nombre' => 'Berenice Nicolás Piña', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2017', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '166', 'nombre' => 'María Fernanda Vivar Baeza', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2017', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '167', 'nombre' => 'Jenny Fernanda Vivar Baeza', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2017', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '168', 'nombre' => 'Sebastián Galindo Rodríguez', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '169', 'nombre' => 'Gandy Esau Ávila Estrada', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '170', 'nombre' => 'Erika Martínez Meneses', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '171', 'nombre' => 'Aida Monserrat García Mucito', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '172', 'nombre' => 'Misael Juárez Montaño', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '173', 'nombre' => 'Diego Sebastián Zavala Soberanes', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '174', 'nombre' => 'Jorge Mario Arozarena Argotte', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '175', 'nombre' => 'Juan Carlos Contreras Romero', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '176', 'nombre' => 'Samuel Alexander Baeza', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '177', 'nombre' => 'Jack Brandon Villalva Rodríguez', 'grado' => '2do Secundaria', 'escuela' => 'Secundaria Tlahuilli', 'anio' => '2017', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '178', 'nombre' => 'Leonardo León Benítez', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2017', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '179', 'nombre' => 'Alejandra Galván Bojórquez', 'grado' => '1ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2017', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '180', 'nombre' => 'Isabella Danahé García Aragón', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Quetzalli', 'anio' => '2017', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '181', 'nombre' => 'Erick Francisco Vargas Rodríguez', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria 17 de Marzo', 'anio' => '2017', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '182', 'nombre' => 'Diego Sahid García Galván', 'grado' => '2do Secundaria', 'escuela' => 'Instituto Educativo las Fuentes', 'anio' => '2017', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '183', 'nombre' => 'Bruno Raúl Morales Marquez', 'grado' => '3ro Secundaria', 'escuela' => 'Instituto Educativo las Fuentes', 'anio' => '2017', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '184', 'nombre' => 'Roel Cuevas Ayala', 'grado' => '2do Secundaria', 'escuela' => 'Instituto Educativo las Fuentes', 'anio' => '2017', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '185', 'nombre' => 'Rayhan Raziel Fuentes García', 'grado' => '2do Secundaria', 'escuela' => 'Centro Universitario Morelos', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '186', 'nombre' => 'Shadani Salazar Rodríguez', 'grado' => '2do Secundaria', 'escuela' => 'Instituto Educativo las Fuentes', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '187', 'nombre' => 'Ali Xanath Chavando Flores', 'grado' => '2do Secundaria', 'escuela' => 'Instituto Educativo las Fuentes', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '188', 'nombre' => 'Hugo Antonio Martínez Gomar', 'grado' => '3ro Secundaria', 'escuela' => 'Fundacion El Peñon', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '189', 'nombre' => 'Jorge David Cárdenas Sánchez', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria Ing. César Uscanga Uscanga', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '190', 'nombre' => 'Erika Samantha Sevilla Aguirre', 'grado' => '2do Secundaria', 'escuela' => 'Instituto Educativo las Fuentes', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '191', 'nombre' => 'Santiago Curiel Fuentes', 'grado' => '5to Primaria', 'escuela' => 'Escuela de la Ciudad de Curnavaca', 'anio' => '2017', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '192', 'nombre' => 'Mía Dayane Díaz Reynaga', 'grado' => '6to Primaria', 'escuela' => 'Colegio Cristóbal Colón', 'anio' => '2017', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '193', 'nombre' => 'Iván Escobedo', 'grado' => '5to Primaria', 'escuela' => 'Colegio Marton', 'anio' => '2017', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '194', 'nombre' => 'Gerardo Barroeta Balboa', 'grado' => '6to Primaria', 'escuela' => 'Colegio Cristóbal Colón', 'anio' => '2017', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '195', 'nombre' => 'David Francisco Torres Reyes', 'grado' => '5to Primaria', 'escuela' => 'Colegio Marton', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '196', 'nombre' => 'Nathalie López Pérez', 'grado' => '6to Primaria', 'escuela' => 'Colegio Wallaby', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '197', 'nombre' => 'Anuar del Barrio Oliver', 'grado' => '5to Primaria', 'escuela' => 'Colegio Marton', 'anio' => '2017', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '198', 'nombre' => 'Carlos Gael Morales Martinez', 'grado' => '5to Primaria', 'escuela' => 'Colegio Marton', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '199', 'nombre' => 'Juliana Michelle Salazar Rosas', 'grado' => '5to Primaria', 'escuela' => 'Colegio Potzanani', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '200', 'nombre' => 'Daniela Hermione Beltrán Ramirez', 'grado' => '6to Primaria', 'escuela' => 'Colegio Lowry', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '201', 'nombre' => 'Anuar Del Barrio Oliver', 'grado' => '6to Primaria', 'escuela' => 'Colegio Marton', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '202', 'nombre' => 'Ariel Rodríguez Camacho', 'grado' => '5to Primaria', 'escuela' => 'Colegio Marton', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '203', 'nombre' => 'Giovanni Cerritos Cortes', 'grado' => '3ro Primaria', 'escuela' => 'Colegio Potzanani', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '204', 'nombre' => 'Omar Del Barrio Oliver', 'grado' => '4to Primaria', 'escuela' => 'Colegio Marton', 'anio' => '2018', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '205', 'nombre' => 'Kevin Jesús Vera Beltrán', 'grado' => '5to Primaria', 'escuela' => 'Primaria Emiliano Zapata', 'anio' => '2018', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '206', 'nombre' => 'Luis Ángel Merino Favela', 'grado' => '6to Primaria', 'escuela' => 'Colegio Potzanani', 'anio' => '2018', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '207', 'nombre' => 'Karla Aurora Torres Reyes', 'grado' => '6to Primaria', 'escuela' => 'Colegio Marton', 'anio' => '2018', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '208', 'nombre' => 'Ivan Escobedo Mendoza', 'grado' => '6to Primaria', 'escuela' => 'Colegio Marton', 'anio' => '2018', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '209', 'nombre' => 'David Torres Reyes', 'grado' => '6to Primaria', 'escuela' => 'Colegio Marton', 'anio' => '2018', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '210', 'nombre' => 'Joshua Emiliano Dominguez Ignacio', 'grado' => '5to Primaria', 'escuela' => 'Colegio Potzanani', 'anio' => '2018', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '211', 'nombre' => 'Francisco Villanueva Martinez', 'grado' => '5to Primaria', 'escuela' => 'Colegio Potzanani', 'anio' => '2018', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '212', 'nombre' => 'Santiago Curiel Fuentes', 'grado' => '5to Primaria', 'escuela' => 'Colegio Moderno de Cuernavaca', 'anio' => '2018', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '217', 'nombre' => 'Ulises Rodríguez Medellín', 'grado' => '2do Secundaria', 'escuela' => 'Colegio Boston', 'anio' => '2018', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '216', 'nombre' => 'Bibiana Barreto Vargas', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria 17 de Marzo', 'anio' => '2018', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '218', 'nombre' => 'Ángel Mauricio León Tejeda', 'grado' => '3ro Secundaria', 'escuela' => 'Centro Universitario Morelos', 'anio' => '2018', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '219', 'nombre' => 'Mia Dayane Díaz Reynaga', 'grado' => '1ro Secundaria', 'escuela' => 'Colegio Cristóbal Colón', 'anio' => '2018', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '220', 'nombre' => 'Jorge Javier Quiroz Hernandez', 'grado' => '1ro Secundaria', 'escuela' => 'Escuela Moliere Liceo Franco Mexicano A.C.', 'anio' => '2018', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '221', 'nombre' => 'Rayhan Raziel Fuentes Garcia', 'grado' => '3ro Secundaria', 'escuela' => 'Centro Universitario Morelos', 'anio' => '2018', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '222', 'nombre' => 'Jack Villalva Rodríguez', 'grado' => '3ro Secundaria', 'escuela' => 'Profesor Jesús Barreto y Molina', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '223', 'nombre' => 'Kengy Manuel Díaz Rosales', 'grado' => '1ro Secundaria', 'escuela' => 'Secundaria Técnica #4', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '224', 'nombre' => 'Oscar Gael Cisneros Molina', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria 17 de Marzo', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '225', 'nombre' => 'Tomás Lagunas Román', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria N#4 Valentín Gómez Farias', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '226', 'nombre' => 'Vajayanti Inara Gulshan Pirani Upshaw', 'grado' => '2do Secundaria', 'escuela' => 'Colegio Marymount', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '227', 'nombre' => 'Ángel Roman Torres García', 'grado' => '1ro Secundaria', 'escuela' => 'Colegio Quetzalli', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '228', 'nombre' => 'José Morales Medina', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio de Bachilleres del Estado de Morelos 01', 'anio' => '2018', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '229', 'nombre' => 'Misael Juarez Montaño', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2018', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '230', 'nombre' => 'Valente Castillo Espitia', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2018', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '231', 'nombre' => 'Erick Francisco Vargas Rodríguez', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2018', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '232', 'nombre' => 'Diego Araith Villalobos Hernandez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2018', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '233', 'nombre' => 'Javier Ramirez Ochoa', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2018', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '234', 'nombre' => 'Sergio Sánchez Nava', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2018', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '235', 'nombre' => 'Christian Emiliano Avilez García', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2018', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '236', 'nombre' => 'José Ángel Resendiz Martinez', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio de Bachilleres del Estado de Morelos 02', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '237', 'nombre' => 'José Daniel Moreno Ocampo', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '239', 'nombre' => 'Austin Azael Ramírez Peralta', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 02', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '240', 'nombre' => 'Isabella Danahé García Aragón', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '241', 'nombre' => 'Emmanuel Brito López', 'grado' => '1ro Preparatoria', 'escuela' => 'Preparatoria Federal por Cooperación Andrés Quintana Roo', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '242', 'nombre' => 'Yahir Alexis Flores Barreto', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '243', 'nombre' => 'Jorge Armando Barrera Catalan', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '244', 'nombre' => 'Jared Daniel Delgado Apaez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '245', 'nombre' => 'Jalil Alberto Esau De la Torre Guerrero', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Nacional de Educación Profesional Técnica 241', 'anio' => '2018', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '246', 'nombre' => 'Joan Matias Romero Estrada', 'grado' => '5to Primaria', 'escuela' => 'Centro Educativo Lizardi', 'anio' => '2019.1', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '247', 'nombre' => 'Santiago Curiel Fuentes', 'grado' => '6to Primaria', 'escuela' => 'Colegio Moderno de Cuernavaca', 'anio' => '2019.1', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '248', 'nombre' => 'Francisco Villanueva Martínez', 'grado' => '5to Primaria', 'escuela' => 'Colegio Potzanani', 'anio' => '2019.1', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '249', 'nombre' => 'David Torres Reyes', 'grado' => '6to Primaria', 'escuela' => 'Colegio Marton', 'anio' => '2019.1', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '250', 'nombre' => 'Joshua Montes Flores', 'grado' => '6to Primaria', 'escuela' => 'Escuela Moliere Liceo Franco Mexicano A.C.', 'anio' => '2019.1', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '251', 'nombre' => 'Paolo Vicenzo Falcon Sanchez', 'grado' => '6to Primaria', 'escuela' => 'Escuela Moliere Liceo Franco Mexicano A.C.', 'anio' => '2019.1', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '252', 'nombre' => 'Jesus Kaleb Hernandez Salvitano', 'grado' => '4to Primaria', 'escuela' => 'Grupo Educativo Loyola', 'anio' => '2019.1', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '253', 'nombre' => 'Kevin Jesus Vera Beltran', 'grado' => '5to Primaria', 'escuela' => 'Primaria Emiliano Zapata', 'anio' => '2019.1', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '254', 'nombre' => 'Juan Cristobal Alvarez Garcia', 'grado' => '4to Primaria', 'escuela' => 'Colegio Carmen Sallés', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '255', 'nombre' => 'Valeria Colector Ovalle', 'grado' => '6to Primaria', 'escuela' => 'Colegio Carmen Sallés', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '256', 'nombre' => 'Arturo Alexei Serrano Guevara', 'grado' => '6to Primaria', 'escuela' => 'Colegio Carmen Sallés', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '257', 'nombre' => 'Joshua Emiliano Dominguez Ignacio', 'grado' => '5to Primaria', 'escuela' => 'Colegio Potzanani', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '258', 'nombre' => 'Maydali Barreto Carrillo', 'grado' => '6to Primaria', 'escuela' => 'Josefa Ortíz de Domínguez', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '259', 'nombre' => 'Ulises Rodríguez Medellín', 'grado' => '2do Secundaria', 'escuela' => 'Colegio Boston', 'anio' => '2019.1', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '260', 'nombre' => 'Diego Jorgensen Fernández', 'grado' => '2do Secundaria', 'escuela' => 'Escuela Moliere Liceo Franco Mexicano A.C.', 'anio' => '2019.1', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '261', 'nombre' => 'Jorge Javier Quiroz Hernandez', 'grado' => '2do Secundaria', 'escuela' => 'Escuela Moliere Liceo Franco Mexicano A.C.', 'anio' => '2019.1', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '262', 'nombre' => 'Alejandra Galván Bojórquez', 'grado' => '2do Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2019.1', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '263', 'nombre' => 'Amaya Morales Avila', 'grado' => '1ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2019.1', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '264', 'nombre' => 'Cristóbal Eduardo Serrano Bahena', 'grado' => '3ro Secundaria', 'escuela' => 'Secundaria Técnica #14', 'anio' => '2019.1', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '265', 'nombre' => 'Mayte Vargas Rodriguez', 'grado' => '2do Secundaria', 'escuela' => 'Secundaria 17 de Marzo', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '266', 'nombre' => 'Alberto Morales Farfán', 'grado' => '2do Secundaria', 'escuela' => 'Colegio Monte Albán', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '267', 'nombre' => 'Ángel Emiliano Vargas Carreto', 'grado' => '2do Secundaria', 'escuela' => 'Colegio Compton', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '268', 'nombre' => 'Luis Antonio Jimenez', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Ludere Victum', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '269', 'nombre' => 'Maria Elizabeth Orduña Toledo', 'grado' => '2do Secundaria', 'escuela' => 'Secundaria Mariano Matamoros', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '270', 'nombre' => 'Andrea Aquino Flores', 'grado' => '2do Secundaria', 'escuela' => 'Centro Educativo Americano', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '271', 'nombre' => 'Leonardo Román Carrillo', 'grado' => '1ro Preparatoria', 'escuela' => 'Colegio Quebec', 'anio' => '2019.1', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '272', 'nombre' => 'Sergio Sánchez Nava', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2019.1', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '273', 'nombre' => 'Erick Francisco Vargas Rodríguez', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2019.1', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '274', 'nombre' => 'Javier Ramirez Ochoa', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2019.1', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '275', 'nombre' => 'Ramona Nájera Fuentes', 'grado' => '1ro Preparatoria', 'escuela' => 'Instituto Tecnológico y de Estudios Superiores de Monterrey Campus Cuernavaca', 'anio' => '2019.1', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '276', 'nombre' => 'José Ehécatl Mejía Yáñez', 'grado' => '1ro Preparatoria', 'escuela' => 'Colegio Español de Morelos', 'anio' => '2019.1', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '277', 'nombre' => 'José Daniel Moreno Ocampo', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2019.1', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '278', 'nombre' => 'Ángel Mauricio León Tejeda', 'grado' => '3ro Secundaria', 'escuela' => 'Centro Universitario Morelos', 'anio' => '2019.1', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '279', 'nombre' => 'Diego Alberto Figueroa Avalos', 'grado' => '1ro Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '280', 'nombre' => 'Julian Pérez Espinoza', 'grado' => '1ro Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '281', 'nombre' => 'Laura Karina Jurado Hernández', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '282', 'nombre' => 'Johan Alejandro Cerezo Pacheco', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '283', 'nombre' => 'Mariana de la Rosa Batalla', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '284', 'nombre' => 'Rafael Rodríguez Trejo', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Boston', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '285', 'nombre' => 'Ángel Jesús Álvarez Neri', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '286', 'nombre' => 'Abril Reyes Flores', 'grado' => '2do Preparatoria', 'escuela' => 'Escuela de Técnicos Laboratoristas', 'anio' => '2019.1', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '287', 'nombre' => 'Santiago Chavez Gonzalez', 'grado' => '6to Primaria', 'escuela' => 'Instituto Educativo las Fuentes', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '288', 'nombre' => 'Sophia Ahedo Olivera', 'grado' => '6to Primaria', 'escuela' => 'Primaria Ignacio Zaragoza', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '289', 'nombre' => 'Sebastián Amaro Camacho', 'grado' => '5to Primaria', 'escuela' => 'Colegio Potzanani', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '290', 'nombre' => 'Luis Santiago Lopez Diaz', 'grado' => '6to Primaria', 'escuela' => 'Lobos Morelos', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '291', 'nombre' => 'Ricardo David Corona Castillo', 'grado' => '6to Primaria', 'escuela' => 'Lobos Morelos', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '292', 'nombre' => 'Luis Manuel Angeles Barreto', 'grado' => '5to Primaria', 'escuela' => 'Colegio ABC', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '293', 'nombre' => 'Eva Paloma Nieto Evangelista', 'grado' => '5to Primaria', 'escuela' => 'Colegio México', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '294', 'nombre' => 'Leonardo Sakbel Rojas Uribe', 'grado' => '5to Primaria', 'escuela' => 'Colegio ABC', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '295', 'nombre' => 'Brayan Jesus Castillo Badillo', 'grado' => '6to Primaria', 'escuela' => 'Primaria Ejercito Mexicano', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '296', 'nombre' => 'Joshua Emiliano Dominguez Ignacio', 'grado' => '6to Primaria', 'escuela' => 'Colegio Potzanani', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '297', 'nombre' => 'Axel Alberto González Fabián', 'grado' => '5to Primaria', 'escuela' => 'Instituto Educativo las Fuentes', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '298', 'nombre' => 'Fatima Dayse Borja Martinez', 'grado' => '5to Primaria', 'escuela' => 'Primaria 5 de Febrero', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '299', 'nombre' => 'Ana Fernanda López Rosas', 'grado' => '6to Primaria', 'escuela' => 'Instituto Educativo las Fuentes', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '300', 'nombre' => 'Ethan Adachiel Fernandez Cortes', 'grado' => '6to Primaria', 'escuela' => 'Colegio ABC', 'anio' => '2019.2', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '301', 'nombre' => 'Fabricio Fabian Mejía Caballero', 'grado' => '6to Primaria', 'escuela' => 'Gregorio Torres Quintero', 'anio' => '2019.2', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '302', 'nombre' => 'Francisco Villanueva Martinez', 'grado' => '6to Primaria', 'escuela' => 'Colegio Potzanani', 'anio' => '2019.2', 'medalla' => 'Oro', 'categoria' => 'Primaria' ]);
+    Famoso::create([ 'id' => '303', 'nombre' => 'Diego Jorgensen Fernández', 'grado' => '3ro Secundaria', 'escuela' => 'Escuela Moliere Liceo Franco Mexicano A.C.', 'anio' => '2019.2', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '304', 'nombre' => 'Ulises Rodriguez Medellin', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Boston', 'anio' => '2019.2', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '305', 'nombre' => 'Alejandra Galván Bojórquez', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2019.2', 'medalla' => 'Oro', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '306', 'nombre' => 'Joan Matias Romero Estrada', 'grado' => '6to Primaria', 'escuela' => 'Centro Educativo Lizardi', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '307', 'nombre' => 'David Torres Reyes', 'grado' => '1ro Secundaria', 'escuela' => 'Colegio Marton', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '308', 'nombre' => 'Alessandro Leal Amador', 'grado' => '3ro Secundaria', 'escuela' => 'Instituto Educativo las Fuentes', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '309', 'nombre' => 'Ernesto Sebastian Castañeda Santiago', 'grado' => '2do Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '310', 'nombre' => 'Santiago Curiel Fuentes', 'grado' => '1ro Secundaria', 'escuela' => 'Colegio Marton', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '311', 'nombre' => 'Fernanda Isabel Figueroa González', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Monte Albán', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '312', 'nombre' => 'Jorge Javier Quiroz Hernández', 'grado' => '3ro Secundaria', 'escuela' => 'Escuela Moliere Liceo Franco Mexicano A.C.', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '313', 'nombre' => 'Israel Nieto Evangelista', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio México', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '314', 'nombre' => 'Omar Villalobos Román', 'grado' => '2do Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '315', 'nombre' => 'Edgar Gael Bravo Jara', 'grado' => '2do Secundaria', 'escuela' => 'Instituto Educativo las Fuentes', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '316', 'nombre' => 'Valeria Colector Ovalle', 'grado' => '1ro Secundaria', 'escuela' => 'Colegio Carmen Sallés', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '317', 'nombre' => 'Ana Paola Galindo Romero', 'grado' => '2do Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '318', 'nombre' => 'Emmanuel Isaac García Sanabria', 'grado' => '3ro Secundaria', 'escuela' => 'Fundacion El Peñon', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '319', 'nombre' => 'Angel Emiliano Vargas Carreto', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Boston', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '320', 'nombre' => 'Carlos Eduardo Rojas Samano', 'grado' => '3ro Secundaria', 'escuela' => 'Colegio Hamilton', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Secundaria' ]);
+    Famoso::create([ 'id' => '321', 'nombre' => 'Erick Francisco Vargas Rodríguez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2019.2', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '322', 'nombre' => 'Leonardo Román Carrillo', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Quebec', 'anio' => '2019.2', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '323', 'nombre' => 'Geovanni Jafet Gómez Solis', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2019.2', 'medalla' => 'Oro', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '324', 'nombre' => 'Isabella Danahé García Aragón', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '325', 'nombre' => 'Ángel Jesús Álvarez Neri', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '326', 'nombre' => 'Roberto Giuliani Albarran Avendaño', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '327', 'nombre' => 'Aaron Isaac Flores Melchor', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '328', 'nombre' => 'Laura Karina Jurado Hernández', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Bachillerato Tecnológico Agropecuario 39', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '329', 'nombre' => 'Noel Jhoa Delgado Garcia', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2019.2', 'medalla' => 'Plata', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '330', 'nombre' => 'Omar Redondo Gonzalez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '331', 'nombre' => 'José Ehécatl Mejía Yáñez', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Español de Morelos', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '332', 'nombre' => 'Beatriz Adriana Molina Salas', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '333', 'nombre' => 'Victor Sebastian Sánchez Reyes', 'grado' => '1ro Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '334', 'nombre' => 'Irwin Raúl Martínez Tovar', 'grado' => '2do Preparatoria', 'escuela' => 'Fundacion El Peñon', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '335', 'nombre' => 'Yessica Janet Bañón Nájera', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '336', 'nombre' => 'Michelle Carolina Isabel Corcino Jimenez', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '337', 'nombre' => 'Ernesto Domínguez Montesino', 'grado' => '2do Preparatoria', 'escuela' => 'Colegio Quebec', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]);
+    Famoso::create([ 'id' => '338', 'nombre' => 'Monserrat Zenil Hernández', 'grado' => '2do Preparatoria', 'escuela' => 'Centro de Estudios Científicos y Tecnológicos 03', 'anio' => '2019.2', 'medalla' => 'Bronce', 'categoria' => 'Abierta' ]); 
   }
 }
