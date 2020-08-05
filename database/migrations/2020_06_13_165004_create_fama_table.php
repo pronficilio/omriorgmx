@@ -18,6 +18,7 @@ class CreateFamaTable extends Migration
             $table->string('nombre');
             $table->string('grado');
             $table->unsignedBigInteger('id_escuela')->nullable();
+            $table->string('escuela');
             $table->integer('anio');
             $table->string('medalla');
             $table->string('categoria');
