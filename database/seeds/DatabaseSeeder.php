@@ -7,7 +7,7 @@ use App\Banner;
 use App\Causa;
 use App\Evento;
 use App\Escuela;
-use App\Famosoy;
+use App\Famoso;
 use App\Noticia;
 use App\Proyecto;
 use App\Sponsor;

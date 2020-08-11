@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 use App\Registro ;
 use App\Escuela ;
+use App\User;
 use App\Mail\SendMail;
 
 use Carbon\Carbon;
@@ -77,6 +78,17 @@ class RegistroController extends Controller
         );
         Mail::to($datos->input("email"))->send(new SendMail($data));
     	return 1 ;
+    }
+
+    public function enviaAcceso(){
+        //$u = User::where("email", "pronficilio@gmail.com")
+        $data = array(
+            'nombre'     =>  "ano",
+            'email'      =>  "pronficilio@gmail.com",
+            'now' => Carbon::now()->isoFormat("LLL")
+        );
+        Mail::to("pronficilio@gmail.com")->send(new SendAcceso($data));
+        return 1;
     }
 
     public function olimpicoLogin(Request $datos){

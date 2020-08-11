@@ -22,7 +22,7 @@
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td class="es-infoblock esd-block-text es-m-txt-c" align="left">
-                                                                                    <p style="font-family: arial, helvetica\ neue, helvetica, sans-serif;">Mail de confirmación - OMRI<br></p>
+                                                                                    <p style="font-family: arial, helvetica\ neue, helvetica, sans-serif;">Sitio entrenamiento - Entrenator<br></p>
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
@@ -57,34 +57,17 @@
 						                                            <tbody>
 							                                            <tr><td><br></td></tr>
 
-							                                            <tr align="center">
-							                                            	<td align="center" style="background-color: white;">
-						                                                        <img src="{{ asset('storage/app/public/email/') }}/header.png" alt="Bienvenido a OMRI" style="border-radius: 5px 5px 5px 5px; display: block;" title="Bienvenida OMRI" width="400"></a></td>
-						                                                    </td>
-							                                            </tr>
 							                                            <!-- Content -->
 						                                                <tr>
 						                                                	<td style="background-color: white; color: black; text-align: justify; font-family:'Courier New'; padding: 5px">
 						                                                		<br> 
-						                                                		<h3>Hola, {{ $data['nombre'] }} </h3>
-						                                                		<p>Te damos la bienvenida a la Olimpiada Morelense de Informática.</p>
-																				<br>
-																					<center>
-																					<span style="background-color: #86c128; border-style: none; color: white; border-radius: 3px; font-size: 17px; height: 40px; width: 380px; font-family:'Consolas'"> Tu folio de registro es  <strong>2020-{{ $data['folio'] }}  </strong></span>
-																					</center>
-																				<br>
-																				<p>¿No sabes programar? ¿Quieres prepararte más? ¿Te gustaría ser el mejor?</p>
-																				<p>Aquí inicia tu aventura. Queremos enseñarte a programar de la manera más simple, rápida y divertida.</p>
-																				<p>Tendrás acceso a un curso de inducción a la programación con bloques, como calentamiento, para continuar con nuestro curso de programación competitiva.</p>
-																				<p>
-																					Progresarás a tu propio ritmo con nuestra asesoría. Pero recuerda, "Solo los más fuertes avanzan".
-																				</p>
-                                                                                <p>
-                                                                                    Para acceder al curso haz clic en este enlace: <a href="https://entrenator.omri.org.mx/public/configura/{{ $data['email'] }}" target="_blank">https://entrenator.omri.org.mx/public/configura/{{ $data['email'] }}</a> y configura tu cuenta con una contraseña.
+						                                                		<h3>Hola de nuevo {{ $data['nombre'] }} </h3>
+						                                                		<p>
+                                                                                    ¡Ya tienes disponible el acceso al sistema de entrenamiento!
                                                                                 </p>
-																				<p>
-																					La Olimpiada es una competencia donde sobreviven los más fuertes. Y para saber quiénes son, los haremos pasar por un examen sencillo relacionado a lo que aprendiste acerca de la programación básica.  La fecha del examen es <strong>28 de noviembre</strong>
-																				</p>
+                                                                                <p>
+                                                                                    Para acceder al curso haz clic en este enlace: <a href="https://entrenator.omri.org.mx/public/configura/{{ $data['email'] }}" target="_blank">https://entrenator.omri.org.mx/public/configura/{{ $data['email'] }}</a>
+                                                                                </p>
 																				<p>
 																					<i>Programar es para todos. Programar es para ti.</i>
 																				</p>

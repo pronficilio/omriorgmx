@@ -33,10 +33,9 @@
         <link href='css/animate.css' rel='stylesheet' media="print" onload="this.media='all'">
         <link href='css/jquery.bxslider.css?v=3' rel='stylesheet' media="print" onload="this.media='all'">
         <link href='css/owl.carousel.min.css' rel='stylesheet' media="print" onload="this.media='all'">
-        <link href='css/template.css?v=4' rel='stylesheet'>
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" media="print" onload="this.media='all'"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66853888-1"></script>
+        <link href='css/template.min.css?v=4' rel='stylesheet'>
     </head>
     <body>
     	@yield('contenido')
@@ -56,17 +55,18 @@
         </div>
         <!-- End Page Preloading -->
         <!-- BEGIN SCRIPTS -->
-        <script src="js/jquery-1.12.4.min.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66853888-1"></script>
+        <script src="js/jquery-1.12.4.min.js" defer></script>
         <script src="js/modernizr.min.js" async></script>
-        <script src="js/bootstrap.min.js" async></script>
-        <script src="js/jquery.bxslider.min.js" async></script>
-        <script src="js/owl.carousel.min.js" async></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="js/jquery.bxslider.min.js" defer></script>
+        <script src="js/owl.carousel.min.js" defer></script>
         <script src="js/jquery.form-validator.min.js" defer></script>
         <script src="js/scrollreveal.min.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/i18n/es.min.js" integrity="sha256-3rDVEasLjZL5m8j0M0VHX8YqfrjT/JHZtNWgdUO4uXM=" crossorigin="anonymous" defer></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" async></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
         <script src="js/wow.min.js" defer></script>
         <script src="js/script.js?v=4" defer></script>
         @stack('scripts')

@@ -10,9 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('enviaacceso', 'RegistroController@enviaAcceso');
 Route::get('/', 'HomeController@index')->name('index');
-Route::get('registro', 'HomeController@registro')->name('registro');
+Route::get('soy-tu-padre', 'HomeController@padre')->name('padre');
+Route::get("index.php", function(){
+	return redirect()->route('index');
+});
+Route::get('registro2', 'HomeController@registro')->name('registro');
 Route::get('calendario', 'HomeController@calendario')->name('calendario');
 Route::get('nosotros', 'HomeController@nosotros')->name('nosotros'); 
 Route::get('muro-de-fama', 'HomeController@fama')->name('fama');
