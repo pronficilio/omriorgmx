@@ -49,4 +49,7 @@ Route::post('olimpico/categoria', 'RegistroController@getCategoria');
 Route::post('olimpico/ultimoNivel', 'RegistroController@ultimoNivel');
 //Avanza una leccion
 Route::post('olimpico/siguienteNivel', 'RegistroController@siguienteNivel');
+
+//Graficas
+Route::get('graficas-{categoria}', 'GraficaController@muestraGrafica');
  
