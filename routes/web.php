@@ -10,12 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('enviaacceso', 'RegistroController@enviaAcceso');
+Route::get('envia-acceso', 'RegistroController@enviaAcceso');
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('soy-tu-padre', 'HomeController@padre')->name('padre');
-Route::get("index.php", function(){
+/*Route::get("index.php", function(){
 	return redirect()->route('index');
-});
+});*/
 Route::get('registro2', 'HomeController@registro')->name('registro');
 Route::get('calendario', 'HomeController@calendario')->name('calendario');
 Route::get('nosotros', 'HomeController@nosotros')->name('nosotros'); 
@@ -25,7 +25,7 @@ Route::get('reglamento', 'HomeController@reglamento')->name('reglamento');
 Route::get('contacto', 'HomeController@contacto')->name('contacto'); 
 Route::get('terminos-y-condiciones', 'HomeController@terminos')->name('terminos'); //
 Route::get('aviso-de-privacidad', 'HomeController@aviso')->name('aviso'); //
-
+Route::get('/convocatoria', 'HomeController@convocatoria');
 Route::post('/php/contact_form_submit', 'HomeController@contact');
 Route::post('/php/volunteer_form_submit', 'HomeController@volunteer');
 
