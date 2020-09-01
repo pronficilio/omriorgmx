@@ -1,5 +1,5 @@
 @extends('layouts.esqueleto')
-@section('title', 'Graficas')
+@section('title', 'Gráficas')
 @section('descripcion-pagina', 'La Olimpiada Morelense de Informática es un concurso que busca a los mejores talentos de Morelos para enseñarles el arte de la programación')
 @section('titulo-og', 'Olimpiada Morelense de Informática | Aprende a programar')
 @section('descripcion-og', 'La Olimpiada Morelense de Informática es un concurso que busca a los mejores talentos de Morelos para enseñarles el arte de la programación')
@@ -67,7 +67,7 @@
             
             @php
                 $otros = 0 ;
-                $LIMITE = 4 ; 
+                $LIMITE = 5 ; 
             @endphp
 
             //$LIMITE es para ver cuantas escuelas se van a mostrar + 1 de otros

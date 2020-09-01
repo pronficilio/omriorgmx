@@ -24,18 +24,18 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="canonical" href="https://omri.org.mx" />
         <!-- Favicon -->
-        <link rel='shortcut icon' href='public/favicon.ico'/>
+        <link rel='shortcut icon' href="{{ asset('public/favicon.ico') }}"/>
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" media="print" onload="this.media='all'">
         <!-- Style Sheets -->
-        <link href='css/bootstrap.min.css' rel='stylesheet' media="print" onload="this.media='all'">
-        <link href='css/font-awesome-4.7.0/css/font-awesome.min.css' rel='stylesheet' media="print" onload="this.media='all'">
-        <link href='css/animate.css' rel='stylesheet' media="print" onload="this.media='all'">
-        <link href='css/jquery.bxslider.css?v=3' rel='stylesheet' media="print" onload="this.media='all'">
-        <link href='css/owl.carousel.min.css' rel='stylesheet' media="print" onload="this.media='all'">
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel='stylesheet' media="print" onload="this.media='all'">
+        <link href="{{ asset('css/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel='stylesheet' media="print" onload="this.media='all'">
+        <link href="{{ asset('css/animate.css') }}" rel='stylesheet' media="print" onload="this.media='all'">
+        <link href="{{ asset('css/jquery.bxslider.css?v=3') }}" rel='stylesheet' media="print" onload="this.media='all'">
+        <link href="{{ asset('css/owl.carousel.min.css') }}" rel='stylesheet' media="print" onload="this.media='all'">
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" media="print" onload="this.media='all'"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
-        <link href='css/template.min.css?v=4' rel='stylesheet'>
+        <link href="{{ asset('css/template.min.css?v=4') }}"rel='stylesheet'>
     </head>
     <body>
     	@yield('contenido')
@@ -56,19 +56,19 @@
         <!-- End Page Preloading -->
         <!-- BEGIN SCRIPTS -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66853888-1"></script>
-        <script src="js/jquery-1.12.4.min.js" defer></script>
-        <script src="js/modernizr.min.js" async></script>
-        <script src="js/bootstrap.min.js" defer></script>
-        <script src="js/jquery.bxslider.min.js" defer></script>
-        <script src="js/owl.carousel.min.js" defer></script>
-        <script src="js/jquery.form-validator.min.js" defer></script>
-        <script src="js/scrollreveal.min.js" defer></script>
+        <script src="{{ asset('js/jquery-1.12.4.min.js') }}" defer></script>
+        <script src="{{ asset('js/modernizr.min.js') }}" async></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
+        <script src="{{ asset('js/jquery.bxslider.min.js') }}" defer></script>
+        <script src="{{ asset('js/owl.carousel.min.js') }}" defer></script>
+        <script src="{{ asset('js/jquery.form-validator.min.js') }}" defer></script>
+        <script src="{{ asset('js/scrollreveal.min.js') }}" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/i18n/es.min.js" integrity="sha256-3rDVEasLjZL5m8j0M0VHX8YqfrjT/JHZtNWgdUO4uXM=" crossorigin="anonymous" defer></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-        <script src="js/wow.min.js" defer></script>
-        <script src="js/script.js?v=4" defer></script>
+        <script src="{{ asset('js/wow.min.js') }}" defer></script>
+        <script src="{{ asset('js/script.js?v=4') }}" defer></script>
         @stack('scripts')
     </body>
 </html>
