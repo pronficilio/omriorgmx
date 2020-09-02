@@ -6,18 +6,18 @@
                 <td>
                     <a href="{{ $e }}#">
                         <picture>
-                            <source srcset="images/icons/omri_logo.webp" type="image/webp">
-                            <source srcset="images/icons/omri_logo.png" type="image/png"> 
-                            <img src="images/icons/omri_logo.png" alt="Logo" height="50px"/>
+                            <source srcset="{{ asset('images/icons/omri_logo.webp') }}" type="image/webp">
+                            <source srcset="{{ asset('images/icons/omri_logo.png') }}" type="image/png"> 
+                            <img src="{{ asset('images/icons/omri_logo.png') }}" alt="Logo" height="50px"/>
                         </picture>
                     </a>
                 </td>
                 <td>
                     <a href="{{ $e }}#">
                         <picture>
-                            <source srcset="images/icons/nivel1.webp" type="image/webp">
-                            <source srcset="images/icons/nivel1.png" type="image/png"> 
-                            <img src="images/icons/nivel1.png" alt="Logo" height="50px" class="wow rotateIn" data-wow-duration="0.5s" />
+                            <source srcset="{{ asset('images/icons/nivel1.webp') }}" type="image/webp">
+                            <source srcset="{{ asset('images/icons/nivel1.png') }}" type="image/png"> 
+                            <img src="{{ asset('images/icons/nivel1.png') }}" alt="Logo" height="50px" class="wow rotateIn" data-wow-duration="0.5s" />
                         </picture>
                     </a>
                 </td>

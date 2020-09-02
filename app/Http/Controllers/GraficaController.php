@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\DB;
 
 class GraficaController extends Controller
 {
-    function muestraGrafica($categoria){
+    function muestraMedallas($categoria){
 
-        //Retorna todas las medallas de una categoria (Oro, Plata y Bronce)
+        //Retorna todas las medallas ganadas de las escuelas de una categoria (Abierta, Secundaria, Primaria)
         $oro = DB::table('fama')
             ->select(DB::raw('escuela, count(medalla) as oro'))
             ->where('categoria', $categoria)
@@ -36,10 +36,24 @@ class GraficaController extends Controller
 
         $colores = array('oro', 'plata', 'bronce');
         
-        return view("graficas.".$categoria)
+        return view("graficas.medallas.".$categoria)
             ->with('colores', $colores)
             ->with('oro', $oro)
             ->with('plata', $plata)
             ->with('bronce', $bronce);
+    }
+
+    function muestraRegistrados($categoria){
+
+        //Retorna la cantidad de registros de cada escuela
+        $registros = DB::table('registro')
+            ->select(DB::raw('id_escuela, count(id) as cantidad'))
+            ->where('categoria', $categoria)
+            ->groupBy('id_escuela')
+            ->orderByDesc('cantidad')
+            ->get();
+
+        return view("graficas.registros.".$categoria)
+            ->with('registros', $registros);
     }
 }
