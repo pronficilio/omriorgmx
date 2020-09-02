@@ -9,6 +9,7 @@ use App\Noticia;
 use App\Municipio;
 use App\Proyecto;
 use App\Sponsor;
+use App\Famoso;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -88,8 +89,14 @@ class HomeController extends Controller
     public function contacto(){
         return view('contacto');
     }
-    public function fama(){
-        return view('fama');
+    public function fama($categoria = "abierta"){
+        $datos = Famoso::Where('categoria', $categoria)->get();
+        foreach($datos as $olimpico){
+            if( !isset($mapa[$olimpico->nombre]) ) 
+                $mapa[$olimpico->nombre] = array();
+            $mapa[$olimpico->nombre][] = array("medalla"=>$olimpico->medalla, "anio" =>$olimpico->anio, "escuela"=>$olimpico->escuela);
+        }
+        return view('fama', ["mapa" => $mapa, "categoria" => $categoria]);
     }
     public function escuelas(){
         $causas = Causa::all();

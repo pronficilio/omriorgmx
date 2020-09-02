@@ -19,7 +19,7 @@ Route::get("index.php", function(){
 Route::get('registro2', 'HomeController@registro')->name('registro');
 Route::get('calendario', 'HomeController@calendario')->name('calendario');
 Route::get('nosotros', 'HomeController@nosotros')->name('nosotros'); 
-Route::get('muro-de-fama', 'HomeController@fama')->name('fama');
+Route::get('muro-de-fama/{categoria?}', 'HomeController@fama')->name('fama');
 Route::get('escuelas', 'HomeController@escuelas')->name('escuelas'); 
 Route::get('reglamento', 'HomeController@reglamento')->name('reglamento'); 
 Route::get('contacto', 'HomeController@contacto')->name('contacto'); 
@@ -49,4 +49,5 @@ Route::post('olimpico/categoria', 'RegistroController@getCategoria');
 Route::post('olimpico/ultimoNivel', 'RegistroController@ultimoNivel');
 //Avanza una leccion
 Route::post('olimpico/siguienteNivel', 'RegistroController@siguienteNivel');
- 
+/*Route::get('muro-de-fama/{categoria?}','HomeController@fama', function($categoria = "Abierta"){
+})->name('fama');*/
