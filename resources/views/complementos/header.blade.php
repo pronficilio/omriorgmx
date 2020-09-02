@@ -5,7 +5,7 @@
             <table style="width: 200px"><tr>
                 <td>
                     <a href="{{ $e }}#">
-                        <picture data-aos="zoom-out-up">
+                        <picture>
                             <source srcset="images/icons/omri_logo.webp" type="image/webp">
                             <source srcset="images/icons/omri_logo.png" type="image/png"> 
                             <img src="images/icons/omri_logo.png" alt="Logo" height="50px"/>
@@ -37,19 +37,16 @@
                     <li class="framework wow pulse" data-wow-iteration="40" data-wow-duration="3">
                         <a href="{{ $e }}#inscripcion">Inscríbete</a>
                     </li>
-                    <li data-aos="fade-right">
+                    <li>
                         <a href="{{ $e }}#conocealequipo">Nuestro equipo</a>
                     </li>
-                    <li data-aos="fade-right">
-                        <a href="{{ $e }}#acercade">Acerca de</a>
-                    </li>
-                    <li data-aos="fade-right">
+                    <li>
                         <a href="{{ $e }}#donaciones">Donaciones</a>
                     </li>
-                    <li data-aos="fade-right">
+                    <li>
                         <a href="{{ $e }}#noticias">Noticias</a>
                     </li>
-                    <li data-aos="fade-right">
+                    <li>
                         <a href="{{ $e }}#contacto">Contacto</a>
                     </li>
                     <li class="highlighted">
@@ -67,13 +64,7 @@
                         <a href="#inscripcion">Inscríbete</a>
                     </li>
                     <li>
-                        <a href="#acercade">Acerca de</a>
-                    </li>
-                    <li>
                         <a href="#conocealequipo">Nuestro equipo</a>
-                    </li>
-                    <li>
-                        <a href="#proyectos">Proyectos</a>
                     </li>
                     <li>
                         <a href="#donaciones">Donaciones</a>
