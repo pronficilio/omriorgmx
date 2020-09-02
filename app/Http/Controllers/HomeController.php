@@ -7,6 +7,7 @@ use App\Causa;
 use App\Evento;
 use App\Noticia;
 use App\Municipio;
+use App\MunicipioG;
 use App\Proyecto;
 use App\Sponsor;
 use Illuminate\Http\Request;
@@ -31,6 +32,7 @@ class HomeController extends Controller
     {
         $miembros = Miembro::orderBy('orden')->get();
         $municipios = Municipio::all();
+        $municipiosG = MunicipioG::all();
         $banners = Banner::all();
         $causas = Causa::all();
         $eventos = Evento::orderBy('fecha')->get();
@@ -41,6 +43,7 @@ class HomeController extends Controller
         return view('welcome', [
             "miembros" => $miembros,
             "municipios" => $municipios,
+            "municipiosG" => $municipiosG,
             "banners" => $banners,
             "causas" => $causas,
             "eventos" => $eventos,
@@ -64,6 +67,9 @@ class HomeController extends Controller
     }
     public function calendario(){
         return view('calendario');
+    }
+    public function convocatoria(){
+        return response()->file(storage_path("app/public/Convocatoria13.pdf"), ['Content-Type' => 'application/pdf', 'Content-Disposition' => 'inline; filename="Convocatoria - 13a OMRI.pdf"']);
     }
     public function registro(){
         $miembros = Miembro::orderBy('orden')->get();
