@@ -19,7 +19,7 @@ Route::get('soy-tu-padre', 'HomeController@padre')->name('padre');
 Route::get('registro2', 'HomeController@registro')->name('registro');
 Route::get('calendario', 'HomeController@calendario')->name('calendario');
 Route::get('nosotros', 'HomeController@nosotros')->name('nosotros'); 
-Route::get('muro-de-fama', 'HomeController@fama')->name('fama');
+Route::get('muro-de-fama/{categoria?}', 'HomeController@fama')->name('fama');
 Route::get('escuelas', 'HomeController@escuelas')->name('escuelas'); 
 Route::get('reglamento', 'HomeController@reglamento')->name('reglamento'); 
 Route::get('contacto', 'HomeController@contacto')->name('contacto'); 
@@ -53,4 +53,3 @@ Route::post('olimpico/siguienteNivel', 'RegistroController@siguienteNivel');
 //Graficas
 Route::get('graficas/medallas/{categoria}', 'GraficaController@muestraMedallas');
 Route::get('graficas/registros/{categoria}', 'GraficaController@muestraRegistrados');
- 
