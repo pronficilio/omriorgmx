@@ -31,8 +31,6 @@
 		  		<li role="presentation"><a href="{{ route('fama',['categoria'=> "secundaria"]) }}">Secundaria</a></li>
 		  		<li role="presentation" class="active"><a href="{{ route('fama',['categoria'=> "primaria"]) }}">Primaria</a></li>
 		  	@endif
-
-
 		</ul>
 		<div class="m-section">
 			<div class="m-section__content">
@@ -51,16 +49,16 @@
 						</tr>
 					</thead>
 					<tbody>
-					@foreach($mapa as $nombre => $medalla)
+					@foreach($mapa as $nombre => $persona)
 					    <tr>
 					    <th scope="row">
 					    	{{ $nombre }}
 					    </th>
 					    <th>
-					    	{{ $medalla[0]["escuela"]}}
+					    	{{ $persona["medallas"][count($persona["medallas"])-1]["escuela"] }}
 					    </th>
 					    <th>
-					    	@foreach($medalla as $datos)
+					    	@foreach($persona["medallas"] as $datos)
 					    		<div class="color-{{ $datos["medalla"] }}">{{ $datos["anio"] }}</div>
 					    	@endforeach
 					    </th>	
@@ -73,6 +71,23 @@
 	</div>	
     @include('complementos.contacto')
 @endsection
+@push('styles')
+        <style>
+          .color-Oro{
+             background: #FFD700;
+           }
+        </style>
+        <style>
+          .color-Plata{
+             background: #E3E4E5;
+           }
+        </style>
+        <style>
+          .color-Bronce{
+             background: #CD7F32 ;
+           }
+        </style>
+@endpush
 @push('scripts')
     <script>gtag('event', 'screen_view', {'screen_name': 'muro-de-fama'});</script>
 @endpush

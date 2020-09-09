@@ -98,10 +98,30 @@ class HomeController extends Controller
     public function fama($categoria = "abierta"){
         $datos = Famoso::Where('categoria', $categoria)->get();
         foreach($datos as $olimpico){
-            if( !isset($mapa[$olimpico->nombre]) ) 
-                $mapa[$olimpico->nombre] = array();
-            $mapa[$olimpico->nombre][] = array("medalla"=>$olimpico->medalla, "anio" =>$olimpico->anio, "escuela"=>$olimpico->escuela);
+            if( !isset($mapa[$olimpico->nombre]) )
+                $mapa[$olimpico->nombre] = array("medallas" => array(), "puntaje" => 0);
+            $mapa[$olimpico->nombre]["medallas"][] = array("medalla" =>$olimpico->medalla, "anio" => $olimpico->anio, "escuela"=>$olimpico->escuela);
+            if($olimpico->medalla == "Oro"){
+                $mapa[$olimpico->nombre]["puntaje"] += 100;
+            }
+            if($olimpico->medalla == "Plata"){
+                $mapa[$olimpico->nombre]["puntaje"] += 10;
+            }
+            if($olimpico->medalla == "Bronce"){
+                $mapa[$olimpico->nombre]["puntaje"] ++;
+            }
         }
+        uasort($mapa, function($personaA, $personaB){
+            if($personaA["puntaje"] == $personaB["puntaje"]){
+               return 0;
+            }
+            if($personaA["puntaje"] < $personaB["puntaje"]){
+               return 1;
+            }   
+            if($personaA["puntaje"] > $personaB["puntaje"]){
+                return -1;
+            }
+        });
         return view('fama', ["mapa" => $mapa, "categoria" => $categoria]);
     }
     public function escuelas(){
