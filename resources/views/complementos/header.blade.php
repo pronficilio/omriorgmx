@@ -34,18 +34,24 @@
             </div>
             <div class="collapse navbar-collapse yamm">
                 <ul class="nav navbar-nav">
-                    <li class="framework wow pulse" data-wow-iteration="40" data-wow-duration="3">
+                    <li class="framework pulse">
                         <a href="{{ $e }}#inscripcion">Inscríbete</a>
                     </li>
                     <li>
                         <a href="{{ $e }}#conocealequipo">Nuestro equipo</a>
                     </li>
                     <li>
+                        <a href="{{ route('fama') }}">Muro de la fama</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('graficaMedalla', 'abierta') }}">Escuelas campeonas</a>
+                    </li>
+                    <!--li>
                         <a href="{{ $e }}#donaciones">Donaciones</a>
                     </li>
                     <li>
                         <a href="{{ $e }}#noticias">Noticias</a>
-                    </li>
+                    </li-->
                     <li>
                         <a href="{{ $e }}#contacto">Contacto</a>
                     </li>

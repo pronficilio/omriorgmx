@@ -37,114 +37,87 @@ class DatabaseSeeder extends Seeder
 }
 class MunicipioTableSeeder extends Seeder {
   public function run(){
-    Municipio::create([
-        'nombre' => 'Amacuzac'
-    ]);
-    Municipio::create([
-        'nombre' => 'Atlatlahucan'
-    ]);
-    Municipio::create([
-        'nombre' => 'Axochiapan'
-    ]);
-    Municipio::create([
-        'nombre' => 'Ayala'
-    ]);
-    Municipio::create([
-        'nombre' => 'Coatetelco'
-    ]);
-    Municipio::create([
-        'nombre' => 'Coatlán del Río'
-    ]);
-    Municipio::create([
-        'nombre' => 'Cuautla'
-    ]);
-    Municipio::create([
-        'nombre' => 'Cuernavaca'
-    ]);
-    Municipio::create([
-        'nombre' => 'Emiliano Zapata'
-    ]);
-    Municipio::create([
-        'nombre' => 'Hueyapan'
-    ]);
-    Municipio::create([
-        'nombre' => 'Huitzilac'
-    ]);
-    Municipio::create([
-        'nombre' => 'Jantetelco'
-    ]);
-    Municipio::create([
-        'nombre' => 'Jiutepec'
-    ]);
-    Municipio::create([
-        'nombre' => 'Jojutla'
-    ]);
-    Municipio::create([
-        'nombre' => 'Jonacatepec'
-    ]);
-    Municipio::create([
-        'nombre' => 'Mazatepec'
-    ]);
-    Municipio::create([
-        'nombre' => 'Miacatlán'
-    ]);
-    Municipio::create([
-        'nombre' => 'Ocuituco'
-    ]);
-    Municipio::create([
-        'nombre' => 'Puente de Ixtla'
-    ]);
-    Municipio::create([
-        'nombre' => 'Temixco'
-    ]);
-    Municipio::create([
-        'nombre' => 'Temoac'
-    ]);
-    Municipio::create([
-        'nombre' => 'Tepalcingo'
-    ]);
-    Municipio::create([
-        'nombre' => 'Tepoztlán'
-    ]);
-    Municipio::create([
-        'nombre' => 'Tetecala'
-    ]);
-    Municipio::create([
-        'nombre' => 'Tetela del Volcán'
-    ]);
-    Municipio::create([
-        'nombre' => 'Tlalnepantla'
-    ]);
-    Municipio::create([
-        'nombre' => 'Tlaltizapán de Zapata'
-    ]);
-    Municipio::create([
-        'nombre' => 'Tlaquiltenango'
-    ]);
-    Municipio::create([
-        'nombre' => 'Tlayacapan'
-    ]);
-    Municipio::create([
-        'nombre' => 'Totolapan'
-    ]);
-    Municipio::create([
-        'nombre' => 'Xochitepec'
-    ]);
-    Municipio::create([
-        'nombre' => 'Xoxocotla'
-    ]);
-    Municipio::create([
-        'nombre' => 'Yautepec'
-    ]);
-    Municipio::create([
-        'nombre' => 'Yecapixtla'
-    ]);
-    Municipio::create([
-        'nombre' => 'Zacatepec'
-    ]);
-    Municipio::create([
-        'nombre' => 'Zacualpan de Amilpas'
-    ]);
+    Municipio::create(['nombre' => 'Acapulco de Juárez']);
+    Municipio::create(['nombre' => 'Ahuacuotzingo']);
+    Municipio::create(['nombre' => 'Ajuchitlán del Progreso']);
+    Municipio::create(['nombre' => 'Alcozauca de Guerrero']);
+    Municipio::create(['nombre' => 'Alpoyeca']);
+    Municipio::create(['nombre' => 'Apaxtla']);
+    Municipio::create(['nombre' => 'Arcelia']);
+    Municipio::create(['nombre' => 'Atenango del Río']);
+    Municipio::create(['nombre' => 'Atlamajalcingo del Monte']);
+    Municipio::create(['nombre' => 'Atlixtac']);
+    Municipio::create(['nombre' => 'Atoyac de Álvarez']);
+    Municipio::create(['nombre' => 'Ayutla de los Libres']);
+    Municipio::create(['nombre' => 'Azoyú']);
+    Municipio::create(['nombre' => 'Benito Juárez']);
+    Municipio::create(['nombre' => 'Buenavista de Cuéllar']);
+    Municipio::create(['nombre' => 'Coahuayutla de José María Izazaga']);
+    Municipio::create(['nombre' => 'Cocula']);
+    Municipio::create(['nombre' => 'Copala']);
+    Municipio::create(['nombre' => 'Copalillo']);
+    Municipio::create(['nombre' => 'Copanatoyac']);
+    Municipio::create(['nombre' => 'Coyuca de Benítez']);
+    Municipio::create(['nombre' => 'Coyuca de Catalán']);
+    Municipio::create(['nombre' => 'Cuajinicuilapa']);
+    Municipio::create(['nombre' => 'Cualác']);
+    Municipio::create(['nombre' => 'Cuautepec']);
+    Municipio::create(['nombre' => 'Cuetzala del Progreso']);
+    Municipio::create(['nombre' => 'Cutzamala de Pinzón']);
+    Municipio::create(['nombre' => 'Chilapa de Álvarez']);
+    Municipio::create(['nombre' => 'Chilpancingo de los Bravo']);
+    Municipio::create(['nombre' => 'Florencio Villarreal']);
+    Municipio::create(['nombre' => 'General Canuto A. Neri']);
+    Municipio::create(['nombre' => 'General Heliodoro Castillo']);
+    Municipio::create(['nombre' => 'Huamuxtitlán']);
+    Municipio::create(['nombre' => 'Huitzuco de los Figueroa']);
+    Municipio::create(['nombre' => 'Iguala de la Independencia']);
+    Municipio::create(['nombre' => 'Igualapa']);
+    Municipio::create(['nombre' => 'Ixcateopan de Cuauhtémoc']);
+    Municipio::create(['nombre' => 'Zihuatanejo de Azueta']);
+    Municipio::create(['nombre' => 'Juan R. Escudero']);
+    Municipio::create(['nombre' => 'Leonardo Bravo']);
+    Municipio::create(['nombre' => 'Malinaltepec']);
+    Municipio::create(['nombre' => 'Mártir de Cuilapan']);
+    Municipio::create(['nombre' => 'Metlatónoc']);
+    Municipio::create(['nombre' => 'Mochitlán']);
+    Municipio::create(['nombre' => 'Olinalá']);
+    Municipio::create(['nombre' => 'Ometepec']);
+    Municipio::create(['nombre' => 'Pedro Ascencio Alquisiras']);
+    Municipio::create(['nombre' => 'Petatlán']);
+    Municipio::create(['nombre' => 'Pilcaya']);
+    Municipio::create(['nombre' => 'Pungarabato']);
+    Municipio::create(['nombre' => 'Quechultenango']);
+    Municipio::create(['nombre' => 'San Luis Acatlán']);
+    Municipio::create(['nombre' => 'San Marcos']);
+    Municipio::create(['nombre' => 'San Miguel Totolapan']);
+    Municipio::create(['nombre' => 'Taxco de Alarcón']);
+    Municipio::create(['nombre' => 'Tecoanapa']);
+    Municipio::create(['nombre' => 'Técpan de Galeana']);
+    Municipio::create(['nombre' => 'Teloloapan']);
+    Municipio::create(['nombre' => 'Tepecoacuilco de Trujano']);
+    Municipio::create(['nombre' => 'Tetipac']);
+    Municipio::create(['nombre' => 'Tixtla de Guerrero']);
+    Municipio::create(['nombre' => 'Tlacoachistlahuaca']);
+    Municipio::create(['nombre' => 'Tlacoapa']);
+    Municipio::create(['nombre' => 'Tlalchapa']);
+    Municipio::create(['nombre' => 'Tlalixtaquilla de Maldonado']);
+    Municipio::create(['nombre' => 'Tlapa de Comonfort']);
+    Municipio::create(['nombre' => 'Tlapehuala']);
+    Municipio::create(['nombre' => 'La Unión de Isidoro Montes de Oca']);
+    Municipio::create(['nombre' => 'Xalpatláhuac']);
+    Municipio::create(['nombre' => 'Xochihuehuetlán']);
+    Municipio::create(['nombre' => 'Xochistlahuaca']);
+    Municipio::create(['nombre' => 'Zapotitlán Tablas']);
+    Municipio::create(['nombre' => 'Zirándaro']);
+    Municipio::create(['nombre' => 'Zitlala']);
+    Municipio::create(['nombre' => 'Eduardo Neri']);
+    Municipio::create(['nombre' => 'Acatepec']);
+    Municipio::create(['nombre' => 'Marquelia']);
+    Municipio::create(['nombre' => 'Cochoapa el Grande']);
+    Municipio::create(['nombre' => 'José Joaquín de Herrera']);
+    Municipio::create(['nombre' => 'Juchitán']);
+    Municipio::create(['nombre' => 'Iliatenco']);
   }
 }
 class UserTableSeeder extends Seeder {
@@ -160,48 +133,50 @@ class MiembroTableSeeder extends Seeder {
   public function run(){
     Miembro::create([
       'nombre' => "Isaí Landa",
-      'puesto' => "Delegado"
+      'puesto' => "Presidente",
+      'pensamiento' => 'El secreto de la felicidad: encuentra algo más grande que tú y dedica tu vida a ello',
+      'orden' => 1
     ]);
 
     Miembro::create([
       'nombre' => "Alexis España",
-      'puesto' => "Secretario"
+      'puesto' => "Secretario",
+      'pensamiento' => 'Programar es decirle a la computadora que haga realidad todo aquello que imaginas',
+      'orden' => 2
     ]);
 
     Miembro::create([
       'nombre' => "Jorge Romero",
-      'puesto' => "Miembro fundador"
+      'puesto' => "Miembro fundador",
+      'pensamiento' => 'Saber programar te abre un lienzo infinito de posibilidades',
+      'orden' => 5
     ]);
     Miembro::create([
       'nombre' => "Fernando Solano",
-      'puesto' => "Tesorero"
+      'puesto' => "Entrenador C/C++",
+      'pensamiento' => 'La programación cambió mi vida para bien, y espero cambiar la de los demás a través de ella',
+      'orden' => 3
     ]);
     Miembro::create([
       'nombre' => "André",
-      'puesto' => "Entrenador"
-    ]);
-    Miembro::create([
-      'nombre' => "Gandy",
-      'puesto' => "Asesor"
-    ]);
-    Miembro::create([
-      'nombre' => "Mariana de la Rosa",
-      'puesto' => "Asesora"
+      'puesto' => "Entrenador C/C++",
+      'pensamiento' => 'La programación cambió mi vida para bien, y espero cambiar la de los demás a través de ella',
+      'orden' => 3
     ]);
   }
 }
 class BannerTableSeeder extends Seeder {
   public function run(){
     Banner::create([
-      'titulo' => "Olimpiada Morelense de Informática",
-      'texto' => "Inserte aquí alguna frase motivadora",
+      'titulo' => "",
+      'texto' => "",
       'link1' => null,
       'link2' => null
     ]);
 
     Banner::create([
-      'titulo' => "Curso de profesores 2020",
-      'texto' => "¿Estás interesado en enseñar programación en tu escuela?",
+      'titulo' => "",
+      'texto' => "",
       'link1' => "#",
       'link2' => null
     ]);

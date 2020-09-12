@@ -29,7 +29,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" media="print" onload="this.media='all'">
         <!-- Style Sheets -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel='stylesheet' media="print" onload="this.media='all'">
-        <link href="{{ asset('css/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel='stylesheet' media="print" onload="this.media='all'">
+        <link href="/css/font-awesome-4.7.0/css/font-awesome.min.css" rel='stylesheet' media="print" onload="this.media='all'">
         <link href="{{ asset('css/animate.css') }}" rel='stylesheet' media="print" onload="this.media='all'">
         <link href="{{ asset('css/jquery.bxslider.css?v=3') }}" rel='stylesheet' media="print" onload="this.media='all'">
         <link href="{{ asset('css/owl.carousel.min.css') }}" rel='stylesheet' media="print" onload="this.media='all'">
