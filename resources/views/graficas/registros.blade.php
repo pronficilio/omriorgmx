@@ -10,24 +10,54 @@
     <div class="container">
         <div style="text-align: center;">
             <br><br><br><br><br>
-            <h1>Registros: Categoría Primaria</h1>
+            <h1 class="text-capitalize">Registros: Categoría {{ $categoria }}</h1>
             <br><br>
         </div>
-        
+		<ul class="muro-fama nav nav-tabs">
+            <li role="presentation" class="{{ $categoria == 'abierta' ? 'active' : 'highlighted' }}">
+                <a href="{{ route('graficaRegistro', 'abierta') }}">Abierta</a>
+            </li>
+            <li class="{{ $categoria == 'secundaria' ? 'active' : 'highlighted' }}" role="presentation">
+                <a href="{{ route('graficaRegistro', 'secundaria') }}">Secundaria</a>
+            </li>
+            <li class="{{ $categoria == 'primaria' ? 'active' : 'highlighted' }}" role="presentation">
+                <a href="{{ route('graficaRegistro', 'primaria') }}">Primaria</a>
+            </li>
+        </ul>
         <div id="registros"></div>
         <br>
     </div>
     @include('complementos.contacto')
 @endsection
-@push('scripts')
+@push('styles')
     <!-- Styles -->
     <style>
-        #registros{
+    	#registros{
             width: auto;
             height: 400px;
         }
+        .muro-fama li{
+            width: 33.33%;
+            background: black;
+            text-align: center;
+        }
+        .muro-fama .highlighted{
+        }
+        .muro-fama .highlighted a{
+            background: #84c229;
+            color: black;
+        }
+        .muro-fama a{
+            border: 2px solid black !important;
+            border-bottom: 0px !important;
+        }
+        .muro-fama .active{
+            background:black;
+            color: white;
+        }
     </style>
-
+@endpush
+@push('scripts')
     <!-- Resources -->
     <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
@@ -48,7 +78,7 @@
         
         @php
             $otros = 0 ;
-            $LIMITE = 5 ; 
+            $LIMITE = 10 ; 
         @endphp
 
         //$LIMITE es para ver cuantas escuelas se van a mostrar + 1 de otros
@@ -67,7 +97,7 @@
                     $escuela = App\Escuela::find($registro->id_escuela)
                 @endphp
 
-                { Escuelas: "{{$escuela->nombre}}", Registros: {{$registro->cantidad}} },
+                { Escuelas: "{{ !empty($escuela->corto) ? $escuela->corto : $escuela->nombre}}", Registros: {{$registro->cantidad}} },
             @endforeach
 
             @if($otros > 0)
@@ -92,13 +122,9 @@
 
         chart.legend = new am4charts.Legend();
         chart.legend.position = "right";
-
+                chart.legend.maxWidth = 400;
+            chart.legend.labels.template.truncate=false;
+            chart.legend.labels.template.wrap=true;
         }); // end am4core.ready()
     </script>
-
-
-<!-- Chart code -->
-<script>
-
-
 @endpush

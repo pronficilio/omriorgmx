@@ -51,5 +51,5 @@ Route::post('olimpico/ultimoNivel', 'RegistroController@ultimoNivel');
 Route::post('olimpico/siguienteNivel', 'RegistroController@siguienteNivel');
 
 //Graficas
-Route::get('graficas/medallas/{categoria}', 'GraficaController@muestraMedallas');
-Route::get('graficas/registros/{categoria}', 'GraficaController@muestraRegistrados');
+Route::get('escuelas-ganadoras/{categoria?}', 'GraficaController@muestraMedallas')->name("graficaMedalla");
+Route::get('registros/{categoria?}', 'GraficaController@muestraRegistrados')->name("graficaRegistro");
