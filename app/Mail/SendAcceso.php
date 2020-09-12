@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendMail extends Mailable
+class SendAcceso extends Mailable
 {
     use Queueable, SerializesModels;
     public $data;
@@ -28,7 +28,7 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_FROM_ADDRESS'))->subject('Acceso al sistema de entrenamiento')->view('email.t2')->with('data', $this->data);
+        return $this->from(env('MAIL_FROM_ADDRESS'), 'Olimpiada Morelense de Informática')->subject($this->data['asunto'])->view('email.'.$this->data['view'])->with('data', $this->data);
 
         //return $this->view('view.name');
     }
