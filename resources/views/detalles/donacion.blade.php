@@ -7,7 +7,12 @@
                 <h4 class="modal-title">DONA vía Paypal</h4>
             </div>
             <div class="modal-body">
-                Nos has salvado, estamos agradecidos
+                <h2>Todas las contribuciones son bienvenidas</h2>
+                <picture>
+                    <source srcset="{{ asset('images/saludos.webp') }}" type="image/webp">
+                    <source srcset="{{ asset('images/saludos.jpg') }}" type="image/jpeg"> 
+                    <img src="{{ asset('images/saludos.jpg') }}" alt="Saludo de agradecimiento"/>
+                </picture><br>
                 <!-- Start Donate Form -->
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="DonateForm">
                     <input type="hidden" name="payment_type" value="one_time">

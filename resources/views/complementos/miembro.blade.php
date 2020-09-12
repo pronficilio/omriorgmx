@@ -2,14 +2,14 @@
 <section id="conocealequipo" class="dark bg">
     <div class="container">
         <div class="section-title">
-            <h2 class="color-bg" data-aos="fade-up">Conoce al equipo</h2>
+            <h2 class="color-bg">Conoce al equipo</h2>
         </div>
         <div class="row topspace">
             <div class="owl_slider team_slider_wrap">
                 <ul class="owl-carousel team_slider">
                     @foreach($miembros as $i=>$m)
                         <li class="miembro_owl">
-                            <div class="image" id="tooltip_destino_{{$i}}" data-aos="zoom-in-up" data-aos-delay="{{$i*75}}">
+                            <div class="image" id="tooltip_destino_{{$i}}">
                                 <picture>
                                     <source srcset="{{ asset('storage/app/public/miembros/'.($m->id).'-d.webp') }}" type="image/webp">
                                     <source srcset="{{ asset('storage/app/public/miembros/'.($m->id).'-d.jpg') }}" type="image/jpeg"> 
@@ -38,7 +38,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div id="tooltip_origen_{{$i}}" class="ttptooltip" role="tooltip" data-aos="flip-up" data-aos-delay="{{$i*75}}">
+                            <div id="tooltip_origen_{{$i}}" class="ttptooltip" role="tooltip">
                                 {{$m->pensamiento}}
                             </div>
                         </li>

@@ -1,32 +1,33 @@
-
-<style>
-    @foreach($banners as $i=>$b)
-        .webp .banner-{{$i}} {
-            background-image: url({{ asset('storage/app/public/banner/'.($i+1).'.webp') }});
-        }
-        .no-webp .banner-{{$i}} {
-            background-image: url({{ asset('storage/app/public/banner/'.($i+1).'.jpg') }});
-        }
-    @endforeach
-    @media (max-width: 768px) {
+@push('styles')
+    <style>
         @foreach($banners as $i=>$b)
             .webp .banner-{{$i}} {
-                background-image: url({{ asset('storage/app/public/banner/'.($i+1).'-c.webp') }});
-                background-size: 100% auto !important;
+                background-image: url({{ asset('storage/app/public/banner/'.($i+1).'.webp') }});
             }
             .no-webp .banner-{{$i}} {
-                background-image: url({{ asset('storage/app/public/banner/'.($i+1).'-c.jpg') }});
-                background-size: 100% auto !important;
+                background-image: url({{ asset('storage/app/public/banner/'.($i+1).'.jpg') }});
             }
         @endforeach
-    }
-</style>
+        @media (max-width: 768px) {
+            @foreach($banners as $i=>$b)
+                .webp .banner-{{$i}} {
+                    background-image: url({{ asset('storage/app/public/banner/'.($i+1).'-c.webp') }});
+                    background-size: 100% auto !important;
+                }
+                .no-webp .banner-{{$i}} {
+                    background-image: url({{ asset('storage/app/public/banner/'.($i+1).'-c.jpg') }});
+                    background-size: 100% auto !important;
+                }
+            @endforeach
+        }
+    </style>
+@endpush
 <!-- Slider Section (Banner) -->
 <section id="slider" class="dark bg">
     <div class="owl_slider top_slider_wrap">
         <ul class="owl-carousel top_slider">
             @foreach($banners as $i=>$b)
-                <li class="style-3 banner-{{$i}}">
+                <li class="style-2 banner-{{$i}}">
                     <div class="contentwrap">
                         <div class="container">
                             <div class="content">
