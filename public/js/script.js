@@ -2,9 +2,19 @@
 
 //Hide preload animation after the window has finished loading
 jQuery(window).on('load', function () {
-    $('#preloadpage').addClass('animated slideOutDown');
+    setTimeout(function(){ $('#preloadpage').addClass('animated slideOutDown') }, 500);
 });
 $(document).ready(function(){
+    $("#estadoSelect select").change(function(){
+        //console.log($(this).val());
+        if($(this).val() == "Guerrero"){
+            $(".soloCuernavaca").addClass("hidden");
+            $(".soloGuerrero").removeClass("hidden");
+        }else{
+            $(".soloCuernavaca").removeClass("hidden");
+            $(".soloGuerrero").addClass("hidden");
+        }
+    });
     //Various Sliders options and configurations
     //More Options -> https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html
     // Slider Section BX Slider Settings
@@ -324,13 +334,16 @@ $(document).ready(function(){
             tutor: $('#RegistroForm input[name="tutor"]').val(),
             email_tutor: $('#RegistroForm input[name="email_tutor"]').val(),
             id_municipio: $('#RegistroForm select[name="municipio"]').val(),
-            enterado: $('#RegistroForm select[name="enterado"]').val()
+            id_municipiog: $('#RegistroForm select[name="municipioG"]').val(),
+            enterado: $('#RegistroForm select[name="enterado"]').val(),
+            escuela_g: $('#RegistroForm input[name="escuela_g"]').val(),
+            estado: $('#RegistroForm select[name="estado"]').val()
         }, function(result){
-            $("#RegistroForm").trigger('reset');
-            $('#RegistroForm select').val("").trigger("change");
             if(result==2){
                 $(".humanorepetido").modal("show");
             }else{
+                $("#RegistroForm").trigger('reset');
+                $('#RegistroForm select').val("").trigger("change");
                 swal("Todo bien", "¡Te mandamos un saludo por mail! Confirma tu correo "+e+" para continuar, revisa tu bandeja de correo no deseado!", "success", {
                     button: "Oh, ok!",
                 });
@@ -356,36 +369,50 @@ $(function() {
 	        }
 	    }
     });
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-66853888-1');
-    gtag('send', 'pageview');
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.7&appId=650879784989668";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/es_LA/fbevents.js');
-    fbq('init', '567484727095780');
-    fbq('track', "PageView");
-    $("body").append("<img height='1' width='1' style='display:none' src='https://www.facebook.com/tr?id=567484727095780&ev=PageView&noscript=1'/>");
-    AOS.init({
-        mirror: true
-    });
     new WOW().init();
-});
-
-//Google Map
+    //setTimeout(function(){
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-66853888-1');
+        gtag('send', 'pageview');
+        setTimeout(function(){
+            (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.7&appId=650879784989668";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+            !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window,document,'script',
+            'https://connect.facebook.net/es_LA/fbevents.js');
+            fbq('init', '567484727095780');
+            fbq('track', "PageView");
+            $("body").append("<img height='1' width='1' style='display:none' src='https://www.facebook.com/tr?id=567484727095780&ev=PageView&noscript=1'/>");
+            /*setTimeout(function(){
+                window.fbAsyncInit = function() {
+                  FB.init({
+                    xfbml            : true,
+                    version          : 'v7.0'
+                  });
+                };
+                (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+                console.log("chat cargado");
+            }, 3000);*/
+        }, 2500);
+    //}, 2500);
+});//Google Map
 function initMap() {
     var uluru = {lat: -1.283816662791512, lng: 36.81950926780701}; //enter latitude and longitude of location
     var map = new google.maps.Map(document.getElementById('map'), {
