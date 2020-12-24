@@ -324,7 +324,7 @@ class ProyectoTableSeeder extends Seeder {
 
 class SponsorTableSeeder extends Seeder {
   public function run(){
-    Sponsor::create([
+    /*Sponsor::create([
       'nombre' => "MC Cornick",
       //'link' => "https://www.google.com"
     ]);
@@ -337,6 +337,23 @@ class SponsorTableSeeder extends Seeder {
     Sponsor::create([
       'nombre' => "Doppio",
       //'link' => "https://www.google.com"
+    ]);*/
+
+    Sponsor::create([
+      'nombre' => "Peregrino Tech",
+      //'link' => "https://www.peregrinotech.com/"
+    ]);
+    Sponsor::create([
+      'nombre' => "Soft2Go",
+      //'link' => "https://www.peregrinotech.com/"
+    ]);
+    Sponsor::create([
+      'nombre' => "Níteo",
+      //'link' => "https://www.peregrinotech.com/"
+    ]);
+    Sponsor::create([
+      'nombre' => "Naufiux",
+      //'link' => "https://www.peregrinotech.com/"
     ]);
   }
 }

@@ -16,6 +16,6 @@
     {{-- _include('complementos.proyecto') --}}
     @include('complementos.noticia')
     @include('complementos.acercade')
-    {{-- _include('complementos.sponsor') --}}
+    @include('complementos.sponsor')
     @include('complementos.contacto')
 @endsection
