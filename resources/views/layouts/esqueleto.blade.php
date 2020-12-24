@@ -66,8 +66,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/i18n/es.min.js" integrity="sha256-3rDVEasLjZL5m8j0M0VHX8YqfrjT/JHZtNWgdUO4uXM=" crossorigin="anonymous" defer></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
         <script src="{{ asset('js/wow.min.js') }}" defer></script>
-        <script src="{{ asset('js/script.js?v=4') }}" defer></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66853888-1"></script>
+        <script src="{{ asset('js/script.js?v=6') }}" defer></script>
         @stack('scripts')
     </body>
 </html>

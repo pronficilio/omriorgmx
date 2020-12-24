@@ -33,31 +33,24 @@
 <section id="inscripcion" class=" bg">
     <div>
         <div class="section-title">
-            <h2 class="color-bg">Inscripciones abiertas</h2>
+            <h2 class="color-bg">Pre-inscripciones abiertas</h2>
         </div>
         <div class="container topspace">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <a href="#" data-toggle="modal" data-target=".video-presentacion">
                         <div class="botones-ayuda">
                             Reproduce video de presentación
                         </div>
                     </a>
                 </div>
-                <div class="col-md-4">
-                    <a href="#" data-toggle="modal" data-target=".video">
-                        <div class="botones-ayuda">
-                            Reproduce video de ayuda
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
+                <!--div class="col-md-6">
                     <a href="https://entrenator.omri.org.mx">
                         <div class="botones-ayuda">
                             Ir al sitio de entrenamiento
                         </div>
                     </a>
-                </div>
+                </div-->
             </div>
             <br>
             <div class="row">
