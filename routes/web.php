@@ -56,3 +56,4 @@ Route::get('reconocimiento-medalla', 'PapelitosController@reconocimiento');
 //Graficas
 Route::get('escuelas-ganadoras/{categoria?}', 'GraficaController@muestraMedallas')->name("graficaMedalla");
 Route::get('registros/{categoria?}', 'GraficaController@muestraRegistrados')->name("graficaRegistro");
+Route::get('resultados/{categoria?}', 'HomeController@competidores')->name("competidores");

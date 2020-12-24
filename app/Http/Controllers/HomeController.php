@@ -1,14 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 use App\Miembro;
 use App\Banner;
 use App\Causa;
 use App\Evento;
 use App\Noticia;
 use App\Municipio;
+use App\Escuela;
 use App\MunicipioG;
 use App\Proyecto;
+use App\Registro;
 use App\Sponsor;
 use App\Famoso;
 use Illuminate\Http\Request;
@@ -123,6 +126,118 @@ class HomeController extends Controller
             }
         });
         return view('fama', ["mapa" => $mapa, "categoria" => $categoria]);
+    }
+    public function competidores($categoria = "abierta"){
+        $mapaCat = array("abierta" => 3, "secundaria" => 2, "primaria" => 1);
+        $tresDiasAtras = date("Y-m-d", strtotime("2020-12-02"." -1 day"));
+        $oli = DB::connection('entrenator')
+            ->table('lugar')
+            ->select("posicion", "puntos", "fecha", "email", "avatar", "user_id", 'name', 'lastname', "examenOmega", "estatal")
+            ->join('users', 'user_id', '=', 'users.id')
+            ->where("paquete_id", $mapaCat[$categoria])
+            ->where("fecha", $tresDiasAtras)
+            ->orderBy('posicion')->get();
+        $mapa = array();
+        $maximo = 0;
+        foreach($oli as $olimpico){
+            $datosRegistrados = Registro::where("email", $olimpico->email)->with(['escuela', 'municipio'])->first();
+            if($olimpico->avatar == "andre.jpg")
+                continue;
+            //dd($datosRegistrados->escuela());
+            if(empty($datosRegistrados)){
+                //dd($olimpico);
+                $cuatroDiasAtras = date("Y-m-d", strtotime($tresDiasAtras." -1 day"));
+                $oliDelta = DB::connection('entrenator')
+                    ->table('lugar')
+                    ->select("posicion", "puntos", "fecha")
+                    ->where("paquete_id", $mapaCat[$categoria])
+                    ->where("fecha", $cuatroDiasAtras)
+                    ->where("user_id", $olimpico->user_id)
+                    ->orderBy('posicion')->first();
+                if($olimpico->puntos > $maximo)
+                    $maximo = $olimpico->puntos;
+                if(empty($oliDelta))
+                    $mapa[] = array(
+                        'olimpico_folio' => $olimpico->user_id+1050,
+                        'olimpico_nombre' => $olimpico->name,
+                        'olimpico_apellido' => $olimpico->lastname,
+                        'lugarDelta' => (0),
+                        'puntosDelta' => (0),
+                        'examen' => $olimpico->estatal,
+                        'ejercicio' => $olimpico->puntos,
+                        'escuela' => "ITESM",
+                        'escuelaC' => "ITESM",
+                        'muni'=> '.',
+                        'rank' => $olimpico,
+                        'final'=>0);
+                else
+                    $mapa[] = array(
+                        'olimpico_folio' => $olimpico->user_id+1050,
+                        'olimpico_nombre' => $olimpico->name,
+                        'olimpico_apellido' => $olimpico->lastname,
+                        'lugarDelta' => ($olimpico->posicion - $oliDelta->posicion),
+                        'puntosDelta' => ($olimpico->puntos - $oliDelta->puntos),
+                        'examen' => $olimpico->estatal,
+                        'ejercicio' => $olimpico->puntos,
+                        'escuela' => "ITESM",
+                        'escuelaC' => "ITESM",
+                        'muni'=> '.',
+                        'rank' => $olimpico,
+                        'final'=>0);
+            }else{
+                if($datosRegistrados->nombre === "deNiSsE")
+                    continue;
+
+                $cuatroDiasAtras = date("Y-m-d", strtotime($tresDiasAtras." -1 day"));
+                $oliDelta = DB::connection('entrenator')
+                    ->table('lugar')
+                    ->select("posicion", "puntos", "fecha")
+                    ->where("paquete_id", $mapaCat[$categoria])
+                    ->where("fecha", $cuatroDiasAtras)
+                    ->where("user_id", $olimpico->user_id)
+                    ->orderBy('posicion')->first();
+                if($olimpico->puntos > $maximo)
+                    $maximo = $olimpico->puntos;
+                if(empty($oliDelta))
+                    $mapa[] = array(
+                        'olimpico_folio' => $datosRegistrados->id,
+                        'olimpico_nombre' => $datosRegistrados->nombre,
+                        'olimpico_apellido' => $datosRegistrados->apellido,
+                        'lugarDelta' => (0),
+                        'puntosDelta' => (0),
+                        'examen' => $olimpico->estatal,
+                        'ejercicio' => $olimpico->puntos,
+                        'escuela' => Escuela::find($datosRegistrados->id_escuela)->nombre,
+                        'escuelaC' => Escuela::find($datosRegistrados->id_escuela)->corto ?? null,
+                        'muni'=> Municipio::find($datosRegistrados->id_municipio)->nombre,
+                        'rank' => $olimpico,
+                        'final'=>0);
+                else
+                    $mapa[] = array(
+                        'olimpico_folio' => $datosRegistrados->id,
+                        'olimpico_nombre' => $datosRegistrados->nombre,
+                        'olimpico_apellido' => $datosRegistrados->apellido,
+                        'lugarDelta' => ($olimpico->posicion - $oliDelta->posicion),
+                        'puntosDelta' => ($olimpico->puntos - $oliDelta->puntos),
+                        'examen' => $olimpico->estatal,
+                        'ejercicio' => $olimpico->puntos,
+                        'escuela' => Escuela::find($datosRegistrados->id_escuela)->nombre,
+                        'escuelaC' => Escuela::find($datosRegistrados->id_escuela)->corto ?? null,
+                        'muni'=> Municipio::find($datosRegistrados->id_municipio)->nombre,
+                        'rank' => $olimpico,
+                        'final'=>0);
+            }
+        }
+        foreach($mapa as $i=>$v){
+            $mapa[$i]['ejercicio'] .= " (".number_format($v['rank']->puntos / $maximo * 30, 2)."%)";
+            $mapa[$i]['final'] = ($v['rank']->puntos / $maximo * 30) + ($v['examen'] / 400 * 70);
+        }
+        usort($mapa, function($a, $b){
+            if($a["final"]==$b["final"])
+                return 0;
+            return $a['final'] > $b['final'] ? -1 : 1;
+        });
+        return view('competencia', ["mapa" => $mapa, "categoria" => $categoria, "fecha"=>$tresDiasAtras]);
     }
     public function escuelas(){
         $causas = Causa::all();

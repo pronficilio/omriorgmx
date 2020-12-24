@@ -35,7 +35,7 @@
             <div class="collapse navbar-collapse yamm">
                 <ul class="nav navbar-nav">
                     <li class="framework pulse">
-                        <a href="{{ $e }}#inscripcion">Inscríbete</a>
+                        <a href="/resultados">Resultados</a>
                     </li>
                     <li>
                         <a href="{{ $e }}#conocealequipo">Nuestro equipo</a>
