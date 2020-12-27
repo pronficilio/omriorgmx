@@ -30,18 +30,65 @@
 		<div class="m-section">
 			<div class="m-section__content">
 				<br><br><br><br><br>
-				<h4 class="text-center">13a Olimpiada Morelense de Informática </h4>
-				<h4>Datos del olímpico</h4>
-				<table>
-					<tr>
-						<td><img src={{ asset('./storage/app/public/selfies/'.$competidor['id'].'.jpg')}} height="250px" style="border-radius: 10px;"></td>
-						<td style="padding: 16px; font-size:25px;">{{ $competidor['nombre'].' '.$competidor['apellido'].' '}}<a href={{'https://omegaup.com/profile/'.$competidor['usuario_omega'].'/'}} target="_blank"><img src="{{asset('images/icons/omega.png')}}" height="25px"></a><br><br>
-							<br><br><br>
-						</td>
-					</tr>
-					<tr>
-					</tr>
-				</table>
+				<h4 class="text-center">Olimpiada Morelense de Informática </h4>
+				<h4>{{ $competidor['nombre'].' '.$competidor['apellido'].' '}}</h4>
+				<div class="row">
+					<div class="col-md-6">
+						<table>
+							<tr>
+								<td>
+									<img src="{{ asset('./storage/app/public/selfies/'.$competidor['id'].'.jpg')}}" height="250px" style="border-radius: 10px;">
+									<br>
+									<a href={{'https://omegaup.com/profile/'.$competidor['usuario_omega'].'/'}} target="_blank">
+										<img src="{{asset('images/icons/omega.png')}}" height="25px">
+									</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-md-6">
+						<table class="table">
+							<thead class="verde-OMRI">
+								<tr>
+									<th>
+										Documento
+									</th>
+									<th>
+										Descarga
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+								$archivos = array();
+								$archivos[13] = array();
+								$archivos[13][] = "txt.txt";
+								$archivos[14] = array();
+								$archivos[14][] = "txt.txt";
+								?>
+								@foreach($archivos as $_anio=>$_files)
+									<tr>
+										<th colspan="2">
+											<strong><big>{{ $_anio }} Olimpiada Morelense de Informática</big></strong>
+										</th>
+									</tr>
+									@foreach($_files as $f)
+									<tr>
+										<td style="padding-left: 20px;">
+											{{ $f }}
+										</td>
+										<td>
+											<a href="{{ asset('./storage/app/public/constancias/'.$competidor['id'].'/'.$_anio.'/'.$f) }}" download="{{$f}}">
+												Descargar
+											</a>
+										</td>
+									</tr>
+									@endforeach
+								@endforeach
+							</tbody>
+						</table>
+					</div>
+				</div>
 				<br><br>
 				<table class="table">
 					<thead class="verde-OMRI">
