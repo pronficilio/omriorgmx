@@ -30,7 +30,7 @@
 		<div class="m-section">
 			<div class="m-section__content">
 				<br><br><br><br><br>
-				<h1 class="text-center">13a Olimpiada Morelense de Informática </h1>
+				<h4 class="text-center">13a Olimpiada Morelense de Informática </h4>
 				<h2 class="text-center">Resultados del {{ date("d-m", strtotime($fecha)) }}</h2>
 				<br>
 				<ul class="muro-fama nav nav-tabs">

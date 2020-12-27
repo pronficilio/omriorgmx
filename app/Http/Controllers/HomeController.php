@@ -127,6 +127,17 @@ class HomeController extends Controller
         });
         return view('fama', ["mapa" => $mapa, "categoria" => $categoria]);
     }
+
+    public function competidor($id=2){
+        $datosRegistrados = Registro::where("id", $id)->with(['escuela', 'municipio'])->first();
+        $datosFama = Famoso::where("id_registro", $id)->first();
+
+        //Regresar un array de archivos xd
+
+        return view('competidor', ["competidor" => $datosRegistrados, "desempeno" => $datosFama]);
+    }
+
+
     public function competidores($categoria = "abierta"){
         $mapaCat = array("abierta" => 3, "secundaria" => 2, "primaria" => 1);
         $tresDiasAtras = date("Y-m-d", strtotime("2020-12-02"." -1 day"));

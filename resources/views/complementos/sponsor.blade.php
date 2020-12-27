@@ -8,7 +8,7 @@
             <div class="bx_slider sponsor_slider_wrap">
                 <ul class="sponsor_slider">
                     @foreach($sponsors as $i => $s)
-					  <li><img src="images/sponsors/{{++$i}}.png" alt="efd" /></li>
+					  <li><img src="images/sponsors/{{++$i}}.png" alt="" /></li>
 					@endforeach
                 </ul>
             </div>
