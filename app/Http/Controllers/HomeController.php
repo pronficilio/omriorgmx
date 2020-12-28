@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\Miembro;
 use App\Banner;
 use App\Causa;
@@ -130,11 +131,28 @@ class HomeController extends Controller
 
     public function competidor($id=2){
         $datosRegistrados = Registro::where("id", $id)->with(['escuela', 'municipio'])->first();
-        $datosFama = Famoso::where("id_registro", $id)->first();
+        $datosFama = Famoso::where("id_registro", $id)->get();
 
-        //Regresar un array de archivos xd
+        $AllDirectories = Storage::allDirectories('public/constancias/'.$id.'/');
+        
+        $directories = array();
+        foreach ($AllDirectories as $dir){
+            $olimpiada = explode("/",$dir);
 
-        return view('competidor', ["competidor" => $datosRegistrados, "desempeno" => $datosFama]);
+            $losArchivos = Storage::files($dir);
+            $archivos = array();
+            $ind = 0;
+            foreach ($losArchivos as $elArchivo){
+                $archivo = explode("_", explode("/", $elArchivo)[4]);
+                $archivos[$ind] = ucfirst($archivo[0] . ' de ' . explode(".", $archivo[1])[0]);
+                $ind = $ind+1;
+            }
+
+            $directories[$olimpiada[3]] = $archivos;
+        } 
+        //print_r($directories);
+
+        return view('competidor', ["competidor" => $datosRegistrados, "desempenos" => $datosFama, "archivos" => $directories]);
     }
 
 

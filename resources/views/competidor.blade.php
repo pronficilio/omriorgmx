@@ -31,22 +31,29 @@
 			<div class="m-section__content">
 				<br><br><br><br><br>
 				<h4 class="text-center">Olimpiada Morelense de Informática </h4>
-				<h4>{{ $competidor['nombre'].' '.$competidor['apellido'].' '}}</h4>
+				<h4>{{-- $documentos[13] --}}</h4>
 				<div class="row">
 					<div class="col-md-6">
-						<table>
+						<table class="foto_olimpico">
+							<tr>
+								<td><h4>{{ $competidor['nombre'].' '.$competidor['apellido'].' '}}</h4></td>
+							</tr>
 							<tr>
 								<td>
 									<img src="{{ asset('./storage/app/public/selfies/'.$competidor['id'].'.jpg')}}" height="250px" style="border-radius: 10px;">
-									<br>
+								</td>
+							</tr>
+							<tr>
+								<td>
 									<a href={{'https://omegaup.com/profile/'.$competidor['usuario_omega'].'/'}} target="_blank">
-										<img src="{{asset('images/icons/omega.png')}}" height="25px">
+									<img src="{{asset('images/icons/omega_2.png')}}" height="35px">
 									</a>
 								</td>
 							</tr>
 						</table>
 					</div>
 					<div class="col-md-6">
+						<br>
 						<table class="table">
 							<thead class="verde-OMRI">
 								<tr>
@@ -59,13 +66,6 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php
-								$archivos = array();
-								$archivos[13] = array();
-								$archivos[13][] = "txt.txt";
-								$archivos[14] = array();
-								$archivos[14][] = "txt.txt";
-								?>
 								@foreach($archivos as $_anio=>$_files)
 									<tr>
 										<th colspan="2">
@@ -89,12 +89,15 @@
 						</table>
 					</div>
 				</div>
-				<br><br>
+				<br>
 				<table class="table">
 					<thead class="verde-OMRI">
 						<tr>
 							<th>
 								Lugar
+							</th>
+							<th>
+								Año
 							</th>
 							<th>
 								Municipio
@@ -111,9 +114,11 @@
 						</tr>
 					</thead>
 					<tbody>
-					    <tr>
-						    <td>{{ $desempeno['lugar'] }}</td> <td>Cuernavaca{{-- $competidor['municipio'] --}}</td> <td>{{ $desempeno['medalla'] }}</td> <td>ESCUELA EN CASA{{-- $competidor['escuela'] --}}</td> <td>{{ $competidor['categoria'] }}</td>
-						</tr>   	
+						@foreach($desempenos as $desempeno)
+							<tr>
+								<td>{{ $desempeno['lugar'] }}</td> <td>{{ $desempeno['anio'] }}</td> <td>{{ $competidor['municipio'] }}</td> <td>{{ $desempeno['medalla'] }}</td> <td>{{ $competidor['escuela'] }}</td> <td>{{ $desempeno['categoria'] }}</td>
+							</tr>
+						@endforeach   	
 					</tbody>
 				</table>
 			</div>
@@ -125,6 +130,10 @@
         <style>
 			.table tr th tr{
 				border: 2px solid black;
+			}
+
+			.foto_olimpico td{
+				text-align: left;
 			}
 
 			.verde-OMRI{
