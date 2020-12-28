@@ -15,7 +15,7 @@ class AlterFamaTable extends Migration
     {
         Schema::table('fama', function (Blueprint $table) {
             $table->unsignedBigInteger('id_registro')->nullable();
-            $table->integer('lugar')->nullable();
+            $table->string('lugar')->default('-')->nullable();
             $table->foreign('id_registro')->references('id')->on('registro')->onUpdate('cascade');
         });
     }
