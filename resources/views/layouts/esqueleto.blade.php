@@ -42,6 +42,7 @@
 
         @include('complementos.footer')
         @include('detalles.donacion')
+        @include('detalles.repetidor')
         <!-- Page Preloading -->
         <div id="preloadpage">
             <div class="loadingwrap">

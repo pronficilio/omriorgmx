@@ -44,6 +44,14 @@
                         </div>
                     </a>
                 </div>
+                <div class="col-md-6">
+                    <div class="repetidores"> 
+                        <strong>
+                        ¿Eres repetidor?
+                        <a href="#" data-toggle="modal" data-target=".repetidor_0">Ayúdanos a actualizar tu información</a>
+                        </strong>
+                    </div>
+                </div>
                 <!--div class="col-md-6">
                     <a href="https://entrenator.omri.org.mx">
                         <div class="botones-ayuda">

@@ -94,7 +94,7 @@ class HomeController extends Controller
             "miembros" => $miembros,
             "causas" => $causas,
             "noticias" => $noticias
-        ]);
+        ]); 
     }
     public function contacto(){
         return view('contacto');
@@ -130,29 +130,35 @@ class HomeController extends Controller
     }
 
     public function competidor($id=2){
-        $datosRegistrados = Registro::where("id", $id)->with(['escuela', 'municipio'])->first();
-        $datosFama = Famoso::where("id_registro", $id)->get();
 
-        $AllDirectories = Storage::allDirectories('public/constancias/'.$id.'/');
+        $datosRegistrados = Registro::where("id", $id)->with(['escuela', 'municipio'])->first();
+        $datosFama = Famoso::where("id_registro", $id)->orderBy('anio', 'DESC')->orderBy('id', 'DESC')->get();
+
+        $AllDirectories = Storage::allDirectories('public/constancias/'.$id);
         
-        $directories = array();
+        $directories = array(); //Los nombres de los archivos para humano
+        $files = array(); //Los nombres de los archios para computadoras
         foreach ($AllDirectories as $dir){
-            $olimpiada = explode("/",$dir);
+            $olimpiada = explode("/",$dir); 
 
             $losArchivos = Storage::files($dir);
             $archivos = array();
+            $paths = array();
             $ind = 0;
             foreach ($losArchivos as $elArchivo){
                 $archivo = explode("_", explode("/", $elArchivo)[4]);
+                $paths[$ind] = explode("/", $elArchivo)[4];
                 $archivos[$ind] = ucfirst($archivo[0] . ' de ' . explode(".", $archivo[1])[0]);
                 $ind = $ind+1;
             }
 
-            $directories[$olimpiada[3]] = $archivos;
+            $directories[$olimpiada[3]] = $archivos; 
+            $files[$olimpiada[3]] = $paths; 
+            
         } 
         //print_r($directories);
 
-        return view('competidor', ["competidor" => $datosRegistrados, "desempenos" => $datosFama, "archivos" => $directories]);
+        return view('competidor', ["competidor" => $datosRegistrados, "desempenos" => $datosFama, "archivos" => $directories, "losArchivos" => $files]);
     }
 
 
@@ -232,10 +238,13 @@ class HomeController extends Controller
                         'olimpico_folio' => $datosRegistrados->id,
                         'olimpico_nombre' => $datosRegistrados->nombre,
                         'olimpico_apellido' => $datosRegistrados->apellido,
+                        'grado' => $datosRegistrados->grado,
+                        'categoria' => $datosRegistrados->categoria,
                         'lugarDelta' => (0),
                         'puntosDelta' => (0),
                         'examen' => $olimpico->estatal,
                         'ejercicio' => $olimpico->puntos,
+                        'id_escuela' => $datosRegistrados->id_escuela,
                         'escuela' => Escuela::find($datosRegistrados->id_escuela)->nombre,
                         'escuelaC' => Escuela::find($datosRegistrados->id_escuela)->corto ?? null,
                         'muni'=> Municipio::find($datosRegistrados->id_municipio)->nombre,
@@ -246,10 +255,13 @@ class HomeController extends Controller
                         'olimpico_folio' => $datosRegistrados->id,
                         'olimpico_nombre' => $datosRegistrados->nombre,
                         'olimpico_apellido' => $datosRegistrados->apellido,
+                        'grado' => $datosRegistrados->grado,
+                        'categoria' => $datosRegistrados->categoria,
                         'lugarDelta' => ($olimpico->posicion - $oliDelta->posicion),
                         'puntosDelta' => ($olimpico->puntos - $oliDelta->puntos),
                         'examen' => $olimpico->estatal,
                         'ejercicio' => $olimpico->puntos,
+                        'id_escuela' => $datosRegistrados->id_escuela,
                         'escuela' => Escuela::find($datosRegistrados->id_escuela)->nombre,
                         'escuelaC' => Escuela::find($datosRegistrados->id_escuela)->corto ?? null,
                         'muni'=> Municipio::find($datosRegistrados->id_municipio)->nombre,

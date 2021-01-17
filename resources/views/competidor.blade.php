@@ -40,16 +40,16 @@
 							</tr>
 							<tr>
 								<td>
-									<img src="{{ asset('./storage/app/public/selfies/'.$competidor['id'].'.jpg')}}" height="250px" style="border-radius: 10px;">
+									<img src="{{  (file_exists(storage_path('app/public/selfies/').$competidor['id'].'.jpg')) ? asset('./storage/app/public/selfies/'.$competidor['id'].'.jpg') : asset('./storage/app/public/entreneitor.png')}}" height="250px" style="border-radius: 10px;">
 								</td>
 							</tr>
-							<tr>
+							<!--tr>
 								<td>
-									<a href={{'https://omegaup.com/profile/'.$competidor['usuario_omega'].'/'}} target="_blank">
-									<img src="{{asset('images/icons/omega_2.png')}}" height="35px">
+									<a href={{--'https://omegaup.com/profile/'.$competidor['usuario_omega'].'/'--}} target="_blank">
+									<img src="{{--asset('images/icons/omega_2.png')--}}" height="35px">
 									</a>
 								</td>
-							</tr>
+							</tr-->
 						</table>
 					</div>
 					<div class="col-md-6">
@@ -72,13 +72,13 @@
 											<strong><big>{{ $_anio }} Olimpiada Morelense de Informática</big></strong>
 										</th>
 									</tr>
-									@foreach($_files as $f)
+									@foreach($_files as $i=>$f)
 									<tr>
 										<td style="padding-left: 20px;">
 											{{ $f }}
 										</td>
 										<td>
-											<a href="{{ asset('./storage/app/public/constancias/'.$competidor['id'].'/'.$_anio.'/'.$f) }}" download="{{$f}}">
+											<a href="{{ asset('./storage/app/public/constancias/'.$competidor['id'].'/'.$_anio.'/'.$losArchivos[$_anio][$i]) }}" download="{{$f}}">
 												Descargar
 											</a>
 										</td>
@@ -99,9 +99,9 @@
 							<th>
 								Año
 							</th>
-							<th>
+							<!--th>
 								Municipio
-							</th>
+							</th-->
 							<th>
 								Medalla
 							</th>
@@ -116,7 +116,7 @@
 					<tbody>
 						@foreach($desempenos as $desempeno)
 							<tr>
-								<td>{{ $desempeno['lugar'] }}</td> <td>{{ $desempeno['anio'] }}</td> <td>{{ $competidor['municipio'] }}</td> <td>{{ $desempeno['medalla'] }}</td> <td>{{ $competidor['escuela'] }}</td> <td>{{ $desempeno['categoria'] }}</td>
+								<td>{{ $desempeno['lugar'] }}</td> <td>{{ $desempeno['anio'] }}</td> <!--td>{{-- $competidor['municipio'] --}}</td--> <td>{{ $desempeno['medalla'] }}</td> <td>{{ $desempeno['escuela'] }}</td> <td>{{ $desempeno['categoria'] }}</td>
 							</tr>
 						@endforeach   	
 					</tbody>

@@ -50,8 +50,9 @@ Route::post('olimpico/ultimoNivel', 'RegistroController@ultimoNivel');
 //Avanza una leccion
 Route::post('olimpico/siguienteNivel', 'RegistroController@siguienteNivel');
 
-Route::get('constancia-participacion', 'PapelitosController@constancia');
-Route::get('reconocimiento-medalla', 'PapelitosController@reconocimiento');
+//Rutas para generar papelitos
+Route::get('constancia-participacion/{id?}', 'PapelitosController@constancia')->name("constancia-participacion");
+Route::get('reconocimiento-medalla/{id?}', 'PapelitosController@reconocimiento')->name("reconocimiento-medalla");
 
 //Graficas
 Route::get('escuelas-ganadoras/{categoria?}', 'GraficaController@muestraMedallas')->name("graficaMedalla");
