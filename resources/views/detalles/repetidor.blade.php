@@ -28,37 +28,6 @@
                                     <div class="col-sm-6">
                                         <input type="phone" name="phone" placeholder="Teléfono de contacto" data-validation="length" data-validation-length="min10">
                                     </div>
-                                    <!--div class="row">
-                                        <div class="col-md-6">
-                                            <div>
-                                                <input type="number" min="3" max="20" name="edad" placeholder="Edad" data-validation="number">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div>
-                                                <select name="grado" class="select2generico" data-placeholder="Grado escolar" data-validation="required" data-width="100%">
-                                                    <option value="">Grado escolar</option>
-                                                    <optgroup label="Primaria">
-                                                        <option value="1ro Primaria">Primer año de primaria</option>
-                                                        <option value="2do Primaria">Segundo año de primaria</option>
-                                                        <option value="3ro Primaria">Tercer año de primaria</option>
-                                                        <option value="4to Primaria">Cuarto año de primaria</option>
-                                                        <option value="5to Primaria">Quinto año de primaria</option>
-                                                        <option value="6to Primaria">Sexto año de primaria</option>
-                                                    </optgroup>
-                                                    <optgroup label="Secundaria">
-                                                        <option value="1ro Secundaria">Primer año de secundaria</option>
-                                                        <option value="2do Secundaria">Segundo año de secundaria</option>
-                                                        <option value="3ro Secundaria">Tercer año de secundaria</option>
-                                                    </optgroup>
-                                                    <optgroup label="Preparatoria">
-                                                        <option value="1ro Preparatoria">Primer año de preparatoria</option>
-                                                        <option value="2do Preparatoria">Segundo año de preparatoria</option>
-                                                    </optgroup>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div-->
                                 </div>
                                 <div style="text-align: center;">
                                     <button type="submit" id="buscarr" class="btn btn-secondary">Buscar</button>
@@ -86,8 +55,8 @@
             alert("buscarr clikado");
             $.get("{{route('get-alumnitos')}}", $(this).serialize(), function(respuesta){
                 $('#resultados').html("<div class='row'></div>"); // limpiamo
-                $(respuesta.arreglo).each(function(i, e){
-                    $('#resultados').append("<div class='col-md-4'>chale</div>");
+                $(respuesta).each(function(i, e){
+                    $('#resultados').append("<div class='col-md-4'>"+respuesta['email']+"</div>");
                 });
             });
         });
