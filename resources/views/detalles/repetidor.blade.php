@@ -10,7 +10,7 @@
             <div class="modal-body">
                 <!-- Start Update Form -->
                 <div class="up-form row">
-                    <center><h4>Ingresa tus datos</h4></center>
+                    <h4 class="text-center">Ingresa tus datos</h4>
                     <div class="col-md-12">
                         <form id="form-repetidor">
                             @csrf
@@ -83,13 +83,19 @@
     $(document).ready(function(){
         $("#form-repetidor").submit(function(e){
             e.preventDefault();
-            alert("buscarr clikado");
-            $.get("{{route('get-alumnitos')}}", $(this).serialize(), function(respuesta){
-                $('#resultados').html("<div class='row'></div>"); // limpiamo
-                $(respuesta.arreglo).each(function(i, e){
-                    $('#resultados').append("<div class='col-md-4'>chale</div>");
-                });
+            $("#form-repetidor").block({
+                message: '<h1>Buscando</h1><img src="{{asset('images/entrenator/story.png')}}" style="width:80px;">',
+                css: { border: '3px solid #a00', width: '40%' }
             });
+            setTimeout(function(){
+                $.get("{{route('get-alumnitos')}}", $(this).serialize(), function(respuesta){
+                    $("#form-repetidor").unblock();
+                    $('#resultados').html("<div class='row'></div>"); // limpiamo
+                    $(respuesta.arreglo).each(function(i, e){
+                        $('#resultados').append("<div class='col-md-4'>chale</div>");
+                    });
+                });
+            }, 1300);
         });
     });
 </script>
