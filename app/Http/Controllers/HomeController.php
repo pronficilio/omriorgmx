@@ -74,7 +74,7 @@ class HomeController extends Controller
         return view('calendario');
     }
     public function convocatoria(){
-        return response()->file(storage_path("app/public/Convocatoria13.pdf"), ['Content-Type' => 'application/pdf', 'Content-Disposition' => 'inline; filename="Convocatoria - 13a OMRI.pdf"']);
+        return response()->file(storage_path("app/public/Convocatoria14.pdf"), ['Content-Type' => 'application/pdf', 'Content-Disposition' => 'inline; filename="Convocatoria - 14a OMRI.pdf"']);
     }
     public function registro(){
         $miembros = Miembro::orderBy('orden')->get();
@@ -94,7 +94,7 @@ class HomeController extends Controller
             "miembros" => $miembros,
             "causas" => $causas,
             "noticias" => $noticias
-        ]); 
+        ]);
     }
     public function contacto(){
         return view('contacto');
@@ -121,7 +121,7 @@ class HomeController extends Controller
             }
             if($personaA["puntaje"] < $personaB["puntaje"]){
                return 1;
-            }   
+            }
             if($personaA["puntaje"] > $personaB["puntaje"]){
                 return -1;
             }
@@ -135,11 +135,11 @@ class HomeController extends Controller
         $datosFama = Famoso::where("id_registro", $id)->orderBy('anio', 'DESC')->orderBy('id', 'DESC')->get();
 
         $AllDirectories = Storage::allDirectories('public/constancias/'.$id);
-        
+
         $directories = array(); //Los nombres de los archivos para humano
         $files = array(); //Los nombres de los archios para computadoras
         foreach ($AllDirectories as $dir){
-            $olimpiada = explode("/",$dir); 
+            $olimpiada = explode("/",$dir);
 
             $losArchivos = Storage::files($dir);
             $archivos = array();
@@ -152,10 +152,10 @@ class HomeController extends Controller
                 $ind = $ind+1;
             }
 
-            $directories[$olimpiada[3]] = $archivos; 
-            $files[$olimpiada[3]] = $paths; 
-            
-        } 
+            $directories[$olimpiada[3]] = $archivos;
+            $files[$olimpiada[3]] = $paths;
+
+        }
         //print_r($directories);
 
         return view('competidor', ["competidor" => $datosRegistrados, "desempenos" => $datosFama, "archivos" => $directories, "losArchivos" => $files]);
@@ -305,7 +305,7 @@ class HomeController extends Controller
             $headers .= "Reply-To: ". strip_tags($_POST['email']) . "\r\n";
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-          
+
             //Email information
             $admin_email = env('MAIL_USERNAME');
             $subject = "Contacto";
@@ -318,8 +318,8 @@ class HomeController extends Controller
             //send email
             $send = mail($admin_email, "$subject", $message, $headers);
 
-            if(!$send) {   
-                return 0;   
+            if(!$send) {
+                return 0;
             } else {
                 return 1;
             }
@@ -351,8 +351,8 @@ class HomeController extends Controller
             //send email
             $send = mail($admin_email, "$subject", $message, $headers);
 
-            if(!$send) {   
-                echo "<p style='color:red font-weight:bold'>Error sending email!</p>";   
+            if(!$send) {
+                echo "<p style='color:red font-weight:bold'>Error sending email!</p>";
             } else {
                 echo "<p style='color:green; font-weight:bold'>Message sent successfully. Thank you for contacting us!</p>";
             }
@@ -369,7 +369,7 @@ class HomeController extends Controller
                 ->orWhere('telefono', $request->telefono);
             })
             ->get();
-        
+
         return $resultados;
     }
 }
