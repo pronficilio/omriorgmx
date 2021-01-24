@@ -360,4 +360,16 @@ class HomeController extends Controller
             echo 'nothisng';
         }
     }
+
+    public function getAlumnitos(Request $request){
+        $resultados = Registro::where(function($q) {
+            $q->where('email', $request->email)
+                ->orWhere('nombre', $request->nombre)
+                ->orWhere('apellido', $request->apellido)
+                ->orWhere('telefono', $request->telefono);
+            })
+            ->get();
+        
+        return $resultados;
+    }
 }

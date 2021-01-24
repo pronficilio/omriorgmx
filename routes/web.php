@@ -26,6 +26,7 @@ Route::get('contacto', 'HomeController@contacto')->name('contacto');
 Route::get('terminos-y-condiciones', 'HomeController@terminos')->name('terminos'); //
 Route::get('aviso-de-privacidad', 'HomeController@aviso')->name('aviso'); //
 Route::get('/convocatoria', 'HomeController@convocatoria');
+Route::get('/get-alumnitos', 'HomeController@getAlumnitos')->name('get-alumnitos');
 Route::post('/php/contact_form_submit', 'HomeController@contact');
 Route::post('/php/volunteer_form_submit', 'HomeController@volunteer');
 
