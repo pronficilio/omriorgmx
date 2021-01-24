@@ -12,7 +12,7 @@
                 <div class="up-form row">
                     <center><h4>Ingresa tus datos</h4></center>
                     <div class="col-md-12">
-                        <form>
+                        <form id="form-repetidor">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
@@ -61,7 +61,7 @@
                                     </div-->
                                 </div>
                                 <div style="text-align: center;">
-                                    <button type="button" id="buscarr" class="btn btn-secondary">Buscar</button>
+                                    <button type="submit" id="buscarr" class="btn btn-secondary">Buscar</button>
                                     <button type="reset" class="btn btn-secondary reset">Borrar todo</button>
                                 </div>
                             </div>
@@ -78,13 +78,17 @@
     </div>
 </div>
 @push('scripts')
-<script>
-    $("#buscarr").click(function(){
-        alert("buscarr clikado");
-        $.get("{{route('get-alumnitos')}}", closest(form).serialize(), function(respuesta){
-            $('#resultados').html("<div class='row'></div>"); // limpiamo
-            $(respuesta.arreglo).each(function(i, e){
-                $('#resultados').append("<div class='col-md-4'>chale</div>");
+<script defer>
+
+    $(document).ready(function(){
+        $("#form-repetidor").submit(function(e){
+            e.preventDefault();
+            alert("buscarr clikado");
+            $.get("{{route('get-alumnitos')}}", this.serialize(), function(respuesta){
+                $('#resultados').html("<div class='row'></div>"); // limpiamo
+                $(respuesta.arreglo).each(function(i, e){
+                    $('#resultados').append("<div class='col-md-4'>chale</div>");
+                });
             });
         });
     });
