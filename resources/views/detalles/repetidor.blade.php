@@ -5,7 +5,7 @@
             <div class="modal-header" data-dismiss="modal">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Actualiza tus datos personales</h4>
-                
+
             </div>
             <div class="modal-body">
                 <!-- Start Update Form -->
@@ -84,7 +84,7 @@
         $("#form-repetidor").submit(function(e){
             e.preventDefault();
             alert("buscarr clikado");
-            $.get("{{route('get-alumnitos')}}", this.serialize(), function(respuesta){
+            $.get("{{route('get-alumnitos')}}", $(this).serialize(), function(respuesta){
                 $('#resultados').html("<div class='row'></div>"); // limpiamo
                 $(respuesta.arreglo).each(function(i, e){
                     $('#resultados').append("<div class='col-md-4'>chale</div>");
