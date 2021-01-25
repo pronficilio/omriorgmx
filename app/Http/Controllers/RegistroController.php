@@ -19,11 +19,15 @@ class RegistroController extends Controller
 {
     public function ingresarNuevoRegistro(Request $datos){
 
-    	$aux_id = 0 ;
-        if($datos->input("estado") == "Morelos")
-    	    $aspirante = new Registro();
-        else
-            $aspirante = new RegistroG();
+        $aux_id = 0 ;
+        if(is_numeric($datos->id)){
+            $aspirante = Registro::find($datos->id);
+        }else{
+            if($datos->input("estado") == "Morelos")
+                $aspirante = new Registro();
+            else
+                $aspirante = new RegistroG();
+        }
 
     	//En caso de que registre una nueva escuela
     	//if( isset( $_GET['nombre_escuela'] ) ){
@@ -31,7 +35,7 @@ class RegistroController extends Controller
             if(!is_numeric($datos->input('id_escuela'))){
         	    $escuela = new Escuela();
                 $escuela->nombre = $datos->input('id_escuela');
-        		
+
         		/*$escuela->direccion = $datos->input('direccion');
         		$escuela->telefono = $datos->input('telefono');
         		$escuela->id_municipio = $datos->input('id_municipio');
@@ -54,7 +58,7 @@ class RegistroController extends Controller
             $aux_id = $escuela->id ;
             $munici = $datos->input('id_municipiog');
         }
-    	
+
     	$aspirante->nombre = $datos->input('nombre');
     	$aspirante->apellido = $datos->input('apellido');
     	$aspirante->edad = $datos->input('edad');
@@ -67,17 +71,19 @@ class RegistroController extends Controller
     	$aspirante->id_municipio = $munici;
     	$aspirante->enterado = $datos->input('enterado');
         $aspirante->categoria = $datos->input('categoria');
-
+        $aspirante->anio=2021;
         /* Evitar humanos duplicados */
         //$raw_query = "SELECT COUNT(email) FROM registro WHERE email = $aspirante->email";
         //$apariciones = DB::select( DB::raw($raw_query) );
-        if($datos->input("estado") == "Morelos")
-            $apariciones = Registro::where("email", $aspirante->email)->count();
-        else
-            $apariciones = RegistroG::where("email", $aspirante->email)->count();
+        if(!is_numeric($datos->id)){
+            if($datos->input("estado") == "Morelos")
+                $apariciones = Registro::where("email", $aspirante->email)->count();
+            else
+                $apariciones = RegistroG::where("email", $aspirante->email)->count();
 
-        if($apariciones){
-            return 2;
+            if($apariciones){
+                return 2;
+            }
         }
         /*---*/
 
@@ -85,7 +91,7 @@ class RegistroController extends Controller
 
         if($aspirante->grado == "1ro Preparatoria" || $aspirante->grado == "2do Preparatoria" || $aspirante->grado == "1ro Secundaria" || $aspirante->grado == "2do Secundaria" || $aspirante->grado == "3ro Secundaria")
             $link = "https://studio.code.org/join/FRFHBV";
-        
+
         $aspirante->save();
         $data = array(
             'folio'      => $aspirante->id,
@@ -210,7 +216,7 @@ class RegistroController extends Controller
     public function ultimoNivel(){
         $id = session('olimpico');
 
-        //Retorna la ultima leccion terminada por fecha ->latest() 
+        //Retorna la ultima leccion terminada por fecha ->latest()
         $nivel = DB::table('codeorg')->where('id_registro', $id)->latest()->value('leccion');
 
         if($nivel > 0){

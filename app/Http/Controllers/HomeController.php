@@ -362,22 +362,54 @@ class HomeController extends Controller
     }
 
     public function getAlumnitos(Request $request){
-        $resultados = $request->email;
-        $email = $request->email;
-
-
-        $resultados = Registro::where('email', 'like', '%' . $_GET['email'] . '%')
-            ->orWhere('nombre', 'like', '%' . $_GET['nombre'] . '1%')
-            ->orWhere('apellido', 'like', '%' . $_GET['apellido'] . '%')
-            ->orWhere('telefono', 'like', '%' . $_GET['phone'] . '%')
-            ->get();
+        $resultados = Registro::where('anio', 2020)->
+            where('email', 'like', '%' . $request->email . '%');
+        if(isset($request->nombre))
+            $resultados->where('nombre', 'like', '%' . $request->nombre . '%');
+        if(isset($request->apellido))
+            $resultados->where('apellido', 'like', '%' . $request->apellido . '%');
+        if(isset($request->phone))
+            $resultados->where('telefono', 'like', '%' . $request->phone . '%');
+        $resultados->limit(5);
+        $resultados = $resultados->get();
 
         foreach($resultados as $i => $resultado){
             $x = strpos($resultado->email,'@');
             $a = substr($resultado->email, 0, $x-3);
             $b = substr($resultado->email, $x, strlen($resultado->email));
             $resultados[$i]->email_c = $a."**".$b;
+            $resultados[$i]->base64 = urlencode(base64_encode($resultado->id.'||'.$resultado->email));
         }
         return response()->json($resultados);
+    }
+    public function repetidor($base64){
+        $id = base64_decode($base64);
+        $e = explode("||", $id);
+        $r = Registro::where("id", $e[0])->where('anio', 2020);
+        if(empty($r))
+            return redirect()->route('index');
+
+        $miembros = Miembro::orderBy('orden')->get();
+        $municipios = Municipio::all();
+        $municipiosG = MunicipioG::all();
+        $banners = Banner::all();
+        $causas = Causa::all();
+        $eventos = Evento::orderBy('fecha')->get();
+        $noticias = Noticia::orderBy('fecha', 'desc')->get();
+        $proyectos = Proyecto::all();
+        $sponsors = Sponsor::all();
+
+        return view('reinscripcion', [
+            "miembros" => $miembros,
+            "municipios" => $municipios,
+            "municipiosG" => $municipiosG,
+            "banners" => $banners,
+            "causas" => $causas,
+            "eventos" => $eventos,
+            "noticias" => $noticias,
+            "proyectos" => $proyectos,
+            "sponsors" => $sponsors,
+            "repetidor" => $r->with("municipio", "escuela")->first()
+        ]);
     }
 }
