@@ -49,7 +49,7 @@
 <section id="inscripcion" class=" bg">
     <div>
         <div class="section-title">
-            <h2 class="color-bg">Pre-inscripciones abiertas</h2>
+            <h2 class="color-bg">Inscripciones abiertas</h2>
         </div>
         <div class="container topspace">
             <div class="row">
@@ -61,12 +61,13 @@
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <div class="repetidores">
-                        <strong>
-                        ¿Eres repetidor?
-                        <a href="#" data-toggle="modal" data-target=".repetidor_0">Ayúdanos a actualizar tu información</a>
-                        </strong>
-                    </div>
+                    <a href="#" data-toggle="modal" data-target=".repetidor_0">
+                        <div class="repetidores botones-ayuda">
+                            <strong>
+                                ¿Eres repetidor?
+                            </strong>
+                        </div>
+                    </a>
                 </div>
                 <!--div class="col-md-6">
                     <a href="https://entrenator.omri.org.mx">
