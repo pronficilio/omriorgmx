@@ -362,14 +362,17 @@ class HomeController extends Controller
     }
 
     public function getAlumnitos(Request $request){
+        $resultados = $request->email;
+        $email = $request->email;
+
+
         $resultados = Registro::where(function($q) {
-            $q->where('email', $request->email)
-                ->orWhere('nombre', $request->nombre)
-                ->orWhere('apellido', $request->apellido)
-                ->orWhere('telefono', $request->telefono);
+            $q->where('email', 'like', '%' . $_GET['email'] . '%')
+                ->orWhere('nombre', 'like', '%' . $_GET['nombre'] . '1%')
+                ->orWhere('apellido', 'like', '%' . $_GET['apellido'] . '%')
+                ->orWhere('telefono', 'like', '%' . $_GET['phone'] . '%');
             })
             ->get();
-
         return $resultados;
     }
 }
