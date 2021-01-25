@@ -26,6 +26,22 @@
             margin-top: 15px;
             font-weight: bolder;
         }
+        #RegistroForm .col-xs-6:first-child{
+            padding-right: 5px;
+        }
+        #RegistroForm .col-xs-6:last-child{
+            padding-left: 5px;
+        }
+        .telefono-edad-ano .col-xs-3{
+            padding: 0px;
+        }
+        .telefono-edad-ano .col-xs-4{
+            padding-right: 5px;
+
+        }
+        .telefono-edad-ano .col-xs-5{
+            padding-left: 5px;
+        }
     </style>
 @endpush
 
@@ -45,7 +61,7 @@
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <div class="repetidores"> 
+                    <div class="repetidores">
                         <strong>
                         ¿Eres repetidor?
                         <a href="#" data-toggle="modal" data-target=".repetidor_0">Ayúdanos a actualizar tu información</a>
@@ -67,53 +83,59 @@
                         @csrf
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div>
-                                    <input type="text" name="nombre" placeholder="Nombre (s)" data-validation="length" data-validation-length="min3">
-                                </div>
-                                <div>
-                                    <input type="text" name="apellido" placeholder="Apellidos" data-validation="length" data-validation-length="min3">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <div>
+                                            <input type="text" name="nombre" placeholder="Nombre (s)" data-validation="length" data-validation-length="min3">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div>
+                                            <input type="text" name="apellido" placeholder="Apellidos" data-validation="length" data-validation-length="min3">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
                                     <input type="email" name="email" placeholder="Email" data-validation="email">
                                 </div>
-                                <div>
-                                    <input type="phone" name="phone" placeholder="Teléfono de contacto" data-validation="length" data-validation-length="min10">
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
+                                <div class="row telefono-edad-ano">
+                                    <div class="col-xs-4">
+                                        <div>
+                                            <input type="phone" name="phone" placeholder="Teléfono de contacto" data-validation="length" data-validation-length="min10">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
                                         <div>
                                             <input type="number" min="3" max="20" name="edad" placeholder="Edad" data-validation="number">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-xs-5">
                                         <div>
                                             <select name="grado" class="select2generico" data-placeholder="Grado escolar" data-validation="required" data-width="100%">
                                                 <option value="">Grado escolar</option>
                                                 <optgroup label="Primaria">
-                                                    <option value="1ro Primaria">Primer año de primaria</option>
-                                                    <option value="2do Primaria">Segundo año de primaria</option>
-                                                    <option value="3ro Primaria">Tercer año de primaria</option>
-                                                    <option value="4to Primaria">Cuarto año de primaria</option>
-                                                    <option value="5to Primaria">Quinto año de primaria</option>
-                                                    <option value="6to Primaria">Sexto año de primaria</option>
+                                                    <option value="1ro Primaria">1er primaria</option>
+                                                    <option value="2do Primaria">2do primaria</option>
+                                                    <option value="3ro Primaria">3er primaria</option>
+                                                    <option value="4to Primaria">4to primaria</option>
+                                                    <option value="5to Primaria">5to primaria</option>
+                                                    <option value="6to Primaria">6to primaria</option>
                                                 </optgroup>
                                                 <optgroup label="Secundaria">
-                                                    <option value="1ro Secundaria">Primer año de secundaria</option>
-                                                    <option value="2do Secundaria">Segundo año de secundaria</option>
-                                                    <option value="3ro Secundaria">Tercer año de secundaria</option>
+                                                    <option value="1ro Secundaria">1er secundaria</option>
+                                                    <option value="2do Secundaria">2do secundaria</option>
+                                                    <option value="3ro Secundaria">3er secundaria</option>
                                                 </optgroup>
                                                 <optgroup label="Preparatoria">
-                                                    <option value="1ro Preparatoria">Primer año de preparatoria</option>
-                                                    <option value="2do Preparatoria">Segundo año de preparatoria</option>
+                                                    <option value="1ro Preparatoria">1er preparatoria</option>
+                                                    <option value="2do Preparatoria">2do preparatoria</option>
                                                 </optgroup>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-xs-6">
                                         <div id="estadoSelect">
                                             <select class="select2generico" name="estado" data-placeholder="Estado" data-validation="required" data-width="100%">
                                                 <option value="Morelos" selected>Morelos</option>
@@ -121,7 +143,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-xs-6">
                                         <div class="soloCuernavaca">
                                             <select class="select2generico" name="municipio" data-placeholder="Municipio" data-width="100%">
                                                 <option value="">Municipio</option>
@@ -140,17 +162,28 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="soloCuernavaca">
                                     <select data-tags="true" name="escuela_id" class="select2escuela" data-ajax--dataType="json" data-ajax--url="api/select/materia" data-placeholder="Busca y selecciona tu escuela" data-width="100%"></select>
                                 </div>
                                 <div class="soloGuerrero hidden">
                                     <input type="text" name="escuela_g" placeholder="Escribe el nombre de tu escuela">
                                 </div>
-                                <div>
-                                    <input type="text" name="tutor" placeholder="Nombre de tu maestro, papá o mamá (opcional)" data-validation="length" data-validation-length="min3" data-validation-optional="true">
+                                <div class="row">
+                                    <div class="col-xs-7">
+                                        <div>
+                                            <input type="text" name="tutor" placeholder="Nombre de tu maestro, papá o mamá" data-validation="length" data-validation-length="min3" data-validation-optional="true">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <div>
+                                            <input type="phone" name="phonetutor" placeholder="Teléfono de tutor" data-validation="length" data-validation-length="min10">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
-                                    <input type="email" name="email_tutor" placeholder="Email de tu maestro, papá o mamá (opcional)" data-validation="email" data-validation-optional="true">
+                                    <input type="email" name="email_tutor" placeholder="Email de tu maestro, papá o mamá" data-validation="email" data-validation-optional="true">
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -176,7 +209,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                        
+
                             </div>
                             <div style="text-align: center;">
                                 <button class="btn btn-secondary submit">Confirmar</button>
