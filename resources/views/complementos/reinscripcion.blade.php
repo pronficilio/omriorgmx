@@ -49,7 +49,7 @@
 <section id="inscripcion" class=" bg">
     <div>
         <div class="section-title">
-            <h2 class="color-bg">Pre-inscripciones abiertas</h2>
+            <h2 class="color-bg">Reinscripción abierta</h2>
         </div>
         <div class="container topspace">
             <div class="row">
@@ -61,20 +61,12 @@
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <div class="repetidores">
-                        <strong>
-                        ¿Eres repetidor?
-                        <a href="#" data-toggle="modal" data-target=".repetidor_0">Ayúdanos a actualizar tu información</a>
-                        </strong>
-                    </div>
-                </div>
-                <!--div class="col-md-6">
                     <a href="https://entrenator.omri.org.mx">
                         <div class="botones-ayuda">
                             Ir al sitio de entrenamiento
                         </div>
                     </a>
-                </div-->
+                </div>
             </div>
             <br>
             <div class="row">
@@ -86,27 +78,27 @@
                                 <div class="row">
                                     <div class="col-xs-6">
                                         <div>
-                                            <input type="text" name="nombre" placeholder="Nombre (s)" data-validation="length" data-validation-length="min3">
+                                            <input type="text" name="nombre" placeholder="Nombre (s)" data-validation="length" data-validation-length="min3" value="{{$repetidor->nombre}}">
                                         </div>
                                     </div>
                                     <div class="col-xs-6">
                                         <div>
-                                            <input type="text" name="apellido" placeholder="Apellidos" data-validation="length" data-validation-length="min3">
+                                            <input type="text" name="apellido" placeholder="Apellidos" data-validation="length" data-validation-length="min3" value="{{$repetidor->apellido}}">
                                         </div>
                                     </div>
                                 </div>
                                 <div>
-                                    <input type="email" name="email" placeholder="Email" data-validation="email">
+                                    <input type="email" name="email" placeholder="Email" data-validation="email" value="{{$repetidor->email}}">
                                 </div>
                                 <div class="row telefono-edad-ano">
                                     <div class="col-xs-4">
                                         <div>
-                                            <input type="phone" name="phone" placeholder="Teléfono de contacto" data-validation="length" data-validation-length="min10">
+                                            <input type="phone" name="phone" placeholder="Teléfono de contacto" data-validation="length" data-validation-length="min10" value="{{$repetidor->telefono}}">
                                         </div>
                                     </div>
                                     <div class="col-xs-3">
                                         <div>
-                                            <input type="number" min="3" max="20" name="edad" placeholder="Edad" data-validation="number">
+                                            <input type="number" min="3" max="20" name="edad" placeholder="Edad" data-validation="number" value="{{$repetidor->edad}}">
                                         </div>
                                     </div>
                                     <div class="col-xs-5">
@@ -173,7 +165,7 @@
                                 <div class="row">
                                     <div class="col-xs-7">
                                         <div>
-                                            <input type="text" name="tutor" placeholder="Nombre de tu maestro, papá o mamá" data-validation="length" data-validation-length="min3" data-validation-optional="true">
+                                            <input type="text" name="tutor" placeholder="Nombre de tu maestro, papá o mamá" data-validation="length" data-validation-length="min3" data-validation-optional="true" value="{{$repetidor->tutor}}">
                                         </div>
                                     </div>
                                     <div class="col-xs-5">
@@ -183,7 +175,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <input type="email" name="email_tutor" placeholder="Email de tu maestro, papá o mamá" data-validation="email" data-validation-optional="true">
+                                    <input type="email" name="email_tutor" placeholder="Email de tu maestro, papá o mamá" data-validation="email" data-validation-optional="true" value="{{$repetidor->email_tutor}}">
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -217,15 +209,10 @@
                             </div>
                         </div>
                     </form>
-                    <div>
-
-                    </div>
+                    <div id="volunteeremailsendresponse" class="emailsendresponse"></div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-@include('detalles.humanorepetido')
-@include('detalles.video')
 <!-- Registro section -->
