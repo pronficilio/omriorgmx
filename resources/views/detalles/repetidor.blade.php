@@ -35,10 +35,9 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="row" id="resultados">
-
-                        </div>
-
+                    </div>
+                    <div class="col-md-12" id="resultados">
+                        
                     </div>
                 </div>
                 <!-- End Update Form -->
@@ -56,7 +55,11 @@
             $.get("{{route('get-alumnitos')}}", $(this).serialize(), function(respuesta){
                 $('#resultados').html("<div class='row'></div>"); // limpiamo
                 $(respuesta).each(function(i, e){
-                    $('#resultados').append("<div class='col-md-4'>"+respuesta['email']+"</div>");
+                    var elMail = e.email.split('@');
+                    var fin=elMail[0].length;
+                    elMail[0][fin-1] = '*';
+                    elMail[0][fin-2] = '*';
+                    $('#resultados').append("<div class='col-md-12' style='text-align: justify;'><strong>"+e.nombre+' '+e.apellido+' ('+elMail[0]+'@'+elMail[1]+')</strong> '+' <button type="button" class="btn">Este soy yo</button>'+"</div>");
                 });
             });
         });

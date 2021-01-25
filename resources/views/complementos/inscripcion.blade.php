@@ -184,12 +184,15 @@
                             </div>
                         </div>
                     </form>
-                    <div id="volunteeremailsendresponse" class="emailsendresponse"></div>
+                    <div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 @include('detalles.humanorepetido')
 @include('detalles.video')
 <!-- Registro section -->

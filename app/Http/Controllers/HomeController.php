@@ -373,6 +373,6 @@ class HomeController extends Controller
                 ->orWhere('telefono', 'like', '%' . $_GET['phone'] . '%');
             })
             ->get();
-        return $resultados;
+            return response()->json($resultados);
     }
 }
