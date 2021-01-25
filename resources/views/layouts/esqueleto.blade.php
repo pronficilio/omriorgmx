@@ -69,6 +69,7 @@
         <script src="{{ asset('js/wow.min.js') }}" defer></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66853888-1"></script>
         <script src="{{ asset('js/script.js?v=6') }}" defer></script>
+        <script src="{{ asset('js/blockui.js') }}" defer></script>
         @stack('scripts')
     </body>
 </html>
