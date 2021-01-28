@@ -10,22 +10,22 @@
             <div class="modal-body">
                 <!-- Start Update Form -->
                 <div class="up-form row">
-                    <h4 class="text-center">Ingresa tus datos</h4>
+                    <h4 class="text-center">Ingresa tu nombre, un apellido o tu correo</h4>
                     <div class="col-md-12">
                         <form id="form-repetidor">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
                                     <div class="col-sm-6">
-                                        <input type="text" name="nombre" placeholder="Nombre (s)" data-validation="length" data-validation-length="min3">
+                                        <input type="text" name="nombre" placeholder="Nombre" data-validation="length" data-validation-length="min3">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" name="apellido" placeholder="Apellidos" data-validation="length" data-validation-length="min3">
+                                        <input type="text" name="apellido" placeholder="Apellido" data-validation="length" data-validation-length="min3">
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <input type="email" name="email" placeholder="Email" data-validation="email">
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="hidden col-sm-6">
                                         <input type="phone" name="phone" placeholder="Teléfono de contacto" data-validation="length" data-validation-length="min10">
                                     </div>
                                 </div>

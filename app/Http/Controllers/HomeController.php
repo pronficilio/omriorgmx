@@ -361,8 +361,23 @@ class HomeController extends Controller
         }
     }
 
+    function unique_multidim_array($array, $key) {
+        $temp_array = array();
+        $i = 0;
+        $key_array = array();
+       
+        foreach($array as $val) {
+            if (!in_array($val[$key], $key_array)) {
+                $key_array[$i] = $val[$key];
+                $temp_array[$i] = $val;
+            }
+            $i++;
+        }
+        return $temp_array;
+    } 
+
     public function getAlumnitos(Request $request){
-        $resultados = Registro::where('anio', 2020)->
+        /*$resultados = Registro::where('anio', 2020)->
             where('email', 'like', '%' . $request->email . '%');
         if(isset($request->nombre))
             $resultados->where('nombre', 'like', '%' . $request->nombre . '%');
@@ -371,7 +386,24 @@ class HomeController extends Controller
         if(isset($request->phone))
             $resultados->where('telefono', 'like', '%' . $request->phone . '%');
         $resultados->limit(5);
-        $resultados = $resultados->get();
+        $resultados = $resultados->get();*/
+        $resultados = array();
+
+        if(isset($request->nombre)){
+            $resultados4 = Registro::where('nombre', 'like', '%' . $request->nombre . '%')->get();
+            foreach($resultados4 as $resul){ $resultados[] = $resul;}
+        }
+
+        if(isset($request->apellido)){
+            $resultados5 = Registro::where('apellido', 'like', '%' . $request->apellido . '%')->get();
+            foreach($resultados5 as $resul){ $resultados[] = $resul;}
+        }
+        if(isset($request->email)){
+            $resultados6 = Registro::where('email', 'like', '%' . $request->email . '%')->get();
+            foreach($resultados6 as $resul){ $resultados[] = $resul;}
+        }
+
+        $resultados = HomeController::unique_multidim_array($resultados, 'id');
 
         foreach($resultados as $i => $resultado){
             $x = strpos($resultado->email,'@');
