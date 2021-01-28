@@ -44,12 +44,12 @@
         }
     </style>
 @endpush
-
 <!-- Registro section -->
+<br><br>
 <section id="inscripcion" class=" bg">
     <div>
         <div class="section-title">
-            <h2 class="color-bg">Reinscripción abierta</h2>
+            <h2 class="color-bg">Asegurate que tus datos sean correctos y actualizados</h2>
         </div>
         <div class="container topspace">
             <div class="row">
@@ -60,19 +60,20 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-6">
+                <!--div-- class="col-md-6">
                     <a href="https://entrenator.omri.org.mx">
                         <div class="botones-ayuda">
                             Ir al sitio de entrenamiento
                         </div>
                     </a>
-                </div>
+                </div-->
             </div>
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <form id="RegistroForm" action="registro/nuevo-registro" method="post">
+                    <form id="RegistroForm" action="/registro/nuevo-registro" method="post">
                         @csrf
+                        <input type="hidden" name="id" value="{{$repetidor->id}}">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="row">
@@ -157,7 +158,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="soloCuernavaca">
-                                    <select data-tags="true" name="escuela_id" class="select2escuela" data-ajax--dataType="json" data-ajax--url="api/select/materia" data-placeholder="Busca y selecciona tu escuela" data-width="100%"></select>
+                                    <select data-tags="true" name="escuela_id" class="select2escuela" data-ajax--dataType="json" data-ajax--url="/api/select/materia" data-placeholder="Busca y selecciona tu escuela" data-width="100%"></select>
                                 </div>
                                 <div class="soloGuerrero hidden">
                                     <input type="text" name="escuela_g" placeholder="Escribe el nombre de tu escuela">
@@ -216,3 +217,11 @@
     </div>
 </section>
 <!-- Registro section -->
+@push("scripts")
+    <script>
+        $(function(){
+            $("select.grado").val("{{$repetidor->grado}}");
+            $("select.municipio").val("{{$repetidor->id_municipio}}")->trigger("change");;
+        });
+    </script>
+@endpush

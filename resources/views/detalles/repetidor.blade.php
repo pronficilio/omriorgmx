@@ -37,7 +37,7 @@
                         </form>
                     </div>
                     <div class="col-md-12" id="resultados">
-                        
+
                     </div>
                 </div>
                 <!-- End Update Form -->
@@ -51,6 +51,7 @@
     $(document).ready(function(){
         $("#form-repetidor").submit(function(e){
             e.preventDefault();
+            $('#resultados').html("<div class='row'></div>"); // limpiamo
             $("#form-repetidor").block({
                 message: '<h1>Buscando</h1><img src="{{asset('images/entrenator/story.png')}}" style="width:80px;">',
                 css: { border: '3px solid #a00', width: '40%' }
@@ -58,15 +59,12 @@
             setTimeout(function(){
                 $.get("{{route('get-alumnitos')}}", $("#form-repetidor").serialize(), function(respuesta){
                     $('#form-repetidor').unblock();
-                    $('#resultados').html("<div class='row'></div>"); // limpiamo
                     $(respuesta).each(function(i, e){
-                        var elMail = e.email.split('@');
-                        var fin=elMail[0].length;
-                        elMail[0][fin-1] = '*';
-                        elMail[0][fin-2] = '*';
-                        $('#resultados').append("<div class='col-md-12' style='text-align: justify;'><strong>"+e.nombre+' '+e.apellido+' ('+e.email_c+')</strong> '+' <button type="button" class="btn">Este soy yo</button>'+"</div>");
+                        $('#resultados').append("<div class='col-md-8'><strong>"+
+                            e.nombre+' '+e.apellido+' ('+e.email_c+')</strong></div><div class="col-md-4 text-right">'+
+                            '<a href="{{route("repetidor", "")}}/'+e.base64+'" class="btn btn-primary">Este soy yo</a>'+"</a></div>");
                     });
-                }); 
+                });
             }, 1300);
         });
     });
