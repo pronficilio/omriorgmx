@@ -367,14 +367,18 @@ class HomeController extends Controller
 
 
         $resultados = Registro::where('email', 'like', '%' . $_GET['email'] . '%')
-            ->orWhere('nombre', 'like', '%' . $_GET['nombre'] . '1%')
+            ->orWhere('nombre', 'like', '%' . $_GET['nombre'] . '%')
             ->orWhere('apellido', 'like', '%' . $_GET['apellido'] . '%')
             ->orWhere('telefono', 'like', '%' . $_GET['phone'] . '%')
+            ->orWhere('email', $_GET['email'])
+            ->orWhere('nombre', $_GET['nombre'])
+            ->orWhere('apellido', $_GET['apellido'])
+            ->orWhere('telefono', $_GET['phone'])
             ->get();
 
         foreach($resultados as $i => $resultado){
             $x = strpos($resultado->email,'@');
-            $a = substr($resultado->email, 0, $x-3);
+            $a = substr($resultado->email, 0, $x-4);
             $b = substr($resultado->email, $x, strlen($resultado->email));
             $resultados[$i]->email_c = $a."**".$b;
         }
