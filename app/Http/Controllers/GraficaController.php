@@ -48,7 +48,7 @@ class GraficaController extends Controller
         }
 
         $colores = array('oro', 'plata', 'bronce');
-        
+
         return view("graficas.medallas")
             ->with('categoria', $categoria)
             ->with('colores', $colores)
@@ -63,12 +63,32 @@ class GraficaController extends Controller
         $registros = DB::table('registro')
             ->select(DB::raw('id_escuela, count(id) as cantidad'))
             ->where('categoria', $categoria)
+            ->where('anio', 2021)
             ->groupBy('id_escuela')
             ->orderByDesc('cantidad')
             ->get();
 
+        $alumnos = DB::table('registro')
+            ->select(DB::raw('registro.nombre as nombre_alumno, registro.apellido, registro.email, registro.tutor, registro.grado, registro.id_escuela, escuela.nombre as nombre_escuela, escuela.corto as corto_escuela'))
+            ->where('categoria', $categoria)
+            ->where('anio', 2021)
+            ->join('escuela', 'registro.id_escuela', '=', 'escuela.id')
+            ->orderBy('registro.nombre', 'asc')
+            ->get();
+
+        $escuelas = DB::table('registro')
+            ->select(DB::raw('escuela.nombre, escuela.corto, escuela.id'))
+            ->where('categoria', $categoria)
+            ->where('anio', 2021)
+            ->join('escuela', 'registro.id_escuela','=','escuela.id')
+            ->orderBy('nombre', 'asc')
+            ->distinct()
+            ->get();
+
         return view("graficas.registros")
             ->with('categoria', $categoria)
-            ->with('registros', $registros);
+            ->with('registros', $registros)
+            ->with('alumnos', $alumnos)
+            ->with('escuelas', $escuelas);
     }
 }

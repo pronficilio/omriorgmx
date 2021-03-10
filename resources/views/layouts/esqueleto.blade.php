@@ -55,7 +55,7 @@
         </div>
         <!-- End Page Preloading -->
         <!-- BEGIN SCRIPTS -->
-        <script src="{{ asset('js/jquery-1.12.4.min.js') }}" defer></script>
+        <script src="{{ asset('js/jquery-1.12.4.min.js') }}" ></script>
         <script src="{{ asset('js/modernizr.min.js') }}" async></script>
         <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
         <script src="{{ asset('js/jquery.bxslider.min.js') }}" defer></script>
