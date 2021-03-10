@@ -31,7 +31,7 @@ class RegistroController extends Controller
             if(!is_numeric($datos->input('id_escuela'))){
         	    $escuela = new Escuela();
                 $escuela->nombre = $datos->input('id_escuela');
-        		
+
         		/*$escuela->direccion = $datos->input('direccion');
         		$escuela->telefono = $datos->input('telefono');
         		$escuela->id_municipio = $datos->input('id_municipio');
@@ -54,7 +54,7 @@ class RegistroController extends Controller
             $aux_id = $escuela->id ;
             $munici = $datos->input('id_municipiog');
         }
-    	
+
     	$aspirante->nombre = $datos->input('nombre');
     	$aspirante->apellido = $datos->input('apellido');
     	$aspirante->edad = $datos->input('edad');
@@ -85,7 +85,7 @@ class RegistroController extends Controller
 
         if($aspirante->grado == "1ro Preparatoria" || $aspirante->grado == "2do Preparatoria" || $aspirante->grado == "1ro Secundaria" || $aspirante->grado == "2do Secundaria" || $aspirante->grado == "3ro Secundaria")
             $link = "https://studio.code.org/join/FRFHBV";
-        
+
         $aspirante->save();
         $data = array(
             'folio'      => $aspirante->id,
@@ -100,6 +100,7 @@ class RegistroController extends Controller
 
     public function enviaAcceso(){
         $u = Registro::where('created_at', '<', '2020-09-08' )->get();
+        //TODO: cambiar el criterio de de REgistro al anio 2021 (checar BD)
         $i = 0;
         $data = array();
         foreach($u as $uu){
@@ -178,7 +179,7 @@ class RegistroController extends Controller
     public function ultimoNivel(){
         $id = session('olimpico');
 
-        //Retorna la ultima leccion terminada por fecha ->latest() 
+        //Retorna la ultima leccion terminada por fecha ->latest()
         $nivel = DB::table('codeorg')->where('id_registro', $id)->latest()->value('leccion');
 
         if($nivel > 0){
@@ -211,5 +212,24 @@ class RegistroController extends Controller
         }
 
         return 0 ;
+    }
+    public function registrarAlumnosEntrenator(){
+        // TODO :
+        // Delete second where
+        $u = Registro::where('anio', '=', '2021')->where('email','=','A01422673@itesm.mx')->get();
+        $i = 0;
+        $data = array();
+        foreach($u as $uu){
+            // Aplica la misma para nuevo registro y para repetidor por si no recuerdan su contrasña
+            $pass=$u->anio.$u->id.substr(str_shuffle('ABCDEF0123456789'), 0, 6);
+            $curl_registro = curl_init('http://test.sigue.corporativoubuntu.com/public/api/add-alumno?name='.$u->nombre.'&lastname='.$u->lastname.'&email='.$u->email.'&password='.$pass);
+            curl_exec($ch);
+            curl_close($ch);
+        }
+        return 1;
+    }
+    public function registrarAlumnoEntrenator(){
+        //TODO:
+        // implment Entrenator register for indivudal
     }
 }
