@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\Miembro;
 use App\Banner;
 use App\Causa;
@@ -73,7 +74,7 @@ class HomeController extends Controller
         return view('calendario');
     }
     public function convocatoria(){
-        return response()->file(storage_path("app/public/Convocatoria13.pdf"), ['Content-Type' => 'application/pdf', 'Content-Disposition' => 'inline; filename="Convocatoria - 13a OMRI.pdf"']);
+        return response()->file(storage_path("app/public/Convocatoria14.pdf"), ['Content-Type' => 'application/pdf', 'Content-Disposition' => 'inline; filename="Convocatoria - 14a OMRI.pdf"']);
     }
     public function registro(){
         $miembros = Miembro::orderBy('orden')->get();
@@ -120,7 +121,7 @@ class HomeController extends Controller
             }
             if($personaA["puntaje"] < $personaB["puntaje"]){
                return 1;
-            }   
+            }
             if($personaA["puntaje"] > $personaB["puntaje"]){
                 return -1;
             }
@@ -129,12 +130,35 @@ class HomeController extends Controller
     }
 
     public function competidor($id=2){
+
         $datosRegistrados = Registro::where("id", $id)->with(['escuela', 'municipio'])->first();
-        $datosFama = Famoso::where("id_registro", $id)->first();
+        $datosFama = Famoso::where("id_registro", $id)->orderBy('anio', 'DESC')->orderBy('id', 'DESC')->get();
 
-        //Regresar un array de archivos xd
+        $AllDirectories = Storage::allDirectories('public/constancias/'.$id);
 
-        return view('competidor', ["competidor" => $datosRegistrados, "desempeno" => $datosFama]);
+        $directories = array(); //Los nombres de los archivos para humano
+        $files = array(); //Los nombres de los archios para computadoras
+        foreach ($AllDirectories as $dir){
+            $olimpiada = explode("/",$dir);
+
+            $losArchivos = Storage::files($dir);
+            $archivos = array();
+            $paths = array();
+            $ind = 0;
+            foreach ($losArchivos as $elArchivo){
+                $archivo = explode("_", explode("/", $elArchivo)[4]);
+                $paths[$ind] = explode("/", $elArchivo)[4];
+                $archivos[$ind] = ucfirst($archivo[0] . ' de ' . explode(".", $archivo[1])[0]);
+                $ind = $ind+1;
+            }
+
+            $directories[$olimpiada[3]] = $archivos;
+            $files[$olimpiada[3]] = $paths;
+
+        }
+        //print_r($directories);
+
+        return view('competidor', ["competidor" => $datosRegistrados, "desempenos" => $datosFama, "archivos" => $directories, "losArchivos" => $files]);
     }
 
 
@@ -214,10 +238,13 @@ class HomeController extends Controller
                         'olimpico_folio' => $datosRegistrados->id,
                         'olimpico_nombre' => $datosRegistrados->nombre,
                         'olimpico_apellido' => $datosRegistrados->apellido,
+                        'grado' => $datosRegistrados->grado,
+                        'categoria' => $datosRegistrados->categoria,
                         'lugarDelta' => (0),
                         'puntosDelta' => (0),
                         'examen' => $olimpico->estatal,
                         'ejercicio' => $olimpico->puntos,
+                        'id_escuela' => $datosRegistrados->id_escuela,
                         'escuela' => Escuela::find($datosRegistrados->id_escuela)->nombre,
                         'escuelaC' => Escuela::find($datosRegistrados->id_escuela)->corto ?? null,
                         'muni'=> Municipio::find($datosRegistrados->id_municipio)->nombre,
@@ -228,10 +255,13 @@ class HomeController extends Controller
                         'olimpico_folio' => $datosRegistrados->id,
                         'olimpico_nombre' => $datosRegistrados->nombre,
                         'olimpico_apellido' => $datosRegistrados->apellido,
+                        'grado' => $datosRegistrados->grado,
+                        'categoria' => $datosRegistrados->categoria,
                         'lugarDelta' => ($olimpico->posicion - $oliDelta->posicion),
                         'puntosDelta' => ($olimpico->puntos - $oliDelta->puntos),
                         'examen' => $olimpico->estatal,
                         'ejercicio' => $olimpico->puntos,
+                        'id_escuela' => $datosRegistrados->id_escuela,
                         'escuela' => Escuela::find($datosRegistrados->id_escuela)->nombre,
                         'escuelaC' => Escuela::find($datosRegistrados->id_escuela)->corto ?? null,
                         'muni'=> Municipio::find($datosRegistrados->id_municipio)->nombre,
@@ -275,7 +305,7 @@ class HomeController extends Controller
             $headers .= "Reply-To: ". strip_tags($_POST['email']) . "\r\n";
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-          
+
             //Email information
             $admin_email = env('MAIL_USERNAME');
             $subject = "Contacto";
@@ -288,8 +318,8 @@ class HomeController extends Controller
             //send email
             $send = mail($admin_email, "$subject", $message, $headers);
 
-            if(!$send) {   
-                return 0;   
+            if(!$send) {
+                return 0;
             } else {
                 return 1;
             }
@@ -321,13 +351,97 @@ class HomeController extends Controller
             //send email
             $send = mail($admin_email, "$subject", $message, $headers);
 
-            if(!$send) {   
-                echo "<p style='color:red font-weight:bold'>Error sending email!</p>";   
+            if(!$send) {
+                echo "<p style='color:red font-weight:bold'>Error sending email!</p>";
             } else {
                 echo "<p style='color:green; font-weight:bold'>Message sent successfully. Thank you for contacting us!</p>";
             }
         } else {
             echo 'nothisng';
         }
+    }
+
+    function unique_multidim_array($array, $key) {
+        $temp_array = array();
+        $i = 0;
+        $key_array = array();
+       
+        foreach($array as $val) {
+            if (!in_array($val[$key], $key_array)) {
+                $key_array[$i] = $val[$key];
+                $temp_array[$i] = $val;
+            }
+            $i++;
+        }
+        return $temp_array;
+    } 
+
+    public function getAlumnitos(Request $request){
+        /*$resultados = Registro::where('anio', 2020)->
+            where('email', 'like', '%' . $request->email . '%');
+        if(isset($request->nombre))
+            $resultados->where('nombre', 'like', '%' . $request->nombre . '%');
+        if(isset($request->apellido))
+            $resultados->where('apellido', 'like', '%' . $request->apellido . '%');
+        if(isset($request->phone))
+            $resultados->where('telefono', 'like', '%' . $request->phone . '%');
+        $resultados->limit(5);
+        $resultados = $resultados->get();*/
+        $resultados = array();
+
+        if(isset($request->nombre)){
+            $resultados4 = Registro::where('nombre', 'like', '%' . $request->nombre . '%')->get();
+            foreach($resultados4 as $resul){ $resultados[] = $resul;}
+        }
+
+        if(isset($request->apellido)){
+            $resultados5 = Registro::where('apellido', 'like', '%' . $request->apellido . '%')->get();
+            foreach($resultados5 as $resul){ $resultados[] = $resul;}
+        }
+        if(isset($request->email)){
+            $resultados6 = Registro::where('email', 'like', '%' . $request->email . '%')->get();
+            foreach($resultados6 as $resul){ $resultados[] = $resul;}
+        }
+
+        $resultados = HomeController::unique_multidim_array($resultados, 'id');
+
+        foreach($resultados as $i => $resultado){
+            $x = strpos($resultado->email,'@');
+            $a = substr($resultado->email, 0, $x-4);
+            $b = substr($resultado->email, $x, strlen($resultado->email));
+            $resultados[$i]->email_c = $a."**".$b;
+            $resultados[$i]->base64 = urlencode(base64_encode($resultado->id.'||'.$resultado->email));
+        }
+        return response()->json($resultados);
+    }
+    public function repetidor($base64){
+        $id = base64_decode($base64);
+        $e = explode("||", $id);
+        $r = Registro::where("id", $e[0])->where('anio', 2020);
+        if(empty($r))
+            return redirect()->route('index');
+
+        $miembros = Miembro::orderBy('orden')->get();
+        $municipios = Municipio::all();
+        $municipiosG = MunicipioG::all();
+        $banners = Banner::all();
+        $causas = Causa::all();
+        $eventos = Evento::orderBy('fecha')->get();
+        $noticias = Noticia::orderBy('fecha', 'desc')->get();
+        $proyectos = Proyecto::all();
+        $sponsors = Sponsor::all();
+
+        return view('reinscripcion', [
+            "miembros" => $miembros,
+            "municipios" => $municipios,
+            "municipiosG" => $municipiosG,
+            "banners" => $banners,
+            "causas" => $causas,
+            "eventos" => $eventos,
+            "noticias" => $noticias,
+            "proyectos" => $proyectos,
+            "sponsors" => $sponsors,
+            "repetidor" => $r->with("municipio", "escuela")->first()
+        ]);
     }
 }

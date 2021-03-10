@@ -106,7 +106,7 @@ $(document).ready(function(){
         });
     }
 
-    //Hide mobile menu when you click link 
+    //Hide mobile menu when you click link
     $("ul.mobile-nav li a").on('click', function() {
         $('#mobilemenu').collapse('hide');
     });
@@ -307,7 +307,7 @@ $(document).ready(function(){
             success: function(result){
                 //clear fields
                 $("#VolunteerForm").trigger('reset');
-                
+
                 //show success msg
                 $("#volunteeremailsendresponse").html(result);
 
@@ -323,6 +323,7 @@ $(document).ready(function(){
     function registroformsubmitdetailsjax(donde) {
         var e = $('#RegistroForm input[name="email"]').val();
         $.post($("#RegistroForm").attr("action"), {
+            id: $('#RegistroForm input[name="id"]').val(),
             nombre: $('#RegistroForm input[name="nombre"]').val(),
             apellido: $('#RegistroForm input[name="apellido"]').val(),
             edad: $('#RegistroForm input[name="edad"]').val(),
@@ -356,6 +357,8 @@ $(document).ready(function(){
 });
 
 // Scroll to section
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
 $(function() {
     $('a[href*="#"]:not([href="#"])').on('click', function() {
 	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -371,12 +374,11 @@ $(function() {
     });
     new WOW().init();
     //setTimeout(function(){
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
         gtag('js', new Date());
         gtag('config', 'UA-66853888-1');
         gtag('send', 'pageview');
-        setTimeout(function(){
+        //setTimeout(function(){
             (function(d, s, id) {
               var js, fjs = d.getElementsByTagName(s)[0];
               if (d.getElementById(id)) return;
@@ -390,10 +392,11 @@ $(function() {
             n.queue=[];t=b.createElement(e);t.async=!0;
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window,document,'script',
-            'https://connect.facebook.net/es_LA/fbevents.js');
+            'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '567484727095780');
             fbq('track', "PageView");
-            $("body").append("<img height='1' width='1' style='display:none' src='https://www.facebook.com/tr?id=567484727095780&ev=PageView&noscript=1'/>");
+            $("body").append("<noscript><img height='1' width='1' style='display:none' src='https://www.facebook.com/tr?id=567484727095780&ev=PageView&noscript=1'/></noscript>");
+
             /*setTimeout(function(){
                 window.fbAsyncInit = function() {
                   FB.init({
@@ -410,8 +413,12 @@ $(function() {
                 }(document, 'script', 'facebook-jssdk'));
                 console.log("chat cargado");
             }, 3000);*/
-        }, 2500);
+
+        //}, 2500);
     //}, 2500);
+    $(".modal").on('shown.bs.modal', function (e) {
+        fbq('track', 'ViewContent');
+    });
 });//Google Map
 function initMap() {
     var uluru = {lat: -1.283816662791512, lng: 36.81950926780701}; //enter latitude and longitude of location

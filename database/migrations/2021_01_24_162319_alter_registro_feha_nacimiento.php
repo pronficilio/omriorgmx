@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterFamaTable extends Migration
+class AlterRegistroFehaNacimiento extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class AlterFamaTable extends Migration
      */
     public function up()
     {
-        Schema::table('fama', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_registro')->nullable();
-            $table->string('lugar')->default('-')->nullable();
-            $table->foreign('id_registro')->references('id')->on('registro')->onUpdate('cascade');
+        Schema::table('registro', function (Blueprint $table) {
+            $table->string('telefono_papa');
+            $table->date('fecha_nacimiento');
         });
+        //
     }
 
     /**
@@ -27,5 +27,6 @@ class AlterFamaTable extends Migration
      */
     public function down()
     {
+        //
     }
 }

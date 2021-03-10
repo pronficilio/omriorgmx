@@ -30,19 +30,66 @@
 		<div class="m-section">
 			<div class="m-section__content">
 				<br><br><br><br><br>
-				<h4 class="text-center">13a Olimpiada Morelense de Informática </h4>
-				<h4>Datos del olímpico</h4>
-				<table>
-					<tr>
-						<td><img src={{ asset('./storage/app/public/selfies/'.$competidor['id'].'.jpg')}} height="250px" style="border-radius: 10px;"></td>
-						<td style="padding: 16px; font-size:25px;">{{ $competidor['nombre'].' '.$competidor['apellido'].' '}}<a href={{'https://omegaup.com/profile/'.$competidor['usuario_omega'].'/'}} target="_blank"><img src="{{asset('images/icons/omega.png')}}" height="25px"></a><br><br>
-							<br><br><br>
-						</td>
-					</tr>
-					<tr>
-					</tr>
-				</table>
-				<br><br>
+				<h4 class="text-center">Olimpiada Morelense de Informática </h4>
+				<h4>{{-- $documentos[13] --}}</h4>
+				<div class="row">
+					<div class="col-md-6">
+						<table class="foto_olimpico">
+							<tr>
+								<td><h4>{{ $competidor['nombre'].' '.$competidor['apellido'].' '}}</h4></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="{{  (file_exists(storage_path('app/public/selfies/').$competidor['id'].'.jpg')) ? asset('./storage/app/public/selfies/'.$competidor['id'].'.jpg') : asset('./storage/app/public/entreneitor.png')}}" height="250px" style="border-radius: 10px;">
+								</td>
+							</tr>
+							<!--tr>
+								<td>
+									<a href={{--'https://omegaup.com/profile/'.$competidor['usuario_omega'].'/'--}} target="_blank">
+									<img src="{{--asset('images/icons/omega_2.png')--}}" height="35px">
+									</a>
+								</td>
+							</tr-->
+						</table>
+					</div>
+					<div class="col-md-6">
+						<br>
+						<table class="table">
+							<thead class="verde-OMRI">
+								<tr>
+									<th>
+										Documento
+									</th>
+									<th>
+										Descarga
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach($archivos as $_anio=>$_files)
+									<tr>
+										<th colspan="2">
+											<strong><big>{{ $_anio }} Olimpiada Morelense de Informática</big></strong>
+										</th>
+									</tr>
+									@foreach($_files as $i=>$f)
+									<tr>
+										<td style="padding-left: 20px;">
+											{{ $f }}
+										</td>
+										<td>
+											<a href="{{ asset('./storage/app/public/constancias/'.$competidor['id'].'/'.$_anio.'/'.$losArchivos[$_anio][$i]) }}" download="{{$f}}">
+												Descargar
+											</a>
+										</td>
+									</tr>
+									@endforeach
+								@endforeach
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<br>
 				<table class="table">
 					<thead class="verde-OMRI">
 						<tr>
@@ -50,8 +97,11 @@
 								Lugar
 							</th>
 							<th>
-								Municipio
+								Año
 							</th>
+							<!--th>
+								Municipio
+							</th-->
 							<th>
 								Medalla
 							</th>
@@ -64,9 +114,11 @@
 						</tr>
 					</thead>
 					<tbody>
-					    <tr>
-						    <td>{{ $desempeno['lugar'] }}</td> <td>Cuernavaca{{-- $competidor['municipio'] --}}</td> <td>{{ $desempeno['medalla'] }}</td> <td>ESCUELA EN CASA{{-- $competidor['escuela'] --}}</td> <td>{{ $competidor['categoria'] }}</td>
-						</tr>   	
+						@foreach($desempenos as $desempeno)
+							<tr>
+								<td>{{ $desempeno['lugar'] }}</td> <td>{{ $desempeno['anio'] }}</td> <!--td>{{-- $competidor['municipio'] --}}</td--> <td>{{ $desempeno['medalla'] }}</td> <td>{{ $desempeno['escuela'] }}</td> <td>{{ $desempeno['categoria'] }}</td>
+							</tr>
+						@endforeach   	
 					</tbody>
 				</table>
 			</div>
@@ -78,6 +130,10 @@
         <style>
 			.table tr th tr{
 				border: 2px solid black;
+			}
+
+			.foto_olimpico td{
+				text-align: left;
 			}
 
 			.verde-OMRI{

@@ -42,6 +42,7 @@
 
         @include('complementos.footer')
         @include('detalles.donacion')
+        @include('detalles.repetidor')
         <!-- Page Preloading -->
         <div id="preloadpage">
             <div class="loadingwrap">
@@ -55,7 +56,7 @@
         </div>
         <!-- End Page Preloading -->
         <!-- BEGIN SCRIPTS -->
-        <script src="{{ asset('js/jquery-1.12.4.min.js') }}" ></script>
+        <script src="{{ asset('js/jquery-1.12.4.min.js') }}"></script>
         <script src="{{ asset('js/modernizr.min.js') }}" async></script>
         <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
         <script src="{{ asset('js/jquery.bxslider.min.js') }}" defer></script>
@@ -68,6 +69,7 @@
         <script src="{{ asset('js/wow.min.js') }}" defer></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66853888-1"></script>
         <script src="{{ asset('js/script.js?v=6') }}" defer></script>
+        <script src="{{ asset('js/blockui.js') }}" defer></script>
         @stack('scripts')
     </body>
 </html>
