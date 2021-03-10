@@ -268,6 +268,6 @@ class RegistroController extends Controller
     }
     public function registrarAlumnoEntrenator(){
         //TODO:
-        // implment Entrenator register for indivudal
+        // implment Entrenator register for indivudal registration
     }
 }
