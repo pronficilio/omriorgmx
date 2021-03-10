@@ -11,6 +11,7 @@
 |
 */
 Route::get('envia-acceso', 'RegistroController@enviaAcceso');
+Route::get('registra-olimpicos','RegistroController@registrarAlumnosEntrenator');
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('soy-tu-padre', 'HomeController@padre')->name('padre');
 /*Route::get("index.php", function(){
@@ -18,11 +19,11 @@ Route::get('soy-tu-padre', 'HomeController@padre')->name('padre');
 });*/
 Route::get('registro2', 'HomeController@registro')->name('registro');
 Route::get('calendario', 'HomeController@calendario')->name('calendario');
-Route::get('nosotros', 'HomeController@nosotros')->name('nosotros'); 
+Route::get('nosotros', 'HomeController@nosotros')->name('nosotros');
 Route::get('muro-de-fama/{categoria?}', 'HomeController@fama')->name('fama');
-Route::get('escuelas', 'HomeController@escuelas')->name('escuelas'); 
-Route::get('reglamento', 'HomeController@reglamento')->name('reglamento'); 
-Route::get('contacto', 'HomeController@contacto')->name('contacto'); 
+Route::get('escuelas', 'HomeController@escuelas')->name('escuelas');
+Route::get('reglamento', 'HomeController@reglamento')->name('reglamento');
+Route::get('contacto', 'HomeController@contacto')->name('contacto');
 Route::get('terminos-y-condiciones', 'HomeController@terminos')->name('terminos'); //
 Route::get('aviso-de-privacidad', 'HomeController@aviso')->name('aviso'); //
 Route::get('/convocatoria', 'HomeController@convocatoria');
@@ -32,7 +33,7 @@ Route::post('/php/volunteer_form_submit', 'HomeController@volunteer');
 Auth::routes();
 
 //Route::get('/admin', 'AdminController@index')->name('admin');
-//Ruta creada para probar el nuevo panel  
+//Ruta creada para probar el nuevo panel
 //Route::get('/admin/dashboard', 'DashboardController@indexDashboard');
 Route::any('/api/select/materia', 'EscuelasController@select2');
 //Route::get('/home', 'HomeController@index')->name('home');
