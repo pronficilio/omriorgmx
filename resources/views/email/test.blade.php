@@ -65,32 +65,29 @@
 							                                            <!-- Content -->
 						                                                <tr>
 						                                                	<td style="background-color: white; color: black; text-align: justify; font-family:'Courier New'; padding: 5px">
-						                                                		<br> 
+						                                                		<br>
 						                                                		<h3>Hola, {{ $data['nombre'] }} </h3>
 						                                                		<p>Te damos la bienvenida a la Olimpiada Morelense de Informática.</p>
 																				<br>
 																					<center>
-																					<span style="background-color: #86c128; border-style: none; color: white; border-radius: 3px; font-size: 17px; height: 40px; width: 380px; font-family:'Consolas'"> Tu folio de registro es  <strong>2020-{{ $data['folio'] }}  </strong></span>
+																					<span style="background-color: #86c128; border-style: none; color: white; border-radius: 3px; font-size: 17px; height: 40px; width: 380px; font-family:'Consolas'"> Tu folio de registro es  <strong>2021-{{ $data['folio'] }}  </strong></span>
 																					</center>
 																				<br>
-																				<p>¿No sabes programar? ¿Quieres prepararte más? ¿Te gustaría ser el mejor?</p>
-																				<p>Aquí inicia tu aventura. Queremos enseñarte a programar de la manera más simple, rápida y divertida.</p>
-																				<p>Tendrás acceso a un curso de inducción a la programación con bloques, como calentamiento, para continuar con nuestro curso de programación competitiva.</p>
-																				<p>
-																					Progresarás a tu propio ritmo con nuestra asesoría. Pero recuerda, "Solo los más fuertes avanzan".
-																				</p>
                                                                                 <p>
-                                                                                    Para acceder al curso haz clic en este enlace: <a href="https://entrenator.omri.org.mx/public/configura/{{ $data['email'] }}" target="_blank">https://entrenator.omri.org.mx/public/configura/{{ $data['email'] }}</a> y configura tu cuenta con una contraseña.
+                                                                                    ¡El acceso a la plataforma se te compartirá muy pronto!
+                                                                                </p>
+                                                                                <p>
+                                                                                    Únete al ForOMRI en Facebook: <a href="https://www.facebook.com/groups/foromri">https://www.facebook.com/groups/foromri</a>
                                                                                 </p>
 																				<p>
-																					La Olimpiada es una competencia donde sobreviven los más fuertes. Y para saber quiénes son, los haremos pasar por un examen sencillo relacionado a lo que aprendiste acerca de la programación básica.  La fecha del examen es <strong>28 de noviembre</strong>
+																					La Olimpiada es una competencia donde sobreviven los más fuertes. Aprenderás a programar y a pensar de una manera diferente!
 																				</p>
 																				<p>
 																					<i>Programar es para todos. Programar es para ti.</i>
 																				</p>
 																				<br>
 																				<strong><p>¡Síguenos en nuestras redes sociales para mantenerte informado! <a href="https://www.facebook.com/omrioficial/">https://www.facebook.com/omrioficial/</a></p></strong>
-																				
+
 															                    <br>
 															                    <br>
 																				<p>
@@ -110,7 +107,7 @@
                                         </tbody>
                                     </table>
                                 </td>
-                             </tr>   
+                             </tr>
                          </tbody>
                     </table>
                 </td>

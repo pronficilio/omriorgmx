@@ -27,6 +27,7 @@ Route::get('contacto', 'HomeController@contacto')->name('contacto');
 Route::get('terminos-y-condiciones', 'HomeController@terminos')->name('terminos'); //
 Route::get('aviso-de-privacidad', 'HomeController@aviso')->name('aviso'); //
 Route::get('/convocatoria', 'HomeController@convocatoria');
+Route::get('/get-alumnitos', 'HomeController@getAlumnitos')->name('get-alumnitos');
 Route::post('/php/contact_form_submit', 'HomeController@contact');
 Route::post('/php/volunteer_form_submit', 'HomeController@volunteer');
 
@@ -51,10 +52,13 @@ Route::post('olimpico/ultimoNivel', 'RegistroController@ultimoNivel');
 //Avanza una leccion
 Route::post('olimpico/siguienteNivel', 'RegistroController@siguienteNivel');
 
-Route::get('constancia-participacion', 'PapelitosController@constancia');
-Route::get('reconocimiento-medalla', 'PapelitosController@reconocimiento');
+//Rutas para generar papelitos
+Route::get('constancia-participacion/{id?}', 'PapelitosController@constancia')->name("constancia-participacion");
+Route::get('reconocimiento-medalla/{id?}', 'PapelitosController@reconocimiento')->name("reconocimiento-medalla");
 
 //Graficas
 Route::get('escuelas-ganadoras/{categoria?}', 'GraficaController@muestraMedallas')->name("graficaMedalla");
 Route::get('registros/{categoria?}', 'GraficaController@muestraRegistrados')->name("graficaRegistro");
 Route::get('resultados/{categoria?}', 'HomeController@competidores')->name("competidores");
+Route::any('competidor/{id?}', 'HomeController@competidor')->name("competidor");
+Route::get("repetidor/{base64}", 'HomeController@repetidor')->name("repetidor");

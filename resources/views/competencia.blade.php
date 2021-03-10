@@ -30,7 +30,7 @@
 		<div class="m-section">
 			<div class="m-section__content">
 				<br><br><br><br><br>
-				<h1 class="text-center">13a Olimpiada Morelense de Informática </h1>
+				<h4 class="text-center">13a Olimpiada Morelense de Informática </h4>
 				<h2 class="text-center">Resultados del {{ date("d-m", strtotime($fecha)) }}</h2>
 				<br>
 				<ul class="muro-fama nav nav-tabs">
@@ -68,6 +68,9 @@
 							<th class="text-center">
 								Total
 							</th>
+							<th>
+
+							</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -90,16 +93,13 @@
 						    	@php $ant = $persona['rank']->posicion; @endphp
 						    </td>
 						    <td>
-						    	<img src="{{ asset('public/avatar/'.$persona['rank']->avatar) }}" height="20px"> {{ $persona['olimpico_folio'] }} - {{ $persona['olimpico_nombre'] . " " . $persona['olimpico_apellido'] }}<br>
+						    	<img src="{{ asset('public/avatar/'.$persona['rank']->avatar) }}" height="20px"> <a href="{{ route('competidor', $persona['olimpico_folio']) }}"> {{ $persona['olimpico_folio'] }} - {{ $persona['olimpico_nombre'] . " " . $persona['olimpico_apellido'] }}</a><br>
 						    	@if($oro>0)
 						    		<span class="badge badge-primary">Oro</span>
-						    		@php $oro--; @endphp
 						    	@elseif($plata>0)
 						    		<span class="badge badge-primary">Plata</span>
-						    		@php $plata--; @endphp
 						    	@elseif($bronce>0)
 						    		<span class="badge badge-primary">Bronce</span>
-						    		@php $bronce--; @endphp
 						    	@endif
 						    </td>
 						    <td>
@@ -120,7 +120,21 @@
 						    </td>
 						    <td>
 						    	{{ number_format($persona['final'], 2) }}%
-						    </td>
+							</td>
+							<td class="ocultito">
+								<a href="{{ route('constancia-participacion', $persona['olimpico_folio']) }}"> Participación - {{ $persona['olimpico_folio'] }}</a>
+								<a href="{{ route('reconocimiento-medalla', $persona['olimpico_folio']) }}"> Medalla - {{ $persona['olimpico_folio'] }}</a>
+								@if($oro>0)
+									
+						    		@php $oro--; @endphp
+								@elseif($plata>0)
+									
+						    		@php $plata--; @endphp
+								@elseif($bronce>0)
+
+						    		@php $bronce--; @endphp
+						    	@endif 
+							</td>
 					    </tr>   
 					@endforeach		
 					</tbody>
@@ -137,6 +151,9 @@
         		background: black;
         		text-align: center;
         	}
+			.ocultito{
+				display: none;
+			}
         	.muro-fama .highlighted{
         	}
         	.muro-fama .highlighted a{
