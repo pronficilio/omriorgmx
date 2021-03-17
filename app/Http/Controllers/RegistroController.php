@@ -12,7 +12,7 @@ use App\EscuelaG;
 use App\User;
 use App\Mail\SendMail;
 use App\Mail\SendAcceso;
-
+use GuzzleHttp\Client;
 use Carbon\Carbon;
 
 class RegistroController extends Controller
@@ -105,7 +105,8 @@ class RegistroController extends Controller
     }
 
     public function enviaAcceso(){
-        $u = Registro::all();
+        $u = Registro::where('created_at', '<', '2020-09-08' )->get();
+        //TODO: cambiar el criterio de de REgistro al anio 2021 (checar BD)
         $i = 0;
         $limite = 400;
         $noSpam = array();
@@ -249,5 +250,40 @@ class RegistroController extends Controller
         }
 
         return 0 ;
+    }
+    public function registrarAlumnosEntrenator(){
+        // TODO :
+        // Delete second where
+        $u = Registro::where('anio', '=', '2021')->where('email','=','A01422673@itesm.mx')->get();
+        $i = 0;
+        $data = array();
+        foreach($u as $uu){
+            // Aplica la misma para nuevo registro y para repetidor por si no recuerdan su contrasña
+            $pass=$u->anio.$u->id.substr(str_shuffle('ABCDEF0123456789'), 0, 6);
+            $curl_registro = curl_init('http://test.sigue.corporativoubuntu.com/public/api/add-alumno?name='.$u->nombre.'&lastname='.$u->lastname.'&email='.$u->email.'&password='.$pass);
+            curl_exec($ch);
+            curl_close($ch);
+        }
+        return 1;
+    }
+    public function registrarAlumnoEntrenator(){
+        //TODO:
+        // implment Entrenator register for indivudal registration
+    }
+    //Ver si eres o no  repetidor
+    public function usuarioEsRepetidor(){
+        $client = new Client();
+        $res = $client->request('POST', 'https://test.sigue.corporativoubuntu.com/public/api/select2-alumnos', [
+            'form_params'=>[
+            //'multipart'=>[
+                'q' => 'A01422673@itesm.mx',
+                'page' =>'1'
+            ]
+        ]);
+        echo $res->getStatusCode();
+        // "200"
+        echo $res->getHeader('content-type')[0];
+        // 'application/json; charset=utf8'
+        echo $res->getBody();
     }
 }

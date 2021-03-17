@@ -11,6 +11,7 @@
 |
 */
 Route::get('envia-acceso', 'RegistroController@enviaAcceso');
+Route::get('registra-olimpicos','RegistroController@registrarAlumnosEntrenator');
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('soy-tu-padre', 'HomeController@padre')->name('padre');
 /*Route::get("index.php", function(){
@@ -61,3 +62,6 @@ Route::get('registros/{categoria?}', 'GraficaController@muestraRegistrados')->na
 Route::get('resultados/{categoria?}', 'HomeController@competidores')->name("competidores");
 Route::any('competidor/{id?}', 'HomeController@competidor')->name("competidor");
 Route::get("repetidor/{base64}", 'HomeController@repetidor')->name("repetidor");
+
+//Verificar si el usuario es repetidor o no
+Route::get('marcarRepeteidores','RegistroController@usuarioEsRepetidor')->name('marcarRepeteidores');
