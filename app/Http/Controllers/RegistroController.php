@@ -12,7 +12,7 @@ use App\EscuelaG;
 use App\User;
 use App\Mail\SendMail;
 use App\Mail\SendAcceso;
-
+use GuzzleHttp\Client;
 use Carbon\Carbon;
 
 class RegistroController extends Controller
@@ -269,5 +269,21 @@ class RegistroController extends Controller
     public function registrarAlumnoEntrenator(){
         //TODO:
         // implment Entrenator register for indivudal registration
+    }
+    //Ver si eres o no  repetidor
+    public function usuarioEsRepetidor(){
+        $client = new Client();
+        $res = $client->request('POST', 'https://test.sigue.corporativoubuntu.com/public/api/select2-alumnos', [
+            'form_params'=>[
+            //'multipart'=>[
+                'q' => 'A01422673@itesm.mx',
+                'page' =>'1'
+            ]
+        ]);
+        echo $res->getStatusCode();
+        // "200"
+        echo $res->getHeader('content-type')[0];
+        // 'application/json; charset=utf8'
+        echo $res->getBody();
     }
 }
