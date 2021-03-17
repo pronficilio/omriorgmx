@@ -104,6 +104,40 @@ class RegistroController extends Controller
     	return 1 ;
     }
 
+    /**
+     * Cuando se va a registrar un repetidor, solo debemos de cambiar su contraseña de Entrenator
+     */
+    public function registroRepetidor ($password, $user_id) {
+        /**
+         * URL de la API: http://test.sigue.corporativoubuntu.com/public/api/editaContra/{user_id}
+         * Parámetros en URL: Id del usuario
+         * Método: POST
+         * Params: password – string required
+         */
+    }
+
+    /**
+     * Cuando se va a registrar alguien nuevo que no ha participado anteriormente en la olimpiada
+     */
+    public function registroNuevo ($name, $lastname, $mother_lastname, $email, $telefono, $omegaup_user, $fecha_nacimiento, $calle, $municipio, $colonia, $codigo_postal ) {
+        /**
+         * URL de la API: http://test.sigue.corporativoubuntu.com/public/api/add-alumno
+         * Método: POST
+         * Params:
+         *  name – string required
+         *  lastname – string required
+         *  mother_lastname – string nullable
+         *  email - string required
+         *  telefono - string nullable
+         *  omegaup_user - string nullable
+         *  fecha_nacimiento - date nullable (Example: 2001-06-23)
+         *  calle: string nullable
+         *  municipio: string nullable
+         *  colonia: string nullable
+         *  codigo_postal: string nullable
+         */
+    }
+
     public function enviaAcceso(){
         $u = Registro::where('created_at', '<', '2020-09-08' )->get();
         //TODO: cambiar el criterio de de REgistro al anio 2021 (checar BD)
