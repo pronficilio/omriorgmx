@@ -64,4 +64,4 @@ Route::any('competidor/{id?}', 'HomeController@competidor')->name("competidor");
 Route::get("repetidor/{base64}", 'HomeController@repetidor')->name("repetidor");
 
 //Verificar si el usuario es repetidor o no
-Route::get('marcarRepeteidores','RegistroController@usuarioEsRepetidor')->name('marcarRepeteidores');
+Route::get('registroMasivo','RegistroController@registroMasivo')->name('registroMasivo');

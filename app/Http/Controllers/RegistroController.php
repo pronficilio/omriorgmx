@@ -109,19 +109,28 @@ class RegistroController extends Controller
      */
     public function registroRepetidor ($password, $user_id) {
         /**
-         * URL de la API: http://test.sigue.corporativoubuntu.com/public/api/editaContra/{user_id}
+         * URL de la API: https://test.sigue.corporativoubuntu.com/public/api/editaContra/{user_id}
          * Parámetros en URL: Id del usuario
          * Método: POST
          * Params: password – string required
          */
+        $ch = curl_init('https://test.sigue.corporativoubuntu.com/public/api/editaContra/'.$user_id);
+
+        $params = "password=".$password;
+
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec ($ch);
+        echo $response;
     }
 
     /**
      * Cuando se va a registrar alguien nuevo que no ha participado anteriormente en la olimpiada
      */
-    public function registroNuevo ($name, $lastname, $mother_lastname, $email, $telefono, $omegaup_user, $fecha_nacimiento, $calle, $municipio, $colonia, $codigo_postal ) {
+    public function registroNuevo ($name,$password, $lastname, $mother_lastname, $email, $telefono, $omegaup_user, $fecha_nacimiento, $calle, $municipio, $colonia, $codigo_postal, $paquete_id) {
         /**
-         * URL de la API: http://test.sigue.corporativoubuntu.com/public/api/add-alumno
+         * URL de la API: https://test.sigue.corporativoubuntu.com/public/api/add-alumno
          * Método: POST
          * Params:
          *  name – string required
@@ -135,7 +144,28 @@ class RegistroController extends Controller
          *  municipio: string nullable
          *  colonia: string nullable
          *  codigo_postal: string nullable
+         *  paquete_id : integer required
          */
+        $ch = curl_init('https://test.sigue.corporativoubuntu.com/public/api/add-alumno');
+
+        $params = "name=".$name."&lastname=".$lastname."&mother_lastname=".$mother_lastname."&email=".$email."&telefono=".$telefono."&omegaup_user=".$omegaup_user;
+        $params.="&fecha_nacimiento=".$fecha_nacimiento."&calle=".$calle."&municipio=".$municipio."&colonia=".$colonia."&codigo_postal=".$codigo_postal."&password=".$password;
+
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = json_decode(curl_exec ($ch));
+        curl_close($ch);
+        echo json_encode($response);
+        echo "<hr>";
+        $ch_paquete = curl_init('https://test.sigue.corporativoubuntu.com/public/api/add-paquetealumno');
+        $params = "paquete_id=".$paquete_id."&alumno_id=".$response->data->id;
+        curl_setopt($ch_paquete, CURLOPT_POST, TRUE);
+        curl_setopt($ch_paquete, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch_paquete, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec ($ch_paquete);
+        curl_close($ch_paquete);
+        echo $response;
     }
 
     public function enviaAcceso(){
@@ -285,34 +315,66 @@ class RegistroController extends Controller
 
         return 0 ;
     }
-    public function registrarAlumnosEntrenator(){
-        // TODO :
-        // Delete second where
-        $u = Registro::where('anio', '=', '2021')->where('email','=','A01422673@itesm.mx')->get();
-        $i = 0;
-        $data = array();
-        foreach($u as $uu){
-            // Aplica la misma para nuevo registro y para repetidor por si no recuerdan su contrasña
-            $pass=$u->anio.$u->id.substr(str_shuffle('ABCDEF0123456789'), 0, 6);
-            $curl_registro = curl_init('http://test.sigue.corporativoubuntu.com/public/api/add-alumno?name='.$u->nombre.'&lastname='.$u->lastname.'&email='.$u->email.'&password='.$pass);
-            curl_exec($ch);
-            curl_close($ch);
-        }
-        return 1;
+
+    /**
+     * TODO:
+     *  Implementar función que envie correo de invitación a repetidores para volver a empezar
+     *  Esta función debe implementarse utilizando los cronjobs, así que debe recibir parametros de los rangos o io k c
+     */
+    public function enviarInvitacionRepedidores(){
+
     }
+    /**
+     * Registra a un alumno en el portal de entrenator y envia correo de bienvenida con contraseña
+     */
     public function registrarAlumnoEntrenator(){
         //TODO:
         // implment Entrenator register for indivudal registration
+        // Enviar correo de bienvenida entrenator
     }
-    //Ver si eres o no  repetidor
-    public function usuarioEsRepetidor(){
+    /**
+     * Registrar masivamente los alumnos de omri.org.mx y que tengan anio 2021 al portal de entrenator y envia correo con contraseña
+     * (Esto solo se uso una vez,"el pecado 2021" fue porque aún no teníamos el registro individual)
+     */
+    public function registroMasivo(){
+        // $usuarios = Registro::all();
+        $usuarios = Registro::where('email','=','alexisesr@outlook.com')->get();
+        foreach($usuarios as $usuario){
+            $params = "q=".$usuario->email;
+            $params .= "&page=1";
+            $ch = curl_init('https://test.sigue.corporativoubuntu.com/public/api/select2-alumnos');
+            curl_setopt($ch, CURLOPT_POST, TRUE);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec ($ch);
+            curl_close($ch);
+            //Revisar si es repetidor o no
+            $entrenator_data = json_decode($response);
+            $paquete_id = $usuario->categoria=='Primaria'?1:($usuario->categoria=='Secundaria'? 2:3);
+            $pass = '2021-'.$usuario->id.'-'.substr(str_shuffle('ABCDEF0123456789'), 0, 2);
+            if(count($entrenator_data->data->results))
+                //Es repetidor
+                $this->registroRepetidor($pass,$entrenator_data->data->results[0]->id);
+            else
+                //Nuevo registro
+                $this->registroNuevo($usuario->nombre,$pass,$usuario->apellido,null,$usuario->email,$usuario->telefono,null,null, null,null,null,null,$paquete_id);
+            $usuario->pecado2021 =1;
 
-        $ch = curl_init('https://test.sigue.corporativoubuntu.com/public/api/select2-alumnos');
-        curl_setopt($ch, CURLOPT_POST, TRUE);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, "q=alexisesr73c@gmail.com&page=1");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec ($ch);
-        curl_close($ch);
-        print_r(json_decode($response));
+            enviarMailBienvenidaEntrenator($usuario->nombre,$usuario->email,$pass);
+        }
+    }
+    /**
+     * Enviar bienvenida y credenciales de acceso al portal de Entrenator
+     */
+    public function enviarMailBienvenidaEntrenator($name,$email,$password){
+        $data = array(
+            'asunto' => "Bienvenido a entrenator",
+            'view' => 'acceso',
+            'nombre'     =>  $name,
+            'correo'      =>  $email,
+            'contrasena'      =>  $password,
+            'now' => Carbon::now()->isoFormat("LLL")
+        );
+        Mail::to($email)->send(new SendAcceso($data));
     }
 }
