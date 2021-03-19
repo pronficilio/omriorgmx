@@ -338,7 +338,6 @@ class RegistroController extends Controller
      */
     public function registroMasivo(){
         $usuarios = Registro::where([['anio','=','2021'],['pecado2021','=','0']])->get();
-        dd($usuarios);
         //$usuarios = Registro::where('email','=','alexisesr@outlook.com')->get();
         foreach($usuarios as $usuario){
             $params = "q=".$usuario->email;
