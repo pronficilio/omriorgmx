@@ -359,7 +359,7 @@ class RegistroController extends Controller
                 //Nuevo registro
                 $this->registroNuevo($usuario->nombre,$pass,$usuario->apellido,null,$usuario->email,$usuario->telefono,null,null, null,null,null,null,$paquete_id);
             $usuario->pecado2021 =1;
-
+            $usuario->save();
             $this->enviarMailBienvenidaEntrenator($usuario->nombre,$usuario->email,$pass);
         }
     }
