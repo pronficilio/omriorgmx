@@ -337,7 +337,7 @@ class RegistroController extends Controller
      * (Esto solo se uso una vez,"el pecado 2021" fue porque aún no teníamos el registro individual)
      */
     public function registroMasivo(){
-        // $usuarios = Registro::all();
+        // $usuarios = Registro::where('anio','=','2021')->get();
         $usuarios = Registro::where('email','=','alexisesr@outlook.com')->get();
         foreach($usuarios as $usuario){
             $params = "q=".$usuario->email;
