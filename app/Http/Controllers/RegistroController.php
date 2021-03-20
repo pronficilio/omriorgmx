@@ -318,11 +318,35 @@ class RegistroController extends Controller
 
     /**
      * TODO:
-     *  Implementar función que envie correo de invitación a repetidores para volver a empezar
-     *  Esta función debe implementarse utilizando los cronjobs, así que debe recibir parametros de los rangos o io k c
+     *  Implementar función que envie correo de invitación a repetidores para volver a intentarlo
+     *  Esta función debe implementarse utilizando los cronjobs, así que debe recibir parametros de los rangos que vamos a mandar
+     *  porque solo tenemos un límite de 500 por hora
      */
-    public function enviarInvitacionRepedidores(){
-
+    public function enviarInvitacionRepedidores($iteracion,$limit){
+        $usuarios = Registro::where([['pecado2021','=','0'],['anio','!=','2021']])->offset($iteracion*$limit)->limit($limit);
+        foreach($usuarios as $usuario){
+            $params = "q=".$usuario->email;
+            $params .= "&page=1";
+            $ch = curl_init('https://test.sigue.corporativoubuntu.com/public/api/select2-alumnos');
+            curl_setopt($ch, CURLOPT_POST, TRUE);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec ($ch);
+            curl_close($ch);
+            //Revisar si es repetidor o no
+            $entrenator_data = json_decode($response);
+            $paquete_id = $usuario->categoria=='Primaria'?1:($usuario->categoria=='Secundaria'? 2:3);
+            $pass = '2021-'.$usuario->id.'-'.substr(str_shuffle('ABCDEF0123456789'), 0, 2);
+            if(count($entrenator_data->data->results))
+                //Es repetidor
+                $this->registroRepetidor($pass,$entrenator_data->data->results[0]->id);
+            else
+                //Nuevo registro
+                $this->registroNuevo($usuario->nombre,$pass,$usuario->apellido,null,$usuario->email,$usuario->telefono,null,null, null,null,null,null,$paquete_id);
+            $usuario->pecado2021 =1;
+            $usuario->save();
+            $this->enviarMailRegistro("Intentalo De Nuevo","intentalo",$usuario->nombre,$usuario->email,$pass);
+        }
     }
     /**
      * Registra a un alumno en el portal de entrenator y envia correo de bienvenida con contraseña
@@ -360,16 +384,17 @@ class RegistroController extends Controller
                 $this->registroNuevo($usuario->nombre,$pass,$usuario->apellido,null,$usuario->email,$usuario->telefono,null,null, null,null,null,null,$paquete_id);
             $usuario->pecado2021 =1;
             $usuario->save();
-            $this->enviarMailBienvenidaEntrenator($usuario->nombre,$usuario->email,$pass);
+            $this->enviarMailRegistro("Bienvenido a entrenator","acceso",$usuario->nombre,$usuario->email,$pass);
         }
     }
     /**
-     * Enviar bienvenida y credenciales de acceso al portal de Entrenator
+     * Enviar credenciales de acceso a entrenator
+     *
      */
-    public function enviarMailBienvenidaEntrenator($name,$email,$password){
+    public function enviarMailRegistro($asunto,$view,$name,$email,$password){
         $data = array(
-            'asunto' => "Bienvenido a entrenator",
-            'view' => 'acceso',
+            'asunto' => $asunto,
+            'view' => $view,
             'nombre'     =>  $name,
             'correo'      =>  $email,
             'contrasena'      =>  $password,
@@ -377,4 +402,5 @@ class RegistroController extends Controller
         );
         Mail::to($email)->send(new SendAcceso($data));
     }
+
 }
