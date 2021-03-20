@@ -66,8 +66,13 @@
 						                                                <tr>
 						                                                	<td style="background-color: white; color: black; text-align: justify; font-family:'Courier New'; padding: 5px">
 						                                                		<br>
-						                                                		<h3>Hola, {{ $data['nombre'] }} </h3>
-						                                                		<p>Ya puedes entrar a la plataforma haciendo clic en el siguiente enlace.</p>
+						                                                		<h3>Hola de nuevo {{ $data['nombre'] }} </h3>
+						                                                		<p>Esperando que te encuentres muy bien, te queremos agradecer y felicitar por habernos acompañado en nuestra última
+                                                                                    edición de la Olimpiada Morelense de Informática, sin embargo, esa edición fue solo el comienzo.</p>
+                                                                                <p>Mediante este correo te invitamos a que participes nuevamente con nosotros en nuestra edición de OMRI primavera 2021 en donde
+                                                                                    buscamos a los jóvenes que representarán a Morelos en la Olimpiada Mexicana de Informática. <strong>¡No te quedes fuera!</strong>
+                                                                                </p>
+                                                                                <p>No pierdas esta oportunidad de formar parte de nuestro talentoso equipo de jóvenes.</p>
 																				<br>
 																					<center>
 																					<span style="background-color: #86c128; border-style: none; color: white; border-radius: 3px; font-size: 17px; height: 40px; width: 380px; font-family:'Consolas'"> <a href="https://entrenator.omri.org.mx" target="_blank"><strong>entrentator.omri.org.mx</strong></a></span>
@@ -78,7 +83,7 @@
                                                                                 </p>
                                                                                 <ul>
                                                                                     <li>
-                                                                                        {{ $data['correo'] }}   
+                                                                                        {{ $data['correo'] }}
                                                                                     </li>
                                                                                     <li>
                                                                                         {{ $data['contrasena']}}
@@ -88,10 +93,10 @@
                                                                                     Únete al ForOMRI en Facebook: <a href="https://www.facebook.com/groups/foromri">https://www.facebook.com/groups/foromri</a>
                                                                                 </p>
 																				<p>
-																					La Olimpiada es una competencia donde sobreviven los más fuertes. Aprenderás a programar y a pensar de una manera diferente!
+																					Quedamos a tus órdenes en caso de tener cualquier duda o pregunta respecto al proceso.
 																				</p>
 																				<p>
-																					<i>Programar es para todos. Programar es para ti.</i>
+																					<i>Inténtalo, falla y aprende :)</i>
 																				</p>
 																				<br>
 																				<strong><p>¡Síguenos en nuestras redes sociales para mantenerte informado! <a href="https://www.facebook.com/omrioficial/">https://www.facebook.com/omrioficial/</a></p></strong>
