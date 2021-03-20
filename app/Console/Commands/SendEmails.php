@@ -17,14 +17,14 @@ class SendEmails extends Command
      *
      * @var string
      */
-    protected $signature = 'email:send';
+    protected $signature = 'email:masive_registration';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Envía correos';
+    protected $description = 'Registra y envía correos a personas registradas en el año 2021';
 
     /**
      * Create a new command instance.
@@ -44,8 +44,8 @@ class SendEmails extends Command
     public function handle()
     {
         // En handle() puedes invocar modelos para usar sus funciones, este es tu patio de juegos :D
-
-        $status = 1 ;
+        app('App\Http\Controllers\RegistroController')->registroMasivo();
+        $status = 1;
 
         // Con $this->info() puedes mandar a imprimir a consola para informar al usuario si se ejecutó correctamente el comando o hubo algún error
         $this->info($status ? 'El comando se ejecutó correctamente' : 'Ocurrió un error' );

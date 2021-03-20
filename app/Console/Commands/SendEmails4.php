@@ -11,14 +11,17 @@ class SendEmails4 extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'email:repeaters_invitation_group3';
+
+
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Envia mail a personas que se registraron en la 13a OMRI 2020 pero no están registrados para la 14va (Group 2)';
+
 
     /**
      * Create a new command instance.
@@ -37,6 +40,11 @@ class SendEmails4 extends Command
      */
     public function handle()
     {
-        //
+        // En handle() puedes invocar modelos para usar sus funciones, este es tu patio de juegos :D
+        app('App\Http\Controllers\RegistroController')->enviarInvitacionRepetidores(2,300);
+        $status = 1;
+
+        // Con $this->info() puedes mandar a imprimir a consola para informar al usuario si se ejecutó correctamente el comando o hubo algún error
+        $this->info($status ? 'El comando se ejecutó correctamente' : 'Ocurrió un error' );
     }
 }
