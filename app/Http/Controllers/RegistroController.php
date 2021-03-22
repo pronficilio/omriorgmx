@@ -362,7 +362,7 @@ class RegistroController extends Controller
             if(!$es_vip){
                 $this->generarPago($idEntrenator);
             }
-            $this->enviarMailRegistro("Intentalo De Nuevo","intentalo",$usuario->nombre,$usuario->email,$pass);
+            $this->enviarMailRegistro("Intentalo de nuevo","intentalo",$usuario->nombre,$usuario->email,$pass);
         }
     }
     /**
@@ -416,7 +416,7 @@ class RegistroController extends Controller
             if(!$es_vip){
                 $this->generarPago($idEntrenator);
             }
-            //$this->enviarMailRegistro("Bienvenido a entrenator","acceso",$usuario->nombre,$usuario->email,$pass);
+            $this->enviarMailRegistro("Bienvenido a entrenator","acceso",$usuario->nombre,$usuario->email,$pass);
         }
     }
     /**
