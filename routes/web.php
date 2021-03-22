@@ -66,4 +66,4 @@ Route::get("repetidor/{base64}", 'HomeController@repetidor')->name("repetidor");
 //Registrar en Entrenator de forma masiva a las personas que se inscribieron en la olimpiada
 Route::get('registroMasivo','RegistroController@registroMasivo')->name('registroMasivo');
 //Enivar invitaciones a repetedires de la 14va OMRI para volver a participar
-Route::get('enviarInvitacionRepetidores/{inicio}'.'RegistroController@enviarInvitacionRepetidores')->name('enviarInvitacionRepetidores');
+Route::get('enviarInvitacionRepetidores/{iteracion}'.'RegistroController@enviarInvitacionRepetidores')->name('enviarInvitacionRepetidores');
