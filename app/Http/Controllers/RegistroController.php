@@ -326,12 +326,10 @@ class RegistroController extends Controller
      *  porque solo tenemos un límite de 500 por hora
      */
     public function enviarInvitacionRepetidores($iteracion){
-        $limit = 3000;
+        $limit = 300;
         $usuarios = Registro::where([['pecado2021','=','0'],['anio','!=','2021']])->offset($iteracion*$limit)->limit($limit)->orderBy('id','asc')->get();
-        $this->enviarMailRegistro("Intentalo De Nuevo Masivo","intentalo","Alexis Espania","alexisesr@outlook.com",$usuarios." "."Total: ".count($usuarios)." id_inicio:".$usuarios[0]->id." id_fin:".$usuarios[count($usuarios)-1]->id);
-        return;
-
-
+        //$this->enviarMailRegistro("Intentalo De Nuevo Masivo","intentalo","Alexis Espania","alexisesr@outlook.com",$usuarios." "."Total: ".count($usuarios)." id_inicio:".$usuarios[0]->id." id_fin:".$usuarios[count($usuarios)-1]->id);
+        //return;
         foreach($usuarios as $usuario){
             $params = "q=".$usuario->email;
             $params .= "&page=1";
@@ -382,8 +380,8 @@ class RegistroController extends Controller
      * También manda a llamar la función para generar el pago
      */
     public function registroMasivo(){
-        // $usuarios = Registro::where([['anio','=','2021'],['pecado2021','=','0']])->get();
-        $usuarios = Registro::where('email','=','alexisesr@outlook.com')->get();
+        $usuarios = Registro::where([['anio','=','2021'],['pecado2021','=','0']])->get();
+        //$usuarios = Registro::where('email','=','alexisesr@outlook.com')->get();
         // $this->enviarMailRegistro("Registro Masivo","acceso","Alexis Espania","alexisesr@outlook.com",$usuarios." "."Total: ".count($usuarios)." id_inicio:".$usuarios[0]->id." id_fin:".$usuarios[count($usuarios)-1]->id);
         // return;
         foreach($usuarios as $usuario){
