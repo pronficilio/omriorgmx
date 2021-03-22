@@ -362,7 +362,7 @@ class RegistroController extends Controller
             if(!$es_vip){
                 $this->generarPago($idEntrenator);
             }
-            $this->enviarMailRegistro("Intentalo de nuevo","intentalo",$usuario->nombre,$usuario->email,$pass);
+            $this->enviarMailRegistro("Inténtalo de nuevo","intentalo",$usuario->nombre,$usuario->email,$pass);
         }
     }
     /**
