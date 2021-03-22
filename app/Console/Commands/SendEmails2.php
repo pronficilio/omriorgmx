@@ -38,7 +38,7 @@ class SendEmails2 extends Command
     public function handle()
     {
         // En handle() puedes invocar modelos para usar sus funciones, este es tu patio de juegos :D
-        app('App\Http\Controllers\RegistroController')->enviarInvitacionRepetidores(0,300);
+        app('App\Http\Controllers\RegistroController')->enviarInvitacionRepetidores(0);
         $status = 1;
 
         // Con $this->info() puedes mandar a imprimir a consola para informar al usuario si se ejecutó correctamente el comando o hubo algún error

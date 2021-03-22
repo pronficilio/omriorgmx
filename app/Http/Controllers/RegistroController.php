@@ -122,7 +122,8 @@ class RegistroController extends Controller
         curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec ($ch);
-        echo $response;
+        // echo "Response registro Repetidor: ".$response;
+        echo "password: ".$password;
     }
 
     /**
@@ -156,16 +157,18 @@ class RegistroController extends Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = json_decode(curl_exec ($ch));
         curl_close($ch);
-        echo json_encode($response);
+        echo "Response registro nuevo: ".json_encode($response);
         echo "<hr>";
         $ch_paquete = curl_init('https://test.sigue.corporativoubuntu.com/public/api/add-paquetealumno');
         $params = "paquete_id=".$paquete_id."&alumno_id=".$response->data->id;
         curl_setopt($ch_paquete, CURLOPT_POST, TRUE);
         curl_setopt($ch_paquete, CURLOPT_POSTFIELDS, $params);
         curl_setopt($ch_paquete, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec ($ch_paquete);
+        $responseAsignarPaquete = curl_exec ($ch_paquete);
         curl_close($ch_paquete);
-        echo $response;
+        echo "Response asignar paquete registro nuevo: ".$responseAsignarPaquete;
+
+        return $response->data->id;
     }
 
     public function enviaAcceso(){
@@ -322,7 +325,8 @@ class RegistroController extends Controller
      *  Esta función debe implementarse utilizando los cronjobs, así que debe recibir parametros de los rangos que vamos a mandar
      *  porque solo tenemos un límite de 500 por hora
      */
-    public function enviarInvitacionRepetidores($iteracion,$limit){
+    public function enviarInvitacionRepetidores($iteracion){
+        $limit = 3000;
         $usuarios = Registro::where([['pecado2021','=','0'],['anio','!=','2021']])->offset($iteracion*$limit)->limit($limit)->orderBy('id','asc')->get();
         $this->enviarMailRegistro("Intentalo De Nuevo Masivo","intentalo","Alexis Espania","alexisesr@outlook.com",$usuarios." "."Total: ".count($usuarios)." id_inicio:".$usuarios[0]->id." id_fin:".$usuarios[count($usuarios)-1]->id);
         return;
@@ -341,14 +345,25 @@ class RegistroController extends Controller
             $entrenator_data = json_decode($response);
             $paquete_id = $usuario->categoria=='Primaria'?1:($usuario->categoria=='Secundaria'? 2:3);
             $pass = '2021-'.$usuario->id.'-'.substr(str_shuffle('ABCDEF0123456789'), 0, 2);
-            if(count($entrenator_data->data->results))
+
+            //Por defecto pones vip en false
+            $es_vip = false;
+            if(count($entrenator_data->data->results)){
                 //Es repetidor
+                $idEntrenator = $entrenator_data->data->results[0]->todo->id;
                 $this->registroRepetidor($pass,$entrenator_data->data->results[0]->id);
-            else
+                //Preguntar si el alumno es vip (cuervo)
+                if (trim($entrenator_data->data->results[0]->todo->avatar) =='vip-1.jpg')
+                    $es_vip =true;
+            }else{
                 //Nuevo registro
-                $this->registroNuevo($usuario->nombre,$pass,$usuario->apellido,null,$usuario->email,$usuario->telefono,null,null, null,null,null,null,$paquete_id);
+                $idEntreanator =$this->registroNuevo($usuario->nombre,$pass,$usuario->apellido,null,$usuario->email,$usuario->telefono,null,null, null,null,null,null,$paquete_id);
+            }
             $usuario->pecado2021 =1;
             $usuario->save();
+            if(!$es_vip){
+                $this->generarPago($idEntrenator);
+            }
             $this->enviarMailRegistro("Intentalo De Nuevo","intentalo",$usuario->nombre,$usuario->email,$pass);
         }
     }
@@ -363,11 +378,14 @@ class RegistroController extends Controller
     /**
      * Registrar masivamente los alumnos de omri.org.mx y que tengan anio 2021 al portal de entrenator y envia correo con contraseña
      * (Esto solo se uso una vez,"el pecado 2021" fue porque aún no teníamos el registro individual)
+     *
+     * También manda a llamar la función para generar el pago
      */
     public function registroMasivo(){
-        $usuarios = Registro::where([['anio','=','2021'],['pecado2021','=','0']])->get();
-        $this->enviarMailRegistro("Registro Masivo","acceso","Alexis Espania","alexisesr@outlook.com",$usuarios." "."Total: ".count($usuarios)." id_inicio:".$usuarios[0]->id." id_fin:".$usuarios[count($usuarios)-1]->id);
-        return;
+        // $usuarios = Registro::where([['anio','=','2021'],['pecado2021','=','0']])->get();
+        $usuarios = Registro::where('email','=','alexisesr@outlook.com')->get();
+        // $this->enviarMailRegistro("Registro Masivo","acceso","Alexis Espania","alexisesr@outlook.com",$usuarios." "."Total: ".count($usuarios)." id_inicio:".$usuarios[0]->id." id_fin:".$usuarios[count($usuarios)-1]->id);
+        // return;
         foreach($usuarios as $usuario){
             $params = "q=".$usuario->email;
             $params .= "&page=1";
@@ -381,15 +399,26 @@ class RegistroController extends Controller
             $entrenator_data = json_decode($response);
             $paquete_id = $usuario->categoria=='Primaria'?1:($usuario->categoria=='Secundaria'? 2:3);
             $pass = '2021-'.$usuario->id.'-'.substr(str_shuffle('ABCDEF0123456789'), 0, 2);
-            if(count($entrenator_data->data->results))
+            //Por defecto pones vip en false
+            $es_vip = false;
+            if(count($entrenator_data->data->results)){
                 //Es repetidor
+                $idEntrenator = $entrenator_data->data->results[0]->todo->id;
                 $this->registroRepetidor($pass,$entrenator_data->data->results[0]->id);
-            else
+                //Preguntar si el alumno es vip (cuervo)
+                if (trim($entrenator_data->data->results[0]->todo->avatar) =='vip-1.jpg')
+                    $es_vip =true;
+            }else{
                 //Nuevo registro
-                $this->registroNuevo($usuario->nombre,$pass,$usuario->apellido,null,$usuario->email,$usuario->telefono,null,null, null,null,null,null,$paquete_id);
+                $idEntrenator= $this->registroNuevo($usuario->nombre,$pass,$usuario->apellido,null,$usuario->email,$usuario->telefono,null,null, null,null,null,null,$paquete_id);
+            }
             $usuario->pecado2021 =1;
             $usuario->save();
-            $this->enviarMailRegistro("Bienvenido a entrenator","acceso",$usuario->nombre,$usuario->email,$pass);
+            print_r($entrenator_data->data->results);
+            if(!$es_vip){
+                $this->generarPago($idEntrenator);
+            }
+            //$this->enviarMailRegistro("Bienvenido a entrenator","acceso",$usuario->nombre,$usuario->email,$pass);
         }
     }
     /**
@@ -406,6 +435,20 @@ class RegistroController extends Controller
             'now' => Carbon::now()->isoFormat("LLL")
         );
         Mail::to($email)->send(new SendAcceso($data));
+    }
+    /**
+     * Generar pago de inscripción
+     */
+    public function generarPago($user_id){
+        $ch = curl_init('https://test.sigue.corporativoubuntu.com/public/api/aplica-colegiatura');
+        $fecha = '2021-04-20';
+        $params = "user_id=".$user_id."&fecha=".$fecha;
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        echo "Response pago: ".$response;
     }
 
 }
